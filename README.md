@@ -19,6 +19,7 @@ image/video attachment.
 | `prospects/MikMat-Instal` | https://bartxs.github.io/demo/mikmat-instal/ |
 | `prospects/Hana-Beauty-Nails` | https://bartxs.github.io/demo/hana-beauty-nails/ |
 | `prospects/Dao-Nails-Spa` | https://bartxs.github.io/demo/dao-nails-spa/ |
+| `prospects/Green-Yoga` | https://bartxs.github.io/demo/green-yoga/ |
 
 When a portfolio/studio domain exists, point a custom domain at this repo and
 the paths stay the same.

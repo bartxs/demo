@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Yoga — Yogastudio in Prenzlauer Berg, Berlin</title>
+<meta name="description" content="Berlins erstes Pay-as-you-can-afford Yogastudio. Vinyasa, Yin, Klangbäder & Outdoor-Yoga in Prenzlauer Berg — und für jede Mitgliedschaft pflanzen wir einen Baum.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F4EC;
+    --sand:#EDE7D8;
+    --ink:#26332A;
+    --ink-soft:#4A5A4E;
+    --moss:#55684C;
+    --sage:#7C8F6F;
+    --sage-pale:#DCE3D3;
+    --terra:#C4764E;
+    --terra-soft:#E9D5C6;
+    --white:#FFFFFF;
+    --gold:#D9A441;
+    --radius:22px;
+    --shadow:0 18px 50px -18px rgba(38,51,42,.22);
+    --font-display:'Fraunces',serif;
+    --font-body:'Karla',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  section{padding:96px 0}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--moss);margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:34px;height:2px;background:var(--terra);border-radius:2px}
+  h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.12;letter-spacing:-.01em}
+  h2{font-size:clamp(30px,4vw,44px);margin-bottom:18px}
+  .lead{font-size:18px;color:var(--ink-soft);max-width:620px}
+
+  /* ── Nav ─────────────────────────── */
+  header.topnav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(247,244,236,.88);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(38,51,42,.08);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:23px;font-weight:600;letter-spacing:-.01em}
+  .logo svg{width:28px;height:28px}
+  .logo em{font-style:normal;color:var(--moss)}
+  .nav-links{display:flex;align-items:center;gap:34px;font-size:15px;font-weight:600}
+  .nav-links a{color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--moss)}
+  .nav-links a.btn,.nav-links a.btn:hover{color:#fff}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--moss);color:#fff;
+    padding:13px 26px;border-radius:999px;
+    font-size:15px;font-weight:700;letter-spacing:.01em;
+    transition:transform .2s,box-shadow .2s,background .2s;
+    box-shadow:0 10px 26px -12px rgba(85,104,76,.55);
+  }
+  .btn:hover{background:#48593F;transform:translateY(-2px)}
+  .btn.terra{background:var(--terra);box-shadow:0 10px 26px -12px rgba(196,118,78,.55)}
+  .btn.terra:hover{background:#B2683F}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1.5px solid rgba(38,51,42,.25)}
+  .btn.ghost:hover{border-color:var(--moss);color:var(--moss);background:transparent}
+  .nav-cta{padding:10px 22px;font-size:14px}
+  .burger{display:none}
+
+  /* ── Hero ────────────────────────── */
+  .hero{padding:76px 0 100px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .hero h1{font-size:clamp(40px,5.6vw,64px);margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--moss)}
+  .hero p{font-size:19px;color:var(--ink-soft);max-width:520px;margin-bottom:32px}
+  .rating{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--white);border:1px solid rgba(38,51,42,.09);
+    border-radius:999px;padding:9px 20px 9px 14px;
+    box-shadow:0 8px 24px -12px rgba(38,51,42,.18);
+    margin-bottom:26px;font-size:14.5px;font-weight:600;color:var(--ink-soft);
+  }
+  .rating .stars{color:var(--gold);font-size:16px;letter-spacing:2px}
+  .rating b{color:var(--ink);font-size:16px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .hero-note{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink-soft)}
+  .hero-note svg{flex:none}
+  .hero-visual{position:relative}
+  .hero-visual .arch{
+    width:100%;aspect-ratio:4/4.7;object-fit:cover;
+    border-radius:240px 240px var(--radius) var(--radius);
+    box-shadow:var(--shadow);
+  }
+  .hero-blob{
+    position:absolute;inset:auto -40px -40px auto;width:230px;height:230px;
+    background:radial-gradient(circle at 30% 30%,var(--terra-soft),transparent 70%);
+    border-radius:50%;z-index:-1;
+  }
+  .hero-card{
+    position:absolute;left:-30px;bottom:36px;
+    background:var(--white);border-radius:16px;padding:16px 22px;
+    box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;
+  }
+  .hero-card .num{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--moss)}
+  .hero-card .lbl{font-size:13px;color:var(--ink-soft);line-height:1.35}
+
+  /* ── USP strip ───────────────────── */
+  .usp{background:var(--moss);color:#fff;padding:34px 0}
+  .usp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .usp-item{display:flex;align-items:center;gap:16px}
+  .usp-item svg{flex:none;opacity:.9}
+  .usp-item b{display:block;font-size:16px;letter-spacing:.01em}
+  .usp-item span{font-size:14px;opacity:.82}
+
+  /* ── Kurse ───────────────────────── */
+  .courses-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:48px;flex-wrap:wrap}
+  .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .course{
+    background:var(--white);border-radius:var(--radius);padding:34px 30px;
+    border:1px solid rgba(38,51,42,.07);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .course:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .course .icon{
+    width:52px;height:52px;border-radius:16px;background:var(--sage-pale);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .course h3{font-size:21px;margin-bottom:10px}
+  .course p{font-size:15px;color:var(--ink-soft)}
+  .course .tag{
+    display:inline-block;margin-top:16px;font-size:12.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--terra);
+  }
+
+  /* ── Preis / pay as you can ──────── */
+  .pay{background:var(--sand)}
+  .pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .pay img{border-radius:var(--radius);aspect-ratio:4/4.4;object-fit:cover;box-shadow:var(--shadow)}
+  .pay-points{margin-top:26px;display:grid;gap:16px}
+  .pay-point{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--ink-soft)}
+  .pay-point svg{flex:none;margin-top:3px}
+  .pay-point b{color:var(--ink)}
+  .pay .btn{margin-top:32px}
+
+  /* ── Galerie ─────────────────────── */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:18px}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+  .gallery-grid .tall{grid-row:span 2}
+  .gallery-grid .wide{grid-column:span 2}
+
+  /* ── Stimmen ─────────────────────── */
+  .voices{background:var(--white)}
+  .voices-head{text-align:center;max-width:640px;margin:0 auto 54px}
+  .voices-head .rating{margin:22px auto 0}
+  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .voice{
+    background:var(--cream);border-radius:var(--radius);padding:32px 30px;
+    border:1px solid rgba(38,51,42,.06);display:flex;flex-direction:column;gap:16px;
+  }
+  .voice .stars{color:var(--gold);font-size:17px;letter-spacing:3px}
+  .voice p{font-size:15.5px;color:var(--ink-soft);font-style:italic;flex:1}
+  .voice .who{display:flex;align-items:center;gap:12px}
+  .voice .ava{
+    width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:15px;color:#fff;background:var(--sage);
+  }
+  .voice .who b{display:block;font-size:15px}
+  .voice .who span{font-size:13px;color:var(--ink-soft)}
+
+  /* ── Kontakt ─────────────────────── */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .contact-card{
+    background:var(--white);border-radius:var(--radius);padding:42px;
+    box-shadow:var(--shadow);border:1px solid rgba(38,51,42,.06);
+  }
+  .contact-row{display:flex;gap:18px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(38,51,42,.08)}
+  .contact-row:last-of-type{border-bottom:none}
+  .contact-row .icon{
+    width:46px;height:46px;flex:none;border-radius:14px;background:var(--sage-pale);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .contact-row b{display:block;font-size:15.5px;margin-bottom:2px}
+  .contact-row a,.contact-row span{font-size:15px;color:var(--ink-soft)}
+  .contact-row a:hover{color:var(--moss)}
+  .hours{margin-top:26px;background:var(--sage-pale);border-radius:16px;padding:20px 24px;font-size:14.5px}
+  .hours b{display:block;margin-bottom:6px;font-size:15px}
+  .contact-visual img{border-radius:var(--radius);aspect-ratio:4/4.6;object-fit:cover;box-shadow:var(--shadow)}
+
+  /* ── CTA band ────────────────────── */
+  .band{background:var(--moss);color:#fff;text-align:center;padding:80px 0}
+  .band h2{color:#fff;max-width:640px;margin:0 auto 16px}
+  .band p{opacity:.85;max-width:520px;margin:0 auto 32px;font-size:17px}
+  .band .btn{background:var(--terra)}
+  .band .btn:hover{background:#B2683F}
+
+  /* ── Footer ──────────────────────── */
+  footer{background:var(--ink);color:rgba(255,255,255,.75);padding:44px 0;font-size:14px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot .logo{color:#fff;font-size:19px}
+  .foot .logo em{color:var(--sage)}
+
+  /* ── Responsive ──────────────────── */
+  @media(max-width:960px){
+    .hero-grid,.pay-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
+    .hero-visual{max-width:520px}
+    .course-grid,.voice-grid{grid-template-columns:1fr 1fr}
+    .usp-grid{grid-template-columns:1fr;gap:18px}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+    .contact-visual{order:-1;max-width:520px}
+  }
+  @media(max-width:640px){
+    section{padding:68px 0}
+    .nav-links{display:none}
+    .course-grid,.voice-grid{grid-template-columns:1fr}
+    .hero{padding:52px 0 76px}
+    .hero-card{left:8px;bottom:16px;padding:12px 16px}
+    .gallery-grid{grid-auto-rows:170px}
+    .contact-card{padding:30px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<header class="topnav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 16.5 4 10.5C4 6.9 6.9 4 10.5 4C11 4 11.5 4.06 12 4.17C12.5 4.06 13 4 13.5 4C17.1 4 20 6.9 20 10.5C20 16.5 12 21 12 21Z" stroke="#55684C" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 4.5V21" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Green<em>Yoga</em>
+    </a>
+    <div class="nav-links">
+      <a href="#kurse">Kurse</a>
+      <a href="#studio">Studio</a>
+      <a href="#stimmen">Stimmen</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn nav-cta">Probestunde</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Yogastudio · Prenzlauer Berg</div>
+      <h1>Atme ein.<br>Lass Berlin <em>los.</em></h1>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span><b>4,4</b> · 205 Google-Bewertungen</span>
+      </div>
+      <p>Vinyasa, Yin, Klangbäder und Yoga im Park — in unserem lichtdurchfluteten Studio in der Sredzkistraße. Zahl, was du dir leisten kannst. Und für jede Mitgliedschaft pflanzen wir einen Baum.</p>
+      <div class="hero-ctas">
+        <a href="#kontakt" class="btn terra">Probestunde sichern</a>
+        <a href="#kurse" class="btn ghost">Kurse entdecken</a>
+      </div>
+      <div class="hero-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#55684C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Erste Stunde unverbindlich — Matte kannst du dir bei uns leihen.
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="arch" src="https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Yogaklasse im Studio">
+      <div class="hero-blob"></div>
+      <div class="hero-card">
+        <span class="num">1.200+</span>
+        <span class="lbl">Bäume gepflanzt<br>mit unserer Community</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ USP ═══ -->
+<div class="usp">
+  <div class="wrap usp-grid">
+    <div class="usp-item">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 5 7 5 13C5 16.9 8.1 20 12 20C15.9 20 19 16.9 19 13C19 7 12 3 12 3Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <div><b>Pay as you can afford</b><span>Berlins erstes Studio mit fairem Wunschbeitrag</span></div>
+    </div>
+    <div class="usp-item">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M12 22V12M12 12C12 8 9 5 5 5C5 9 8 12 12 12ZM12 12C12 8.5 14.5 5 19 5C19 9.5 16 12 12 12Z" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>Do Yoga & Plant Trees</b><span>Jede Mitgliedschaft pflanzt einen Baum</span></div>
+    </div>
+    <div class="usp-item">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.7"/><path d="M3.5 12H20.5M12 3C14.5 5.5 15.5 8.5 15.5 12C15.5 15.5 14.5 18.5 12 21C9.5 18.5 8.5 15.5 8.5 12C8.5 8.5 9.5 5.5 12 3Z" stroke="#fff" stroke-width="1.7"/></svg>
+      <div><b>Studio · Park · Online</b><span>Praktiziere, wo es für dich passt</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ KURSE ═══ -->
+<section id="kurse">
+  <div class="wrap">
+    <div class="courses-head">
+      <div>
+        <div class="eyebrow">Unsere Kurse</div>
+        <h2>Für jeden Atem<br>der richtige Flow</h2>
+      </div>
+      <p class="lead" style="max-width:400px">Von kraftvollen Flows bis zu tiefen Klangreisen — alle Levels, alle Körper, jeden Tag der Woche.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 17C6 13 8 11 12 11C16 11 18 13 20 17" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="6" r="2.5" stroke="#55684C" stroke-width="1.8"/></svg></div>
+        <h3>Vinyasa Flow</h3>
+        <p>Dynamische Sequenzen im Rhythmus deines Atems — kraftvoll, fließend, energetisierend.</p>
+        <span class="tag">Alle Levels</span>
+      </div>
+      <div class="course">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 15C5.5 15 6.5 12 12 12C17.5 12 18.5 15 21 15" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 19H21" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Yin & Restorative</h3>
+        <p>Lange, passiv gehaltene Positionen für tiefe Entspannung von Faszien und Nervensystem.</p>
+        <span class="tag">Ruhig & tief</span>
+      </div>
+      <div class="course">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#55684C" stroke-width="1.8"/><path d="M12 5V3M12 21V19M5 12H3M21 12H19M6.5 6.5L5 5M19 19L17.5 17.5M17.5 6.5L19 5M5 19L6.5 17.5" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Klangbad & Gong</h3>
+        <p>Eintauchen in Gongs, Klangschalen und Mantren — Meditation, die man im Körper spürt.</p>
+        <span class="tag">Sound Healing</span>
+      </div>
+      <div class="course">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#55684C" stroke-width="1.8"/><path d="M12 2V4M12 20V22M2 12H4M20 12H22M4.9 4.9L6.3 6.3M17.7 17.7L19.1 19.1M19.1 4.9L17.7 6.3M6.3 17.7L4.9 19.1" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Outdoor Yoga im Park</h3>
+        <p>Sonnengruß unter echter Sonne: Sommerklassen im Grünen, nur wenige Minuten vom Studio.</p>
+        <span class="tag">Mai – September</span>
+      </div>
+      <div class="course">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="2" stroke="#55684C" stroke-width="1.8"/><path d="M8 21H16" stroke="#55684C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Online-Klassen</h3>
+        <p>Live-Streams und Aufzeichnungen — deine Praxis kommt mit, wohin du auch reist.</p>
+        <span class="tag">Live & On Demand</span>
+      </div>
+      <div class="course">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 5 16.5 5 10.5C5 7 7.5 4.5 11 4.5C11.35 4.5 11.68 4.53 12 4.58C12.32 4.53 12.65 4.5 13 4.5C16.5 4.5 19 7 19 10.5C19 16.5 12 21 12 21Z" stroke="#55684C" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>Teacher Trainings</h3>
+        <p>Fundierte Aus- und Weiterbildungen mit erfahrenen Lehrer:innen — vom Sequencing bis zur Klangarbeit.</p>
+        <span class="tag">Zertifiziert</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PAY AS YOU CAN ═══ -->
+<section class="pay" id="studio">
+  <div class="wrap pay-grid">
+    <div>
+      <div class="eyebrow">Unser Prinzip</div>
+      <h2>Yoga für alle.<br>Wirklich alle.</h2>
+      <p class="lead">Als erstes „Pay as you can afford“-Studio Berlins glauben wir: Deine Praxis sollte nicht an deinem Kontostand scheitern. Du wählst den Beitrag, der zu deinem Leben passt.</p>
+      <div class="pay-points">
+        <div class="pay-point">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#C4764E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><b>Wunschbeitrag statt Preisliste</b> — drei faire Stufen, du entscheidest ehrlich.</span>
+        </div>
+        <div class="pay-point">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#C4764E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><b>Ein Baum pro Mitgliedschaft</b> — deine Praxis lässt einen Wald wachsen.</span>
+        </div>
+        <div class="pay-point">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#C4764E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><b>Keine Vertragsfalle</b> — monatlich kündbar, Pausen jederzeit möglich.</span>
+        </div>
+      </div>
+      <a href="#kontakt" class="btn">Mitglied werden</a>
+    </div>
+    <div>
+      <img src="https://images.pexels.com/photos/6787202/pexels-photo-6787202.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Meditation zwischen Pflanzen">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALERIE ═══ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Einblicke</div>
+    <h2 style="margin-bottom:44px">Ein Ort zum Ankommen</h2>
+    <div class="gallery-grid">
+      <img class="tall" src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Meditation mit Kerzen">
+      <img class="wide" src="https://images.pexels.com/photos/4662438/pexels-photo-4662438.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Yoga-Übung im Studio">
+      <img src="https://images.pexels.com/photos/4534680/pexels-photo-4534680.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Asana auf der Matte">
+      <img src="https://images.pexels.com/photos/3823086/pexels-photo-3823086.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Rad-Pose im Studio">
+      <img class="wide" src="https://images.pexels.com/photos/6698513/pexels-photo-6698513.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Meditation im Freien">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STIMMEN ═══ -->
+<section class="voices" id="stimmen">
+  <div class="wrap">
+    <div class="voices-head">
+      <div class="eyebrow" style="justify-content:center">Stimmen aus der Community</div>
+      <h2>Was unsere Yogis sagen</h2>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span><b>4,4 von 5</b> · 205 Bewertungen auf Google</span>
+      </div>
+    </div>
+    <div class="voice-grid">
+      <div class="voice">
+        <span class="stars">★★★★★</span>
+        <p>„Mein Lieblingsstudio in Prenzlauer Berg. Die Klangbäder sind magisch, und das Wunschbeitrag-Modell nimmt so viel Druck raus. Man spürt, dass es hier um mehr geht als ums Geschäft.“</p>
+        <div class="who">
+          <span class="ava">L</span>
+          <div><b>Lena M.</b><span>Mitglied seit 2 Jahren</span></div>
+        </div>
+      </div>
+      <div class="voice">
+        <span class="stars">★★★★★</span>
+        <p>„Ich war absoluter Anfänger und habe mich vom ersten Tag an willkommen gefühlt. Die Lehrer:innen erklären ruhig und schauen wirklich hin. Outdoor-Yoga im Sommer ist ein Traum.“</p>
+        <div class="who">
+          <span class="ava" style="background:#C4764E">J</span>
+          <div><b>Jonas K.</b><span>Vinyasa & Outdoor</span></div>
+        </div>
+      </div>
+      <div class="voice">
+        <span class="stars">★★★★☆</span>
+        <p>„Wunderschönes Studio mit besonderer Atmosphäre. Beliebte Kurse sind manchmal schnell voll — früh buchen lohnt sich. Die Yin-Stunden am Abend sind jede Anreise wert.“</p>
+        <div class="who">
+          <span class="ava" style="background:#8A9A7E">S</span>
+          <div><b>Sophie R.</b><span>Yin & Restorative</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KONTAKT ═══ -->
+<section id="kontakt">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Kontakt & Anfahrt</div>
+      <h2>Komm vorbei —<br>die Matte wartet</h2>
+      <p class="lead" style="margin-bottom:30px">Mitten im Kiez, zwei Minuten von der Kulturbrauerei. Schreib uns für deine Probestunde oder komm einfach 15 Minuten vor Kursbeginn vorbei.</p>
+      <div class="contact-card">
+        <div class="contact-row">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 5 14.5 5 9.5C5 5.9 8.1 3 12 3C15.9 3 19 5.9 19 9.5C19 14.5 12 21 12 21Z" stroke="#55684C" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" stroke="#55684C" stroke-width="1.8"/></svg></div>
+          <div><b>Studio Prenzlauer Berg</b><span>Sredzkistraße 59, 10405 Berlin</span></div>
+        </div>
+        <div class="contact-row">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4H9L11 9L8.5 10.5C9.5 12.5 11.5 14.5 13.5 15.5L15 13L20 15V19C20 20.1 19.1 21 18 21C10.3 20.5 3.5 13.7 3 6C3 4.9 3.9 4 5 4Z" stroke="#55684C" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div><b>Telefon</b><a href="tel:+491771431355">0177 1431355</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#55684C" stroke-width="1.8"/><path d="M3 7L12 13L21 7" stroke="#55684C" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div><b>E-Mail</b><a href="mailto:namaste@greenyoga.co">namaste@greenyoga.co</a></div>
+        </div>
+        <div class="hours">
+          <b>Kurszeiten</b>
+          Mo – Fr 7:00 – 21:00 · Sa & So 9:00 – 18:00<br>
+          Aktueller Stundenplan online & im Studio-Aushang.
+        </div>
+      </div>
+    </div>
+    <div class="contact-visual">
+      <img src="https://images.pexels.com/photos/2597205/pexels-photo-2597205.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Meditation im Garten bei Sonnenlicht">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<div class="band">
+  <div class="wrap">
+    <h2>Deine erste Stunde ist der schwerste Schritt.<br>Wir machen ihn leicht.</h2>
+    <p>Probestunde vereinbaren, Matte leihen, ankommen — den Rest übernimmt dein Atem.</p>
+    <a href="#kontakt" class="btn">Jetzt Probestunde vereinbaren</a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M12 21C12 21 4 16.5 4 10.5C4 6.9 6.9 4 10.5 4C11 4 11.5 4.06 12 4.17C12.5 4.06 13 4 13.5 4C17.1 4 20 6.9 20 10.5C20 16.5 12 21 12 21Z" stroke="#7C8F6F" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 4.5V21" stroke="#7C8F6F" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Green<em>Yoga</em>
+    </a>
+    <span>Sredzkistraße 59 · 10405 Berlin · 0177 1431355</span>
+    <span>Designvorschlag — Demoseite mit Platzhalter-Fotos (Pexels)</span>
+  </div>
+</footer>
+
+</body>
+</html>
