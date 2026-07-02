@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BON-DACH · Usługi dekarskie Wrocław i okolice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate:#1e2429; --slate-2:#2b333a; --brick:#a8462e; --brick-deep:#8a3822;
+    --cream:#f4f1ec; --paper:#fffdfb; --muted:#5c6570; --line:#e2ddd3;
+    --shadow:0 18px 40px -22px rgba(20,24,28,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--slate);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:'Archivo',system-ui,sans-serif;font-weight:800;line-height:1.08;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:700;font-size:.95rem;padding:.9em 1.7em;border-radius:3px;transition:.2s;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--brick);color:#fff}
+  .btn-primary:hover{background:var(--brick-deep)}
+  .btn-ghost{border-color:var(--slate);background:transparent;color:var(--slate)}
+  .btn-ghost:hover{background:var(--slate);color:#fff}
+  .eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);font-weight:700}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(244,241,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{font-family:'Archivo',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
+  .brand b{color:var(--brick)}
+  .navlinks{display:flex;gap:32px;font-size:.92rem;font-weight:600}
+  .navlinks a{color:var(--muted)}
+  .navlinks a:hover{color:var(--slate)}
+
+  .hero{position:relative;padding:110px 0 96px;overflow:hidden;color:#fff}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,24,28,.94) 38%,rgba(20,24,28,.55) 70%,rgba(20,24,28,.35) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.5rem,5vw,3.9rem);margin:.35em 0 .5em;max-width:14em}
+  .hero p.lead{font-size:1.12rem;color:#d8d4cb;max-width:32em;margin-bottom:1.9em}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero .btn-ghost{border-color:#fff;color:#fff}
+  .hero .btn-ghost:hover{background:#fff;color:var(--slate)}
+  .rating{display:flex;align-items:center;gap:10px;margin-top:30px;font-size:.94rem;color:#d8d4cb}
+  .stars{color:#e0a458;letter-spacing:2px;font-size:1.05rem}
+  .badge-award{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:3px;padding:8px 14px;font-size:.82rem;margin-top:18px}
+
+  .strip{background:var(--slate);color:#e7e3da}
+  .strip .wrap{display:flex;justify-content:space-between;gap:20px;padding:20px 32px;flex-wrap:wrap;font-size:.9rem}
+  .strip span{display:flex;align-items:center;gap:9px;opacity:.92}
+  .strip .dot{color:var(--brick)}
+
+  section{padding:88px 0}
+  .sec-head{text-align:center;max-width:36em;margin:0 auto 52px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:.25em 0 .35em}
+  .sec-head p{color:var(--muted)}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:28px 24px;transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card .ic{width:44px;height:44px;border-radius:3px;display:grid;place-items:center;background:var(--slate);color:#e0a458;font-size:1.15rem;margin-bottom:16px}
+  .card h3{font-size:1.2rem;margin-bottom:.35em;font-weight:700}
+  .card p{font-size:.9rem;color:var(--muted);margin-bottom:1.1em}
+  .card .price{font-weight:700;color:var(--brick);font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
+
+  .gallery{background:var(--slate-2)}
+  .gallery .eyebrow{color:#e0a458}
+  .gallery .sec-head h2{color:#fff}
+  .gallery .sec-head p{color:#b7b2a6}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .tile{aspect-ratio:4/5;border-radius:4px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
+  .tile:hover img{transform:scale(1.05)}
+  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.7) 100%)}
+  .tile span{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.1rem}
+
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .quote{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:32px}
+  .quote .stars{font-size:1rem;margin-bottom:14px;color:#c17d2e}
+  .quote p{font-size:1.08rem;line-height:1.5;margin-bottom:18px;color:var(--slate)}
+  .quote .who{font-size:.88rem;color:var(--muted);font-weight:600}
+
+  .contact{background:var(--slate);color:#e7e3da}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .contact h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:#fff;margin-bottom:.4em}
+  .contact .lead{color:#b7b2a6;margin-bottom:1.6em}
+  .info{list-style:none;display:grid;gap:14px;font-size:1rem}
+  .info li{display:flex;gap:13px;align-items:flex-start}
+  .info .k{color:#e0a458;min-width:100px;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
+  .map{height:300px;border-radius:4px;background:
+      radial-gradient(80% 80% at 30% 20%,#3a4048,transparent),
+      linear-gradient(160deg,#12161a,#2b333a);position:relative;border:1px solid #3a4048}
+  .map .pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff}
+  .map .pin b{font-family:'Archivo',sans-serif;font-size:1.15rem;display:block}
+
+  footer{background:#12161a;color:#8a8478;font-size:.85rem;padding:30px 0}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:880px){
+    .contact .grid{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr 1fr}
+    .quotes,.tiles{grid-template-columns:1fr}
+    .navlinks{display:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <div class="brand">BON<b>-DACH</b></div>
+    <div class="navlinks">
+      <a href="#usluzi">Usługi</a>
+      <a href="#realizacje">Realizacje</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a class="btn btn-primary" href="#kontakt">Bezpłatna wycena</a>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.pexels.com/photos/29114658/pexels-photo-29114658.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Nowe pokrycie dachowe z dachówki ceramicznej"></div>
+  <div class="wrap">
+    <span class="eyebrow">Usługi dekarskie · Wrocław i okolice</span>
+    <h1>Dach, na który<br>możesz liczyć.</h1>
+    <p class="lead">Naprawy, wymiana pokrycia, rynny i przeglądy dachów — solidnie
+      i bez niedomówień. Działamy w promieniu Wrocławia, z bazą w Kiełczowie.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#kontakt">Bezpłatna wycena</a>
+      <a class="btn btn-ghost" href="tel:+48516516570">📞 516 516 570</a>
+    </div>
+    <div class="rating">
+      <span class="stars">★★★★★</span>
+      <span><b>5,0</b> z 67 opinii na Google</span>
+    </div>
+    <div class="badge-award">🏆 Laureat "Orły Branży Budowlanej" — złote medale 2022–2025</div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span><span class="dot">●</span> 67 zadowolonych klientów</span>
+  <span><span class="dot">●</span> Wrocław i okolice</span>
+  <span><span class="dot">●</span> Bezpłatna wycena na miejscu</span>
+  <span><span class="dot">●</span> Materiały sprawdzonej jakości</span>
+</div></div>
+
+<section id="usluzi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Nasze usługi</span>
+      <h2>Pełny zakres prac dekarskich</h2>
+      <p>Wycena zawsze zależy od wielkości i stanu dachu — dlatego każdą ofertę przygotowujemy indywidualnie, bezpłatnie.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic">🔧</div>
+        <h3>Naprawa dachu</h3>
+        <p>Usuwanie nieszczelności, wymiana uszkodzonych elementów, szybka reakcja.</p>
+        <div class="price">Bezpłatna wycena</div>
+      </div>
+      <div class="card">
+        <div class="ic">🏠</div>
+        <h3>Wymiana pokrycia</h3>
+        <p>Kompletna wymiana dachówki lub blachy — od demontażu do odbioru prac.</p>
+        <div class="price">Bezpłatna wycena</div>
+      </div>
+      <div class="card">
+        <div class="ic">💧</div>
+        <h3>Rynny i obróbki</h3>
+        <p>Montaż i naprawa systemów rynnowych oraz obróbek blacharskich.</p>
+        <div class="price">Bezpłatna wycena</div>
+      </div>
+      <div class="card">
+        <div class="ic">🔍</div>
+        <h3>Przegląd dachu</h3>
+        <p>Ocena stanu technicznego dachu wraz z pisemnym raportem.</p>
+        <div class="price">Bezpłatna wycena</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="realizacje" class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Realizacje</span>
+      <h2>Solidna robota, widać to na dachu</h2>
+      <p>Niewielka próbka naszej pracy. Tu pojawią się prawdziwe zdjęcia Twoich realizacji.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <img src="https://images.pexels.com/photos/37623622/pexels-photo-37623622.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dekarz podczas pracy na dachu">
+        <span>Praca na wysokości</span>
+      </div>
+      <div class="tile">
+        <img src="https://images.pexels.com/photos/31771167/pexels-photo-31771167.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Montaż dachówki ceramicznej">
+        <span>Montaż pokrycia</span>
+      </div>
+      <div class="tile">
+        <img src="https://images.pexels.com/photos/37704246/pexels-photo-37704246.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Naprawa dachu na domu z cegły">
+        <span>Naprawy i przeglądy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opinie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Co mówią klienci</span>
+      <h2>5,0 z 5 gwiazdek</h2>
+      <p>Wybrane głosy z 67 opinii na Google.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Profesjonalna wycena, terminowa realizacja i porządek po pracy. Dach stoi i nic nie przecieka.”</p>
+        <div class="who">— Robert K.</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Szybka reakcja na awarię, uczciwa cena i fachowe podejście. Polecam każdemu, kto ma problem z dachem.”</p>
+        <div class="who">— Anna T.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="wrap"><div class="grid">
+    <div>
+      <span class="eyebrow" style="color:#e0a458">Kontakt</span>
+      <h2>Umów bezpłatną wycenę</h2>
+      <p class="lead">Zadzwoń lub napisz — przyjedziemy, ocenimy dach i przygotujemy wycenę bez zobowiązań.</p>
+      <ul class="info">
+        <li><span class="k">Adres</span><span>Bławatna 4<br>55-093 Kiełczów</span></li>
+        <li><span class="k">Telefon</span><span>516 516 570</span></li>
+        <li><span class="k">Godziny</span><span>Pon–Pt, 7:00 – 16:00</span></li>
+      </ul>
+      <div style="margin-top:28px"><a class="btn btn-primary" href="tel:+48516516570">Zadzwoń teraz</a></div>
+    </div>
+    <div class="map"><div class="pin">📍<b>BON-DACH</b>Bławatna 4, Kiełczów</div></div>
+  </div></div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 BON-DACH Usługi dekarskie · Bławatna 4, 55-093 Kiełczów</span>
+  <span>Naprawy · Pokrycia dachowe · Rynny · Przeglądy</span>
+</div></footer>
+</body>
+</html>

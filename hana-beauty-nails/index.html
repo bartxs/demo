@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hana Beauty Nails · Nagelstudio in Berlin-Friedrichshain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf5ef; --ivory:#fffdfa; --plum:#3b2530; --rose:#b76e79;
+    --rose-deep:#9c5460; --gold:#c2a05a; --muted:#7a6670; --line:#ece2da;
+    --shadow:0 18px 40px -22px rgba(59,37,48,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',system-ui,sans-serif;color:var(--plum);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;padding:.85em 1.5em;border-radius:999px;transition:.2s;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--rose);color:#fff;box-shadow:var(--shadow)}
+  .btn-primary:hover{background:var(--rose-deep)}
+  .btn-ghost{border-color:var(--line);background:var(--ivory);color:var(--plum)}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-deep);font-weight:700}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:20;background:rgba(250,245,239,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600}
+  .brand b{color:var(--rose)}
+  .navlinks{display:flex;gap:34px;font-size:.93rem;font-weight:500}
+  .navlinks a{color:var(--muted)}
+  .navlinks a:hover{color:var(--plum)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;padding:78px 0 70px}
+  .hero h1{font-size:clamp(2.6rem,5vw,4rem);margin:.35em 0 .5em}
+  .hero p.lead{font-size:1.13rem;color:var(--muted);max-width:30em;margin-bottom:1.9em}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .rating{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:.92rem;color:var(--muted)}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:1.05rem}
+  .hero-visual{position:relative;height:440px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);
+    background:
+      radial-gradient(120% 90% at 15% 10%, #f3d9dd 0%, transparent 55%),
+      radial-gradient(120% 120% at 90% 100%, #e9c9a8 0%, transparent 50%),
+      linear-gradient(150deg,#caa2ad,#9c5460)}
+  .hero-visual .mono{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:30px;color:#fff}
+  .hero-visual .mono span{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+  .hero-visual .mono .sig{font-family:'Cormorant Garamond',serif;font-size:2.1rem;line-height:1}
+  .badge-float{position:absolute;top:24px;right:24px;background:rgba(255,253,250,.92);color:var(--plum);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);font-size:.85rem;text-align:center}
+  .badge-float b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rose-deep)}
+
+  /* trust strip */
+  .strip{background:var(--plum);color:#f3e7ec}
+  .strip .wrap{display:flex;justify-content:space-between;gap:20px;padding:20px 32px;flex-wrap:wrap;font-size:.92rem}
+  .strip span{display:flex;align-items:center;gap:9px;opacity:.92}
+  .strip .dot{color:var(--gold)}
+
+  section{padding:84px 0}
+  .sec-head{text-align:center;max-width:34em;margin:0 auto 52px}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.9rem);margin:.25em 0 .35em}
+  .sec-head p{color:var(--muted)}
+
+  /* services */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .card{background:var(--ivory);border:1px solid var(--line);border-radius:20px;padding:30px 26px;transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,#f4dde1,#e7c4ac);margin-bottom:18px}
+  .card h3{font-size:1.5rem;margin-bottom:.3em}
+  .card p{font-size:.93rem;color:var(--muted);margin-bottom:1.1em}
+  .card .price{font-weight:700;color:var(--rose-deep);font-size:.92rem}
+
+  /* gallery */
+  .gallery{background:linear-gradient(180deg,#f6ebe4,#faf5ef)}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .tile{aspect-ratio:4/5;border-radius:18px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .tile:nth-child(1){background:linear-gradient(160deg,#c98b96,#7d3b48)}
+  .tile:nth-child(2){background:linear-gradient(160deg,#e7c4ac,#b07a52)}
+  .tile:nth-child(3){background:linear-gradient(160deg,#d8b9c0,#9c5460)}
+  .tile span{position:absolute;left:18px;bottom:16px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.35rem}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .quote{background:var(--ivory);border:1px solid var(--line);border-radius:20px;padding:34px}
+  .quote .stars{font-size:1rem;margin-bottom:14px}
+  .quote p{font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.35;margin-bottom:18px}
+  .quote .who{font-size:.9rem;color:var(--muted);font-weight:600}
+
+  /* contact */
+  .contact{background:var(--plum);color:#f6ebef}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .contact h2{font-size:clamp(2rem,4vw,2.9rem);color:#fff;margin-bottom:.4em}
+  .contact .lead{color:#d8c2cb;margin-bottom:1.6em}
+  .info{list-style:none;display:grid;gap:14px;font-size:1rem}
+  .info li{display:flex;gap:13px;align-items:flex-start}
+  .info .k{color:var(--gold);min-width:96px;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+  .map{height:300px;border-radius:22px;background:
+      radial-gradient(80% 80% at 30% 20%,#5a3b48,transparent),
+      linear-gradient(160deg,#2c1a23,#5c3a48);position:relative;border:1px solid #5a3b48}
+  .map .pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff}
+  .map .pin b{font-family:'Cormorant Garamond',serif;font-size:1.3rem;display:block}
+
+  footer{background:#2c1a23;color:#b59aa4;font-size:.85rem;padding:30px 0}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:880px){
+    .hero,.contact .grid{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr 1fr}
+    .quotes,.tiles{grid-template-columns:1fr}
+    .navlinks{display:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <div class="brand">Hana <b>Beauty Nails</b></div>
+    <div class="navlinks">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a class="btn btn-primary" href="#kontakt">Termin buchen</a>
+  </nav></div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Nagelstudio · Berlin-Friedrichshain</span>
+      <h1>Gepflegte Nägel,<br>die Ihren Tag verschönern.</h1>
+      <p class="lead">Maniküre, Pediküre und Nageldesign mit Liebe zum Detail —
+        mitten in Friedrichshain, nur einen Schritt von der Warschauer Straße entfernt.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#kontakt">Termin buchen</a>
+        <a class="btn btn-ghost" href="tel:+4915207023822">📞 0152 07023822</a>
+      </div>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span><b>4,9</b> aus 144 Google-Bewertungen</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="badge-float">Google<b>4,9★</b>144 Bewertungen</div>
+      <div class="mono">
+        <span>Maniküre · Pediküre · Nageldesign</span>
+        <div class="sig">Hana Beauty Nails</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="strip"><div class="wrap">
+  <span><span class="dot">●</span> Über 140 begeisterte Kundinnen</span>
+  <span><span class="dot">●</span> Zentral in Friedrichshain</span>
+  <span><span class="dot">●</span> Termine auch kurzfristig</span>
+  <span><span class="dot">●</span> Hochwertige, schonende Produkte</span>
+</div></div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Unsere Leistungen</span>
+      <h2>Für gepflegte Hände & Füße</h2>
+      <p>Eine kleine Auswahl unserer beliebtesten Behandlungen. Den vollständigen Preisplan besprechen wir gern direkt im Studio.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic">💅</div>
+        <h3>Maniküre</h3>
+        <p>Klassische und pflegende Maniküre für gepflegte, gesunde Nägel.</p>
+        <div class="price">ab 25 €</div>
+      </div>
+      <div class="card">
+        <div class="ic">🦶</div>
+        <h3>Pediküre</h3>
+        <p>Wohltuende Fußpflege — entspannend, gründlich und hygienisch.</p>
+        <div class="price">ab 35 €</div>
+      </div>
+      <div class="card">
+        <div class="ic">✨</div>
+        <h3>Gel &amp; Shellac</h3>
+        <p>Langanhaltender Glanz in Ihrer Wunschfarbe, der wochenlang hält.</p>
+        <div class="price">ab 40 €</div>
+      </div>
+      <div class="card">
+        <div class="ic">🎨</div>
+        <h3>Nageldesign</h3>
+        <p>Individuelle Designs, French, Nail-Art — ganz nach Ihrem Stil.</p>
+        <div class="price">ab 45 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galerie" class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Galerie</span>
+      <h2>Unsere Handschrift</h2>
+      <p>Ein kleiner Eindruck unserer Arbeit. Hier kommen später Ihre schönsten Studio-Fotos hin.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span>Nageldesign</span></div>
+      <div class="tile"><span>Maniküre</span></div>
+      <div class="tile"><span>French &amp; Nail-Art</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="bewertungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Das sagen unsere Kundinnen</span>
+      <h2>4,9 von 5 Sternen</h2>
+      <p>Ausgewählte Stimmen aus 144 Google-Bewertungen.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Die beste Maniküre in Friedrichshain — immer freundlich, sauber und mit so viel Liebe zum Detail.“</p>
+        <div class="who">— Sophie K.</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Mein Nageldesign hält ewig und sieht jedes Mal perfekt aus. Ich komme immer wieder gerne.“</p>
+        <div class="who">— Marina L.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="wrap"><div class="grid">
+    <div>
+      <span class="eyebrow" style="color:var(--gold)">Termin &amp; Kontakt</span>
+      <h2>Wir freuen uns auf Sie</h2>
+      <p class="lead">Rufen Sie an oder schreiben Sie uns — wir finden den passenden Termin, auch kurzfristig.</p>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span>Warschauer Str. 25<br>10243 Berlin-Friedrichshain</span></li>
+        <li><span class="k">Telefon</span><span>0152 07023822</span></li>
+        <li><span class="k">Öffnungszeiten</span><span>Mo–Sa, 10:00 – 19:00 Uhr</span></li>
+      </ul>
+      <div style="margin-top:28px"><a class="btn btn-primary" href="tel:+4915207023822">Jetzt Termin vereinbaren</a></div>
+    </div>
+    <div class="map"><div class="pin">📍<b>Hana Beauty Nails</b>Warschauer Str. 25</div></div>
+  </div></div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 Hana Beauty Nails · Warschauer Str. 25, 10243 Berlin</span>
+  <span>Maniküre · Pediküre · Nageldesign</span>
+</div></footer>
+</body>
+</html>

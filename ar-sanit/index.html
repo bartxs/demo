@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AR-SANIT · Armatura sanitarna i wyposażenie łazienek — Wrocław</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2438; --navy-deep:#0a1826; --steel:#4a6fa1; --steel-light:#7c9cc4;
+    --brass:#b8863b; --brass-deep:#96692a; --paper:#f6f4ef; --white:#ffffff;
+    --muted:#5c6b7a; --line:#e0e4e9;
+    --shadow:0 18px 40px -22px rgba(10,24,38,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--navy);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;padding:.9em 1.7em;border-radius:4px;transition:.2s;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--brass);color:#fff}
+  .btn-primary:hover{background:var(--brass-deep)}
+  .btn-ghost{border-color:rgba(255,255,255,.6);background:transparent;color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--navy)}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:700}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:700;letter-spacing:-.01em;color:var(--navy)}
+  .brand b{color:var(--brass)}
+  .navlinks{display:flex;gap:32px;font-size:.92rem;font-weight:600}
+  .navlinks a{color:var(--muted)}
+  .navlinks a:hover{color:var(--navy)}
+
+  .hero{position:relative;padding:108px 0 92px;overflow:hidden;color:#fff}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,24,38,.95) 36%,rgba(15,36,56,.72) 68%,rgba(15,36,56,.4) 100%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.4rem,4.6vw,3.6rem);margin:.35em 0 .5em;max-width:15em}
+  .hero p.lead{font-size:1.1rem;color:#cdd8e4;max-width:34em;margin-bottom:1.9em}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .rating{display:flex;align-items:center;gap:10px;margin-top:30px;font-size:.94rem;color:#cdd8e4}
+  .stars{color:var(--brass);letter-spacing:2px;font-size:1.05rem}
+  .badge-award{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:4px;padding:8px 14px;font-size:.82rem;margin-top:18px;color:#e7ecf1}
+
+  .strip{background:var(--navy-deep);color:#dbe4ec}
+  .strip .wrap{display:flex;justify-content:space-between;gap:20px;padding:20px 32px;flex-wrap:wrap;font-size:.9rem}
+  .strip span{display:flex;align-items:center;gap:9px;opacity:.92}
+  .strip .dot{color:var(--brass)}
+
+  section{padding:88px 0}
+  .sec-head{text-align:center;max-width:38em;margin:0 auto 52px}
+  .sec-head h2{font-size:clamp(1.85rem,3.4vw,2.6rem);margin:.25em 0 .35em}
+  .sec-head p{color:var(--muted)}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:28px 24px;transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card .ic{width:44px;height:44px;border-radius:5px;display:grid;place-items:center;background:var(--navy);color:var(--brass);font-size:1.15rem;margin-bottom:16px}
+  .card h3{font-size:1.15rem;margin-bottom:.35em;font-weight:700}
+  .card p{font-size:.9rem;color:var(--muted)}
+
+  .gallery{background:var(--navy)}
+  .gallery .eyebrow{color:var(--brass)}
+  .gallery .sec-head h2{color:#fff}
+  .gallery .sec-head p{color:#a9b8c8}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .tile{aspect-ratio:4/5;border-radius:6px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
+  .tile:hover img{transform:scale(1.05)}
+  .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.72) 100%)}
+  .tile span{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem}
+
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .quote{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:32px}
+  .quote .stars{font-size:1rem;margin-bottom:14px;color:var(--brass)}
+  .quote p{font-size:1.06rem;line-height:1.5;margin-bottom:18px;color:var(--navy)}
+  .quote .who{font-size:.88rem;color:var(--muted);font-weight:600}
+
+  .contact{background:var(--navy);color:#dbe4ec}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .contact h2{font-size:clamp(1.85rem,3.4vw,2.6rem);color:#fff;margin-bottom:.4em}
+  .contact .lead{color:#a9b8c8;margin-bottom:1.6em}
+  .info{list-style:none;display:grid;gap:14px;font-size:1rem}
+  .info li{display:flex;gap:13px;align-items:flex-start}
+  .info .k{color:var(--brass);min-width:100px;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
+  .map{height:300px;border-radius:6px;background:
+      radial-gradient(80% 80% at 30% 20%,#1c3550,transparent),
+      linear-gradient(160deg,#0a1826,#182f47);position:relative;border:1px solid #23405e}
+  .map .pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff}
+  .map .pin b{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;display:block}
+
+  footer{background:var(--navy-deep);color:#7f92a3;font-size:.85rem;padding:30px 0}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:880px){
+    .contact .grid{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr 1fr}
+    .quotes,.tiles{grid-template-columns:1fr}
+    .navlinks{display:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <div class="brand">AR<b>-SANIT</b></div>
+    <div class="navlinks">
+      <a href="#oferta">Oferta</a>
+      <a href="#realizacje">Sklep</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a class="btn btn-primary" href="#kontakt">Zapytaj o produkt</a>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.pexels.com/photos/6444979/pexels-photo-6444979.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Nowoczesna łazienka z armaturą i baterią umywalkową"></div>
+  <div class="wrap">
+    <span class="eyebrow">Armatura sanitarna · Wyposażenie łazienek · Wrocław</span>
+    <h1>Armatura i instalacje,<br>na których można polegać.</h1>
+    <p class="lead">Sklep hydrauliczny i fachowe doradztwo w doborze armatury łazienkowej i kuchennej,
+      wyposażenia łazienek oraz instalacji wod-kan, gazowych i grzewczych. Rodzinna firma
+      z Grabiszyńskiej we Wrocławiu, działająca nieprzerwanie od 1990 roku.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="tel:+48602359472">📞 602 359 472</a>
+      <a class="btn btn-ghost" href="#kontakt">Zobacz godziny i dojazd</a>
+    </div>
+    <div class="rating">
+      <span class="stars">★★★★★</span>
+      <span><b>4,8</b> z 156 opinii na Google</span>
+    </div>
+    <div class="badge-award">🕐 Na rynku od 1990 roku — ponad 30 lat doświadczenia</div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span><span class="dot">●</span> 156 opinii klientów</span>
+  <span><span class="dot">●</span> Od 1990 roku</span>
+  <span><span class="dot">●</span> Grabiszyńska 67, Wrocław</span>
+  <span><span class="dot">●</span> Armatura · hydraulika · ogrzewanie</span>
+</div></div>
+
+<section id="oferta">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Nasza oferta</span>
+      <h2>Pełen zakres armatury i instalacji</h2>
+      <p>Od doboru baterii po wykonawstwo instalacji — pomagamy na każdym etapie, ze sklepem
+        stacjonarnym na Grabiszyńskiej i doradztwem opartym na 30 latach doświadczenia.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic">🚿</div>
+        <h3>Armatura łazienkowa i kuchenna</h3>
+        <p>Baterie, prysznice i deszczownice sprawdzonych marek, dobrane do budżetu i stylu wnętrza.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🛁</div>
+        <h3>Wyposażenie łazienek</h3>
+        <p>Umywalki, wanny, kabiny prysznicowe i meble łazienkowe — od projektu po montaż.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔧</div>
+        <h3>Instalacje hydrauliczne i gazowe</h3>
+        <p>Wykonawstwo instalacji wodno-kanalizacyjnych i gazowych zgodnie ze sztuką rzemieślniczą.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🌡️</div>
+        <h3>Ogrzewanie i wentylacja</h3>
+        <p>Dobór i montaż systemów grzewczych, wentylacyjnych oraz klimatyzacji.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="realizacje" class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sklep i realizacje</span>
+      <h2>Zobacz, z czym pracujemy</h2>
+      <p>Niewielka próbka asortymentu i realizacji. Tu pojawią się prawdziwe zdjęcia
+        Państwa sklepu i wykonanych montaży.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Montaż armatury i instalacji hydraulicznej">
+        <span>Montaż i serwis</span>
+      </div>
+      <div class="tile">
+        <img src="https://images.pexels.com/photos/6436770/pexels-photo-6436770.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Nowoczesna kabina prysznicowa i armatura">
+        <span>Wyposażenie łazienek</span>
+      </div>
+      <div class="tile">
+        <img src="https://images.pexels.com/photos/1454804/pexels-photo-1454804.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wnętrze sklepu z armaturą sanitarną">
+        <span>Doradztwo w sklepie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opinie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Co mówią klienci</span>
+      <h2>4,8 z 5 gwiazdek</h2>
+      <p>Wybrane głosy ze 156 opinii na Google.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Ogromny wybór armatury i fachowe doradztwo — pani od razu pomogła dobrać baterię
+          pasującą do naszej łazienki. Polecam, obsługują tak jak dawniej, z głową.”</p>
+        <div class="who">— Katarzyna W.</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Korzystam z tego sklepu od lat przy każdym remoncie. Zawsze uczciwa cena
+          i podpowiedzą, co naprawdę warto kupić, a co jest zbędne.”</p>
+        <div class="who">— Marek S.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="wrap"><div class="grid">
+    <div>
+      <span class="eyebrow" style="color:var(--brass)">Kontakt</span>
+      <h2>Zapytaj o dobór armatury</h2>
+      <p class="lead">Zadzwoń, odwiedź nasz sklep na Grabiszyńskiej lub napisz — doradzimy
+        i przygotujemy wycenę bez zobowiązań.</p>
+      <ul class="info">
+        <li><span class="k">Adres</span><span>Grabiszyńska 67<br>53-503 Wrocław</span></li>
+        <li><span class="k">Telefon</span><span>602 359 472</span></li>
+        <li><span class="k">Godziny</span><span>Pon–Pt 9:00–18:00<br>Sob 10:00–14:00</span></li>
+      </ul>
+      <div style="margin-top:28px"><a class="btn btn-primary" href="tel:+48602359472">Zadzwoń teraz</a></div>
+    </div>
+    <div class="map"><div class="pin">📍<b>AR-SANIT</b>Grabiszyńska 67, Wrocław</div></div>
+  </div></div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 P. H. AR-SANIT S.C. · Grabiszyńska 67, 53-503 Wrocław</span>
+  <span>Armatura sanitarna · Wyposażenie łazienek · Hydraulika · Ogrzewanie</span>
+</div></footer>
+</body>
+</html>
