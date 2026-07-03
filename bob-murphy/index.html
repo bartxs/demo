@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bob Murphy — Café & Mobile Bar in Friedrichshain, Berlin</title>
+<meta name="description" content="Spezialitätenkaffee aus dem Fenster in der Straßmannstraße, Friedrichshain. Croissants, Smoothies, hausgemachte Cookies — und eine mobile Cocktailbar für Events bis 200 Gäste.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF4E4;
+    --milk:#F3E7CE;
+    --espresso:#26180D;
+    --espresso-2:#33220F;
+    --roast:#0A0503;
+    --caramel:#C87B2E;
+    --caramel-deep:#A55E1A;
+    --bottle:#31614A;
+    --paper:#FFFDF6;
+    --ink:#2B2013;
+    --muted:#83704F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Instrument Sans',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;font-size:17px;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;}
+  img{display:block;max-width:100%;}
+  .script{font-family:'Caveat',cursive;font-weight:700;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:var(--roast);
+    border-bottom:2px solid var(--caramel);
+  }
+  .nav-inner{
+    max-width:1240px;margin:0 auto;padding:13px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .logo{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;
+    letter-spacing:.03em;text-decoration:none;color:var(--cream);text-transform:uppercase;
+  }
+  .logo span{color:var(--caramel);}
+  nav.links{display:flex;gap:24px;font-weight:600;font-size:.93rem;text-transform:uppercase;letter-spacing:.05em;}
+  nav.links a{text-decoration:none;color:var(--cream);opacity:.85;}
+  nav.links a:hover{opacity:1;color:var(--caramel);}
+  .nav-cta{
+    text-decoration:none;background:var(--caramel);color:var(--espresso);
+    padding:9px 20px;border-radius:999px;font-weight:600;font-size:.9rem;
+    border:2px solid var(--caramel);white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--cream);border-color:var(--cream);}
+  @media(max-width:900px){nav.links{display:none;}}
+
+  /* ---------- HERO (poster, dark) ---------- */
+  .hero{padding:58px 0 0;text-align:center;position:relative;background:var(--roast);color:var(--cream);}
+  .hero .kicker{
+    display:inline-block;font-size:1.5rem;color:#EFC98B;
+    transform:rotate(-1.5deg);margin-bottom:6px;
+  }
+  .hero h1{
+    font-size:clamp(3rem,8.2vw,6.4rem);font-weight:800;text-transform:uppercase;
+    letter-spacing:-.015em;color:var(--cream);
+  }
+  .hero h1 .outline{
+    color:transparent;-webkit-text-stroke:2.5px var(--caramel);
+  }
+  .hero-stage{
+    position:relative;max-width:920px;margin:34px auto 0;padding:0 24px;
+    display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;
+  }
+  .arch-wrap{position:relative;width:min(430px,80vw);margin:0 auto;}
+  .arch{
+    width:100%;border-radius:999px 999px 26px 26px;overflow:hidden;
+    border:3px solid var(--cream);
+    box-shadow:10px 12px 0 var(--caramel);
+  }
+  .arch img{width:100%;height:490px;object-fit:cover;}
+  .side-note{text-align:right;}
+  .side-note.r{text-align:left;}
+  .side-note .big{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;
+    color:var(--cream);line-height:1.1;
+  }
+  .side-note .sub{font-size:.92rem;color:rgba(251,244,228,.55);margin-top:6px;}
+  .side-note .script{font-size:1.45rem;color:#EFC98B;display:block;margin-top:14px;transform:rotate(-2deg);}
+  .sticker{
+    position:absolute;z-index:3;display:grid;place-items:center;text-align:center;
+    background:var(--caramel);color:var(--espresso);border:2.5px solid var(--cream);
+    width:128px;height:128px;border-radius:50%;
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    transform:rotate(-10deg);
+    box-shadow:5px 6px 0 rgba(38,24,13,.25);
+    top:-34px;left:-46px;
+    line-height:1.15;padding:10px;
+  }
+  .sticker .n{font-size:1.55rem;}
+  .sticker .s{font-size:.66rem;font-family:'Instrument Sans',sans-serif;font-weight:600;letter-spacing:.04em;}
+  .sticker.green{
+    background:var(--bottle);color:var(--cream);width:112px;height:112px;
+    top:auto;left:auto;bottom:-26px;right:-40px;transform:rotate(8deg);
+  }
+  .hero-ctas{margin-top:44px;padding-bottom:56px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .hero .btn.primary{background:var(--caramel);color:var(--espresso);border-color:var(--cream);box-shadow:5px 5px 0 rgba(251,244,228,.22);}
+  .hero .btn.ghost{color:var(--cream);border-color:var(--cream);box-shadow:5px 5px 0 rgba(200,123,46,.35);}
+  .btn{
+    text-decoration:none;font-weight:700;border-radius:999px;
+    padding:15px 34px;font-size:1rem;display:inline-block;
+    border:2.5px solid var(--espresso);transition:transform .15s;
+    font-family:'Bricolage Grotesque',sans-serif;letter-spacing:.02em;
+  }
+  .btn:hover{transform:translate(-2px,-2px);}
+  .btn.primary{background:var(--espresso);color:var(--cream);box-shadow:5px 5px 0 var(--caramel);}
+  .btn.ghost{background:transparent;color:var(--espresso);box-shadow:5px 5px 0 var(--milk);}
+  @media(max-width:900px){
+    .hero-stage{grid-template-columns:1fr;gap:34px;}
+    .side-note,.side-note.r{text-align:center;}
+    .arch{margin:0 auto;}
+    .arch img{height:400px;}
+    .sticker{left:-8px;top:-30px;width:110px;height:110px;}
+    .sticker.green{right:-6px;}
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    background:var(--caramel);color:var(--espresso);
+    border-top:2px solid var(--espresso);border-bottom:2px solid var(--espresso);
+    overflow:hidden;padding:14px 0;
+  }
+  .ticker-track{
+    display:flex;width:max-content;
+    animation:tick 26s linear infinite;
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-size:1.05rem;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .ticker-track span{padding:0 22px;white-space:nowrap;}
+  .ticker-track span::after{content:"✳";margin-left:44px;color:var(--cream);}
+  @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- MENU BOARD ---------- */
+  .menuboard{background:var(--espresso);color:var(--cream);padding:96px 0 100px;position:relative;}
+  .menuboard .headrow{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:60px;padding-right:270px;}
+  @media(max-width:860px){.menuboard .headrow{padding-right:0;}}
+  .menuboard h2{
+    font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;text-transform:uppercase;color:var(--cream);
+  }
+  .menuboard h2 em{font-style:normal;color:var(--caramel);}
+  .menuboard .headrow .script{font-size:1.6rem;color:var(--milk);transform:rotate(-2deg);}
+  .board-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px 80px;}
+  .board-col h3{
+    font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--caramel);margin-bottom:26px;padding-bottom:12px;
+    border-bottom:2px dashed rgba(251,244,228,.25);
+  }
+  .mi{display:flex;align-items:baseline;gap:10px;margin-bottom:20px;}
+  .mi .name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.12rem;white-space:nowrap;}
+  .mi .dots{flex:1;border-bottom:2px dotted rgba(251,244,228,.35);transform:translateY(-4px);}
+  .mi .price{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:var(--milk);white-space:nowrap;}
+  .mi .note{display:block;font-size:.85rem;color:rgba(251,244,228,.55);margin-top:2px;font-family:'Instrument Sans',sans-serif;font-weight:400;}
+  .board-polaroid{
+    position:absolute;right:5%;top:-60px;width:210px;
+    background:var(--paper);padding:12px 12px 40px;
+    transform:rotate(5deg);
+    box-shadow:0 18px 40px -12px rgba(0,0,0,.45);
+  }
+  .board-polaroid img{width:100%;height:180px;object-fit:cover;}
+  .board-polaroid .cap{font-family:'Caveat',cursive;font-weight:700;color:var(--ink);text-align:center;font-size:1.15rem;margin-top:10px;}
+  .board-note{margin-top:56px;text-align:center;}
+  .board-note .script{font-size:1.7rem;color:var(--caramel);}
+  @media(max-width:860px){
+    .board-grid{grid-template-columns:1fr;}
+    .board-polaroid{display:none;}
+  }
+
+  /* ---------- SO LÄUFT'S (3 steps) ---------- */
+  .steps{padding:96px 0;}
+  .steps .headrow{text-align:center;margin-bottom:64px;}
+  .steps h2{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:800;text-transform:uppercase;color:var(--espresso);}
+  .steps h2 em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--bottle);}
+  .steps .headrow .script{font-size:1.55rem;color:var(--caramel-deep);display:inline-block;transform:rotate(-1.5deg);margin-top:8px;}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .step{
+    background:var(--paper);border:2.5px solid var(--espresso);border-radius:26px;
+    padding:34px 30px;position:relative;
+  }
+  .step:nth-child(1){transform:rotate(-1deg);box-shadow:7px 7px 0 var(--milk);}
+  .step:nth-child(2){transform:rotate(.6deg) translateY(14px);box-shadow:7px 7px 0 var(--caramel);}
+  .step:nth-child(3){transform:rotate(-.6deg);box-shadow:7px 7px 0 var(--bottle);}
+  .step .num{
+    position:absolute;top:-22px;left:26px;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--espresso);color:var(--cream);
+    display:grid;place-items:center;
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.15rem;
+    border:2.5px solid var(--cream);box-shadow:0 0 0 2.5px var(--espresso);
+  }
+  .step h3{font-size:1.3rem;font-weight:800;margin-bottom:10px;margin-top:10px;color:var(--espresso);}
+  .step p{font-size:.97rem;color:var(--muted);}
+  @media(max-width:860px){
+    .steps-grid{grid-template-columns:1fr;gap:36px;}
+    .step:nth-child(2){transform:rotate(.6deg);}
+  }
+
+  /* ---------- MOBILE BAR ---------- */
+  .mobilebar{background:var(--bottle);color:var(--cream);padding:100px 0;position:relative;overflow:hidden;}
+  .mobilebar .giant{
+    position:absolute;top:18px;left:0;right:0;text-align:center;
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(3.4rem,10vw,8rem);text-transform:uppercase;letter-spacing:.02em;
+    color:transparent;-webkit-text-stroke:1.5px rgba(251,244,228,.28);
+    white-space:nowrap;pointer-events:none;
+  }
+  .mb-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;margin-top:70px;}
+  .mb-photos{position:relative;height:440px;}
+  .mb-photos .p1,.mb-photos .p2{
+    position:absolute;background:var(--paper);padding:12px 12px 44px;
+    box-shadow:0 20px 46px -14px rgba(0,0,0,.5);
+  }
+  .mb-photos .p1{width:62%;left:0;top:0;transform:rotate(-4deg);}
+  .mb-photos .p2{width:52%;right:0;bottom:0;transform:rotate(5deg);}
+  .mb-photos img{width:100%;height:250px;object-fit:cover;}
+  .mb-photos .cap{font-family:'Caveat',cursive;font-weight:700;color:var(--ink);text-align:center;font-size:1.2rem;margin-top:9px;}
+  .mobilebar h2{font-size:clamp(2.1rem,4.4vw,3.2rem);font-weight:800;text-transform:uppercase;margin-bottom:18px;}
+  .mobilebar h2 em{font-style:normal;color:#EFC98B;}
+  .mobilebar p.lead{color:rgba(251,244,228,.85);margin-bottom:30px;font-size:1.06rem;}
+  .mb-facts{list-style:none;display:grid;gap:14px;margin-bottom:36px;}
+  .mb-facts li{
+    display:flex;gap:12px;align-items:center;font-weight:600;font-size:1rem;
+  }
+  .mb-facts .chip{
+    flex:none;background:rgba(251,244,228,.12);border:1.5px solid rgba(251,244,228,.3);
+    border-radius:999px;padding:4px 14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.9rem;
+  }
+  .mobilebar .btn.primary{background:var(--cream);color:var(--espresso);border-color:var(--espresso);box-shadow:5px 5px 0 rgba(38,24,13,.4);}
+  @media(max-width:860px){
+    .mb-grid{grid-template-columns:1fr;gap:48px;}
+    .mb-photos{height:380px;max-width:440px;margin:0 auto;width:100%;}
+    .mb-photos img{height:200px;}
+  }
+
+  /* ---------- GALLERY (polaroid wall) ---------- */
+  .gallery{padding:100px 0 110px;}
+  .gallery .headrow{text-align:center;margin-bottom:70px;}
+  .gallery h2{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:800;text-transform:uppercase;color:var(--espresso);}
+  .gallery .headrow .script{font-size:1.55rem;color:var(--bottle);display:inline-block;transform:rotate(-2deg);margin-top:6px;}
+  .pol-row{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;}
+  .pol{
+    background:var(--paper);padding:13px 13px 46px;width:250px;position:relative;
+    box-shadow:0 16px 36px -14px rgba(38,24,13,.4);
+  }
+  .pol::before{
+    content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-2deg);
+    width:92px;height:28px;background:rgba(200,123,46,.4);
+  }
+  .pol img{width:100%;height:230px;object-fit:cover;}
+  .pol .cap{font-family:'Caveat',cursive;font-weight:700;text-align:center;font-size:1.25rem;margin-top:11px;color:var(--ink);}
+  .pol:nth-child(1){transform:rotate(-3.5deg) translateY(10px);}
+  .pol:nth-child(2){transform:rotate(2deg) translateY(-8px);}
+  .pol:nth-child(3){transform:rotate(-1.5deg) translateY(14px);}
+  .pol:nth-child(4){transform:rotate(3.5deg);}
+  @media(max-width:600px){.pol{width:78%;}}
+
+  /* ---------- REVIEWS (speech bubbles) ---------- */
+  .reviews{background:var(--milk);padding:96px 0;border-top:2px solid var(--espresso);border-bottom:2px solid var(--espresso);}
+  .reviews .headrow{text-align:center;margin-bottom:64px;}
+  .reviews h2{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:800;text-transform:uppercase;color:var(--espresso);}
+  .reviews h2 em{font-style:normal;color:var(--caramel-deep);}
+  .bubble-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;}
+  .bubble{
+    background:var(--paper);border:2.5px solid var(--espresso);border-radius:24px;
+    padding:28px 26px;position:relative;
+  }
+  .bubble::after{
+    content:"";position:absolute;bottom:-16px;left:44px;
+    width:26px;height:26px;background:var(--paper);
+    border-right:2.5px solid var(--espresso);border-bottom:2.5px solid var(--espresso);
+    transform:rotate(45deg) skew(8deg,8deg);
+  }
+  .bubble:nth-child(1){transform:rotate(-1.2deg);}
+  .bubble:nth-child(2){transform:rotate(.8deg) translateY(12px);}
+  .bubble:nth-child(3){transform:rotate(-.7deg);}
+  .bubble .stars{color:var(--caramel);letter-spacing:3px;margin-bottom:12px;font-size:1.05rem;}
+  .bubble blockquote{font-size:.99rem;font-style:italic;}
+  .bubble-who{margin-top:30px;display:flex;gap:34px;justify-content:center;flex-wrap:wrap;}
+  .bubble-who .w{font-family:'Caveat',cursive;font-weight:700;font-size:1.3rem;color:var(--espresso-2);transform:rotate(-1deg);}
+  .review-total{margin-top:44px;text-align:center;}
+  .review-total .pill{
+    display:inline-block;background:var(--espresso);color:var(--cream);
+    border-radius:999px;padding:12px 30px;font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:700;font-size:1.05rem;transform:rotate(-1deg);
+    box-shadow:5px 5px 0 var(--caramel);
+  }
+  @media(max-width:860px){.bubble-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:100px 0 90px;}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start;}
+  .contact h2{
+    font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;text-transform:uppercase;
+    color:var(--espresso);margin-bottom:14px;line-height:1;
+  }
+  .contact h2 em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--caramel);}
+  .contact .script{font-size:1.6rem;color:var(--bottle);display:inline-block;transform:rotate(-1.5deg);margin-bottom:36px;}
+  .c-lines{display:grid;gap:20px;}
+  .c-line{display:flex;gap:16px;align-items:flex-start;}
+  .c-line .ico{
+    flex:none;width:46px;height:46px;border-radius:14px;
+    background:var(--paper);border:2px solid var(--espresso);
+    display:grid;place-items:center;font-size:1.2rem;
+    box-shadow:3px 3px 0 var(--milk);
+  }
+  .c-line a{color:var(--espresso);font-weight:700;text-decoration:none;font-size:1.05rem;font-family:'Bricolage Grotesque',sans-serif;}
+  .c-line a:hover{color:var(--caramel-deep);}
+  .c-line .sub{font-size:.9rem;color:var(--muted);}
+  .hours-card{
+    background:var(--espresso);color:var(--cream);border-radius:26px;
+    padding:38px 36px;transform:rotate(1deg);
+    box-shadow:9px 9px 0 var(--caramel);
+  }
+  .hours-card h3{
+    font-size:1.05rem;text-transform:uppercase;letter-spacing:.15em;color:var(--caramel);
+    margin-bottom:24px;font-weight:700;
+  }
+  .h-line{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;}
+  .h-line .d{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;white-space:nowrap;}
+  .h-line .dots{flex:1;border-bottom:2px dotted rgba(251,244,228,.3);transform:translateY(-4px);}
+  .h-line .t{font-weight:600;white-space:nowrap;}
+  .hours-card .script{font-size:1.35rem;color:var(--milk);display:block;margin-top:22px;transform:rotate(-1deg);}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:52px;}}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--espresso);color:rgba(251,244,228,.7);
+    padding:34px 0;font-size:.9rem;border-top:2px solid var(--caramel);
+  }
+  .footer-inner{
+    max-width:1140px;margin:0 auto;padding:0 24px;
+    display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
+  }
+  footer .fl{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:var(--cream);font-size:1.05rem;text-transform:uppercase;}
+  footer a{color:var(--cream);text-decoration:none;}
+  footer .demo-note{font-size:.78rem;opacity:.55;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">Bob<span>✳</span>Murphy</a>
+    <nav class="links">
+      <a href="#menu">Menü</a>
+      <a href="#solaeufts">So läuft's</a>
+      <a href="#mobilebar">Mobile Bar</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-cta" href="tel:+493049965927">☎ 030 499 659 27</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker script">Straßmannstraße 29 · Friedrichshain</span>
+    <h1>Kaffee aus<br>dem <span class="outline">Fenster.</span></h1>
+  </div>
+  <div class="hero-stage">
+    <div class="side-note">
+      <div class="big">Mo–Fr 7:30<br>Sa–So 8:30</div>
+      <div class="sub">bis 17:00 — jeden Tag</div>
+      <span class="script">Croissants, solange<br>der Ofen liefert!</span>
+    </div>
+    <div class="arch-wrap">
+      <div class="sticker"><div><div class="n">4,9 ★</div><div class="s">347 GOOGLE-BEWERTUNGEN</div></div></div>
+      <div class="sticker green"><div><div class="n">☕</div><div class="s">BOHNEN AUS DEM KIEZ</div></div></div>
+      <div class="arch">
+        <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Barista gießt Latte Art in eine Tasse">
+      </div>
+    </div>
+    <div class="side-note r">
+      <div class="big">#68 von<br>6.672 Cafés</div>
+      <div class="sub">in ganz Berlin</div>
+      <span class="script">kein Laden — ein Fenster,<br>Bänke & die Sonne ↘</span>
+    </div>
+  </div>
+  <div class="hero-ctas">
+    <a class="btn primary" href="#menu">Menü ansehen</a>
+    <a class="btn ghost" href="#kontakt">So findest du uns</a>
+  </div>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Flat White</span><span>Croissants</span><span>Pain au Chocolat</span><span>Smoothies</span><span>Hausgemachte Cookies</span><span>Eistee</span><span>Mobile Cocktailbar</span>
+      <span>Flat White</span><span>Croissants</span><span>Pain au Chocolat</span><span>Smoothies</span><span>Hausgemachte Cookies</span><span>Eistee</span><span>Mobile Cocktailbar</span>
+    </div>
+  </div>
+</section>
+
+<section class="menuboard" id="menu">
+  <div class="wrap" style="position:relative;">
+    <div class="board-polaroid">
+      <img src="https://images.pexels.com/photos/3892469/pexels-photo-3892469.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Frisches Butter-Croissant auf Holzbrett">
+      <div class="cap">frisch & buttrig ♥</div>
+    </div>
+    <div class="headrow">
+      <h2>Die <em>Tafel.</em></h2>
+      <span class="script">alles hausgemacht, versprochen!</span>
+    </div>
+    <div class="board-grid">
+      <div class="board-col">
+        <h3>— Kaffee & Co.</h3>
+        <div class="mi"><span class="name">Espresso</span><span class="dots"></span><span class="price">2,20 €</span></div>
+        <div class="mi"><span class="name">Cappuccino</span><span class="dots"></span><span class="price">3,40 €</span></div>
+        <div class="mi"><span class="name">Flat White</span><span class="dots"></span><span class="price">3,80 €</span></div>
+        <div class="mi"><span class="name">Filterkaffee</span><span class="dots"></span><span class="price">3,00 €</span></div>
+        <div class="mi"><span class="name">Eiskaffee</span><span class="dots"></span><span class="price">4,20 €</span></div>
+        <div class="mi"><span class="name">Hausgemachter Eistee</span><span class="dots"></span><span class="price">3,50 €</span></div>
+      </div>
+      <div class="board-col">
+        <h3>— Süsses & Frisches</h3>
+        <div class="mi"><span class="name">Butter-Croissant</span><span class="dots"></span><span class="price">2,50 €</span></div>
+        <div class="mi"><span class="name">Pain au Chocolat</span><span class="dots"></span><span class="price">3,00 €</span></div>
+        <div class="mi"><span class="name">Hausgemachter Cookie</span><span class="dots"></span><span class="price">2,20 €</span></div>
+        <div class="mi"><span class="name">Smoothie des Tages</span><span class="dots"></span><span class="price">4,50 €</span></div>
+        <div class="mi"><span class="name">Banana Bread</span><span class="dots"></span><span class="price">3,20 €</span></div>
+      </div>
+    </div>
+    <div class="board-note">
+      <span class="script">↑ Beispielpreise — die echte Tafel hängt am Fenster ↑</span>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="solaeufts">
+  <div class="wrap">
+    <div class="headrow">
+      <h2>So <em>läuft's</em> bei uns.</h2><br>
+      <span class="script">kein Schnickschnack, nur guter Kaffee</span>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <span class="num">1</span>
+        <h3>Ans Fenster kommen</h3>
+        <p>Kein großer Laden — ein Fenster zur Straßmannstraße. Bestell direkt am Tresen, wir kennen unsere Stammgäste beim Namen.</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <h3>Frisch gebrüht kriegen</h3>
+        <p>Bohnen aus der Friedrichshainer Rösterei, frisch gemahlen, auf den Punkt gebrüht. Dazu ein Croissant? Gute Entscheidung.</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <h3>Bank & Sonne genießen</h3>
+        <p>Tische an der ruhigen Straße, Kiezleben inklusive. Oder auf die Hand — schmeckt unterwegs genauso gut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mobilebar" id="mobilebar">
+  <div class="giant">Mobile Bar ✳ Mobile Bar</div>
+  <div class="wrap">
+    <div class="mb-grid">
+      <div class="mb-photos">
+        <div class="p1">
+          <img src="https://images.pexels.com/photos/613182/pexels-photo-613182.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bar-Setup im Sonnenlicht bei einem Event">
+          <div class="cap">unser Anhänger im Einsatz</div>
+        </div>
+        <div class="p2">
+          <img src="https://images.pexels.com/photos/1170599/pexels-photo-1170599.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gin Tonic Cocktail mit frischen Zutaten">
+          <div class="cap">Cocktails? Machen wir.</div>
+        </div>
+      </div>
+      <div>
+        <h2>Bob Murphy kommt <em>zu dir.</em></h2>
+        <p class="lead">Unser umgebauter Retro-Anhänger bringt Spitzenkaffee, Cocktails und hausgemachte
+        Limo direkt zu deiner Feier — von der Hochzeit bis zum Firmenfest.</p>
+        <ul class="mb-facts">
+          <li><span class="chip">bis 200</span> Gäste — Hochzeiten, Firmenevents, Festivals</li>
+          <li><span class="chip">0 €</span> Anfahrt innerhalb Berlins</li>
+          <li><span class="chip">300 km</span> Radius — wir kommen auch raus aus der Stadt</li>
+          <li><span class="chip">3 in 1</span> Kaffee · Cocktails · Limonade</li>
+        </ul>
+        <a class="btn primary" href="tel:+493049965927">Event anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galerie">
+  <div class="wrap">
+    <div class="headrow">
+      <h2>Ein Fenster, viele Momente.</h2><br>
+      <span class="script">Schnappschüsse aus dem Kiez</span>
+    </div>
+    <div class="pol-row">
+      <div class="pol"><img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Latte Art Cappuccino am Fenster"><div class="cap">der erste Schluck</div></div>
+      <div class="pol"><img src="https://images.pexels.com/photos/1510682/pexels-photo-1510682.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Croissant-Frühstück mit Beeren und Kaffee"><div class="cap">Frühstück am Fenster</div></div>
+      <div class="pol"><img src="https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hausgemachte Schoko-Cookies auf einem Teller"><div class="cap">Cookies — bis nachmittags weg</div></div>
+      <div class="pol"><img src="https://images.pexels.com/photos/4820817/pexels-photo-4820817.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hände prüfen frisch geröstete Kaffeebohnen"><div class="cap">Bohnen aus dem Kiez</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="headrow">
+      <h2>Der Kiez <em>schwärmt.</em></h2>
+    </div>
+    <div class="bubble-grid">
+      <div class="bubble">
+        <div class="stars">★★★★★</div>
+        <blockquote>„Der beste Kaffee im Kiez, ohne Diskussion. Und die Leute am Fenster sind einfach herzlich — man geht immer mit einem Lächeln weg."</blockquote>
+      </div>
+      <div class="bubble">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Best coffee in the hood, nice people. The flat white is perfect and the croissants disappear for a reason."</blockquote>
+      </div>
+      <div class="bubble">
+        <div class="stars">★★★★★</div>
+        <blockquote>„Kleines Fenster, riesige Qualität. Cappuccino, Cookie, Bank an der Sonne — mehr braucht ein Samstag nicht."</blockquote>
+      </div>
+    </div>
+    <div class="bubble-who">
+      <span class="w">— Nachbarin aus F'hain</span>
+      <span class="w">— regular from the Kiez</span>
+      <span class="w">— Samstagsgast</span>
+    </div>
+    <div class="review-total">
+      <span class="pill">★ 4,9 von 5 — 347 Bewertungen auf Google</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Komm auf 'nen <em>Kaffee</em> vorbei.</h2>
+        <span class="script">zwischen Frankfurter Tor & Volkspark</span>
+        <div class="c-lines">
+          <div class="c-line">
+            <span class="ico">📍</span>
+            <div>
+              <a href="https://maps.google.com/?q=Bob+Murphy+Straßmannstraße+29+10249+Berlin" target="_blank" rel="noopener">Straßmannstraße 29, 10249 Berlin</a>
+              <div class="sub">Friedrichshain — ruhige Ecke, gute Bänke</div>
+            </div>
+          </div>
+          <div class="c-line">
+            <span class="ico">📞</span>
+            <div>
+              <a href="tel:+493049965927">030 499 659 27</a>
+              <div class="sub">auch für Event- & Catering-Anfragen</div>
+            </div>
+          </div>
+          <div class="c-line">
+            <span class="ico">📸</span>
+            <div>
+              <a href="https://www.instagram.com/bobmurphyde/" target="_blank" rel="noopener">@bobmurphyde</a>
+              <div class="sub">Tagesaktuelles aus dem Fenster</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hours-card">
+        <h3>Öffnungszeiten</h3>
+        <div class="h-line"><span class="d">Montag – Freitag</span><span class="dots"></span><span class="t">7:30 – 17:00</span></div>
+        <div class="h-line"><span class="d">Samstag</span><span class="dots"></span><span class="t">8:30 – 17:00</span></div>
+        <div class="h-line"><span class="d">Sonntag</span><span class="dots"></span><span class="t">8:30 – 17:00</span></div>
+        <span class="script">Bei Sonne: Bänke raus.<br>Bei Regen: Kaffee auf die Hand.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="fl">Bob ✳ Murphy</div>
+    <div>Straßmannstraße 29, 10249 Berlin · <a href="tel:+493049965927">030 499 659 27</a> · <a href="https://www.instagram.com/bobmurphyde/" target="_blank" rel="noopener">Instagram</a></div>
+    <div class="demo-note">Unverbindlicher Design-Entwurf · Fotos: Pexels (Platzhalter) · Preise beispielhaft</div>
+  </div>
+</footer>
+
+</body>
+</html>
