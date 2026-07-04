@@ -14,7 +14,6 @@
     --milk:#F3E7CE;
     --espresso:#26180D;
     --espresso-2:#33220F;
-    --roast:#0A0503;
     --caramel:#C87B2E;
     --caramel-deep:#A55E1A;
     --bottle:#31614A;
@@ -39,8 +38,8 @@
   /* ---------- NAV ---------- */
   header.nav{
     position:sticky;top:0;z-index:60;
-    background:var(--roast);
-    border-bottom:2px solid var(--caramel);
+    background:var(--cream);
+    border-bottom:2px solid var(--espresso);
   }
   .nav-inner{
     max-width:1240px;margin:0 auto;padding:13px 24px;
@@ -48,29 +47,29 @@
   }
   .logo{
     font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;
-    letter-spacing:.03em;text-decoration:none;color:var(--cream);text-transform:uppercase;
+    letter-spacing:.03em;text-decoration:none;color:var(--espresso);text-transform:uppercase;
   }
   .logo span{color:var(--caramel);}
   nav.links{display:flex;gap:24px;font-weight:600;font-size:.93rem;text-transform:uppercase;letter-spacing:.05em;}
-  nav.links a{text-decoration:none;color:var(--cream);opacity:.85;}
-  nav.links a:hover{opacity:1;color:var(--caramel);}
+  nav.links a{text-decoration:none;color:var(--espresso);opacity:.85;}
+  nav.links a:hover{opacity:1;color:var(--caramel-deep);}
   .nav-cta{
     text-decoration:none;background:var(--caramel);color:var(--espresso);
     padding:9px 20px;border-radius:999px;font-weight:600;font-size:.9rem;
-    border:2px solid var(--caramel);white-space:nowrap;
+    border:2px solid var(--espresso);white-space:nowrap;
   }
-  .nav-cta:hover{background:var(--cream);border-color:var(--cream);}
+  .nav-cta:hover{background:var(--espresso);color:var(--cream);}
   @media(max-width:900px){nav.links{display:none;}}
 
-  /* ---------- HERO (poster, dark) ---------- */
-  .hero{padding:58px 0 0;text-align:center;position:relative;background:var(--roast);color:var(--cream);}
+  /* ---------- HERO (poster, light) ---------- */
+  .hero{padding:58px 0 0;text-align:center;position:relative;background:var(--cream);color:var(--ink);}
   .hero .kicker{
-    display:inline-block;font-size:1.5rem;color:#EFC98B;
+    display:inline-block;font-size:1.5rem;color:var(--caramel-deep);
     transform:rotate(-1.5deg);margin-bottom:6px;
   }
   .hero h1{
     font-size:clamp(3rem,8.2vw,6.4rem);font-weight:800;text-transform:uppercase;
-    letter-spacing:-.015em;color:var(--cream);
+    letter-spacing:-.015em;color:var(--espresso);
   }
   .hero h1 .outline{
     color:transparent;-webkit-text-stroke:2.5px var(--caramel);
@@ -82,7 +81,7 @@
   .arch-wrap{position:relative;width:min(430px,80vw);margin:0 auto;}
   .arch{
     width:100%;border-radius:999px 999px 26px 26px;overflow:hidden;
-    border:3px solid var(--cream);
+    border:3px solid var(--espresso);
     box-shadow:10px 12px 0 var(--caramel);
   }
   .arch img{width:100%;height:490px;object-fit:cover;}
@@ -90,13 +89,13 @@
   .side-note.r{text-align:left;}
   .side-note .big{
     font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;
-    color:var(--cream);line-height:1.1;
+    color:var(--espresso);line-height:1.1;
   }
-  .side-note .sub{font-size:.92rem;color:rgba(251,244,228,.55);margin-top:6px;}
-  .side-note .script{font-size:1.45rem;color:#EFC98B;display:block;margin-top:14px;transform:rotate(-2deg);}
+  .side-note .sub{font-size:.92rem;color:var(--muted);margin-top:6px;}
+  .side-note .script{font-size:1.45rem;color:var(--caramel-deep);display:block;margin-top:14px;transform:rotate(-2deg);}
   .sticker{
     position:absolute;z-index:3;display:grid;place-items:center;text-align:center;
-    background:var(--caramel);color:var(--espresso);border:2.5px solid var(--cream);
+    background:var(--caramel);color:var(--espresso);border:2.5px solid var(--espresso);
     width:128px;height:128px;border-radius:50%;
     font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
     transform:rotate(-10deg);
@@ -111,8 +110,6 @@
     top:auto;left:auto;bottom:-26px;right:-40px;transform:rotate(8deg);
   }
   .hero-ctas{margin-top:44px;padding-bottom:56px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-  .hero .btn.primary{background:var(--caramel);color:var(--espresso);border-color:var(--cream);box-shadow:5px 5px 0 rgba(251,244,228,.22);}
-  .hero .btn.ghost{color:var(--cream);border-color:var(--cream);box-shadow:5px 5px 0 rgba(200,123,46,.35);}
   .btn{
     text-decoration:none;font-weight:700;border-radius:999px;
     padding:15px 34px;font-size:1rem;display:inline-block;
