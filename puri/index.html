@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PURI — Piekarnia Gruzińska we Wrocławiu | Chaczapuri, tonis puri, samsa</title>
+<meta name="description" content="PURI — gruzińska piekarnia we Wrocławiu. Chaczapuri adżarskie, tonis puri i samsa prosto z pieca. Krupnicza 10, Świdnicka 9b, Piłsudskiego 60. Ocena 4,7★ w Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;900&family=Onest:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF4E8;
+    --flour:#FFFBF2;
+    --char:#2A181B;
+    --char-soft:#4A3236;
+    --pome:#A62639;
+    --pome-deep:#821D2D;
+    --wheat:#E3A857;
+    --wheat-soft:#F3D9AE;
+    --line:#2A181B;
+    --radius:22px;
+    --radius-sm:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Onest',sans-serif;
+    background:var(--ivory);
+    color:var(--char);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .geo{font-family:'Noto Serif Georgian',serif}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--ivory);
+    border-bottom:2px solid var(--char);
+    transition:box-shadow .25s;
+  }
+  header.nav.scrolled{box-shadow:0 6px 24px rgba(42,24,27,.12)}
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;gap:28px;
+  }
+  .logo{
+    font-family:'Unbounded',sans-serif;font-weight:900;font-size:1.35rem;
+    letter-spacing:-.02em;text-decoration:none;display:flex;align-items:baseline;gap:10px;
+  }
+  .logo .geo{font-size:.95rem;font-weight:700;color:var(--pome)}
+  .nav-links{display:flex;gap:26px;margin-left:auto;list-style:none}
+  .nav-links a{
+    text-decoration:none;font-weight:600;font-size:.95rem;
+    border-bottom:2px solid transparent;padding-bottom:2px;
+  }
+  .nav-links a:hover{border-color:var(--pome);color:var(--pome)}
+  .nav-cta{
+    background:var(--pome);color:var(--flour);text-decoration:none;
+    font-weight:700;font-size:.92rem;padding:10px 20px;border-radius:999px;
+    border:2px solid var(--char);box-shadow:3px 3px 0 var(--char);
+    transition:transform .15s, box-shadow .15s;white-space:nowrap;
+  }
+  .nav-cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--char)}
+  .burger{display:none}
+
+  /* ---------- HERO BENTO ---------- */
+  .hero{padding:36px 0 20px}
+  .bento{
+    max-width:1200px;margin:0 auto;padding:0 24px;
+    display:grid;gap:16px;
+    grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:minmax(96px,auto);
+  }
+  .tile{
+    border:2px solid var(--char);border-radius:var(--radius);
+    overflow:hidden;position:relative;background:var(--flour);
+  }
+  .tile-photo{grid-column:1/8;grid-row:1/6;min-height:420px}
+  .tile-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .tile-photo .photo-tag{
+    position:absolute;left:18px;bottom:18px;
+    background:var(--flour);border:2px solid var(--char);border-radius:999px;
+    padding:8px 18px;font-weight:700;font-size:.9rem;
+    box-shadow:3px 3px 0 var(--char);
+  }
+  .tile-head{
+    grid-column:8/13;grid-row:1/4;
+    padding:26px 28px 24px;display:flex;flex-direction:column;justify-content:center;gap:12px;
+    min-width:0;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pome);
+  }
+  .kicker::before{content:"";width:26px;height:2px;background:var(--pome);display:inline-block}
+  h1{
+    font-family:'Unbounded',sans-serif;font-weight:700;
+    font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.18;letter-spacing:-.01em;
+  }
+  h1 em{font-style:normal;color:var(--pome)}
+  .hero-sub{font-size:1rem;color:var(--char-soft);max-width:40ch}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+  .btn{
+    text-decoration:none;font-weight:700;font-size:.95rem;
+    padding:12px 24px;border-radius:999px;border:2px solid var(--char);
+    transition:transform .15s, box-shadow .15s;display:inline-block;
+  }
+  .btn-solid{background:var(--char);color:var(--flour);box-shadow:3px 3px 0 var(--wheat)}
+  .btn-solid:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--wheat)}
+  .btn-ghost{background:transparent;color:var(--char);box-shadow:3px 3px 0 var(--char)}
+  .btn-ghost:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--char)}
+  .tile-rating{
+    grid-column:8/11;grid-row:4/6;background:var(--pome);color:var(--flour);
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    padding:18px 22px;gap:2px;
+  }
+  .tile-rating .stars{font-size:1.05rem;letter-spacing:2px;color:var(--wheat)}
+  .tile-rating .score{font-family:'Unbounded',sans-serif;font-weight:900;font-size:1.9rem;line-height:1.1}
+  .tile-rating .src{font-size:.82rem;opacity:.85;font-weight:500}
+  .tile-word{
+    grid-column:11/13;grid-row:4/6;background:var(--wheat);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    padding:12px;gap:2px;
+  }
+  .tile-word .geo{font-size:1.7rem;font-weight:700;line-height:1.15}
+  .tile-word small{font-weight:600;font-size:.78rem;color:var(--char-soft)}
+  .tile-strip{
+    grid-column:1/13;grid-row:6/7;background:var(--char);color:var(--flour);
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:0 28px;flex-wrap:wrap;
+  }
+  .strip-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;padding:8px 0}
+  .strip-item b{color:var(--wheat)}
+  .strip-dot{width:7px;height:7px;border-radius:50%;background:var(--pome);flex-shrink:0}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:76px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:38px;flex-wrap:wrap}
+  h2{
+    font-family:'Unbounded',sans-serif;font-weight:700;
+    font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.01em;line-height:1.15;
+  }
+  .sec-head .geo-side{
+    font-size:1rem;color:var(--pome);font-weight:700;white-space:nowrap;
+  }
+  .crimp{height:14px;margin:0 auto;max-width:1200px;padding:0 24px}
+  .crimp svg{display:block;width:100%;height:14px}
+
+  /* ---------- MENU COUNTER (horizontal snap) ---------- */
+  .counter-outer{position:relative}
+  .counter{
+    display:flex;gap:18px;overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:6px 24px 22px;
+    max-width:1200px;margin:0 auto;
+    scrollbar-width:thin;scrollbar-color:var(--pome) transparent;
+  }
+  .counter::-webkit-scrollbar{height:8px}
+  .counter::-webkit-scrollbar-thumb{background:var(--pome);border-radius:99px}
+  .counter::-webkit-scrollbar-track{background:rgba(42,24,27,.08);border-radius:99px}
+  .dish{
+    flex:0 0 258px;scroll-snap-align:start;
+    border:2px solid var(--char);border-radius:var(--radius);
+    background:var(--flour);overflow:hidden;
+    transition:transform .18s, box-shadow .18s;
+  }
+  .dish:hover{transform:translateY(-5px);box-shadow:5px 7px 0 var(--wheat)}
+  .dish img{width:100%;height:170px;object-fit:cover;border-bottom:2px solid var(--char)}
+  .dish-body{padding:16px 18px 18px}
+  .dish-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .dish h3{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1rem;line-height:1.25}
+  .price{font-family:'Unbounded',sans-serif;font-weight:700;color:var(--pome);font-size:1rem;white-space:nowrap}
+  .dish .geo{font-size:.82rem;color:var(--char-soft);display:block;margin-top:2px}
+  .dish p{font-size:.88rem;color:var(--char-soft);margin-top:8px}
+  .counter-nav{display:flex;gap:10px}
+  .cbtn{
+    width:44px;height:44px;border-radius:50%;border:2px solid var(--char);
+    background:var(--flour);cursor:pointer;font-size:1.15rem;font-weight:700;color:var(--char);
+    box-shadow:3px 3px 0 var(--char);transition:transform .15s, box-shadow .15s;
+    display:flex;align-items:center;justify-content:center;line-height:1;
+  }
+  .cbtn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--char)}
+
+  /* ---------- STORY ---------- */
+  .story{background:var(--char);color:var(--flour)}
+  .story h2{color:var(--flour)}
+  .story .geo-side{color:var(--wheat)}
+  .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  .story-photo{
+    border:2px solid var(--wheat);border-radius:var(--radius);overflow:hidden;
+    box-shadow:10px 10px 0 var(--pome);
+  }
+  .story-photo img{width:100%;height:420px;object-fit:cover}
+  .steps{display:flex;flex-direction:column;gap:0}
+  .step{
+    display:grid;grid-template-columns:74px 1fr;gap:18px;align-items:flex-start;
+    padding:22px 0;border-top:1px solid rgba(250,244,232,.22);
+  }
+  .step:last-child{border-bottom:1px solid rgba(250,244,232,.22)}
+  .step-num{
+    font-family:'Unbounded',sans-serif;font-weight:900;font-size:1.9rem;color:var(--wheat);
+    line-height:1;
+  }
+  .step h3{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.02rem;margin-bottom:6px}
+  .step p{font-size:.93rem;color:rgba(250,244,232,.75)}
+
+  /* ---------- GALLERY (staggered strip) ---------- */
+  .gal-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;
+  }
+  .gal-item{border:2px solid var(--char);border-radius:var(--radius-sm);overflow:hidden;background:var(--flour)}
+  .gal-item img{width:100%;height:280px;object-fit:cover;transition:transform .35s}
+  .gal-item:hover img{transform:scale(1.045)}
+  .gal-grid > :nth-child(even){margin-top:34px}
+  .gal-quote{
+    background:var(--wheat);display:flex;flex-direction:column;justify-content:center;
+    padding:24px;height:280px;
+  }
+  .gal-quote .geo{font-size:2.1rem;font-weight:700;line-height:1.2}
+  .gal-quote small{margin-top:10px;font-weight:600;color:var(--char-soft);font-size:.85rem}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--flour);border-top:2px solid var(--char);border-bottom:2px solid var(--char)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{
+    border:2px solid var(--char);border-radius:var(--radius);
+    background:var(--ivory);padding:26px 24px 22px;position:relative;
+  }
+  .rev::before{
+    content:"„";font-family:'Noto Serif Georgian',serif;
+    position:absolute;top:-24px;left:18px;font-size:3.4rem;color:var(--pome);
+    background:var(--flour);line-height:1;padding:0 8px;
+  }
+  .rev p{font-size:.95rem;margin-top:6px}
+  .rev-meta{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+  .rev-meta b{font-size:.92rem}
+  .rev-meta .stars{color:var(--pome);letter-spacing:2px;font-size:.9rem}
+  .rev-badge{
+    margin-top:36px;display:flex;justify-content:center;
+  }
+  .rev-badge span{
+    display:inline-flex;align-items:center;gap:10px;
+    border:2px solid var(--char);border-radius:999px;background:var(--wheat);
+    padding:10px 24px;font-weight:700;font-size:.95rem;box-shadow:3px 3px 0 var(--char);
+  }
+
+  /* ---------- LOCATIONS ---------- */
+  .loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .loc{
+    border:2px solid var(--char);border-radius:var(--radius);background:var(--flour);
+    padding:26px;display:flex;flex-direction:column;gap:10px;position:relative;
+  }
+  .loc.main{background:var(--char);color:var(--flour)}
+  .loc.main .loc-tag{position:absolute;top:-14px;right:18px;background:var(--pome);color:var(--flour);
+    border:2px solid var(--char);border-radius:999px;padding:4px 14px;font-size:.78rem;font-weight:700}
+  .loc h3{font-family:'Unbounded',sans-serif;font-weight:600;font-size:1.05rem}
+  .loc .geo{color:var(--pome);font-weight:700;font-size:.85rem}
+  .loc.main .geo{color:var(--wheat)}
+  .loc p{font-size:.92rem;color:var(--char-soft)}
+  .loc.main p{color:rgba(250,244,232,.78)}
+  .loc a.loc-link{font-weight:700;font-size:.92rem;color:var(--pome);text-decoration:none;margin-top:auto}
+  .loc.main a.loc-link{color:var(--wheat)}
+  .loc a.loc-link:hover{text-decoration:underline}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact{background:var(--pome);color:var(--flour);border-top:2px solid var(--char)}
+  .contact-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
+  .contact h2{color:var(--flour)}
+  .contact p.lead{margin-top:14px;font-size:1.02rem;color:rgba(250,244,232,.88);max-width:46ch}
+  .contact-card{
+    background:var(--flour);color:var(--char);border:2px solid var(--char);
+    border-radius:var(--radius);padding:30px;box-shadow:8px 8px 0 var(--char);
+  }
+  .contact-card h3{font-family:'Unbounded',sans-serif;font-size:1.05rem;margin-bottom:16px}
+  .c-row{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed rgba(42,24,27,.25)}
+  .c-row:first-of-type{border-top:none}
+  .c-row .ic{width:10px;height:10px;border-radius:50%;background:var(--pome);margin-top:8px;flex-shrink:0}
+  .c-row b{display:block;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--char-soft)}
+  .c-row a{font-weight:700;text-decoration:none;font-size:1.05rem}
+  .c-row a:hover{color:var(--pome)}
+  .delivery{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+  .delivery a{
+    text-decoration:none;font-weight:700;font-size:.85rem;
+    border:2px solid var(--char);border-radius:999px;padding:8px 16px;background:var(--wheat);
+    transition:transform .15s;
+  }
+  .delivery a:hover{transform:translateY(-2px)}
+  footer{background:var(--char);color:rgba(250,244,232,.7);padding:26px 0;font-size:.88rem}
+  .foot-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .foot-inner .geo{color:var(--wheat)}
+  footer a{color:var(--flour);text-decoration:none;font-weight:600}
+  footer a:hover{color:var(--wheat)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .bento{grid-auto-rows:auto}
+    .tile-photo{grid-column:1/13;grid-row:auto;min-height:300px}
+    .tile-head{grid-column:1/13;grid-row:auto;padding:26px}
+    .tile-rating{grid-column:1/8;grid-row:auto;min-height:130px}
+    .tile-word{grid-column:8/13;grid-row:auto;min-height:130px}
+    .tile-strip{grid-column:1/13;grid-row:auto;padding:14px 22px}
+    .story-grid{grid-template-columns:1fr}
+    .story-photo img{height:320px}
+    .rev-grid{grid-template-columns:1fr}
+    .loc-grid{grid-template-columns:1fr}
+    .contact-inner{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
+    .gal-grid > :nth-child(even){margin-top:0}
+    .nav-links{display:none}
+  }
+  @media (max-width:560px){
+    .gal-grid{grid-template-columns:1fr}
+    .gal-item img,.gal-quote{height:240px}
+    .dish{flex-basis:230px}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="logo" href="#top">PURI <span class="geo">პური</span></a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#piec">Nasz piec</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#opinie">Opinie</a></li>
+      <li><a href="#piekarnie">Piekarnie</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+48514917777">Zadzwoń: 514 917 777</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="bento">
+    <div class="tile tile-photo">
+      <img src="https://images.pexels.com/photos/18330960/pexels-photo-18330960.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Chaczapuri adżarskie z żółtkiem prosto z pieca">
+      <span class="photo-tag">Chaczapuri adżarskie — nasz bestseller</span>
+    </div>
+    <div class="tile tile-head">
+      <span class="kicker">Piekarnia gruzińska · Wrocław</span>
+      <h1>Chaczapuri jak w Tbilisi. <em>Prosto z pieca</em>, w sercu Wrocławia.</h1>
+      <p class="hero-sub">Gorące pieczywo według tradycyjnych gruzińskich receptur — na miejscu, na wynos i z dostawą.</p>
+      <div class="hero-btns">
+        <a class="btn btn-solid" href="#menu">Zobacz menu</a>
+        <a class="btn btn-ghost" href="#piekarnie">Znajdź piekarnię</a>
+      </div>
+    </div>
+    <div class="tile tile-rating">
+      <span class="stars">★★★★★</span>
+      <span class="score">4,7 / 5</span>
+      <span class="src">191 opinii w Google</span>
+    </div>
+    <div class="tile tile-word">
+      <span class="geo">პური</span>
+      <small>„puri" = chleb po gruzińsku</small>
+    </div>
+    <div class="tile tile-strip">
+      <span class="strip-item"><span class="strip-dot"></span>Codziennie <b>świeży wypiek</b></span>
+      <span class="strip-item"><span class="strip-dot"></span><b>3 piekarnie</b> we Wrocławiu</span>
+      <span class="strip-item"><span class="strip-dot"></span>Dostawa: <b>Pyszne.pl · Uber Eats</b></span>
+      <span class="strip-item"><span class="strip-dot"></span>Krupnicza 10 · <b>2 min od Rynku</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="crimp" aria-hidden="true">
+  <svg viewBox="0 0 1200 14" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 12 Q15 1 30 12 Q45 1 60 12 Q75 1 90 12 Q105 1 120 12 Q135 1 150 12 Q165 1 180 12 Q195 1 210 12 Q225 1 240 12 Q255 1 270 12 Q285 1 300 12 Q315 1 330 12 Q345 1 360 12 Q375 1 390 12 Q405 1 420 12 Q435 1 450 12 Q465 1 480 12 Q495 1 510 12 Q525 1 540 12 Q555 1 570 12 Q585 1 600 12 Q615 1 630 12 Q645 1 660 12 Q675 1 690 12 Q705 1 720 12 Q735 1 750 12 Q765 1 780 12 Q795 1 810 12 Q825 1 840 12 Q855 1 870 12 Q885 1 900 12 Q915 1 930 12 Q945 1 960 12 Q975 1 990 12 Q1005 1 1020 12 Q1035 1 1050 12 Q1065 1 1080 12 Q1095 1 1110 12 Q1125 1 1140 12 Q1155 1 1170 12 Q1185 1 1200 12" fill="none" stroke="#A62639" stroke-width="2.5"/>
+  </svg>
+</div>
+
+<section id="menu">
+  <div class="wrap sec-head rv">
+    <div>
+      <h2>Lada pełna Gruzji</h2>
+      <span class="geo-side geo">ხაჭაპური · სამსა · ლობიანი</span>
+    </div>
+    <div class="counter-nav">
+      <button class="cbtn" id="cprev" aria-label="Przewiń w lewo">&#8592;</button>
+      <button class="cbtn" id="cnext" aria-label="Przewiń w prawo">&#8594;</button>
+    </div>
+  </div>
+  <div class="counter-outer rv">
+    <div class="counter" id="counter">
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/15913607/pexels-photo-15913607.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chaczapuri adżarskie">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Chaczapuri adżarskie</h3><span class="price">24 zł</span></div>
+          <span class="geo">აჭარული ხაჭაპური</span>
+          <p>Łódeczka z serem, masłem i żółtkiem — mieszasz i jesz łyżką.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/33637751/pexels-photo-33637751.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chaczapuri imeruli">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Chaczapuri imeruli</h3><span class="price">18 zł</span></div>
+          <span class="geo">იმერული ხაჭაპური</span>
+          <p>Klasyk: okrągły placek z serem imeretyńskim zapieczonym w środku.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/33637714/pexels-photo-33637714.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chaczapuri megruli">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Chaczapuri megruli</h3><span class="price">22 zł</span></div>
+          <span class="geo">მეგრული ხაჭაპური</span>
+          <p>Podwójny ser: w środku i na wierzchu. Dla głodnych na serio.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/10254264/pexels-photo-10254264.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kubdari">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Kubdari</h3><span class="price">23 zł</span></div>
+          <span class="geo">კუბდარი</span>
+          <p>Górski placek ze Swanetii z pieczoną, przyprawioną wołowiną.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/6123240/pexels-photo-6123240.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lobiani">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Lobiani</h3><span class="price">16 zł</span></div>
+          <span class="geo">ლობიანი</span>
+          <p>Placek z pastą z czerwonej fasoli — sycący i w 100% roślinny.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/30666738/pexels-photo-30666738.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Samsa">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Samsa</h3><span class="price">14 zł</span></div>
+          <span class="geo">სამსა</span>
+          <p>Chrupiący trójkąt z mięsnym nadzieniem, prosto z gorącej blachy.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/35815220/pexels-photo-35815220.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tonis puri">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Tonis puri</h3><span class="price">8 zł</span></div>
+          <span class="geo">თონის პური</span>
+          <p>Tradycyjny gruziński chleb pieczony na ścianie pieca tone.</p>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="https://images.pexels.com/photos/7543099/pexels-photo-7543099.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cynamonka PURI">
+        <div class="dish-body">
+          <div class="dish-top"><h3>Cynamonka PURI</h3><span class="price">12 zł</span></div>
+          <span class="geo">დარიჩინი</span>
+          <p>Na słodko: puszysta bułka cynamonowa z lukrem. Znika pierwsza.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="piec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <h2>Z pieca, nie z taśmy</h2>
+        <span class="geo-side geo">თონე — tone, gruziński piec</span>
+      </div>
+    </div>
+    <div class="story-grid">
+      <div class="story-photo rv">
+        <img src="https://images.pexels.com/photos/36445365/pexels-photo-36445365.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Piekarze formujący ciasto w tradycyjnej piekarni">
+      </div>
+      <div class="steps rv">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Ciasto od świtu</h3>
+            <p>Zaczynamy przed otwarciem: mąka, woda, sól i czas. Ciasto wyrabiamy i formujemy ręcznie, partiami przez cały dzień.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Ogień i kamień</h3>
+            <p>Pieczemy szybko, w wysokiej temperaturze — tak jak w gruzińskim tone. Stąd chrupiąca skórka i miękki, parujący środek.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Na ladę, póki gorące</h3>
+            <p>Nie robimy zapasów na wieczór. Jeśli chaczapuri leży na ladzie, znaczy że dopiero co wyszło z pieca.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap sec-head rv">
+    <div>
+      <h2>Zajrzyj za ladę</h2>
+      <span class="geo-side geo">გემრიელად მიირთვით — smacznego!</span>
+    </div>
+  </div>
+  <div class="wrap gal-grid rv">
+    <div class="gal-item"><img src="https://images.pexels.com/photos/27305338/pexels-photo-27305338.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kucharz przygotowujący chaczapuri"></div>
+    <div class="gal-item gal-quote">
+      <span class="geo">პური, ღვინო და გული</span>
+      <small>„Chleb, wino i serce" — gruzińskie powiedzenie o gościnności</small>
+    </div>
+    <div class="gal-item"><img src="https://images.pexels.com/photos/35993723/pexels-photo-35993723.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Półki pełne świeżego pieczywa"></div>
+    <div class="gal-item"><img src="https://images.pexels.com/photos/36445141/pexels-photo-36445141.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Świeże wypieki przy piecu"></div>
+  </div>
+</section>
+
+<section class="reviews" id="opinie">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <h2>Wrocław już wie</h2>
+        <span class="geo-side geo">მადლობა — dziękujemy!</span>
+      </div>
+    </div>
+    <div class="rev-grid rv">
+      <div class="rev">
+        <p>Najlepsze chaczapuri, jakie jadłam poza Gruzją. Adżarskie z płynnym żółtkiem to niebo. Czuć, że pieczone na miejscu, a nie odgrzewane.</p>
+        <div class="rev-meta"><b>Karolina</b><span class="stars">★★★★★</span></div>
+      </div>
+      <div class="rev">
+        <p>Byłem w Tbilisi i smak się zgadza. Ciasto cienkie, ser się ciągnie, obsługa bardzo miła. Ceny jak na centrum — uczciwe.</p>
+        <div class="rev-meta"><b>Michał</b><span class="stars">★★★★★</span></div>
+      </div>
+      <div class="rev">
+        <p>W porze lunchu potrafi być kolejka i trzeba chwilę zaczekać — ale gorące lobiani prosto z pieca wynagradza wszystko.</p>
+        <div class="rev-meta"><b>Agnieszka</b><span class="stars">★★★★☆</span></div>
+      </div>
+    </div>
+    <div class="rev-badge rv">
+      <span>★ 4,7 / 5 — średnia ze 191 opinii w Google</span>
+    </div>
+  </div>
+</section>
+
+<section id="piekarnie">
+  <div class="wrap sec-head rv">
+    <div>
+      <h2>Trzy piece, jedno miasto</h2>
+      <span class="geo-side geo">ვროცლავი — Wrocław</span>
+    </div>
+  </div>
+  <div class="wrap loc-grid rv">
+    <div class="loc main">
+      <span class="loc-tag">2 min od Rynku</span>
+      <h3>Krupnicza 10</h3>
+      <span class="geo">კრუპნიჩა 10</span>
+      <p>Nasza piekarnia w samym centrum — idealna na gorące chaczapuri w przerwie od spaceru po Starym Mieście.</p>
+      <p><b>pon–nd:</b> 9:00–21:00</p>
+      <a class="loc-link" href="https://maps.google.com/?q=Piekarnia+Gruzi%C5%84ska+PURI+Krupnicza+10+Wroc%C5%82aw" target="_blank" rel="noopener">Pokaż na mapie →</a>
+    </div>
+    <div class="loc">
+      <h3>Świdnicka 9b</h3>
+      <span class="geo">შვიდნიცკა 9ბ</span>
+      <p>Na wynos, przy głównym deptaku. Złap samsę w drodze na tramwaj.</p>
+      <p><b>pon–nd:</b> 9:00–21:00</p>
+      <a class="loc-link" href="https://maps.google.com/?q=PURI+piekarnia+gruzi%C5%84ska+%C5%9Awidnicka+Wroc%C5%82aw" target="_blank" rel="noopener">Pokaż na mapie →</a>
+    </div>
+    <div class="loc">
+      <h3>Piłsudskiego 60</h3>
+      <span class="geo">პილსუდსკოგო 60</span>
+      <p>Blisko dworca — świeży tonis puri na drogę albo do domu.</p>
+      <p><b>pon–nd:</b> 9:00–21:00</p>
+      <a class="loc-link" href="https://maps.google.com/?q=PURI+piekarnia+gruzi%C5%84ska+Pi%C5%82sudskiego+Wroc%C5%82aw" target="_blank" rel="noopener">Pokaż na mapie →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap contact-inner">
+    <div class="rv">
+      <h2>Gorące? To zamawiaj.</h2>
+      <p class="lead">Zadzwoń i odbierz bez czekania albo zamów z dostawą pod drzwi. A jeśli planujesz większe zamówienie — catering, urodziny, biuro — napisz do nas.</p>
+      <div class="delivery">
+        <a href="https://www.pyszne.pl/menu/piekarnia-gruzinska-puri-krupnicza" target="_blank" rel="noopener">Pyszne.pl</a>
+        <a href="https://www.ubereats.com/pl/store/piekarnia-gruzinska-puri-krupnicza-10-wroclaw/Yk_z17h8UOim-KK4cNBzxg" target="_blank" rel="noopener">Uber Eats</a>
+        <a href="https://instagram.com/puri.pl" target="_blank" rel="noopener">Instagram @puri.pl</a>
+      </div>
+    </div>
+    <div class="contact-card rv">
+      <h3>Piekarnia Krupnicza 10</h3>
+      <div class="c-row">
+        <span class="ic"></span>
+        <div><b>Telefon</b><a href="tel:+48514917777">514 917 777</a></div>
+      </div>
+      <div class="c-row">
+        <span class="ic"></span>
+        <div><b>Adres</b><a href="https://maps.google.com/?q=Piekarnia+Gruzi%C5%84ska+PURI+Krupnicza+10+Wroc%C5%82aw" target="_blank" rel="noopener">Krupnicza 10, 50-075 Wrocław</a></div>
+      </div>
+      <div class="c-row">
+        <span class="ic"></span>
+        <div><b>Godziny</b><a href="#piekarnie">pon–nd: 9:00–21:00</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 PURI — piekarnia gruzińska, Wrocław · <span class="geo">პური</span></span>
+    <span><a href="tel:+48514917777">514 917 777</a> · <a href="https://instagram.com/puri.pl" target="_blank" rel="noopener">@puri.pl</a></span>
+  </div>
+</footer>
+
+<script>
+  var nav = document.querySelector('header.nav');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 10) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+  }, { passive: true });
+
+  var counter = document.getElementById('counter');
+  var step = 276;
+  document.getElementById('cprev').addEventListener('click', function () {
+    counter.scrollBy({ left: -step * 2, behavior: 'smooth' });
+  });
+  document.getElementById('cnext').addEventListener('click', function () {
+    counter.scrollBy({ left: step * 2, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

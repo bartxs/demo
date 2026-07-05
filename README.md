@@ -21,6 +21,7 @@ image/video attachment.
 | `prospects/Dao-Nails-Spa` | https://bartxs.github.io/demo/dao-nails-spa/ |
 | `prospects/Green-Yoga` | https://bartxs.github.io/demo/green-yoga/ |
 | `prospects/Bob-Murphy` | https://bartxs.github.io/demo/bob-murphy/ |
+| `prospects/PURI-Piekarnia-Gruzinska` | https://bartxs.github.io/demo/puri/ |
 
 When a portfolio/studio domain exists, point a custom domain at this repo and
 the paths stay the same.
