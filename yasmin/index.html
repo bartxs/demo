@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blumenhaus Yasmin — Frische Blumen im Boxi-Kiez | Boxhagener Str. 34, Berlin</title>
+<meta name="description" content="Blumenhaus Yasmin in Berlin-Friedrichshain: Sträuße nach Wunsch, Topfpflanzen, Deko und ehrliche Beratung. Auch sonntags geöffnet. Boxhagener Str. 34.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#24382A;
+    --green-ink:#1B2B20;
+    --green-mid:#3E5C46;
+    --cream:#FAF5EC;
+    --ivory:#FFFDF7;
+    --fuchsia:#B93A6E;
+    --fuchsia-deep:#9C2C5B;
+    --rose:#F0DCE2;
+    --ochre:#C98F2D;
+    --ink:#26301F;
+    --ink-soft:#55604B;
+    --line:#E3DACA;
+    --line-dark:rgba(250,245,236,.18);
+    --radius:18px;
+    --shadow:0 18px 45px rgba(36,56,42,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:'Instrument Serif',serif;font-weight:400;line-height:1.06}
+  em{font-style:italic}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  :focus-visible{outline:3px solid var(--fuchsia);outline-offset:3px;border-radius:4px}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,245,236,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;gap:28px;height:74px}
+  .brand{display:flex;align-items:center;gap:11px;margin-right:auto}
+  .brand svg{width:30px;height:30px;flex:none}
+  .brand-name{font-family:'Instrument Serif',serif;font-size:22px;letter-spacing:.02em;color:var(--green-ink);white-space:nowrap}
+  .brand-name em{color:var(--fuchsia)}
+  nav.links{display:flex;gap:26px;font-size:15px;font-weight:500;color:var(--ink-soft)}
+  nav.links a{padding:6px 2px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+  nav.links a:hover{color:var(--green-ink);border-color:var(--fuchsia)}
+  .nav-call{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--green-deep);color:var(--cream);
+    font-size:15px;font-weight:600;
+    padding:11px 20px;border-radius:999px;
+    transition:background .2s;white-space:nowrap;
+  }
+  .nav-call:hover{background:var(--fuchsia)}
+  .nav-call svg{width:16px;height:16px}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--green-deep);color:var(--cream);position:relative;overflow:hidden}
+  .hero-in{
+    display:grid;grid-template-columns:1.08fr .92fr;
+    align-items:stretch;min-height:calc(100vh - 74px);
+    max-width:1400px;margin:0 auto;
+  }
+  .hero-copy{
+    padding:clamp(48px,7vh,90px) clamp(24px,4.5vw,64px) clamp(48px,7vh,80px) clamp(24px,5vw,84px);
+    display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;
+  }
+  .hero-overline{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:#D8CBAE;margin-bottom:26px;
+  }
+  .hero-overline::before{content:"";width:34px;height:1px;background:var(--ochre)}
+  .hero h1{
+    font-size:clamp(46px,6.2vw,86px);
+    color:var(--ivory);
+    margin-bottom:26px;max-width:12ch;
+  }
+  .hero h1 em{color:#E9A8C3}
+  .hero-sub{font-size:clamp(16.5px,1.35vw,19px);color:#D5DCCB;max-width:46ch;margin-bottom:38px;font-weight:300}
+  .hero-sub strong{color:var(--ivory);font-weight:600}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:46px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:16px;font-weight:600;padding:15px 28px;border-radius:999px;
+    transition:transform .2s,background .2s,color .2s;cursor:pointer;
+  }
+  .btn svg{width:17px;height:17px}
+  .btn-pink{background:var(--fuchsia);color:#fff}
+  .btn-pink:hover{background:var(--fuchsia-deep)}
+  .btn-ghost{border:1.5px solid var(--line-dark);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--ochre);color:#F1E6CE}
+  .hero-rating{display:flex;align-items:center;gap:16px;border-top:1px solid var(--line-dark);padding-top:26px;max-width:520px}
+  .stars{display:flex;gap:3px;color:var(--ochre)}
+  .stars svg{width:19px;height:19px}
+  .hero-rating .rt{font-size:14.5px;color:#CBD3C0;line-height:1.45}
+  .hero-rating .rt strong{color:var(--ivory);font-size:16px;font-weight:700}
+  .hero-photo{position:relative;min-height:480px}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* petal-scallop edge where photo meets the green */
+  .hero-scallop{position:absolute;left:-1px;top:0;height:100%;width:30px;z-index:2}
+  /* hanging kraft tag on the photo */
+  .hero-tag{
+    position:absolute;right:clamp(18px,3vw,44px);bottom:clamp(22px,4vh,46px);z-index:3;
+    background:#F1E3C4;color:#5C4718;
+    padding:14px 20px 14px 34px;border-radius:8px;
+    font-size:14.5px;font-weight:700;letter-spacing:.02em;
+    transform:rotate(-3.5deg);
+    box-shadow:0 12px 28px rgba(0,0,0,.28);
+  }
+  .hero-tag::before{
+    content:"";position:absolute;left:13px;top:50%;transform:translateY(-50%);
+    width:9px;height:9px;border-radius:50%;
+    background:var(--green-deep);box-shadow:inset 0 0 0 2px #CBB584;
+  }
+  .hero-tag span{display:block;font-weight:400;font-size:12.5px;letter-spacing:.05em;margin-top:2px}
+  /* faint botanical line art behind hero copy */
+  .hero-stems{position:absolute;left:-40px;bottom:-30px;width:340px;opacity:.13;z-index:1;pointer-events:none}
+
+  /* ---------- SECTION BASICS ---------- */
+  section{padding:clamp(72px,10vh,110px) 0}
+  .sec-head{max-width:640px;margin-bottom:clamp(40px,6vh,64px)}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--fuchsia);margin-bottom:16px;
+  }
+  .kicker::before{content:"";width:26px;height:1px;background:var(--fuchsia)}
+  .sec-head h2{font-size:clamp(34px,4vw,54px);color:var(--green-ink)}
+  .sec-head p{margin-top:14px;color:var(--ink-soft);font-size:17px;max-width:52ch}
+
+  /* ---------- ANLÄSSE (numbered editorial rows) ---------- */
+  .rows{border-top:1px solid var(--line)}
+  .row{
+    display:grid;grid-template-columns:64px 96px 1fr auto;
+    gap:clamp(18px,3vw,40px);align-items:center;
+    padding:26px 10px;border-bottom:1px solid var(--line);
+    transition:background .25s;position:relative;
+  }
+  .row:hover{background:var(--rose)}
+  .row-num{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ochre);font-style:italic}
+  .row-thumb{width:96px;height:96px;border-radius:50% 50% 50% 8px;overflow:hidden;flex:none;box-shadow:var(--shadow)}
+  .row-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .row:hover .row-thumb img{transform:scale(1.07)}
+  .row-body h3{font-size:clamp(26px,2.6vw,36px);color:var(--green-ink);margin-bottom:4px}
+  .row-body p{color:var(--ink-soft);font-size:15.5px;max-width:56ch}
+  .row-arrow{color:var(--fuchsia);opacity:0;transform:translateX(-8px);transition:opacity .25s,transform .25s}
+  .row:hover .row-arrow{opacity:1;transform:none}
+  .row-arrow svg{width:30px;height:30px}
+
+  /* ---------- SORTIMENT (shelf with kraft price tags) ---------- */
+  .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .shelf-card{
+    background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;position:relative;transition:transform .25s,box-shadow .25s;
+  }
+  .shelf-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .shelf-card img{height:230px;width:100%;object-fit:cover}
+  .shelf-body{padding:20px 22px 24px}
+  .shelf-body h3{font-size:24px;color:var(--green-ink);margin-bottom:6px}
+  .shelf-body p{font-size:14.5px;color:var(--ink-soft)}
+  .shelf-tag{
+    position:absolute;top:14px;left:-8px;
+    background:#F1E3C4;color:#5C4718;
+    font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 14px 7px 22px;border-radius:4px;
+    transform:rotate(-3deg);box-shadow:0 6px 14px rgba(0,0,0,.15);
+  }
+  .shelf-tag::before{
+    content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);
+    width:7px;height:7px;border-radius:50%;
+    background:var(--cream);box-shadow:inset 0 0 0 1.5px #CBB584;
+  }
+
+  /* ---------- KIEZ BAND (dark) ---------- */
+  .kiez{background:var(--green-deep);color:var(--cream)}
+  .kiez .kicker{color:#E9A8C3}
+  .kiez .kicker::before{background:#E9A8C3}
+  .kiez-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(36px,6vw,80px);align-items:center}
+  .kiez-photo{position:relative;padding:14px;background:var(--ivory);border-radius:6px;transform:rotate(-1.6deg);box-shadow:0 26px 60px rgba(0,0,0,.35)}
+  .kiez-photo img{width:100%;height:460px;object-fit:cover;border-radius:2px}
+  .kiez-photo figcaption{font-family:'Instrument Serif',serif;font-style:italic;color:#6B6350;text-align:center;padding:12px 4px 2px;font-size:17px}
+  .kiez h2{font-size:clamp(34px,4vw,52px);color:var(--ivory);margin-bottom:20px}
+  .kiez h2 em{color:#E9A8C3}
+  .kiez-copy p{color:#D5DCCB;font-size:16.5px;font-weight:300;max-width:54ch;margin-bottom:16px}
+  .kiez-copy p strong{color:var(--ivory);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(4,auto);gap:clamp(20px,3.5vw,54px);justify-content:start;margin-top:34px;padding-top:28px;border-top:1px solid var(--line-dark)}
+  .stat b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,2.6vw,38px);color:var(--ochre);line-height:1.1}
+  .stat span{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#B9C2AD}
+
+  /* ---------- GALERIE (masonry) ---------- */
+  .masonry{columns:3;column-gap:20px}
+  .masonry figure{break-inside:avoid;margin-bottom:20px;border-radius:14px;overflow:hidden;position:relative;box-shadow:0 10px 26px rgba(36,56,42,.10)}
+  .masonry img{width:100%;transition:transform .45s}
+  .masonry figure:hover img{transform:scale(1.04)}
+
+  /* ---------- STIMMEN (hanging gift tags) ---------- */
+  .tags{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,38px);align-items:start}
+  .tagcard{
+    background:var(--ivory);border:1px solid var(--line);border-radius:10px;
+    padding:34px 28px 26px;position:relative;
+    box-shadow:var(--shadow);
+  }
+  .tagcard:nth-child(1){transform:rotate(-1.4deg)}
+  .tagcard:nth-child(2){transform:rotate(1.1deg) translateY(14px)}
+  .tagcard:nth-child(3){transform:rotate(-.7deg)}
+  .tag-hole{
+    position:absolute;top:14px;left:50%;transform:translateX(-50%);
+    width:12px;height:12px;border-radius:50%;
+    background:var(--cream);box-shadow:inset 0 0 0 2px var(--ochre);
+  }
+  .tagcard .stars{justify-content:center;margin:10px 0 16px}
+  .tagcard .stars svg{width:16px;height:16px}
+  .tagcard blockquote{
+    font-family:'Instrument Serif',serif;font-style:italic;
+    font-size:20px;line-height:1.4;color:var(--green-ink);text-align:center;margin-bottom:16px;
+  }
+  .tagcard cite{display:block;text-align:center;font-style:normal;font-size:13.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fuchsia)}
+  .tags-note{text-align:center;margin-top:44px;font-size:14px;color:var(--ink-soft)}
+  .tags-note a{color:var(--fuchsia);font-weight:600;border-bottom:1px solid currentColor}
+
+  /* ---------- KONTAKT ---------- */
+  .contact{background:var(--rose)}
+  .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,72px);align-items:start}
+  .hours{width:100%;border-collapse:collapse;margin-top:26px}
+  .hours td{padding:13px 6px;border-bottom:1px solid #E0C9D1;font-size:15.5px}
+  .hours td:last-child{text-align:right;font-weight:600;color:var(--green-ink)}
+  .hours tr.sunday td{color:var(--fuchsia-deep);font-weight:700}
+  .hours tr.sunday td:first-child::after{content:"— ja, wirklich";font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;margin-left:8px;color:var(--ochre)}
+  .contact-card{
+    background:var(--green-deep);color:var(--cream);border-radius:22px;
+    padding:clamp(32px,4vw,48px);box-shadow:0 26px 60px rgba(36,56,42,.28);
+  }
+  .contact-card h3{font-size:clamp(28px,2.8vw,38px);color:var(--ivory);margin-bottom:14px}
+  .contact-card h3 em{color:#E9A8C3}
+  .contact-card p{color:#D5DCCB;font-size:15.5px;font-weight:300;margin-bottom:22px}
+  .contact-phone{
+    display:flex;align-items:center;gap:14px;
+    background:rgba(255,255,255,.07);border:1px solid var(--line-dark);
+    border-radius:14px;padding:18px 22px;margin-bottom:14px;transition:background .2s;
+  }
+  .contact-phone:hover{background:rgba(255,255,255,.13)}
+  .contact-phone svg{width:22px;height:22px;color:var(--ochre);flex:none}
+  .contact-phone b{display:block;font-size:20px;letter-spacing:.02em}
+  .contact-phone span{font-size:13px;color:#B9C2AD}
+  .contact-addr{display:flex;align-items:center;gap:14px;padding:6px 22px 0;font-size:15px;color:#D5DCCB}
+  .contact-addr svg{width:20px;height:20px;color:var(--ochre);flex:none}
+  address{font-style:normal}
+
+  footer{background:var(--green-ink);color:#9FAD93;padding:30px 0;font-size:13.5px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .foot b{color:var(--cream);font-family:'Instrument Serif',serif;font-weight:400;font-size:16px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1020px){
+    nav.links{display:none}
+    .hero-in{grid-template-columns:1fr}
+    .hero-photo{min-height:380px;order:-1}
+    .hero-scallop{display:none}
+    .shelf{grid-template-columns:repeat(2,1fr)}
+    .kiez-grid{grid-template-columns:1fr}
+    .kiez-photo img{height:340px}
+    .masonry{columns:2}
+    .tags{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+    .tagcard:nth-child(2){transform:rotate(1.1deg)}
+    .contact-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .shelf{grid-template-columns:1fr}
+    .masonry{columns:1}
+    .row{grid-template-columns:40px 72px 1fr}
+    .row-thumb{width:72px;height:72px}
+    .row-arrow{display:none}
+    .stats{grid-template-columns:repeat(2,auto)}
+    .hero h1{font-size:clamp(40px,11vw,52px)}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Blumenhaus Yasmin — nach oben">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 21c0-4.5 0-7 0-9" stroke="#3E5C46" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M12 12c-3 0-5-2-5-5 3 0 5 2 5 5Z" fill="#B93A6E"/>
+        <path d="M12 12c3 0 5-2 5-5-3 0-5 2-5 5Z" fill="#C98F2D"/>
+        <path d="M12 9.5c-1.2-1.8-1.2-4 0-5.5 1.2 1.5 1.2 3.7 0 5.5Z" fill="#3E5C46"/>
+        <path d="M12 15c-1.8.2-3.2-.6-4-2 1.8-.4 3.3.5 4 2Z" fill="#3E5C46"/>
+      </svg>
+      <span class="brand-name">Blumenhaus <em>Yasmin</em></span>
+    </a>
+    <nav class="links" aria-label="Hauptnavigation">
+      <a href="#anlaesse">Anlässe</a>
+      <a href="#sortiment">Sortiment</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#stimmen">Stimmen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-call" href="tel:+493029494688">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9Z"/></svg>
+      030 29494688
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-in">
+    <div class="hero-copy">
+      <svg class="hero-stems" viewBox="0 0 300 300" fill="none" stroke="#FAF5EC" stroke-width="1.5" aria-hidden="true">
+        <path d="M60 300 C 70 220, 40 180, 55 120 C 62 90, 80 70, 78 40"/>
+        <path d="M60 260 C 40 250, 25 255, 12 245"/><path d="M60 260 C 80 248, 95 252, 108 240"/>
+        <path d="M56 190 C 36 182, 22 186, 10 176"/><path d="M56 190 C 76 180, 90 184, 104 172"/>
+        <ellipse cx="78" cy="32" rx="14" ry="22" transform="rotate(12 78 32)"/>
+        <path d="M170 300 C 178 240, 160 200, 172 150"/>
+        <path d="M168 230 C 152 222, 140 226, 128 216"/><path d="M168 230 C 186 220, 198 224, 210 214"/>
+        <circle cx="173" cy="140" r="12"/><circle cx="173" cy="140" r="4"/>
+      </svg>
+      <span class="hero-overline">Boxhagener Str. 34 · Friedrichshain</span>
+      <h1>Frische Blumen, <em>mitten im&nbsp;Kiez.</em></h1>
+      <p class="hero-sub">Sträuße nach Wunsch, Pflanzen und ehrliche Beratung — seit über zehn Jahren am Boxi. <strong>Auch sonntags für dich da.</strong></p>
+      <div class="hero-ctas">
+        <a class="btn btn-pink" href="tel:+493029494688">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9Z"/></svg>
+          Strauß bestellen
+        </a>
+        <a class="btn btn-ghost" href="#anlaesse">Für jeden Anlass</a>
+      </div>
+      <div class="hero-rating">
+        <span class="stars" aria-label="4,9 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p class="rt"><strong>4,9 von 5 · 729 Google-Bewertungen</strong><br>Der wohl beliebteste Blumenladen in Friedrichshain.</p>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.pexels.com/photos/25945747/pexels-photo-25945747.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Bunte frische Blumen in Eimern vor einem Blumenladen">
+      <svg class="hero-scallop" viewBox="0 0 30 800" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0 L0,800 L2,800 C2,800 30,780 30,760 C30,740 2,720 2,720 C2,720 30,700 30,680 C30,660 2,640 2,640 C2,640 30,620 30,600 C30,580 2,560 2,560 C2,560 30,540 30,520 C30,500 2,480 2,480 C2,480 30,460 30,440 C30,420 2,400 2,400 C2,400 30,380 30,360 C30,340 2,320 2,320 C2,320 30,300 30,280 C30,260 2,240 2,240 C2,240 30,220 30,200 C30,180 2,160 2,160 C2,160 30,140 30,120 C30,100 2,80 2,80 C2,80 30,60 30,40 C30,20 2,0 2,0 Z" fill="#24382A"/>
+      </svg>
+      <p class="hero-tag">Auch sonntags geöffnet<span>10–15 Uhr · Boxhagener Str. 34</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANLÄSSE ===== -->
+<section id="anlaesse">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Für jeden Anlass</span>
+      <h2>Blumen sagen es <em>besser.</em></h2>
+      <p>Sag uns, worum es geht — wir binden den passenden Strauß. Auf Wunsch liefern wir in ganz Berlin.</p>
+    </div>
+    <div class="rows">
+      <a class="row" href="tel:+493029494688">
+        <span class="row-num">01</span>
+        <span class="row-thumb"><img src="https://images.pexels.com/photos/32552675/pexels-photo-32552675.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Brautstrauß mit weißen Pfingstrosen und Rosen" loading="lazy"></span>
+        <span class="row-body">
+          <h3>Hochzeit</h3>
+          <p>Brautsträuße, Anstecker und Tischschmuck — so individuell wie euer Tag.</p>
+        </span>
+        <span class="row-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="row" href="tel:+493029494688">
+        <span class="row-num">02</span>
+        <span class="row-thumb"><img src="https://images.pexels.com/photos/4313717/pexels-photo-4313717.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Weiße Calla-Lilien vor dunklem Blattgrün" loading="lazy"></span>
+        <span class="row-body">
+          <h3>Trauerfloristik</h3>
+          <p>Würdevolle Gestecke und Kränze — mit Ruhe und Sorgfalt gebunden.</p>
+        </span>
+        <span class="row-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="row" href="tel:+493029494688">
+        <span class="row-num">03</span>
+        <span class="row-thumb"><img src="https://images.pexels.com/photos/37222812/pexels-photo-37222812.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Bunte Sträuße mit Rosen, Sonnenblumen und Chrysanthemen" loading="lazy"></span>
+        <span class="row-body">
+          <h3>Geburtstag &amp; Feste</h3>
+          <p>Bunte Sträuße, die ankommen — persönlich abgeholt oder geliefert.</p>
+        </span>
+        <span class="row-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="row" href="tel:+493029494688">
+        <span class="row-num">04</span>
+        <span class="row-thumb"><img src="https://images.pexels.com/photos/36945270/pexels-photo-36945270.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tulpensträuße in braunes Packpapier gewickelt" loading="lazy"></span>
+        <span class="row-body">
+          <h3>Einfach so</h3>
+          <p>Der Bund Tulpen für den Küchentisch. Weil Dienstag Grund genug ist.</p>
+        </span>
+        <span class="row-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SORTIMENT ===== -->
+<section id="sortiment" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Unser Sortiment</span>
+      <h2>Was du bei uns <em>findest.</em></h2>
+      <p>Frische Ware, faire Preise — und immer ein Pflege-Tipp dazu.</p>
+    </div>
+    <div class="shelf">
+      <article class="shelf-card">
+        <span class="shelf-tag">Frisch gebunden</span>
+        <img src="https://images.pexels.com/photos/20617542/pexels-photo-20617542.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Rosa und lila Sträuße in grünem Papier" loading="lazy">
+        <div class="shelf-body">
+          <h3>Sträuße nach Wunsch</h3>
+          <p>Sag uns Anlass und Budget — wir binden vor deinen Augen.</p>
+        </div>
+      </article>
+      <article class="shelf-card">
+        <span class="shelf-tag">Grünes Zuhause</span>
+        <img src="https://images.pexels.com/photos/31416062/pexels-photo-31416062.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Topfpflanzen auf einer Fensterbank mit Stadt im Hintergrund" loading="lazy">
+        <div class="shelf-body">
+          <h3>Topfpflanzen &amp; Grünes</h3>
+          <p>Vom Bogenhanf bis zur Orchidee — robust bis anspruchsvoll.</p>
+        </div>
+      </article>
+      <article class="shelf-card">
+        <span class="shelf-tag">Fürs Auge</span>
+        <img src="https://images.pexels.com/photos/947914/pexels-photo-947914.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Blumen in verschiedenen Vasen in einem Blumenladen" loading="lazy">
+        <div class="shelf-body">
+          <h3>Vasen, Töpfe &amp; Deko</h3>
+          <p>Das Drumherum, das aus Blumen ein Geschenk macht.</p>
+        </div>
+      </article>
+      <article class="shelf-card">
+        <span class="shelf-tag">Damit es hält</span>
+        <img src="https://images.pexels.com/photos/4505164/pexels-photo-4505164.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bogenhanf wird mit Erde und Werkzeug umgetopft" loading="lazy">
+        <div class="shelf-body">
+          <h3>Erde, Dünger &amp; Pflege</h3>
+          <p>Alles zum Umtopfen — plus ehrliche Beratung gratis.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KIEZ BAND ===== -->
+<section class="kiez">
+  <div class="wrap kiez-grid">
+    <figure class="kiez-photo">
+      <img src="https://images.pexels.com/photos/6764301/pexels-photo-6764301.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Zwei Floristinnen binden Sträuße in einem kleinen Blumenladen" loading="lazy">
+      <figcaption>Handarbeit, jeden Tag.</figcaption>
+    </figure>
+    <div class="kiez-copy">
+      <span class="kicker">Im Boxi zuhause</span>
+      <h2>Ein Blumenladen, wie er <em>sein soll.</em></h2>
+      <p>Seit über zehn Jahren steht das Blumenhaus Yasmin an der Boxhagener Straße — zwischen Wochenmarkt, Cafés und Kiezleben. Hier wird noch von Hand gebunden und ehrlich beraten.</p>
+      <p><strong>729 Menschen haben uns bei Google bewertet — im Schnitt mit 4,9 Sternen.</strong> Das schafft man nicht mit Blumen allein, sondern mit einem offenen Ohr. Und mit offenen Türen: auch sonntags, wenn alle anderen zu haben.</p>
+      <div class="stats">
+        <div class="stat"><b>10+</b><span>Jahre im Kiez</span></div>
+        <div class="stat"><b>4,9★</b><span>bei Google</span></div>
+        <div class="stat"><b>729</b><span>Bewertungen</span></div>
+        <div class="stat"><b>7&#8202;/&#8202;7</b><span>Tage geöffnet</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIE ===== -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Galerie</span>
+      <h2>Ein Blick in den <em>Laden.</em></h2>
+      <p>Beispielbilder — auf der echten Seite stehen hier deine eigenen Fotos.</p>
+    </div>
+    <div class="masonry">
+      <figure><img src="https://images.pexels.com/photos/38392600/pexels-photo-38392600.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sträuße vor einem Blumenladen" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/30734753/pexels-photo-30734753.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tulpenstrauß mit Geschenkanhängern" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/5409708/pexels-photo-5409708.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Floristin beim Binden eines Straußes" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/10621020/pexels-photo-10621020.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Topfpflanzen vor einem Ladenfenster" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/16538034/pexels-photo-16538034.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Frühlingsblumen mit Tulpen und Rosen" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/15452466/pexels-photo-15452466.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Frau betrachtet Blumen an einem Marktstand" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STIMMEN ===== -->
+<section id="stimmen" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Stimmen aus dem Kiez</span>
+      <h2>Was die Nachbarschaft <em>sagt.</em></h2>
+    </div>
+    <div class="tags">
+      <article class="tagcard">
+        <span class="tag-hole" aria-hidden="true"></span>
+        <span class="stars" aria-label="5 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <blockquote>„Die schönsten Sträuße im Kiez — und immer ein nettes Wort dazu."</blockquote>
+        <cite>Miriam K.</cite>
+      </article>
+      <article class="tagcard">
+        <span class="tag-hole" aria-hidden="true"></span>
+        <span class="stars" aria-label="5 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <blockquote>„Sonntagmittag noch schnell einen Strauß vor dem Familienbesuch — hier geht das. Rettung!"</blockquote>
+        <cite>Jonas B.</cite>
+      </article>
+      <article class="tagcard">
+        <span class="tag-hole" aria-hidden="true"></span>
+        <span class="stars" aria-label="5 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <blockquote>„Unsere Hochzeitsblumen waren ein Traum — genau wie besprochen, nur noch schöner."</blockquote>
+        <cite>Aylin S.</cite>
+      </article>
+    </div>
+    <p class="tags-note">Beispiel-Stimmen, dem echten Google-Profil nachempfunden — <a href="https://www.google.com/maps/search/Blumenhaus+Yasmin+Boxhagener+Str.+34+Berlin" target="_blank" rel="noopener">729 echte Bewertungen bei Google lesen</a></p>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section class="contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="kicker">Kontakt &amp; Öffnungszeiten</span>
+      <h2 style="font-size:clamp(34px,4vw,52px);color:var(--green-ink)">Komm <em>vorbei.</em></h2>
+      <table class="hours">
+        <tbody>
+          <tr><td>Montag – Freitag</td><td>8:00 – 18:30</td></tr>
+          <tr><td>Samstag</td><td>8:00 – 16:00</td></tr>
+          <tr class="sunday"><td>Sonntag</td><td>10:00 – 15:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="contact-card">
+      <h3>Blumen im Kopf? <em>Ruf an.</em></h3>
+      <p>Sag uns, was du brauchst — wir legen deinen Strauß zurecht. Abholen oder liefern lassen.</p>
+      <a class="contact-phone" href="tel:+493029494688">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9Z"/></svg>
+        <span><b>030 29494688</b><span>Mo–Sa ab 8 Uhr, So ab 10 Uhr</span></span>
+      </a>
+      <address class="contact-addr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Boxhagener Str. 34, 10245 Berlin — direkt am Boxi
+      </address>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span><b>Blumenhaus Yasmin</b> · Boxhagener Str. 34, 10245 Berlin</span>
+    <span>Design-Entwurf — kein offizieller Auftritt des Geschäfts</span>
+  </div>
+</footer>
+
+</body>
+</html>
