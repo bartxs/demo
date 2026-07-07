@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leo's — Frühstück &amp; Brunch in Prenzlauer Berg · Greifswalder Str. 2, Berlin</title>
+<meta name="description" content="Leo's Café, Greifswalder Str. 2, 10405 Berlin. Frühstück, Brunch, hausgemachte Kuchen und guter Kaffee — 4,8 ★ bei Google. Täglich geöffnet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23F7F3EA' stroke='%233A5A82' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23EFAF3C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --porcelain:#F7F3EA;
+    --card:#FFFDF7;
+    --ink:#26313C;
+    --ink-soft:#55616D;
+    --blue:#3A5A82;
+    --blue-deep:#2C4666;
+    --yolk:#EFAF3C;
+    --yolk-deep:#C98F1F;
+    --apricot:#F3E6CC;
+    --line:rgba(44,70,102,.16);
+    --shadow:0 18px 40px -18px rgba(44,70,102,.35);
+    --serif:'Young Serif',serif;
+    --sans:'Figtree',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--porcelain);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ---------- NAV (split around centered wordmark) ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,243,234,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    height:64px;max-width:1180px;margin:0 auto;padding:0 24px;
+  }
+  .nav-side{display:flex;gap:28px;align-items:center}
+  .nav-side.right{justify-content:flex-end}
+  .nav-side a{
+    text-decoration:none;font-size:.82rem;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+    transition:color .2s;
+  }
+  .nav-side a:hover{color:var(--blue)}
+  .wordmark{
+    font-family:var(--serif);font-size:1.35rem;color:var(--blue-deep);
+    text-decoration:none;letter-spacing:.32em;white-space:nowrap;padding:0 18px;
+  }
+  .wordmark .dot{color:var(--yolk-deep)}
+  .nav-cta{
+    display:inline-block;background:var(--blue);color:var(--porcelain)!important;
+    padding:8px 16px;border-radius:999px;letter-spacing:.1em!important;
+  }
+  .nav-cta:hover{background:var(--blue-deep);color:var(--porcelain)!important}
+
+  /* ---------- HERO : the morning table ---------- */
+  .hero{position:relative;overflow:hidden}
+  .hero .wrap{
+    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    gap:36px;align-items:center;padding-top:64px;padding-bottom:84px;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--blue);margin-bottom:22px;
+  }
+  .kicker::before{content:"";width:34px;height:2px;background:var(--yolk)}
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,3.9rem);color:var(--ink);margin-bottom:22px;
+  }
+  .hero h1 em{font-style:normal;color:var(--blue)}
+  .hero h1 .under{
+    background-image:linear-gradient(transparent 68%, var(--yolk) 68%, var(--yolk) 92%, transparent 92%);
+  }
+  .hero p.lead{
+    font-size:1.08rem;color:var(--ink-soft);max-width:46ch;margin-bottom:30px;
+  }
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:.95rem;
+    padding:14px 26px;border-radius:999px;transition:transform .15s,box-shadow .15s;
+  }
+  .btn.primary{background:var(--yolk);color:var(--blue-deep);box-shadow:0 10px 24px -10px rgba(201,143,31,.55)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{border:1.5px solid var(--blue);color:var(--blue)}
+  .btn.ghost:hover{background:var(--blue);color:var(--porcelain)}
+  .hero-note{margin-top:26px;font-size:.9rem;color:var(--ink-soft)}
+  .hero-note strong{color:var(--ink)}
+
+  /* the "table" of plates */
+  .table-scene{position:relative;aspect-ratio:1/1;width:min(100%,520px);justify-self:end}
+  .cloth{
+    position:absolute;inset:6%;border-radius:50%;
+    border:1.5px dashed rgba(58,90,130,.35);
+  }
+  .plate{
+    position:absolute;border-radius:50%;object-fit:cover;
+    box-shadow:var(--shadow);border:6px solid var(--card);
+  }
+  .plate.p1{width:58%;height:58%;top:6%;left:2%}
+  .plate.p2{width:36%;height:36%;bottom:4%;left:24%}
+  .plate.p3{width:30%;height:30%;top:16%;right:2%}
+  .badge-ring{
+    position:absolute;right:6%;bottom:14%;width:172px;height:172px;
+    filter:drop-shadow(0 14px 24px rgba(44,70,102,.28));
+  }
+  .badge-ring svg{width:100%;height:100%}
+  .badge-ring .spin{transform-origin:50% 50%;animation:spin 46s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .badge-ring text{
+    font-family:var(--sans);font-weight:700;font-size:9.2px;
+    letter-spacing:2.6px;fill:var(--porcelain);
+  }
+  .badge-center{fill:var(--porcelain);font-family:var(--serif)}
+
+  /* ---------- ribbon ---------- */
+  .ribbon{background:var(--blue-deep);color:var(--porcelain)}
+  .ribbon .wrap{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;
+    padding-top:14px;padding-bottom:14px;font-size:.88rem;letter-spacing:.06em;
+  }
+  .ribbon span{display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
+  .ribbon .dot{width:6px;height:6px;border-radius:50%;background:var(--yolk);flex:none}
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-kicker{
+    font-size:.76rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--yolk-deep);display:block;margin-bottom:12px;
+  }
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--blue-deep)}
+  .sec-head p{margin-top:14px;color:var(--ink-soft)}
+
+  /* ---------- menu (tabs) ---------- */
+  #karte{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:44px}
+  .tab{
+    font-family:var(--sans);font-weight:700;font-size:.92rem;cursor:pointer;
+    padding:11px 22px;border-radius:999px;border:1.5px solid var(--line);
+    background:transparent;color:var(--ink-soft);transition:all .18s;
+  }
+  .tab:hover{border-color:var(--blue);color:var(--blue)}
+  .tab.active{background:var(--yolk);border-color:var(--yolk);color:var(--blue-deep)}
+  .panel{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 34px;max-width:940px;margin:0 auto}
+  .panel.active{display:grid}
+  .dish{
+    display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;
+    padding:16px 6px;border-bottom:1px solid var(--line);
+  }
+  .dish img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--porcelain);box-shadow:0 8px 18px -8px rgba(44,70,102,.4)}
+  .dish h3{font-size:1.06rem;color:var(--ink)}
+  .dish small{display:block;color:var(--ink-soft);font-size:.86rem;line-height:1.45;margin-top:3px}
+  .price{font-weight:700;color:var(--blue);white-space:nowrap;font-size:1rem}
+  .menu-foot{text-align:center;margin-top:36px;color:var(--ink-soft);font-size:.9rem}
+
+  /* ---------- day timeline ---------- */
+  #tag{position:relative}
+  .timeline{position:relative;max-width:980px;margin:0 auto}
+  .timeline::before{
+    content:"";position:absolute;left:50%;top:12px;bottom:12px;width:0;
+    border-left:2px dashed rgba(58,90,130,.35);transform:translateX(-50%);
+  }
+  .moment{
+    display:grid;grid-template-columns:1fr 96px 1fr;align-items:center;
+    gap:0 28px;margin-bottom:64px;
+  }
+  .moment:last-child{margin-bottom:0}
+  .m-time{
+    grid-column:2;justify-self:center;z-index:1;
+    width:96px;height:96px;border-radius:50%;background:var(--blue-deep);
+    color:var(--porcelain);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:1.28rem;box-shadow:var(--shadow);
+  }
+  .m-time small{font-family:var(--sans);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--yolk);font-weight:700}
+  .m-body h3{font-size:1.5rem;color:var(--blue-deep);margin-bottom:8px}
+  .m-body p{color:var(--ink-soft);max-width:40ch}
+  .moment:nth-child(odd) .m-body{grid-column:1;grid-row:1;text-align:right;justify-self:end}
+  .moment:nth-child(odd) .m-body p{margin-left:auto}
+  .moment:nth-child(odd) .m-photo{grid-column:3;grid-row:1;justify-self:start}
+  .moment:nth-child(even) .m-photo{grid-column:1;grid-row:1;justify-self:end}
+  .moment:nth-child(even) .m-body{grid-column:3;grid-row:1;text-align:left}
+  .m-photo img{
+    width:200px;height:200px;border-radius:50%;object-fit:cover;
+    border:6px solid var(--card);box-shadow:var(--shadow);
+  }
+
+  /* ---------- gallery ---------- */
+  #galerie{background:var(--apricot)}
+  .gal{
+    display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:repeat(2,270px);gap:18px;
+  }
+  .gal img{width:100%;height:100%;object-fit:cover;border-radius:18px;box-shadow:var(--shadow)}
+  .gal .tall{grid-row:1/3}
+
+  /* ---------- reviews ---------- */
+  .bigquote{max-width:760px;margin:0 auto 56px;text-align:center}
+  .bigquote .qmark{
+    font-family:var(--serif);font-size:5rem;line-height:.5;color:var(--yolk);display:block;margin-bottom:18px;
+  }
+  .bigquote p{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2rem);color:var(--blue-deep)}
+  .bigquote cite{display:block;margin-top:18px;font-style:normal;font-size:.9rem;color:var(--ink-soft);letter-spacing:.06em}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .rev{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:26px;display:flex;flex-direction:column;gap:14px;
+  }
+  .stars{color:var(--yolk-deep);letter-spacing:3px;font-size:.95rem}
+  .rev p{color:var(--ink);font-size:.97rem}
+  .rev-who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .rev-who .ava{
+    width:40px;height:40px;border-radius:50%;background:var(--blue);color:var(--porcelain);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex:none;
+  }
+  .rev-who small{color:var(--ink-soft)}
+  .rev-sum{
+    margin-top:40px;text-align:center;font-size:.92rem;color:var(--ink-soft);
+  }
+  .rev-sum strong{color:var(--blue-deep)}
+
+  /* ---------- contact ---------- */
+  #besuch{background:var(--blue-deep);color:var(--porcelain)}
+  #besuch .sec-kicker{color:var(--yolk)}
+  #besuch .sec-head h2{color:var(--porcelain)}
+  #besuch .sec-head p{color:rgba(247,243,234,.75)}
+  .visit{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+  .v-item{padding:20px 0;border-bottom:1px solid rgba(247,243,234,.18)}
+  .v-item:first-child{padding-top:0}
+  .v-label{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--yolk);margin-bottom:6px}
+  .v-item p,.v-item a{font-size:1.12rem;color:var(--porcelain);text-decoration:none}
+  .v-item a:hover{color:var(--yolk)}
+  .v-item small{color:rgba(247,243,234,.65);display:block;margin-top:4px;font-size:.88rem}
+  .visit .btn-row{margin-top:30px}
+  .visit .btn.primary{box-shadow:none}
+  .visit .btn.ghost{border-color:rgba(247,243,234,.5);color:var(--porcelain)}
+  .visit .btn.ghost:hover{background:var(--porcelain);color:var(--blue-deep)}
+  .hours-card{
+    background:rgba(247,243,234,.07);border:1px solid rgba(247,243,234,.18);
+    border-radius:18px;padding:32px;
+  }
+  .hours-card h3{font-size:1.3rem;margin-bottom:20px;color:var(--porcelain)}
+  .hours-card table{width:100%;border-collapse:collapse;font-size:.98rem}
+  .hours-card td{padding:9px 0;border-bottom:1px dashed rgba(247,243,234,.16)}
+  .hours-card tr:last-child td{border-bottom:none}
+  .hours-card td:last-child{text-align:right;color:var(--yolk);font-weight:600}
+  .hours-note{margin-top:18px;font-size:.85rem;color:rgba(247,243,234,.65)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:rgba(247,243,234,.65);padding:34px 0;font-size:.86rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer .wordmark{font-size:1.05rem;color:var(--porcelain);padding:0}
+  footer a{color:rgba(247,243,234,.85);text-decoration:none}
+  footer a:hover{color:var(--yolk)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .panel{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .visit{grid-template-columns:1fr;gap:40px}
+    .gal{grid-template-columns:1fr;grid-template-rows:340px 260px 260px}
+    .gal .tall{grid-row:auto}
+  }
+  @media (max-width:860px){
+    .nav-side{display:none}
+    .nav{grid-template-columns:1fr auto}
+    .wordmark{justify-self:start;padding:0}
+    .nav-mobile-cta{display:inline-block!important}
+    .hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:56px}
+    .table-scene{justify-self:center;width:min(100%,420px);margin-top:10px}
+    section{padding:64px 0}
+    .timeline::before{left:47px}
+    .moment{grid-template-columns:96px 1fr;gap:0 22px;margin-bottom:48px}
+    .moment:nth-child(odd) .m-time,.moment:nth-child(even) .m-time{grid-column:1;grid-row:1;align-self:start}
+    .moment:nth-child(odd) .m-body,.moment:nth-child(even) .m-body{grid-column:2;grid-row:1;text-align:left;justify-self:start}
+    .moment:nth-child(odd) .m-body p{margin-left:0}
+    .moment:nth-child(odd) .m-photo,.moment:nth-child(even) .m-photo{grid-column:2;grid-row:2;justify-self:start;margin-top:16px}
+    .m-photo img{width:150px;height:150px}
+  }
+  .nav-mobile-cta{
+    display:none;background:var(--yolk);color:var(--blue-deep);text-decoration:none;
+    font-weight:700;font-size:.82rem;padding:8px 16px;border-radius:999px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav class="nav">
+    <div class="nav-side">
+      <a href="#karte">Karte</a>
+      <a href="#tag">Ein Tag bei Leo's</a>
+      <a href="#galerie">Einblicke</a>
+    </div>
+    <a class="wordmark" href="#top">L<span class="dot"> · </span>E<span class="dot"> · </span>O</a>
+    <div class="nav-side right">
+      <a href="#stimmen">Stimmen</a>
+      <a href="#besuch" class="nav-cta">Besuch uns</a>
+    </div>
+    <a class="nav-mobile-cta" href="#besuch">Besuch uns</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Café · Prenzlauer Berg · Berlin</span>
+      <h1>Der Morgen ist bei <em>Leo's</em> schon <span class="under">gedeckt</span>.</h1>
+      <p class="lead">Frühstück und Brunch an der Greifswalder Straße&nbsp;2 —
+        pochierte Eier, hausgemachte Kuchen, frisch gepresster Saft und Kaffee,
+        der nach Sonntag schmeckt. Klein, gemütlich, mit Herz.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="#karte">Zur Karte</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Leo%27s%20Greifswalder%20Str.%202%2C%2010405%20Berlin" target="_blank" rel="noopener">Route planen</a>
+      </div>
+      <p class="hero-note">Täglich geöffnet · <strong>ab 8:30&nbsp;Uhr</strong> (Di ab 9:30) · Greifswalder Str. 2, 10405 Berlin</p>
+    </div>
+    <div class="table-scene">
+      <div class="cloth"></div>
+      <img class="plate p1" src="https://images.pexels.com/photos/14496549/pexels-photo-14496549.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Avocado-Toast mit pochiertem Ei und frischem Orangensaft, von oben">
+      <img class="plate p2" src="https://images.pexels.com/photos/4992671/pexels-photo-4992671.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Pancakes mit Erdbeeren und Blaubeeren, von oben">
+      <img class="plate p3" src="https://images.pexels.com/photos/4913342/pexels-photo-4913342.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cappuccino mit Latte Art, von oben">
+      <div class="badge-ring" aria-label="4,8 von 5 Sternen bei Google, 699 Bewertungen">
+        <svg viewBox="0 0 172 172">
+          <circle cx="86" cy="86" r="84" fill="#3A5A82"/>
+          <circle cx="86" cy="86" r="62" fill="none" stroke="#EFAF3C" stroke-width="1.5" stroke-dasharray="3 5"/>
+          <g class="spin">
+            <path id="ringpath" fill="none" d="M86,14 a72,72 0 1,1 -0.01,0 z"/>
+            <text><textPath href="#ringpath">699 BEWERTUNGEN · 4,8 VON 5 BEI GOOGLE · 699 BEWERTUNGEN ·</textPath></text>
+          </g>
+          <text class="badge-center" x="86" y="82" text-anchor="middle" font-size="30">4,8</text>
+          <text x="86" y="108" text-anchor="middle" font-size="16" fill="#EFAF3C">★★★★★</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RIBBON ============ -->
+<div class="ribbon">
+  <div class="wrap">
+    <span><i class="dot"></i>Frühstück &amp; Brunch, den ganzen Tag</span>
+    <span><i class="dot"></i>Hausgemachte Kuchen</span>
+    <span><i class="dot"></i>Vegane Optionen &amp; Pflanzenmilch</span>
+    <span><i class="dot"></i>Draußen sitzen, drinnen ankommen</span>
+  </div>
+</div>
+
+<!-- ============ MENU ============ -->
+<section id="karte">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="sec-kicker">Die Karte</span>
+      <h2>Was heute auf den Tisch kommt</h2>
+      <p>Alles frisch in unserer kleinen Küche gemacht — vom pochierten Ei bis zur Napoleon-Torte.</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-panel="p-fruehstueck">Frühstück &amp; Brunch</button>
+      <button class="tab" data-panel="p-kuchen">Kuchen &amp; Süßes</button>
+      <button class="tab" data-panel="p-kaffee">Kaffee &amp; Getränke</button>
+    </div>
+
+    <div class="panel active" id="p-fruehstueck">
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/13927333/pexels-photo-13927333.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Eggs Benedict mit Lachs">
+        <div><h3>Eggs Benedict</h3><small>Zwei pochierte Eier, Sauce Hollandaise, auf Brioche — mit Räucherlachs +1,60</small></div>
+        <span class="price">12,90&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/7936964/pexels-photo-7936964.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Avocado Dream Toast mit pochiertem Ei">
+        <div><h3>Avocado Dream</h3><small>Sauerteigbrot, Avocado, pochiertes Ei, Dill &amp; Zitrone</small></div>
+        <span class="price">11,90&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/10313363/pexels-photo-10313363.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Avocado-Toast mit pochierten Eiern und Räucherlachs">
+        <div><h3>Avocado Salmone</h3><small>Mit Räucherlachs und zwei pochierten Eiern — der Klassiker vom Haus</small></div>
+        <span class="price">13,90&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/4992671/pexels-photo-4992671.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Pancakes mit Beeren">
+        <div><h3>Pancakes</h3><small>Fluffig gestapelt, mit Beeren, Ahornsirup &amp; Mascarpone</small></div>
+        <span class="price">10,50&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/26180140/pexels-photo-26180140.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Buntes Frühstücksbrett mit Brot, Avocado und Obst">
+        <div><h3>Leo's Frühstücksbrett</h3><small>Käse, Schinken, Ei nach Wahl, Brot, Butter &amp; Marmelade</small></div>
+        <span class="price">13,50&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/6327126/pexels-photo-6327126.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Veganer Toast mit Pilzen und Tomaten">
+        <div><h3>Veganes Set</h3><small>Hummus-Toast, Avocado, gegrilltes Gemüse &amp; Obst</small></div>
+        <span class="price">11,50&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/32715053/pexels-photo-32715053.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Gegrilltes Panini mit Schinken und Käse">
+        <div><h3>Leo Panini</h3><small>Warm gepresst — Füllung wechselt, fragt uns am Tresen</small></div>
+        <span class="price">7,90&nbsp;€</span>
+      </div>
+    </div>
+
+    <div class="panel" id="p-kuchen">
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/11922700/pexels-photo-11922700.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Mille-feuille-Törtchen mit Puderzucker">
+        <div><h3>Napoleon-Torte</h3><small>Hausgemacht — hauchdünne Blätterteigschichten, Vanillecreme</small></div>
+        <span class="price">5,20&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/2612373/pexels-photo-2612373.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Karottenkuchen mit Frischkäse-Frosting">
+        <div><h3>Karottenkuchen</h3><small>Mit Frischkäse-Frosting und Walnüssen</small></div>
+        <span class="price">4,80&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/4340676/pexels-photo-4340676.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Stück hausgemachter Apfelkuchen mit Vanilleeis">
+        <div><h3>Apfelkuchen</h3><small>Nach Familienrezept, mit Zimt — auch vegan</small></div>
+        <span class="price">4,50&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/34052564/pexels-photo-34052564.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Croissant mit Kaffee auf Cafétisch">
+        <div><h3>Croissant</h3><small>Pur 2,80 — mit Butter &amp; Marmelade</small></div>
+        <span class="price">3,50&nbsp;€</span>
+      </div>
+    </div>
+
+    <div class="panel" id="p-kaffee">
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/19873648/pexels-photo-19873648/free-photo-of-cup-of-coffee-on-tray-on-table.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Frisch gebrühter Espresso in Keramiktasse, von oben">
+        <div><h3>Espresso</h3><small>Kurz, kräftig, ehrlich</small></div>
+        <span class="price">2,10&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/459489/pexels-photo-459489.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Cappuccino mit Herz-Latte-Art in blauer Tasse">
+        <div><h3>Cappuccino</h3><small>Auch mit Hafer-, Soja- oder Mandelmilch +0,40</small></div>
+        <span class="price">2,90&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/36851643/pexels-photo-36851643.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Flat White mit Herz-Latte-Art in grauer Tasse">
+        <div><h3>Flat White</h3><small>Doppelter Espresso, samtige Milch</small></div>
+        <span class="price">3,90&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/236288/pexels-photo-236288.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Cappuccino mit Schokoladenmuster auf dem Milchschaum">
+        <div><h3>Moccachino</h3><small>Espresso, Kakao, geschäumte Milch</small></div>
+        <span class="price">4,40&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/911810/pexels-photo-911810.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Matcha Latte mit Latte Art">
+        <div><h3>Matcha Latte</h3><small>Zeremonieller Matcha, cremig aufgeschäumt</small></div>
+        <span class="price">4,50&nbsp;€</span>
+      </div>
+      <div class="dish">
+        <img src="https://images.pexels.com/photos/158053/fresh-orange-juice-squeezed-refreshing-citrus-158053.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Frisch gepresster Orangensaft">
+        <div><h3>Frisch gepresster O-Saft</h3><small>Jeden Morgen frisch — solange die Orangen reichen</small></div>
+        <span class="price">4,90&nbsp;€</span>
+      </div>
+    </div>
+
+    <p class="menu-foot">Beispielkarte des Demo-Entwurfs — Preise &amp; Gerichte pflegt Leo's selbst, änderbar in Minuten.</p>
+  </div>
+</section>
+
+<!-- ============ DAY TIMELINE ============ -->
+<section id="tag">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="sec-kicker">Ein Tag bei Leo's</span>
+      <h2>Vom ersten Espresso bis zur Kuchenstunde</h2>
+    </div>
+    <div class="timeline">
+      <div class="moment">
+        <div class="m-body">
+          <h3>Erste Sonne, erster Flat White</h3>
+          <p>Die Tür geht auf, die Maschine läuft warm. Draußen ein Platz in der Morgensonne, drinnen duftet es nach frischen Croissants.</p>
+        </div>
+        <div class="m-time"><small>ab</small>8:30</div>
+        <div class="m-photo">
+          <img src="https://images.pexels.com/photos/4913342/pexels-photo-4913342.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Cappuccino von oben auf Marmortisch">
+        </div>
+      </div>
+      <div class="moment">
+        <div class="m-body">
+          <h3>Brunch-Zeit</h3>
+          <p>Eggs Benedict, Avocado Dream, frisch gepresster Saft. Die Tische füllen sich — es lohnt sich, kurz zu warten. Versprochen.</p>
+        </div>
+        <div class="m-time"><small>gegen</small>11:30</div>
+        <div class="m-photo">
+          <img src="https://images.pexels.com/photos/13927333/pexels-photo-13927333.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Eggs Benedict mit Lachs und Sauce Hollandaise">
+        </div>
+      </div>
+      <div class="moment">
+        <div class="m-body">
+          <h3>Kuchenstunde</h3>
+          <p>Napoleon-Torte, Karottenkuchen, Apfelkuchen nach Familienrezept — dazu ein Matcha oder Moccachino, bis wir um 16 Uhr leise zusperren.</p>
+        </div>
+        <div class="m-time"><small>ab</small>14:00</div>
+        <div class="m-photo">
+          <img src="https://images.pexels.com/photos/2612373/pexels-photo-2612373.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Karottenkuchen mit Marzipan-Karotten">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">Einblicke</span>
+      <h2>Klein, warm, unser Wohnzimmer am Kiez</h2>
+      <p>Ein paar Tische drinnen, ein paar draußen — und alles, was ein guter Vormittag braucht.</p>
+    </div>
+    <div class="gal">
+      <img class="tall" src="https://images.pexels.com/photos/2079448/pexels-photo-2079448.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Warmes, gemütliches Café-Interieur mit Holz und Büchern">
+      <img src="https://images.pexels.com/photos/17104305/pexels-photo-17104305.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Gäste entspannen im gemütlichen Café">
+      <img src="https://images.pexels.com/photos/34052564/pexels-photo-34052564.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Kaffee, Croissant und Blumen auf einem Cafétisch von oben">
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section id="stimmen">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="sec-kicker">Stimmen aus dem Kiez</span>
+      <h2>4,8 von 5 — sagen 699 Gäste</h2>
+    </div>
+    <div class="bigquote">
+      <span class="qmark">„</span>
+      <p>Es lohnt sich, auf einen Tisch zu warten.</p>
+      <cite>— sinngemäß ziemlich viele Google-Bewertungen</cite>
+    </div>
+    <div class="rev-grid">
+      <div class="rev">
+        <span class="stars">★★★★★</span>
+        <p>„Leckeres Essen und super Bedienung — die Eggs Benedict sind für mich die besten der Stadt."</p>
+        <div class="rev-who"><span class="ava">M</span><div>Miriam<br><small>Google-Bewertung</small></div></div>
+      </div>
+      <div class="rev">
+        <span class="stars">★★★★★</span>
+        <p>„Klein, gemütlich, ehrlich. Man merkt sofort, dass hier jemand mit Herz hinter dem Tresen steht."</p>
+        <div class="rev-who"><span class="ava">J</span><div>Jonas<br><small>Google-Bewertung</small></div></div>
+      </div>
+      <div class="rev">
+        <span class="stars">★★★★★</span>
+        <p>„Der Karottenkuchen ist ein Gedicht und der Matcha perfekt. Unser festes Sonntagsritual."</p>
+        <div class="rev-who"><span class="ava">A</span><div>Aylin<br><small>Google-Bewertung</small></div></div>
+      </div>
+    </div>
+    <p class="rev-sum">Beispiel-Stimmen im Demo-Entwurf, dem echten Ton der Bewertungen nachempfunden — <strong>4,8 ★ bei 699 Google-Bewertungen</strong> ist echt.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="besuch">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">Besuch uns</span>
+      <h2>Greifswalder Straße 2</h2>
+      <p>Mit der Tram M4 nur ein paar Minuten vom Alexanderplatz — mitten im Kiez.</p>
+    </div>
+    <div class="visit">
+      <div>
+        <div class="v-item">
+          <div class="v-label">Adresse</div>
+          <p>Greifswalder Str. 2, 10405 Berlin</p>
+          <small>Prenzlauer Berg</small>
+        </div>
+        <div class="v-item">
+          <div class="v-label">Telefon</div>
+          <a href="tel:+493050593889">030 50593889</a>
+        </div>
+        <div class="v-item">
+          <div class="v-label">Instagram</div>
+          <a href="https://www.instagram.com/leoscoffeeberlin/" target="_blank" rel="noopener">@leoscoffeeberlin</a>
+        </div>
+        <div class="btn-row">
+          <a class="btn primary" href="https://www.google.com/maps/search/?api=1&amp;query=Leo%27s%20Greifswalder%20Str.%202%2C%2010405%20Berlin" target="_blank" rel="noopener">Route planen</a>
+          <a class="btn ghost" href="tel:+493050593889">Anrufen</a>
+        </div>
+      </div>
+      <div class="hours-card">
+        <h3>Öffnungszeiten</h3>
+        <table>
+          <tr><td>Montag</td><td>8:30 – 16:00</td></tr>
+          <tr><td>Dienstag</td><td>9:30 – 16:00</td></tr>
+          <tr><td>Mittwoch</td><td>8:30 – 16:00</td></tr>
+          <tr><td>Donnerstag</td><td>8:30 – 14:00</td></tr>
+          <tr><td>Freitag</td><td>8:30 – 16:00</td></tr>
+          <tr><td>Samstag</td><td>8:30 – 16:00</td></tr>
+          <tr><td>Sonntag</td><td>8:30 – 14:00</td></tr>
+        </table>
+        <p class="hours-note">Endlich eine Seite, auf der die Zeiten stimmen — hier pflegt sie Leo's selbst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="wordmark">L · E · O</span>
+    <span>Greifswalder Str. 2, 10405 Berlin · <a href="tel:+493050593889">030 50593889</a> · <a href="https://www.instagram.com/leoscoffeeberlin/" target="_blank" rel="noopener">@leoscoffeeberlin</a></span>
+  </div>
+</footer>
+
+<script>
+  var tabs = document.querySelectorAll('.tab');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+      this.classList.add('active');
+      document.getElementById(this.getAttribute('data-panel')).classList.add('active');
+    });
+  }
+</script>
+
+</body>
+</html>
