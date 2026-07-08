@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Cat Tattoo Berlin — Tattoostudio Friedrichshain · Walk-ins willkommen</title>
+<meta name="description" content="Black Cat Tattoo Berlin — Tattoostudio in Friedrichshain, Wühlischstraße 34. Custom Designs, Cover-ups, Walk-ins. 4,9★ bei Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0A09;
+    --ink-2:#131110;
+    --bone:#EDE6D8;
+    --bone-dim:#A69D8C;
+    --red:#D6402E;
+    --red-deep:#A32B1D;
+    --gold:#C99A3C;
+    --line:rgba(237,230,216,.16);
+    --line-strong:rgba(237,230,216,.32);
+    --pad:clamp(1.25rem, 4vw, 4rem);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-padding-top:76px}
+  body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:'Archivo',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .anton{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em}
+  .pirata{font-family:'Pirata One',cursive;font-weight:400}
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--ink);
+    border-bottom:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 var(--pad);height:64px;
+  }
+  .nav-brand{display:flex;align-items:center;gap:.75rem}
+  .nav-cat{
+    width:34px;height:34px;background:var(--bone);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  }
+  .nav-cat svg{width:22px;height:22px;fill:var(--ink)}
+  .nav-brand:hover .nav-cat{background:var(--red)}
+  .nav-word{font-family:'Anton',sans-serif;font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase}
+  .nav-word em{font-style:normal;color:var(--red)}
+  .nav-sub{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--bone-dim)}
+  .nav-links{display:flex;align-items:center;gap:1.75rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .nav-links a{border-bottom:2px solid transparent;padding:4px 0}
+  .nav-links a:hover{border-bottom-color:var(--red)}
+  .nav-links a.nav-pill{
+    border:1.5px solid var(--bone);padding:.72rem 1.2rem;font-size:.72rem;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    display:inline-flex;align-items:center;gap:.55rem;
+    line-height:1;white-space:nowrap;
+  }
+  .nav-links a.nav-pill:hover{background:var(--red);border-color:var(--red);color:var(--bone)}
+  .nav-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--red);display:inline-block}
+  .nav-pill:hover .dot{background:var(--bone)}
+  @media(max-width:900px){.nav-links a.nl{display:none}}
+
+  /* ============ HERO ============ */
+  .hero{
+    display:grid;grid-template-columns:1.12fr .88fr;
+    border-bottom:1px solid var(--line-strong);
+    min-height:calc(92vh - 64px);
+  }
+  .hero-copy{
+    padding:clamp(2.5rem,5vw,4.5rem) var(--pad);
+    border-right:1px solid var(--line-strong);
+    display:flex;flex-direction:column;justify-content:center;gap:1.4rem;
+    position:relative;
+  }
+  .hero-eyebrow{
+    display:flex;gap:1rem;align-items:center;flex-wrap:wrap;
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim);
+  }
+  .hero-eyebrow .x{color:var(--red)}
+  h1{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(3.4rem, 8.4vw, 7.2rem);
+    line-height:.94;text-transform:uppercase;letter-spacing:.005em;
+  }
+  h1 .l1{display:block}
+  h1 .l2{
+    display:block;color:transparent;
+    -webkit-text-stroke:2px var(--bone);
+  }
+  h1 .l3{display:block;color:var(--red)}
+  .hero-script{
+    font-family:'Pirata One',cursive;
+    font-size:clamp(1.4rem,2.6vw,2rem);
+    color:var(--gold);
+  }
+  .hero-text{max-width:46ch;color:var(--bone-dim);font-size:1.02rem}
+  .hero-text strong{color:var(--bone);font-weight:600}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.4rem}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    text-align:center;padding:1rem 1.8rem;
+    font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+    line-height:1.3;border:1px solid var(--red);
+  }
+  .btn-solid{background:var(--red);color:var(--bone)}
+  .btn-solid:hover{background:var(--red-deep);border-color:var(--red-deep)}
+  .btn-ghost{border-color:var(--bone)}
+  .btn-ghost:hover{background:var(--bone);color:var(--ink)}
+  .hero-rating{
+    display:flex;align-items:center;gap:.9rem;margin-top:.6rem;
+    font-size:.85rem;color:var(--bone-dim);
+  }
+  .stars{color:var(--gold);letter-spacing:.18em;font-size:1rem}
+  .hero-rating b{color:var(--bone);font-size:1.05rem}
+
+  .hero-photo{position:relative;overflow:hidden;min-height:420px}
+  .hero-photo img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.08) brightness(.86);
+  }
+  .stamp{
+    position:absolute;right:clamp(1rem,3vw,2.5rem);bottom:clamp(1.5rem,4vw,3rem);
+    background:var(--ink);border:2px solid var(--bone);
+    padding:1rem 1.3rem;transform:rotate(4deg);
+    text-align:center;box-shadow:6px 6px 0 var(--red);
+  }
+  .stamp .big{font-family:'Anton',sans-serif;font-size:2rem;line-height:1;color:var(--gold)}
+  .stamp .small{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;margin-top:.35rem;color:var(--bone-dim)}
+  .corner{position:absolute;font-size:.9rem;color:var(--bone-dim);line-height:1;user-select:none}
+  .c-tl{top:10px;left:12px}.c-br{bottom:10px;right:12px}
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;min-height:0}
+    .hero-copy{border-right:none;border-bottom:1px solid var(--line-strong)}
+    .hero-photo{min-height:340px}
+  }
+
+  /* ============ INFO BAR ============ */
+  .infobar{
+    border-bottom:1px solid var(--line-strong);
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+    gap:.6rem 1.4rem;padding:.9rem var(--pad);
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim);
+    background:var(--ink-2);
+  }
+  .infobar .x{color:var(--red);font-size:.8rem}
+
+  /* ============ SECTION SHELL ============ */
+  section{border-bottom:1px solid var(--line-strong)}
+  .sec-head{
+    padding:clamp(2.5rem,5vw,4rem) var(--pad) clamp(1.5rem,3vw,2.2rem);
+    display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+  }
+  .sec-eyebrow{font-family:'Pirata One',cursive;font-size:1.35rem;color:var(--red)}
+  h2{
+    font-family:'Anton',sans-serif;text-transform:uppercase;
+    font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;letter-spacing:.01em;
+  }
+  .sec-note{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim)}
+
+  /* ============ FLASH SHEET (STYLES) ============ */
+  .flash-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line-strong);
+  }
+  .flash-cell{
+    position:relative;
+    padding:clamp(1.6rem,3vw,2.4rem);
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    min-height:230px;display:flex;flex-direction:column;gap:.8rem;
+  }
+  .flash-cell:nth-child(3n){border-right:none}
+  .flash-cell:hover{background:var(--ink-2)}
+  .flash-cell svg{width:44px;height:44px;stroke:var(--bone);fill:none;stroke-width:1.6}
+  .flash-cell:hover svg{stroke:var(--red)}
+  .flash-name{font-family:'Anton',sans-serif;font-size:1.35rem;text-transform:uppercase;letter-spacing:.03em}
+  .flash-en{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .flash-desc{font-size:.88rem;color:var(--bone-dim);max-width:34ch}
+  .tick{position:absolute;color:var(--line-strong);font-size:.8rem;line-height:1}
+  .t-tl{top:8px;left:10px}.t-tr{top:8px;right:10px}.t-bl{bottom:8px;left:10px}.t-br{bottom:8px;right:10px}
+  @media(max-width:900px){
+    .flash-grid{grid-template-columns:repeat(2,1fr)}
+    .flash-cell:nth-child(3n){border-right:1px solid var(--line)}
+    .flash-cell:nth-child(2n){border-right:none}
+  }
+  @media(max-width:560px){
+    .flash-grid{grid-template-columns:1fr}
+    .flash-cell{border-right:none !important;min-height:0}
+  }
+
+  /* ============ ARTISTS ============ */
+  .artist-row{
+    display:grid;grid-template-columns:150px 130px 1fr auto;
+    gap:clamp(1rem,3vw,2.5rem);align-items:center;
+    padding:clamp(1.6rem,3.5vw,2.6rem) var(--pad);
+    border-top:1px solid var(--line);
+  }
+  .artist-row:hover{background:var(--bone);color:var(--ink)}
+  .artist-num{
+    font-family:'Anton',sans-serif;font-size:clamp(3rem,6vw,4.6rem);line-height:1;
+    color:transparent;-webkit-text-stroke:1.5px var(--bone-dim);
+  }
+  .artist-row:hover .artist-num{-webkit-text-stroke:1.5px var(--ink)}
+  .artist-mono{
+    width:96px;height:96px;border:2px solid var(--red);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Pirata One',cursive;font-size:3.2rem;color:var(--red);
+    transform:rotate(-3deg);
+  }
+  .artist-name{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);text-transform:uppercase;line-height:1.1}
+  .artist-meta{font-size:.82rem;color:var(--bone-dim);margin-top:.45rem;display:flex;gap:.9rem;flex-wrap:wrap}
+  .artist-row:hover .artist-meta{color:#524a3e}
+  .artist-tag{border:1px solid currentColor;padding:.15rem .6rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+  .artist-ig{font-size:.8rem;letter-spacing:.1em;font-weight:600}
+  .artist-arrow{font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--red)}
+  .artists-foot{padding:1.4rem var(--pad) 2.6rem;font-size:.88rem;color:var(--bone-dim);max-width:64ch}
+  @media(max-width:760px){
+    .artist-row{grid-template-columns:64px 1fr auto;gap:1rem}
+    .artist-num{display:none}
+    .artist-mono{width:64px;height:64px;font-size:2.2rem}
+  }
+
+  /* ============ GALLERY STRIP ============ */
+  .strip{
+    display:flex;gap:1px;overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    border-top:1px solid var(--line-strong);
+    background:var(--line);
+    -webkit-overflow-scrolling:touch;
+  }
+  .strip::-webkit-scrollbar{height:10px}
+  .strip::-webkit-scrollbar-track{background:var(--ink-2)}
+  .strip::-webkit-scrollbar-thumb{background:var(--red)}
+  .strip-item{
+    flex:0 0 auto;scroll-snap-align:start;
+    background:var(--ink);position:relative;
+  }
+  .strip-item img{
+    height:clamp(280px,42vw,400px);width:auto;
+    filter:grayscale(1) contrast(1.06) brightness(.9);
+  }
+  .strip-item:hover img{filter:grayscale(0) contrast(1.02)}
+  .strip-cap{
+    position:absolute;left:12px;bottom:10px;
+    background:var(--ink);border:1px solid var(--line-strong);
+    padding:.25rem .7rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-dim);
+  }
+  .strip-hint{padding:.8rem var(--pad) 2rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim)}
+
+  /* ============ KODEX (light section) ============ */
+  .kodex{background:var(--bone);color:var(--ink)}
+  .kodex .sec-eyebrow{color:var(--red-deep)}
+  .kodex .sec-note{color:#7d7364}
+  .kodex-list{border-top:1px solid rgba(11,10,9,.25)}
+  .kodex-item{
+    display:grid;grid-template-columns:110px 1fr;gap:clamp(1rem,3vw,2.5rem);
+    padding:clamp(1.4rem,3vw,2rem) var(--pad);
+    border-bottom:1px solid rgba(11,10,9,.18);align-items:baseline;
+  }
+  .kodex-item:last-child{border-bottom:none}
+  .kodex-no{font-family:'Pirata One',cursive;font-size:2rem;color:var(--red-deep)}
+  .kodex-title{font-family:'Anton',sans-serif;font-size:clamp(1.3rem,2.6vw,1.9rem);text-transform:uppercase;line-height:1.15}
+  .kodex-desc{font-size:.92rem;color:#524a3e;max-width:70ch;margin-top:.35rem}
+  @media(max-width:600px){.kodex-item{grid-template-columns:64px 1fr}}
+
+  /* ============ BANNER ============ */
+  .banner{position:relative;overflow:hidden;max-height:440px;border-bottom:1px solid var(--line-strong)}
+  .banner img{width:100%;height:440px;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.55)}
+  .banner-quote{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+    text-align:center;padding:0 var(--pad);
+  }
+  .banner-quote .pirata{font-size:clamp(2.2rem,6vw,4rem);color:var(--bone)}
+  .banner-quote .sub{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+  /* ============ REVIEWS ============ */
+  .rev-wrap{
+    display:grid;grid-template-columns:minmax(260px,.8fr) 2fr;
+    gap:clamp(2rem,4vw,3.5rem);
+    padding:0 var(--pad) clamp(3rem,5vw,4.5rem);
+  }
+  .rev-score{display:flex;flex-direction:column;gap:.6rem;align-items:flex-start}
+  .rev-big{
+    font-family:'Anton',sans-serif;font-size:clamp(6rem,12vw,9.5rem);line-height:.9;
+    color:transparent;-webkit-text-stroke:2.5px var(--gold);
+  }
+  .rev-score .stars{font-size:1.3rem}
+  .rev-src{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim)}
+  .rev-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem;align-content:start}
+  .rev-card{
+    background:var(--ink-2);border:1.5px solid var(--bone);
+    box-shadow:7px 7px 0 var(--red);
+    padding:1.5rem;display:flex;flex-direction:column;gap:.8rem;
+  }
+  .rev-card .stars{font-size:.85rem}
+  .rev-text{font-size:.92rem;color:var(--bone);line-height:1.55}
+  .rev-who{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim);margin-top:auto}
+  @media(max-width:820px){.rev-wrap{grid-template-columns:1fr}}
+
+  /* ============ CONTACT ============ */
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr}
+  .contact-left{
+    padding:clamp(2.5rem,5vw,4.5rem) var(--pad);
+    border-right:1px solid var(--line-strong);
+    display:flex;flex-direction:column;gap:1.4rem;justify-content:center;
+  }
+  .contact-h{
+    font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.95;
+    font-size:clamp(3rem,7.5vw,6rem);
+  }
+  .contact-h .out{display:block;color:transparent;-webkit-text-stroke:2px var(--bone)}
+  .contact-h .fill{display:block;color:var(--red)}
+  .contact-script{font-family:'Pirata One',cursive;font-size:1.6rem;color:var(--gold)}
+  .contact-body{color:var(--bone-dim);max-width:44ch;font-size:.98rem}
+  .contact-body strong{color:var(--bone)}
+  .contact-cells{display:grid;grid-template-columns:1fr 1fr}
+  .c-cell{
+    padding:clamp(1.5rem,3vw,2.2rem);
+    border-bottom:1px solid var(--line);position:relative;
+  }
+  .c-cell:nth-child(odd){border-right:1px solid var(--line)}
+  .c-cell h3{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;font-weight:600}
+  .c-cell p{font-size:.95rem;line-height:1.7}
+  .c-cell a:hover{color:var(--red)}
+  .c-cell .muted{color:var(--bone-dim);font-size:.82rem}
+  .c-cta{grid-column:1 / -1;padding:clamp(1.5rem,3vw,2.2rem);border-bottom:none;display:flex;gap:1rem;flex-wrap:wrap}
+  @media(max-width:860px){
+    .contact-grid{grid-template-columns:1fr}
+    .contact-left{border-right:none;border-bottom:1px solid var(--line-strong)}
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    padding:1.6rem var(--pad);
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);
+  }
+  footer .brand{display:flex;align-items:center;gap:.6rem;color:var(--bone)}
+  footer .amnesty{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav-brand" href="#top">
+    <span class="nav-cat">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 6.1c1.05 0 2.05.16 2.95.46L18.6 2.4c.2-.17.51-.05.56.21.21 1.05.64 3.4.64 5.09 0 5.9-3.5 9.9-7.8 9.9s-7.8-4-7.8-9.9c0-1.69.43-4.04.64-5.09.05-.26.36-.38.56-.21l3.65 4.16c.9-.3 1.9-.46 2.95-.46z"/>
+        <path d="M7.2 19.4c1.4.9 3.1 1.4 4.8 1.4s3.4-.5 4.8-1.4l.6 1.9c-1.6.9-3.4 1.4-5.4 1.4s-3.8-.5-5.4-1.4z"/>
+      </svg>
+    </span>
+    <span class="nav-word">Black <em>Cat</em></span>
+    <span class="nav-sub">Tattoo · Berlin</span>
+  </a>
+  <nav class="nav-links">
+    <a class="nl" href="#styles">Styles</a>
+    <a class="nl" href="#artists">Artists</a>
+    <a class="nl" href="#studio">Studio</a>
+    <a class="nl" href="#kontakt">Kontakt</a>
+    <a class="nav-pill" href="#kontakt"><span class="dot"></span>Walk-ins willkommen</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <span class="corner c-tl">✕</span>
+    <div class="hero-eyebrow">
+      <span>Friedrichshain</span><span class="x">✕</span>
+      <span>Wühlischstraße 34</span><span class="x">✕</span>
+      <span>Mo–Sa 12–19 Uhr</span>
+    </div>
+    <h1>
+      <span class="l1">Black Cat</span>
+      <span class="l2">Tattoo</span>
+      <span class="l3">Berlin</span>
+    </h1>
+    <p class="hero-script">Schwarze Katze, gutes Karma — schlechtes Glück gibt&rsquo;s hier nicht.</p>
+    <p class="hero-text">
+      Custom Tattoos aus dem Wühlischkiez: <strong>jedes Design ein Unikat</strong>, gezeichnet
+      auf deinen Wunsch. Fine Line bis Old School, Cover-ups inklusive —
+      und <strong>Walk-ins haben bei uns fast immer Platz</strong>. Just walk in.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="#kontakt">Termin anfragen</a>
+      <a class="btn btn-ghost" href="#artists">Die Artists</a>
+    </div>
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span><b>4,9</b> · 245 Google-Bewertungen</span>
+    </div>
+    <span class="corner c-br">✕</span>
+  </div>
+  <div class="hero-photo">
+    <img src="https://images.pexels.com/photos/17875607/pexels-photo-17875607.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tätowierer bei der Arbeit, schwarz-weiß">
+    <div class="stamp">
+      <div class="big">4,9★</div>
+      <div class="small">245 Bewertungen<br>auf Google</div>
+    </div>
+  </div>
+</section>
+
+<div class="infobar">
+  <span>Walk-ins täglich</span><span class="x">✕</span>
+  <span>Keine Preiserhöhung seit 2019</span><span class="x">✕</span>
+  <span>REACH-konforme Farben</span><span class="x">✕</span>
+  <span>Vegan auf Anfrage</span><span class="x">✕</span>
+  <span>Cover-up Spezialisten</span>
+</div>
+
+<section id="styles">
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow">Was wir stechen</div>
+      <h2>Styles &amp; Services</h2>
+    </div>
+    <div class="sec-note">Flash Sheet № 1 — Alle Styles, alle Größen</div>
+  </div>
+  <div class="flash-grid">
+    <div class="flash-cell">
+      <span class="tick t-tl">✕</span><span class="tick t-tr">✕</span><span class="tick t-bl">✕</span><span class="tick t-br">✕</span>
+      <svg viewBox="0 0 48 48"><path d="M10 38 L38 10 M34 6 L42 14 M8 40 L6 42"/></svg>
+      <div><div class="flash-name">Fine Line</div><div class="flash-en">Delicate · Minimal</div></div>
+      <p class="flash-desc">Feine Linien, kleine Motive, große Wirkung — präzise gestochen, ohne Schnörkel.</p>
+    </div>
+    <div class="flash-cell">
+      <span class="tick t-tl">✕</span><span class="tick t-tr">✕</span><span class="tick t-bl">✕</span><span class="tick t-br">✕</span>
+      <svg viewBox="0 0 48 48"><path d="M8 24 C14 10, 22 10, 24 24 C26 38, 34 38, 40 24 M8 32 C16 24, 32 24, 40 32"/></svg>
+      <div><div class="flash-name">Blackwork</div><div class="flash-en">Bold · Tribal · Ornamental</div></div>
+      <p class="flash-desc">Satte Flächen, klare Kontraste, ornamentale Muster — Schwarz ist unsere Muttersprache.</p>
+    </div>
+    <div class="flash-cell">
+      <span class="tick t-tl">✕</span><span class="tick t-tr">✕</span><span class="tick t-bl">✕</span><span class="tick t-br">✕</span>
+      <svg viewBox="0 0 48 48"><path d="M24 42 C10 32, 6 22, 12 14 C17 8, 24 12, 24 18 C24 12, 31 8, 36 14 C42 22, 38 32, 24 42 Z"/></svg>
+      <div><div class="flash-name">Old School</div><div class="flash-en">Traditional · Neo-Trad</div></div>
+      <p class="flash-desc">Anker, Herzen, Panther — Klassiker mit fetter Linie und Farben, die bleiben.</p>
+    </div>
+    <div class="flash-cell">
+      <span class="tick t-tl">✕</span><span class="tick t-tr">✕</span><span class="tick t-bl">✕</span><span class="tick t-br">✕</span>
+      <svg viewBox="0 0 48 48"><circle cx="24" cy="20" r="9"/><path d="M10 42 C12 32, 36 32, 38 42 M24 29 L24 34"/></svg>
+      <div><div class="flash-name">Realismus</div><div class="flash-en">Portraits · Black &amp; Grey</div></div>
+      <p class="flash-desc">Porträts, Tiere, Details in Schwarz-Grau — fotorealistisch, Schicht für Schicht.</p>
+    </div>
+    <div class="flash-cell">
+      <span class="tick t-tl">✕</span><span class="tick t-tr">✕</span><span class="tick t-bl">✕</span><span class="tick t-br">✕</span>
+      <svg viewBox="0 0 48 48"><path d="M8 30 Q18 8, 40 12 M40 12 L34 10 M40 12 L38 18 M12 40 Q22 26, 40 24"/></svg>
+      <div><div class="flash-name">Cover-ups</div><div class="flash-en">Second Chances</div></div>
+      <p class="flash-desc">Der Name vom Ex? Die Jugendsünde? Wir zeichnen drüber — aus alt wird neu.</p>
+    </div>
+    <div class="flash-cell">
+      <span class="tick t-tl">✕</span><span class="tick t-tr">✕</span><span class="tick t-bl">✕</span><span class="tick t-br">✕</span>
+      <svg viewBox="0 0 48 48"><path d="M12 36 L12 12 L24 24 L36 12 L36 36"/></svg>
+      <div><div class="flash-name">Custom Design</div><div class="flash-en">Dein Motiv · Dein Unikat</div></div>
+      <p class="flash-desc">Deine Idee, unser Entwurf: Jedes Motiv wird individuell für dich gezeichnet — kein Tattoo zweimal.</p>
+    </div>
+  </div>
+</section>
+
+<section id="artists">
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow">Die Crew</div>
+      <h2>Die Artists</h2>
+    </div>
+    <div class="sec-note">Drei Handschriften — ein Studio</div>
+  </div>
+  <div class="artist-row">
+    <div class="artist-num">01</div>
+    <div class="artist-mono">J</div>
+    <div>
+      <div class="artist-name">Jen</div>
+      <div class="artist-meta">
+        <span class="artist-tag">Fine Line</span>
+        <span class="artist-tag">Illustrativ</span>
+        <span class="artist-ig">@j.a_sk</span>
+      </div>
+    </div>
+    <div class="artist-arrow">→</div>
+  </div>
+  <div class="artist-row">
+    <div class="artist-num">02</div>
+    <div class="artist-mono">J</div>
+    <div>
+      <div class="artist-name">Juan</div>
+      <div class="artist-meta">
+        <span class="artist-tag">Realismus</span>
+        <span class="artist-tag">Black &amp; Grey</span>
+        <span class="artist-ig">@madmedina_tattoo</span>
+      </div>
+    </div>
+    <div class="artist-arrow">→</div>
+  </div>
+  <div class="artist-row">
+    <div class="artist-num">03</div>
+    <div class="artist-mono">D</div>
+    <div>
+      <div class="artist-name">Dimitri</div>
+      <div class="artist-meta">
+        <span class="artist-tag">Blackwork</span>
+        <span class="artist-tag">Old School</span>
+        <span class="artist-ig">@blackcattattooberlin</span>
+      </div>
+    </div>
+    <div class="artist-arrow">→</div>
+  </div>
+  <p class="artists-foot">
+    Black Cat ist mehr als ein Tattoostudio: ein Co-Working-Space für Grafik, Art
+    &amp; Tattoo mitten im Kiez — mit wechselnden Gast-Artists. Die aktuellen
+    Arbeiten aller drei findest du auf Instagram.
+  </p>
+</section>
+
+<section id="studio">
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow">Einblicke</div>
+      <h2>Studio &amp; Sessions</h2>
+    </div>
+    <div class="sec-note">Wühlischstraße 34 · 10245 Berlin</div>
+  </div>
+  <div class="strip">
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/35426243/pexels-photo-35426243.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Tätowierer arbeitet konzentriert mit der Maschine">
+      <span class="strip-cap">Die Maschine</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/3931047/pexels-photo-3931047.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Tattoo-Session im Studio">
+      <span class="strip-cap">Session</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/18875533/pexels-photo-18875533.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Artist zeichnet einen Entwurf">
+      <span class="strip-cap">Der Entwurf</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/18349823/pexels-photo-18349823.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Hände mit Tattoomaschine, Nahaufnahme">
+      <span class="strip-cap">Präzision</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/4123907/pexels-photo-4123907.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Schwarze Handschuhe im Studio">
+      <span class="strip-cap">Hygiene</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/6593513/pexels-photo-6593513.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Frisch gestochenes Tattoo, Detail">
+      <span class="strip-cap">Frisch gestochen</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/4125588/pexels-photo-4125588.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Arm mit schwarzem Tattoo">
+      <span class="strip-cap">Blackwork</span>
+    </div>
+    <div class="strip-item">
+      <img src="https://images.pexels.com/photos/325152/pexels-photo-325152.jpeg?auto=compress&cs=tinysrgb&h=500" alt="Hand mit Tattoo, Nahaufnahme">
+      <span class="strip-cap">Detail</span>
+    </div>
+  </div>
+  <p class="strip-hint">← Scrollen für mehr — Symbolfotos, echte Arbeiten auf @blackcattattooberlin →</p>
+</section>
+
+<section class="kodex">
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow">Worauf du dich verlassen kannst</div>
+      <h2>Der Studio-Kodex</h2>
+    </div>
+    <div class="sec-note">Fünf Regeln, kein Kleingedrucktes</div>
+  </div>
+  <div class="kodex-list">
+    <div class="kodex-item">
+      <div class="kodex-no">I.</div>
+      <div>
+        <div class="kodex-title">Hygiene ohne Kompromisse</div>
+        <p class="kodex-desc">Sterile Einwegnadeln, moderne Sterilisationstechnik, dokumentierte Abläufe — bei jeder einzelnen Session.</p>
+      </div>
+    </div>
+    <div class="kodex-item">
+      <div class="kodex-no">II.</div>
+      <div>
+        <div class="kodex-title">REACH-konforme Farben</div>
+        <p class="kodex-desc">Nur EU-zertifizierte Tattoo-Farben. Selbstverständlich? Für uns ja. Vegane Farben auf Absprache.</p>
+      </div>
+    </div>
+    <div class="kodex-item">
+      <div class="kodex-no">III.</div>
+      <div>
+        <div class="kodex-title">Keine Preiserhöhung seit 2019</div>
+        <p class="kodex-desc">Trotz allem, was seitdem passiert ist: Unsere Preise sind eingefroren — zum Wohle deines Geldbeutels.</p>
+      </div>
+    </div>
+    <div class="kodex-item">
+      <div class="kodex-no">IV.</div>
+      <div>
+        <div class="kodex-title">Ehrliche Beratung, kostenlos</div>
+        <p class="kodex-desc">Wir sagen dir auch, wenn ein Motiv an der Stelle nichts wird. Beratung und Entwurf kosten dich nichts.</p>
+      </div>
+    </div>
+    <div class="kodex-item">
+      <div class="kodex-no">V.</div>
+      <div>
+        <div class="kodex-title">Walk-ins willkommen</div>
+        <p class="kodex-desc">Spontan im Kiez? Die Artists haben im Regelfall auch Zeit für kurzfristige Tattoos. Erst kommen, erst stechen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="banner">
+  <img src="https://images.pexels.com/photos/7005673/pexels-photo-7005673.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Tattoo-Artist arbeitet an einem Kunden">
+  <div class="banner-quote">
+    <div class="pirata">Neun Leben. Ein Kiez.</div>
+    <div class="sub">Seit Jahren fester Bestandteil von Friedrichshain</div>
+  </div>
+</div>
+
+<section id="reviews">
+  <div class="sec-head">
+    <div>
+      <div class="sec-eyebrow">Schwarz auf weiß</div>
+      <h2>Was der Kiez sagt</h2>
+    </div>
+    <div class="sec-note">Google Reviews</div>
+  </div>
+  <div class="rev-wrap">
+    <div class="rev-score">
+      <div class="rev-big">4,9</div>
+      <div class="stars">★★★★★</div>
+      <div class="rev-src">245 Bewertungen · Google</div>
+    </div>
+    <div class="rev-cards">
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="rev-text">„Bin als Walk-in rein, eine Stunde später mit einem perfekten Fine-Line-Tattoo wieder raus. Super entspannte Atmosphäre.“</p>
+        <div class="rev-who">Lena · Fine Line</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="rev-text">“Got my cover-up done here — you can't even tell there was ever anything underneath. Great advice, fair price, zero attitude.”</p>
+        <div class="rev-who">Marcus · Cover-up</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="rev-text">„Sehr saubere Arbeit, alles steril, nimmt sich Zeit für die Beratung. Mein drittes Tattoo hier — ich geh nirgendwo anders mehr hin.“</p>
+        <div class="rev-who">Ayşe · Blackwork</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="contact-h">
+        <span class="out">Komm</span>
+        <span class="fill">vorbei.</span>
+      </div>
+      <p class="contact-script">Die schwarze Katze wartet schon.</p>
+      <p class="contact-body">
+        Schreib uns dein Wunschmotiv, ruf an — oder steh einfach in der Tür:
+        <strong>Walk-ins sind bei uns keine Ausnahme, sondern Alltag.</strong>
+      </p>
+    </div>
+    <div class="contact-cells">
+      <div class="c-cell">
+        <h3>Adresse</h3>
+        <p>Wühlischstraße 34<br>10245 Berlin<br><span class="muted">Friedrichshain · 5 Min. von Boxhagener Platz</span></p>
+      </div>
+      <div class="c-cell">
+        <h3>Öffnungszeiten</h3>
+        <p>Mo – Sa · 12:00 – 19:00<br><span class="muted">Sonntag geschlossen</span></p>
+      </div>
+      <div class="c-cell">
+        <h3>Telefon</h3>
+        <p><a href="tel:+493035125310">030 351 253 10</a><br><span class="muted">Zu den Öffnungszeiten</span></p>
+      </div>
+      <div class="c-cell">
+        <h3>Social</h3>
+        <p><a href="#kontakt">@blackcattattooberlin</a><br><span class="muted">Instagram &amp; Facebook — aktuelle Arbeiten &amp; Flash</span></p>
+      </div>
+      <div class="c-cta">
+        <a class="btn btn-solid" href="tel:+493035125310">030 351 253 10</a>
+        <a class="btn btn-ghost" href="#kontakt">Nachricht auf Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">
+    <span class="nav-cat" style="width:26px;height:26px">
+      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:var(--ink)">
+        <path d="M12 6.1c1.05 0 2.05.16 2.95.46L18.6 2.4c.2-.17.51-.05.56.21.21 1.05.64 3.4.64 5.09 0 5.9-3.5 9.9-7.8 9.9s-7.8-4-7.8-9.9c0-1.69.43-4.04.64-5.09.05-.26.36-.38.56-.21l3.65 4.16c.9-.3 1.9-.46 2.95-.46z"/>
+      </svg>
+    </span>
+    <span>Black Cat Tattoo Berlin</span>
+  </div>
+  <div>Wühlischstraße 34 · 10245 Berlin</div>
+  <div class="amnesty">Black Cat against Racism — Supporters of Amnesty International</div>
+</footer>
+
+</body>
+</html>

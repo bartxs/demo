@@ -24,6 +24,7 @@ image/video attachment.
 | `prospects/PURI-Piekarnia-Gruzinska` | https://bartxs.github.io/demo/puri/ |
 | `prospects/Leos` | https://bartxs.github.io/demo/leos/ |
 | `prospects/Blumenhaus-Yasmin` | https://bartxs.github.io/demo/yasmin/ |
+| `prospects/Black-Cat-Tattoo` | https://bartxs.github.io/demo/blackcat/ |
 
 When a portfolio/studio domain exists, point a custom domain at this repo and
 the paths stay the same.
