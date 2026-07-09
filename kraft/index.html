@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pl" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kraft Sport — Narty · Snowboard · Rowery | Sklep, Serwis, Wypożyczalnia, Bootfitting | Wrocław</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,500;10..72,700;10..72,800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F2ED;
+  --ink:#181C18;
+  --line:#22271F;
+  --deep:#1E4230;
+  --deep-2:#163525;
+  --accent:#F1531F;
+  --accent-soft:#FBE3D8;
+  --sup:#6E8B5B;
+  --card:#FFFFFF;
+  --mono:'IBM Plex Mono',monospace;
+  --disp:'Big Shoulders',sans-serif;
+  --body:'Hanken Grotesk',sans-serif;
+}
+body[data-season="zima"]{
+  --deep:#16293E;
+  --deep-2:#0F1E2F;
+  --accent:#2E9BD6;
+  --accent-soft:#D9EBF6;
+  --sup:#5E7F9B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;transition:--deep .3s}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* season visibility */
+body[data-season="lato"] .s-zima{display:none !important}
+body[data-season="zima"] .s-lato{display:none !important}
+
+/* ── utility strip ── */
+.strip{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+.strip-in{max-width:1240px;margin:0 auto;padding:8px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.strip .dot{color:var(--accent)}
+.strip .grow{flex:1}
+.season-switch{display:inline-flex;border:1px solid var(--paper);border-radius:3px;overflow:hidden}
+.season-switch button{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;padding:5px 16px;background:transparent;color:var(--paper);border:0;cursor:pointer;transition:background .25s,color .25s}
+.season-switch button.on{background:var(--accent);color:#fff}
+
+/* ── nav ── */
+header.nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:2px solid var(--ink)}
+.nav-in{max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px}
+.logo{font-family:var(--disp);font-weight:800;font-size:1.5rem;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.logo .mark{width:26px;height:26px;flex:0 0 auto}
+.logo .mark path{fill:var(--accent);transition:fill .25s}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid transparent;padding-bottom:2px}
+.nav-links a:hover{border-color:var(--accent)}
+.nav-tel{font-family:var(--mono);font-size:.85rem;font-weight:600;border:2px solid var(--ink);padding:8px 16px;border-radius:3px;transition:background .2s,color .2s;white-space:nowrap}
+.nav-tel:hover{background:var(--ink);color:var(--paper)}
+
+/* ── hero ── */
+.hero{border-bottom:2px solid var(--ink);position:relative;overflow:hidden}
+.hero-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);min-height:640px}
+.hero-copy{padding:64px 40px 64px 24px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.hero-kicker::before{content:"";width:34px;height:2px;background:var(--accent)}
+.hero h1{font-size:clamp(3.4rem,7.2vw,6.4rem);font-weight:800}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero h1 .acc{color:var(--accent);transition:color .25s}
+.hero-sub{margin-top:26px;font-size:1.08rem;max-width:46ch;color:#3A423A}
+.hero-specs{margin-top:34px;font-family:var(--mono);font-size:.78rem;display:grid;grid-template-columns:auto auto;gap:8px 36px;width:fit-content}
+.hero-specs span b{color:var(--deep);font-weight:600}
+.hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.92rem;text-transform:uppercase;letter-spacing:.05em;padding:15px 30px;border-radius:3px;border:2px solid var(--ink);transition:transform .15s,background .2s,color .2s}
+.btn-fill{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-fill:hover{transform:translate(-2px,-2px)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.hero-photo{position:relative;border-left:2px solid var(--ink);min-height:420px}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-rail{position:absolute;right:0;top:0;bottom:0;width:44px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;z-index:2}
+.hero-rail span{writing-mode:vertical-rl;font-family:var(--mono);font-size:.68rem;letter-spacing:.34em;text-transform:uppercase}
+.badge{position:absolute;left:-52px;bottom:46px;z-index:3;width:150px;height:150px;filter:drop-shadow(4px 6px 0 rgba(0,0,0,.28))}
+.contours{position:absolute;left:0;top:0;height:100%;width:46%;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:.5}
+
+/* ── stat bar ── */
+.stats{background:var(--deep);color:var(--paper);transition:background .3s}
+.stats-in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 24px;border-left:1px solid rgba(244,242,237,.22)}
+.stat:first-child{border-left:0}
+.stat .num{font-family:var(--disp);font-weight:800;font-size:2.6rem;line-height:1}
+.stat .num em{font-style:normal;color:var(--accent);transition:color .25s}
+.stat .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-top:6px}
+
+/* ── sections ── */
+section{padding:96px 0}
+.sec-head{display:flex;align-items:flex-end;gap:24px;margin-bottom:52px;flex-wrap:wrap}
+.sec-head .idx{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.1em;white-space:nowrap;padding-bottom:10px}
+.sec-head h2{font-size:clamp(2.4rem,4.6vw,4rem);font-weight:800}
+.sec-head p{margin-left:auto;max-width:38ch;font-size:.98rem;color:#4A524A;padding-bottom:6px}
+
+/* departments */
+.depts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);background:var(--ink);grid-auto-rows:1fr}
+.dept{background:var(--card);display:flex;flex-direction:column;border-right:2px solid var(--ink);transition:background .2s}
+.dept:last-child{border-right:0}
+.dept-photo{aspect-ratio:4/3;overflow:hidden;border-bottom:2px solid var(--ink)}
+.dept-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.dept:hover .dept-photo img{transform:scale(1.05)}
+.dept-body{padding:24px 22px 28px;display:flex;flex-direction:column;flex:1}
+.dept-no{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--accent);margin-bottom:10px}
+.dept h3{font-size:1.7rem;font-weight:800;margin-bottom:12px}
+.dept ul{list-style:none;font-size:.9rem;color:#434B43;display:grid;gap:7px;margin-bottom:18px}
+.dept ul li{padding-left:16px;position:relative}
+.dept ul li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:.7rem;top:3px}
+.dept .tag{margin-top:auto;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--deep);border-top:1px dashed #B9B4A8;padding-top:12px}
+
+/* season split band */
+.split{padding:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;min-height:440px;position:relative}
+.split-half{position:relative;overflow:hidden;cursor:pointer}
+.split-half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.split-half:hover img{transform:scale(1.04)}
+.split-half .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,20,.05),rgba(20,24,20,.6))}
+.split-half .cap{position:absolute;left:28px;bottom:26px;color:#fff;z-index:2}
+.split-half .cap .mono{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.split-half .cap .big{font-family:var(--disp);font-weight:800;font-size:3rem;text-transform:uppercase;line-height:1}
+.split-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;background:var(--paper);border:2px solid var(--ink);padding:26px 34px;text-align:center;box-shadow:6px 6px 0 var(--accent);transition:box-shadow .25s}
+.split-center .mono{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--deep)}
+.split-center h3{font-size:2rem;font-weight:800;margin-top:6px}
+
+/* service spec sheet */
+.serwis{background:var(--deep);color:var(--paper);transition:background .3s}
+.serwis .sec-head h2{color:var(--paper)}
+.serwis .sec-head p{color:rgba(244,242,237,.75)}
+.spec{border-top:1px solid rgba(244,242,237,.3)}
+.spec-row{display:grid;grid-template-columns:70px 1.1fr 1.6fr auto;gap:20px;align-items:baseline;padding:22px 8px;border-bottom:1px solid rgba(244,242,237,.3)}
+.spec-row .no{font-family:var(--mono);font-size:.75rem;color:var(--accent);transition:color .25s}
+.spec-row .name{font-family:var(--disp);font-weight:700;font-size:1.45rem;text-transform:uppercase}
+.spec-row .desc{font-size:.9rem;color:rgba(244,242,237,.72)}
+.spec-row .price{font-family:var(--mono);font-size:.9rem;font-weight:600;white-space:nowrap}
+.spec-note{font-family:var(--mono);font-size:.72rem;color:rgba(244,242,237,.55);margin-top:18px}
+
+/* gallery */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal-item{border:2px solid var(--ink);background:var(--card)}
+.gal-item .ph{aspect-ratio:4/3;overflow:hidden;border-bottom:2px solid var(--ink)}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item .cap{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;display:flex;justify-content:space-between}
+.gal-item .cap b{color:var(--accent);font-weight:600;transition:color .25s}
+
+/* reviews — lift tickets */
+.reviews{background:var(--accent-soft);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);transition:background .3s}
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.ticket{background:var(--card);border:2px solid var(--ink);position:relative;padding:26px 26px 22px 44px;box-shadow:5px 6px 0 rgba(24,28,24,.16)}
+.ticket::before{content:"";position:absolute;left:22px;top:0;bottom:0;border-left:2px dashed #B9B4A8}
+.ticket .hole{position:absolute;left:8px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.ticket .stars{color:var(--accent);letter-spacing:3px;font-size:1rem;transition:color .25s}
+.ticket p{font-size:.94rem;margin:12px 0 16px;color:#333B33}
+.ticket .who{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#6B7365;display:flex;justify-content:space-between}
+.rev-foot{margin-top:36px;text-align:center;font-family:var(--mono);font-size:.78rem;color:var(--deep)}
+.rev-foot b{color:var(--accent)}
+
+/* contact */
+.kontakt-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:2px solid var(--ink)}
+.kontakt-info{background:var(--ink);color:var(--paper);padding:52px 46px}
+.kontakt-info h3{font-size:2.2rem;font-weight:800;margin-bottom:26px}
+.k-row{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid rgba(244,242,237,.18);font-size:.95rem}
+.k-row .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding-top:4px;transition:color .25s}
+.k-row a{border-bottom:1px solid rgba(244,242,237,.4)}
+.k-row a:hover{border-color:var(--accent)}
+.kontakt-cta{background:var(--card);padding:52px 46px;display:flex;flex-direction:column;justify-content:center}
+.kontakt-cta h3{font-size:1.9rem;font-weight:800;margin-bottom:14px}
+.kontakt-cta p{color:#4A524A;margin-bottom:26px;max-width:42ch}
+.kontakt-cta .btn{align-self:flex-start}
+.kontakt-cta .mono-note{font-family:var(--mono);font-size:.72rem;color:#7A8074;margin-top:22px}
+
+/* footer */
+footer{background:var(--ink);color:rgba(244,242,237,.6);border-top:2px solid var(--accent);transition:border-color .25s}
+.foot-in{max-width:1240px;margin:0 auto;padding:26px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em}
+.foot-in .grow{flex:1}
+
+/* responsive */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{min-height:380px;border-left:0;border-top:2px solid var(--ink)}
+  .badge{left:24px}
+  .depts{grid-template-columns:1fr 1fr}
+  .dept:nth-child(2){border-right:0}
+  .dept:nth-child(1),.dept:nth-child(2){border-bottom:2px solid var(--ink)}
+  .stats-in{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(244,242,237,.22)}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .tickets{grid-template-columns:1fr}
+  .kontakt-grid{grid-template-columns:1fr}
+  .spec-row{grid-template-columns:50px 1fr auto;gap:12px}
+  .spec-row .desc{grid-column:2/4}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .depts{grid-template-columns:1fr}
+  .dept{border-right:0;border-bottom:2px solid var(--ink)}
+  .dept:last-child{border-bottom:0}
+  .gal-grid{grid-template-columns:1fr}
+  .split-grid{grid-template-columns:1fr;min-height:0}
+  .split-half{min-height:260px}
+  .split-center{position:relative;left:0;top:0;transform:none;margin:-30px 24px 24px;z-index:5}
+  .hero-copy{padding:48px 24px}
+  section{padding:64px 0}
+  .strip-in{gap:10px}
+}
+</style>
+</head>
+<body data-season="lato">
+
+<!-- utility strip + season switch -->
+<div class="strip">
+  <div class="strip-in">
+    <span>WROCŁAW · WYŚCIGOWA 46</span>
+    <span class="dot">●</span>
+    <span>TEL 733 808 808</span>
+    <span class="grow"></span>
+    <span style="opacity:.7">SEZON:</span>
+    <div class="season-switch" role="group" aria-label="Wybór sezonu">
+      <button id="btn-lato" class="on" onclick="setSeason('lato')">☀ LATO</button>
+      <button id="btn-zima" onclick="setSeason('zima')">❄ ZIMA</button>
+    </div>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav">
+  <div class="nav-in">
+    <a href="#" class="logo">
+      <svg class="mark" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 1 25 25H1L13 1Z"/></svg>
+      Kraft Sport
+    </a>
+    <nav class="nav-links">
+      <a href="#dzialy">Działy</a>
+      <a href="#serwis">Serwis</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-tel" href="tel:+48733808808">733 808 808</a>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero" style="padding:0">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-kicker">Sklep · Serwis · Wypożyczalnia · Bootfitting</div>
+      <h1>
+        <span class="s-lato">Rowery<br><span class="out">latem.</span><br><span class="acc">Narty zimą.</span></span>
+        <span class="s-zima">Narty<br><span class="out">zimą.</span><br><span class="acc">Rowery latem.</span></span>
+      </h1>
+      <p class="hero-sub s-lato">Od ponad 20 lat na Wyścigowej. Rowery i e-bike’i, profesjonalny serwis, a gdy spadnie śnieg — narty, snowboard i bootfitting. Jeden adres na cały rok.</p>
+      <p class="hero-sub s-zima">Od ponad 20 lat na Wyścigowej. Narty, snowboard, bootfitting i centrum testowe nart, a latem — rowery i pełny serwis. Jeden adres na cały rok.</p>
+      <div class="hero-specs mono">
+        <span><b>OCENA</b> — 4,8 / 5 ★</span>
+        <span><b>OPINIE</b> — 1653 w Google</span>
+        <span><b>ADRES</b> — Wyścigowa 46, Wrocław</span>
+        <span><b>DOŚW.</b> — 20+ lat w branży</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-fill" href="#kontakt">Zaplanuj wizytę</a>
+        <a class="btn btn-ghost" href="#dzialy">Zobacz działy</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img class="s-lato" src="https://images.pexels.com/photos/32707534/pexels-photo-32707534.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Rowerzysta na górskim szlaku">
+      <img class="s-zima" src="https://images.pexels.com/photos/31871478/pexels-photo-31871478.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Narciarz o wschodzie słońca w Alpach">
+      <svg class="contours" viewBox="0 0 300 800" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="#fff" stroke-width="1.4" opacity=".8">
+          <path d="M-20 120 C60 80 120 160 300 110"/>
+          <path d="M-20 220 C80 170 140 260 300 210"/>
+          <path d="M-20 330 C70 280 150 370 300 315"/>
+          <path d="M-20 445 C90 390 130 480 300 425"/>
+          <path d="M-20 560 C60 510 160 600 300 540"/>
+          <path d="M-20 675 C90 620 140 710 300 655"/>
+        </g>
+      </svg>
+      <div class="hero-rail"><span>KRAFT SPORT · WROCŁAW · EST. NA WYŚCIGOWEJ</span></div>
+      <svg class="badge" viewBox="0 0 150 150" aria-hidden="true">
+        <polygon points="75,4 141,41 141,109 75,146 9,109 9,41" fill="var(--accent)" stroke="var(--ink)" stroke-width="4"/>
+        <text x="75" y="62" text-anchor="middle" font-family="'Big Shoulders',sans-serif" font-weight="800" font-size="34" fill="#fff">4,8★</text>
+        <text x="75" y="86" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#fff" letter-spacing="1">1653 OPINIE</text>
+        <text x="75" y="104" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#fff" opacity=".85">GOOGLE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- stat bar -->
+<div class="stats">
+  <div class="stats-in">
+    <div class="stat"><div class="num">4,8<em>★</em></div><div class="lab">średnia ocena Google</div></div>
+    <div class="stat"><div class="num">1653</div><div class="lab">opinii klientów</div></div>
+    <div class="stat"><div class="num">20<em>+</em></div><div class="lab">lat w branży narty / rowery</div></div>
+    <div class="stat"><div class="num">2<em>×</em></div><div class="lab">sezony — jeden adres</div></div>
+  </div>
+</div>
+
+<!-- departments -->
+<section id="dzialy">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx mono">/ 01 — DZIAŁY</span>
+      <h2>Cztery działy.<br>Jeden warsztat.</h2>
+      <p>Sklep, serwis, wypożyczalnia i bootfitting — wszystko pod jednym dachem, prowadzone przez ludzi, którzy sami jeżdżą.</p>
+    </div>
+    <div class="depts">
+      <div class="dept">
+        <div class="dept-photo"><img src="https://images.pexels.com/photos/34771214/pexels-photo-34771214.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wnętrze sklepu sportowego"></div>
+        <div class="dept-body">
+          <div class="dept-no">DZIAŁ / 01</div>
+          <h3>Sklep</h3>
+          <ul>
+            <li class="s-lato">Rowery górskie, szosowe, miejskie</li>
+            <li class="s-lato">E-bike’i i akcesoria</li>
+            <li class="s-zima">Narty, deski, buty narciarskie</li>
+            <li class="s-zima">Kaski, gogle, akcesoria</li>
+            <li>Sprawdzone marki, doradztwo</li>
+            <li>Sprzęt dobrany do umiejętności</li>
+          </ul>
+          <div class="tag s-lato">SEZON: ROWEROWY ☀</div>
+          <div class="tag s-zima">SEZON: NARCIARSKI ❄</div>
+        </div>
+      </div>
+      <div class="dept">
+        <div class="dept-photo"><img src="https://images.pexels.com/photos/132682/pexels-photo-132682.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Serwis rowerowy przy pracy"></div>
+        <div class="dept-body">
+          <div class="dept-no">DZIAŁ / 02</div>
+          <h3>Serwis</h3>
+          <ul>
+            <li class="s-lato">Przeglądy podstawowe i pełne</li>
+            <li class="s-lato">Serwis e-bike</li>
+            <li class="s-zima">Smarowanie i ostrzenie krawędzi</li>
+            <li class="s-zima">Regulacja wiązań</li>
+            <li>Szybkie terminy w sezonie</li>
+            <li>Wycena zawsze przed naprawą</li>
+          </ul>
+          <div class="tag">CAŁY ROK — DWA WARSZTATY</div>
+        </div>
+      </div>
+      <div class="dept">
+        <div class="dept-photo"><img src="https://images.pexels.com/photos/3609082/pexels-photo-3609082.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Narty i kijki na stoku"></div>
+        <div class="dept-body">
+          <div class="dept-no">DZIAŁ / 03</div>
+          <h3>Wypożyczalnia</h3>
+          <ul>
+            <li class="s-zima">Narty i snowboard na weekend lub sezon</li>
+            <li class="s-zima">Centrum testowe nart</li>
+            <li class="s-lato">Sprzęt testowy przed zakupem</li>
+            <li>Zestawy dla całej rodziny</li>
+            <li>Rezerwacja telefoniczna</li>
+          </ul>
+          <div class="tag s-zima">PRZETESTUJ, ZANIM KUPISZ</div>
+          <div class="tag s-lato">ZAPYTAJ O SPRZĘT TESTOWY</div>
+        </div>
+      </div>
+      <div class="dept">
+        <div class="dept-photo"><img src="https://images.pexels.com/photos/15324801/pexels-photo-15324801.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Buty narciarskie w śniegu"></div>
+        <div class="dept-body">
+          <div class="dept-no">DZIAŁ / 04</div>
+          <h3>Bootfitting</h3>
+          <ul>
+            <li>Dopasowanie butów narciarskich do stopy</li>
+            <li>Termoformowanie skorup i wkładek</li>
+            <li>Indywidualne wkładki</li>
+            <li>Koniec z bolącymi stopami na stoku</li>
+          </ul>
+          <div class="tag">SPECJALNOŚĆ DOMU ❄</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- season split band -->
+<div class="split">
+  <div class="split-grid">
+    <div class="split-half" onclick="setSeason('lato')" title="Przełącz na lato">
+      <img src="https://images.pexels.com/photos/33559608/pexels-photo-33559608.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rowerzysta nad górskim jeziorem">
+      <div class="veil"></div>
+      <div class="cap"><div class="mono">KWIECIEŃ — PAŹDZIERNIK</div><div class="big">Lato ☀</div></div>
+    </div>
+    <div class="split-half" onclick="setSeason('zima')" title="Przełącz na zimę">
+      <img src="https://images.pexels.com/photos/38089287/pexels-photo-38089287.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Narciarz na słonecznym stoku">
+      <div class="veil"></div>
+      <div class="cap"><div class="mono">LISTOPAD — MARZEC</div><div class="big">Zima ❄</div></div>
+    </div>
+    <div class="split-center">
+      <div class="mono">KLIKNIJ POŁÓWKĘ, BY ZMIENIĆ SEZON</div>
+      <h3>Dwa sezony.<br>Jeden adres.</h3>
+    </div>
+  </div>
+</div>
+
+<!-- service spec sheet -->
+<section class="serwis" id="serwis">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx mono">/ 02 — SERWIS</span>
+      <h2>Cennik jak karta<br>przeglądowa.</h2>
+      <p>Przykładowe pozycje — pełny cennik i terminy ustalisz telefonicznie. Wycena zawsze przed rozpoczęciem pracy.</p>
+    </div>
+    <div class="spec">
+      <div class="spec-row s-lato"><span class="no">S-01</span><span class="name">Przegląd podstawowy</span><span class="desc">Regulacja przerzutek i hamulców, kontrola bezpieczeństwa, smarowanie napędu.</span><span class="price">od 120 zł</span></div>
+      <div class="spec-row s-lato"><span class="no">S-02</span><span class="name">Przegląd pełny</span><span class="desc">Demontaż, czyszczenie i regulacja wszystkich układów — rower jak nowy.</span><span class="price">od 250 zł</span></div>
+      <div class="spec-row s-lato"><span class="no">S-03</span><span class="name">Serwis e-bike</span><span class="desc">Diagnostyka i serwis rowerów elektrycznych, aktualizacje systemu.</span><span class="price">od 150 zł</span></div>
+      <div class="spec-row s-lato"><span class="no">S-04</span><span class="name">Centrowanie kół</span><span class="desc">Centrowanie i naprężanie szprych, wymiana szprych.</span><span class="price">od 60 zł</span></div>
+      <div class="spec-row s-zima"><span class="no">W-01</span><span class="name">Smarowanie + krawędzie</span><span class="desc">Smarowanie na gorąco i ostrzenie krawędzi — pełne przygotowanie do stoku.</span><span class="price">od 90 zł</span></div>
+      <div class="spec-row s-zima"><span class="no">W-02</span><span class="name">Serwis pełny nart / deski</span><span class="desc">Struktura ślizgu, naprawa ubytków, krawędzie, smarowanie na gorąco.</span><span class="price">od 160 zł</span></div>
+      <div class="spec-row s-zima"><span class="no">W-03</span><span class="name">Regulacja wiązań</span><span class="desc">Ustawienie wiązań pod wagę, wzrost i styl jazdy — z protokołem.</span><span class="price">od 50 zł</span></div>
+      <div class="spec-row s-zima"><span class="no">W-04</span><span class="name">Bootfitting</span><span class="desc">Analiza stopy, termoformowanie, indywidualne wkładki.</span><span class="price">wycena indyw.</span></div>
+    </div>
+    <div class="spec-note">* ceny przykładowe do projektu — do uzupełnienia realnym cennikiem</div>
+  </div>
+</section>
+
+<!-- gallery -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx mono">/ 03 — GALERIA</span>
+      <h2>Z warsztatu<br>i ze stoku.</h2>
+      <p>Zdjęcia poglądowe — w finalnej wersji strony pokażemy Wasz sklep, warsztat i ekipę.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item"><div class="ph"><img src="https://images.pexels.com/photos/11526454/pexels-photo-11526454.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mechanik naprawia koło rowerowe"></div><div class="cap"><span>Warsztat rowerowy</span><b>☀ LATO</b></div></div>
+      <div class="gal-item"><div class="ph"><img src="https://images.pexels.com/photos/10263878/pexels-photo-10263878.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Serwis korby rowerowej"></div><div class="cap"><span>Serwis napędu</span><b>☀ LATO</b></div></div>
+      <div class="gal-item"><div class="ph"><img src="https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Rowerzysta z widokiem na wzgórza"></div><div class="cap"><span>Na szlaku</span><b>☀ LATO</b></div></div>
+      <div class="gal-item"><div class="ph"><img src="https://images.pexels.com/photos/10692422/pexels-photo-10692422.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sprzęt narciarski na drewnianym tle"></div><div class="cap"><span>Sprzęt narciarski</span><b>❄ ZIMA</b></div></div>
+      <div class="gal-item"><div class="ph"><img src="https://images.pexels.com/photos/30964294/pexels-photo-30964294.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Narty i kijki na śniegu"></div><div class="cap"><span>Gotowe na stok</span><b>❄ ZIMA</b></div></div>
+      <div class="gal-item"><div class="ph"><img src="https://images.pexels.com/photos/6536769/pexels-photo-6536769.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wyciąg krzesełkowy nad lasem"></div><div class="cap"><span>Sezon w pełni</span><b>❄ ZIMA</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- reviews -->
+<section class="reviews" id="opinie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx mono">/ 04 — OPINIE</span>
+      <h2>1653 karnety<br>zaufania.</h2>
+      <p>Średnia 4,8 / 5 z 1653 opinii w Google — poniżej wypowiedzi typowe dla profilu.</p>
+    </div>
+    <div class="tickets">
+      <div class="ticket">
+        <span class="hole"></span>
+        <div class="stars">★★★★★</div>
+        <p>„Kupowałem tu narty, buty i rower — za każdym razem fachowe doradztwo zamiast wciskania najdroższego modelu. Bootfitting rozwiązał problem, z którym męczyłem się latami."</p>
+        <div class="who"><span>— Marek</span><span>ZAKUP + BOOTFITTING</span></div>
+      </div>
+      <div class="ticket">
+        <span class="hole"></span>
+        <div class="stars">★★★★★</div>
+        <p>„Serwis roweru zrobiony na następny dzień, w środku sezonu. Uczciwa wycena przed naprawą, rower śmiga jak nowy. Widać, że chłopaki sami jeżdżą."</p>
+        <div class="who"><span>— Agnieszka</span><span>SERWIS ROWERU</span></div>
+      </div>
+      <div class="ticket">
+        <span class="hole"></span>
+        <div class="stars">★★★★★</div>
+        <p>„Wypożyczyliśmy narty dla całej rodziny — sprzęt świetnie przygotowany, dzieciaki dostały idealnie dobrane zestawy. Wracamy co sezon."</p>
+        <div class="who"><span>— Rodzina z Krzyków</span><span>WYPOŻYCZALNIA</span></div>
+      </div>
+    </div>
+    <div class="rev-foot">ŹRÓDŁO: PROFIL GOOGLE — <b>4,8 ★ / 1653 OPINIE</b> (STAN: LIPIEC 2026)</div>
+  </div>
+</section>
+
+<!-- contact -->
+<section id="kontakt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="idx mono">/ 05 — KONTAKT</span>
+      <h2>Wpadnij na<br>Wyścigową.</h2>
+    </div>
+    <div class="kontakt-grid">
+      <div class="kontakt-info">
+        <h3>Kraft Sport</h3>
+        <div class="k-row"><span class="k">Adres</span><span>ul. Wyścigowa 46<br>53-012 Wrocław (Krzyki / Partynice)</span></div>
+        <div class="k-row"><span class="k">Telefon</span><span><a href="tel:+48733808808">733 808 808</a><br><a href="tel:+48884046884">884 046 884</a></span></div>
+        <div class="k-row"><span class="k">Zakres</span><span>Narty · Snowboard · Rowery · Sklep · Serwis · Wypożyczalnia · Bootfitting</span></div>
+        <div class="k-row"><span class="k">Dojazd</span><span>Przy trasie na Partynice — parking pod sklepem</span></div>
+      </div>
+      <div class="kontakt-cta">
+        <h3 class="s-lato">Rower gotowy<br>na weekend?</h3>
+        <h3 class="s-zima">Narty gotowe<br>na wyjazd?</h3>
+        <p class="s-lato">Zadzwoń i umów serwis albo wpadnij dobrać nowy sprzęt — doradzimy, przetestujesz, wyjedziesz gotowy na szlak.</p>
+        <p class="s-zima">Zadzwoń i umów smarowanie, regulację wiązań albo bootfitting — wyjedziesz na stok z pewnym sprzętem.</p>
+        <a class="btn btn-fill" href="tel:+48733808808">Zadzwoń: 733 808 808</a>
+        <div class="mono-note">PN–SOB · SZCZEGÓŁOWE GODZINY NA PROFILU GOOGLE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <span>KRAFT SPORT — WYŚCIGOWA 46, WROCŁAW</span>
+    <span class="grow"></span>
+    <span>PROJEKT KONCEPCYJNY STRONY · ZDJĘCIA POGLĄDOWE (PEXELS)</span>
+  </div>
+</footer>
+
+<script>
+function setSeason(s){
+  document.body.dataset.season=s;
+  document.getElementById('btn-lato').classList.toggle('on',s==='lato');
+  document.getElementById('btn-zima').classList.toggle('on',s==='zima');
+}
+</script>
+</body>
+</html>
