@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayaz Barber Shop — Barbier · Prenzlauer Berg, Berlin</title>
+<meta name="description" content="Ayaz Barber Shop, Greifswalder Str. 228, Berlin. Präzise Schnitte, saubere Fades, klassische Rasur. 5,0 ★ bei Google. Ohne Termin.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFBF8;
+  --ink:#1D2C55;      /* deep barber-pole navy — takes the role of black */
+  --red:#BF1226;
+  --blue:#2B4B9B;     /* bright pole blue for stripes/accents */
+  --soft:#7D849B;
+  --rule:#1D2C55;
+  --hair:1px solid var(--ink);
+  --display:"Abril Fatface",serif;
+  --text:"Libre Franklin",system-ui,sans-serif;
+  --gutter:clamp(16px,3vw,44px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:#fff}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+.caps{font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.caps-sm{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+
+/* barber pole divider */
+.pole{height:10px;background:repeating-linear-gradient(115deg,var(--red) 0 12px,#FFFFFF 12px 22px,var(--blue) 22px 34px,#FFFFFF 34px 44px)}
+
+/* ornament rule: — ✂ — */
+.orn{display:flex;align-items:center;gap:14px;justify-content:center}
+.orn::before,.orn::after{content:"";height:1px;background:var(--ink);flex:1}
+.orn svg{flex:none}
+
+/* ============ NAV ============ */
+header{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:2px solid var(--ink);box-shadow:0 1px 0 var(--paper),0 4px 0 -3px var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand .b-name{font-family:var(--display);font-size:21px;letter-spacing:.01em}
+.brand .b-sub{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:clamp(14px,2.4vw,30px)}
+.nav-links a{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .15s,color .15s}
+.nav-links a:hover{border-bottom-color:var(--red);color:var(--red)}
+.nav-links a.call{border:2px solid var(--ink);padding:8px 16px;background:var(--ink);color:var(--paper);letter-spacing:.1em}
+.nav-links a.call:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ============ HERO — letterpress poster, no photo ============ */
+.hero{text-align:center;padding:clamp(44px,7vh,84px) 0 clamp(36px,5vh,60px);position:relative}
+.hero .est{color:var(--soft)}
+.hero .est b{color:var(--ink)}
+.hero-word{font-family:var(--display);font-size:clamp(72px,14vw,190px);line-height:.95;letter-spacing:.01em;margin:18px 0 6px}
+.hero-word .dot{color:var(--red)}
+.hero-under{font-size:clamp(14px,1.8vw,20px);font-weight:700;letter-spacing:clamp(.35em,1vw,.62em);text-transform:uppercase;text-indent:clamp(.35em,1vw,.62em);color:var(--blue)}
+.hero-orn{max-width:560px;margin:30px auto 26px}
+.hero-line{font-size:clamp(16px,1.9vw,21px);font-weight:400;max-width:52ch;margin:0 auto;color:var(--ink)}
+.hero-line em{font-style:italic;color:var(--red)}
+.hero-rating{margin:30px auto 0;display:flex;flex-direction:column;gap:6px;align-items:center}
+.hero-rating .stars{color:var(--red);font-size:22px;letter-spacing:8px;text-indent:8px}
+.hero-rating .r-line{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.hero-rating .r-line b{font-weight:800}
+.hero-cta{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;padding:15px 30px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:2px solid var(--ink);transition:all .15s}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.hero-note{font-size:12px;color:var(--soft);margin-top:16px;font-style:italic}
+/* corner ticks like a printed sheet */
+.hero .tick{position:absolute;width:18px;height:18px;border-color:var(--ink)!important}
+.hero .tick.tl{top:18px;left:var(--gutter);border-left:2px solid;border-top:2px solid}
+.hero .tick.tr{top:18px;right:var(--gutter);border-right:2px solid;border-top:2px solid}
+
+/* ============ FILMSTRIP ============ */
+.strip{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);display:grid;grid-template-columns:repeat(4,1fr)}
+.strip .frame{position:relative;aspect-ratio:3/4;overflow:hidden;border-right:2px solid var(--ink)}
+.strip .frame:last-child{border-right:none}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.strip .frame:hover img{transform:scale(1.05)}
+.strip .f-tag{position:absolute;top:10px;left:10px;background:var(--paper);border:1px solid var(--ink);padding:3px 9px;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+/* ============ SECTION HEADS ============ */
+section{padding:clamp(48px,7vw,88px) 0}
+.shead{text-align:center;margin-bottom:clamp(32px,4vw,52px)}
+.shead .no{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.24em;color:var(--red);text-transform:uppercase;margin-bottom:10px}
+.shead h2{font-family:var(--display);font-size:clamp(30px,4.4vw,54px);line-height:1.05;font-weight:400}
+.shead .orn{max-width:340px;margin:20px auto 0}
+
+/* ============ PREISLISTE ============ */
+#tarif{padding-top:clamp(40px,6vw,72px)}
+.tarif{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,6vw,90px);max-width:1020px;margin:0 auto}
+.trow{display:flex;align-items:baseline;gap:12px;padding:15px 0;border-bottom:1px solid #D9DCE7}
+.trow .name{font-weight:600;font-size:16.5px;flex:none}
+.trow .name small{display:block;font-weight:400;font-size:12.5px;color:var(--soft);letter-spacing:.01em;margin-top:1px}
+.trow .lead{flex:1;border-bottom:2px dotted #C1C8DC;transform:translateY(-4px)}
+.trow .price{font-family:var(--display);font-size:19px;color:var(--red);flex:none}
+.tarif-note{text-align:center;color:var(--soft);font-size:12px;margin-top:26px;font-style:italic}
+
+/* ============ PRINZIP ============ */
+#prinzip{background:var(--ink);color:var(--paper)}
+#prinzip .shead .no{color:#AFC4F2}
+#prinzip .shead h2{color:var(--paper)}
+#prinzip .orn::before,#prinzip .orn::after{background:rgba(251,250,247,.35)}
+.prinzip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px);max-width:1020px;margin:0 auto;text-align:center}
+.pcol .pnum{font-family:var(--display);font-size:clamp(44px,5vw,64px);color:var(--red);line-height:1;
+  text-shadow:2px 2px 0 rgba(251,250,247,.18)}
+.pcol h3{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:14px 0 12px}
+.pcol p{color:rgba(251,250,247,.72);font-size:14.5px;max-width:30ch;margin:0 auto}
+
+/* ============ GALERIE ============ */
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);max-width:1020px;margin:0 auto}
+.gcell{position:relative;border:2px solid var(--ink);background:#fff;padding:10px 10px 12px;box-shadow:5px 5px 0 rgba(29,44,85,.12)}
+.gcell .ph{aspect-ratio:4/5;overflow:hidden}
+.gcell img{width:100%;height:100%;object-fit:cover}
+.gcell .gcap{display:flex;justify-content:space-between;align-items:baseline;padding-top:10px}
+.gcell .gcap .t{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.gcell .gcap .n{font-family:var(--display);font-size:13px;color:var(--red)}
+.gcell.seal{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--red);border-color:var(--red);color:#fff;box-shadow:5px 5px 0 rgba(179,18,31,.25)}
+.gcell.seal .big{font-family:var(--display);font-size:clamp(54px,6vw,84px);line-height:1}
+.gcell.seal .caps{color:#fff;text-align:center;line-height:2}
+
+/* ============ STIMMEN ============ */
+#stimmen{padding-top:clamp(40px,6vw,72px)}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,28px);max-width:1080px;margin:0 auto}
+.vcard{border:var(--hair);padding:26px 24px 22px;position:relative;background:var(--paper)}
+.vcard::before{content:"„";font-family:var(--display);font-size:56px;line-height:0;position:absolute;top:30px;left:22px;color:var(--red)}
+.vcard blockquote{font-size:15.5px;line-height:1.6;padding-top:40px;font-style:italic}
+.vcard .vfoot{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:14px;border-top:1px solid #D9DCE7}
+.vcard .vname{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.vcard .vstars{color:var(--red);letter-spacing:2px;font-size:13px}
+.v-note{text-align:center;color:var(--soft);font-size:12px;margin-top:26px;font-style:italic}
+
+/* ============ KONTAKT ============ */
+#kontakt{background:#EEF1F7;border-top:2px solid var(--ink)}
+.kgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,5vw,72px);max-width:1020px;margin:0 auto;align-items:start}
+.kcard{border:2px solid var(--ink);background:var(--paper);padding:0;box-shadow:6px 6px 0 rgba(29,44,85,.14)}
+.kcard .k-head{border-bottom:2px solid var(--ink);padding:12px 22px;display:flex;justify-content:space-between;align-items:center}
+.kcard .k-body{padding:24px 22px}
+.kaddr{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);line-height:1.2}
+.kaddr small{display:block;font-family:var(--text);font-weight:400;font-size:13.5px;color:var(--soft);margin-top:10px;line-height:1.5}
+.kphone{display:inline-block;margin-top:20px}
+.hours{width:100%;border-collapse:collapse;font-size:14.5px}
+.hours td{padding:10px 0;border-bottom:1px dotted #C1C8DC}
+.hours tr:last-child td{border-bottom:none}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours .closed td{color:var(--soft)}
+.walkin{margin-top:22px;background:var(--ink);color:var(--paper);padding:18px 20px;text-align:center}
+.walkin .caps{color:#AFC4F2;display:block;margin-bottom:6px}
+.walkin p{font-size:13.5px;color:rgba(251,250,247,.85)}
+
+/* ============ FOOTER ============ */
+footer{border-top:2px solid var(--ink)}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 0;color:var(--soft);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:920px){
+  .tarif{grid-template-columns:1fr;max-width:620px}
+  .prinzip{grid-template-columns:1fr;gap:36px}
+  .ggrid{grid-template-columns:1fr 1fr}
+  .vgrid{grid-template-columns:1fr;max-width:620px}
+  .kgrid{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip .frame:nth-child(2){border-right:none}
+  .strip .frame:nth-child(-n+2){border-bottom:2px solid var(--ink)}
+  .nav-links a:not(.call){display:none}
+}
+@media(max-width:560px){
+  .ggrid{grid-template-columns:1fr}
+  .hero-word{font-size:64px}
+  .hero .tick{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="pole"></div>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <span class="b-name">Ayaz</span>
+        <span class="b-sub">Barber Shop · Berlin</span>
+      </a>
+      <div class="nav-links">
+        <a href="#tarif">Preisliste</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#stimmen">Stimmen</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="tel:+493071068717" class="call">030 71068717</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO — typographic letterpress poster -->
+<section class="hero">
+  <span class="tick tl"></span><span class="tick tr"></span>
+  <div class="wrap">
+    <p class="est caps">Greifswalder Str. 228 · <b>Prenzlauer Berg</b> · Berlin</p>
+    <h1>
+      <span class="hero-word">Ayaz<span class="dot">.</span></span><br>
+      <span class="hero-under">Barber&nbsp;Shop</span>
+    </h1>
+    <div class="orn hero-orn" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B3121F" stroke-width="1.6" stroke-linecap="round">
+        <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+        <path d="M8.5 7.5 20 19M8.5 16.5 20 5"/>
+      </svg>
+    </div>
+    <p class="hero-line">Saubere Fades, exakte Konturen und eine Nassrasur wie früher — <em>nur eben perfekt.</em></p>
+    <div class="hero-rating" role="text" aria-label="5,0 von 5 Sternen bei 416 Google-Rezensionen">
+      <span class="stars">★★★★★</span>
+      <span class="r-line"><b>5,0 bei Google</b> — 416 Rezensionen, null Ausreißer</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn primary" href="tel:+493071068717">Anrufen &amp; vorbeikommen</a>
+      <a class="btn ghost" href="#tarif">Zur Preisliste</a>
+    </div>
+    <p class="hero-note">Kein Buchungssystem, keine App — wer da ist, kommt dran.</p>
+  </div>
+</section>
+
+<!-- FILMSTRIP -->
+<div class="strip">
+  <div class="frame">
+    <img src="https://images.pexels.com/photos/4625626/pexels-photo-4625626.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Skin Fade in Arbeit">
+    <span class="f-tag">Der Fade</span>
+  </div>
+  <div class="frame">
+    <img src="https://images.pexels.com/photos/2014809/pexels-photo-2014809.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Klassische Nassrasur mit dem Messer">
+    <span class="f-tag">Das Messer</span>
+  </div>
+  <div class="frame">
+    <img src="https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Bartpflege mit der Schere">
+    <span class="f-tag">Der Bart</span>
+  </div>
+  <div class="frame">
+    <img src="https://images.pexels.com/photos/1319459/pexels-photo-1319459.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Werkzeug des Barbiers">
+    <span class="f-tag">Das Werkzeug</span>
+  </div>
+</div>
+
+<!-- PREISLISTE -->
+<section id="tarif">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">№ 1 — Preisliste</span>
+      <h2>Rot auf Weiß</h2>
+      <div class="orn" aria-hidden="true">
+        <svg width="8" height="8" viewBox="0 0 8 8"><rect x="0" y="0" width="8" height="8" transform="rotate(45 4 4)" fill="#B3121F"/></svg>
+      </div>
+    </div>
+    <div class="tarif">
+      <div>
+        <div class="trow"><span class="name">Haarschnitt<small>Schnitt, Styling, Kontur</small></span><span class="lead"></span><span class="price">22,—</span></div>
+        <div class="trow"><span class="name">Skin Fade<small>Übergang auf null, Millimeterarbeit</small></span><span class="lead"></span><span class="price">26,—</span></div>
+        <div class="trow"><span class="name">Haarschnitt + Bart<small>Das komplette Programm</small></span><span class="lead"></span><span class="price">32,—</span></div>
+        <div class="trow"><span class="name">Kinder bis 12<small>Geduldig, schnell, sauber</small></span><span class="lead"></span><span class="price">15,—</span></div>
+      </div>
+      <div>
+        <div class="trow"><span class="name">Bart-Trimm &amp; Kontur<small>Form, Länge, scharfe Kanten</small></span><span class="lead"></span><span class="price">15,—</span></div>
+        <div class="trow"><span class="name">Klassische Nassrasur<small>Heißes Handtuch, Messer, Pflege</small></span><span class="lead"></span><span class="price">20,—</span></div>
+        <div class="trow"><span class="name">Augenbrauen &amp; Detail<small>Fäden oder Messer</small></span><span class="lead"></span><span class="price">8,—</span></div>
+        <div class="trow"><span class="name">Gesichtsreinigung<small>Dampf, Maske, frische Haut</small></span><span class="lead"></span><span class="price">18,—</span></div>
+      </div>
+    </div>
+    <p class="tarif-note">Beispielpreise für diesen Design-Entwurf — die echte Preisliste liefert der Shop.</p>
+  </div>
+</section>
+
+<div class="pole"></div>
+
+<!-- PRINZIP -->
+<section id="prinzip">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">№ 2 — Das Handwerk</span>
+      <h2>Drei Regeln, seit Tag eins</h2>
+    </div>
+    <div class="prinzip">
+      <div class="pcol">
+        <p class="pnum">1</p>
+        <h3>Präzision</h3>
+        <p>Ein Fade ist Geometrie. Der Übergang stimmt auf den Millimeter — oder er stimmt nicht.</p>
+      </div>
+      <div class="pcol">
+        <p class="pnum">2</p>
+        <h3>Sauberkeit</h3>
+        <p>Frische Klingen, desinfiziertes Werkzeug, aufgeräumter Platz. Die Bewertungen erwähnen es nicht zufällig ständig.</p>
+      </div>
+      <div class="pcol">
+        <p class="pnum">3</p>
+        <h3>Dein Wunsch zählt</h3>
+        <p>Erst zuhören, dann schneiden. Du gehst mit dem Schnitt raus, den du wolltest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">№ 3 — Galerie</span>
+      <h2>Arbeit, die man sieht</h2>
+      <div class="orn" aria-hidden="true">
+        <svg width="8" height="8" viewBox="0 0 8 8"><rect x="0" y="0" width="8" height="8" transform="rotate(45 4 4)" fill="#B3121F"/></svg>
+      </div>
+    </div>
+    <div class="ggrid">
+      <div class="gcell">
+        <div class="ph"><img src="https://images.pexels.com/photos/19140178/pexels-photo-19140178.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Präzise Kontur mit dem Trimmer"></div>
+        <div class="gcap"><span class="t">Kontur</span><span class="n">I.</span></div>
+      </div>
+      <div class="gcell seal">
+        <span class="big">5,0</span>
+        <span class="caps">★★★★★<br>416 Stimmen bei Google</span>
+      </div>
+      <div class="gcell">
+        <div class="ph"><img src="https://images.pexels.com/photos/8867165/pexels-photo-8867165.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Rasierschaum wird von Hand angerührt"></div>
+        <div class="gcap"><span class="t">Handarbeit</span><span class="n">II.</span></div>
+      </div>
+      <div class="gcell">
+        <div class="ph"><img src="https://images.pexels.com/photos/4627333/pexels-photo-4627333.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Rasiermesser in der Hand"></div>
+        <div class="gcap"><span class="t">Nassrasur</span><span class="n">III.</span></div>
+      </div>
+      <div class="gcell">
+        <div class="ph"><img src="https://images.pexels.com/photos/7922651/pexels-photo-7922651.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Klassischer Barber-Pole an der Fassade"></div>
+        <div class="gcap"><span class="t">Die Zunft</span><span class="n">IV.</span></div>
+      </div>
+      <div class="gcell">
+        <div class="ph"><img src="https://images.pexels.com/photos/32351044/pexels-photo-32351044.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barbier bei der Arbeit am Stuhl"></div>
+        <div class="gcap"><span class="t">Am Stuhl</span><span class="n">V.</span></div>
+      </div>
+    </div>
+    <p class="v-note">Symbolfotos (Pexels) — im echten Auftritt: Fotos aus dem Shop.</p>
+  </div>
+</section>
+
+<div class="pole"></div>
+
+<!-- STIMMEN -->
+<section id="stimmen">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">№ 4 — Stimmen</span>
+      <h2>416 Meinungen, ein Urteil</h2>
+    </div>
+    <div class="vgrid">
+      <div class="vcard">
+        <blockquote>Der beste Fade, den ich in Berlin bekommen habe. Man merkt sofort: hier wird nicht geraten, hier wird gemessen.</blockquote>
+        <div class="vfoot"><span class="vname">Jonas K.</span><span class="vstars">★★★★★</span></div>
+      </div>
+      <div class="vcard">
+        <blockquote>Extrem sauber, extrem freundlich. Ich komme seit zwei Jahren und wurde noch kein einziges Mal enttäuscht.</blockquote>
+        <div class="vfoot"><span class="vname">Mehmet A.</span><span class="vstars">★★★★★</span></div>
+      </div>
+      <div class="vcard">
+        <blockquote>Ohne Termin rein, zehn Minuten später auf dem Stuhl. Ergebnis: perfekt. Preis: fair. Was will man mehr.</blockquote>
+        <div class="vfoot"><span class="vname">Paul S.</span><span class="vstars">★★★★★</span></div>
+      </div>
+    </div>
+    <p class="v-note">Beispiel-Rezensionen für diesen Entwurf, formuliert nach dem echten 5,0-★-Profil — im echten Auftritt: Original-Zitate.</p>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">№ 5 — Kontakt</span>
+      <h2>Kommst du vorbei?</h2>
+    </div>
+    <div class="kgrid">
+      <div class="kcard">
+        <div class="k-head"><span class="caps-sm">Adresse</span><span class="caps-sm" style="color:var(--red)">Prenzlauer Berg</span></div>
+        <div class="k-body">
+          <p class="kaddr">Greifswalder Str. 228<br>10405 Berlin
+            <small>Tram M4, Haltestelle Am Friedrichshain — zwei Minuten zu Fuß.</small>
+          </p>
+          <a class="btn primary kphone" href="tel:+493071068717">030 71068717</a>
+        </div>
+      </div>
+      <div>
+        <div class="kcard">
+          <div class="k-head"><span class="caps-sm">Öffnungszeiten</span></div>
+          <div class="k-body">
+            <table class="hours">
+              <tr><td>Montag – Freitag</td><td>09:00 – 20:00</td></tr>
+              <tr><td>Samstag</td><td>09:00 – 19:00</td></tr>
+              <tr class="closed"><td>Sonntag</td><td>geschlossen</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="walkin">
+          <span class="caps">Ohne Termin</span>
+          <p>Einfach reinkommen — wer da ist, kommt dran. So läuft ein echter Barbershop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span>Ayaz Barber Shop · Greifswalder Str. 228 · 10405 Berlin</span>
+      <span>Design-Entwurf / Konzept — kein offizieller Auftritt des Shops</span>
+    </div>
+  </div>
+</footer>
+<div class="pole"></div>
+
+</body>
+</html>
