@@ -61,10 +61,10 @@
   .nav-cta:hover{background:var(--espresso);color:var(--cream);}
   @media(max-width:900px){nav.links{display:none;}}
 
-  /* ---------- HERO (poster, light) ---------- */
-  .hero{padding:58px 0 0;text-align:center;position:relative;background:var(--cream);color:var(--ink);}
+  /* ---------- HERO (poster on caramel) ---------- */
+  .hero{padding:58px 0 0;text-align:center;position:relative;background:var(--caramel);color:var(--espresso);}
   .hero .kicker{
-    display:inline-block;font-size:1.5rem;color:var(--caramel-deep);
+    display:inline-block;font-size:1.5rem;color:var(--cream);
     transform:rotate(-1.5deg);margin-bottom:6px;
   }
   .hero h1{
@@ -72,30 +72,31 @@
     letter-spacing:-.015em;color:var(--espresso);
   }
   .hero h1 .outline{
-    color:transparent;-webkit-text-stroke:2.5px var(--caramel);
+    color:transparent;-webkit-text-stroke:2.5px var(--cream);
   }
   .hero-stage{
     position:relative;max-width:920px;margin:34px auto 0;padding:0 24px;
     display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;
   }
-  .arch-wrap{position:relative;width:min(430px,80vw);margin:0 auto;}
-  .arch{
-    width:100%;border-radius:999px 999px 26px 26px;overflow:hidden;
-    border:3px solid var(--espresso);
-    box-shadow:10px 12px 0 var(--caramel);
+  .stamp-wrap{position:relative;width:min(430px,80vw);margin:0 auto;transform:rotate(-2deg);}
+  .stamp{
+    /* postage-stamp print: perforation = caramel dots bitten out of the paper edge */
+    background:radial-gradient(circle 6px, var(--caramel) 97%, transparent) -12px -12px / 24px 24px repeat, var(--paper);
+    padding:14px;
+    box-shadow:12px 14px 0 rgba(38,24,13,.3);
   }
-  .arch img{width:100%;height:490px;object-fit:cover;}
+  .stamp img{width:100%;height:470px;object-fit:cover;}
   .side-note{text-align:right;}
   .side-note.r{text-align:left;}
   .side-note .big{
     font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;
     color:var(--espresso);line-height:1.1;
   }
-  .side-note .sub{font-size:.92rem;color:var(--muted);margin-top:6px;}
-  .side-note .script{font-size:1.45rem;color:var(--caramel-deep);display:block;margin-top:14px;transform:rotate(-2deg);}
+  .side-note .sub{font-size:.92rem;color:rgba(38,24,13,.72);margin-top:6px;}
+  .side-note .script{font-size:1.45rem;color:var(--cream);display:block;margin-top:14px;transform:rotate(-2deg);}
   .sticker{
     position:absolute;z-index:3;display:grid;place-items:center;text-align:center;
-    background:var(--caramel);color:var(--espresso);border:2.5px solid var(--espresso);
+    background:var(--cream);color:var(--espresso);border:2.5px solid var(--espresso);
     width:128px;height:128px;border-radius:50%;
     font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
     transform:rotate(-10deg);
@@ -117,20 +118,20 @@
     font-family:'Bricolage Grotesque',sans-serif;letter-spacing:.02em;
   }
   .btn:hover{transform:translate(-2px,-2px);}
-  .btn.primary{background:var(--espresso);color:var(--cream);box-shadow:5px 5px 0 var(--caramel);}
-  .btn.ghost{background:transparent;color:var(--espresso);box-shadow:5px 5px 0 var(--milk);}
+  .btn.primary{background:var(--espresso);color:var(--cream);box-shadow:5px 5px 0 var(--cream);}
+  .btn.ghost{background:transparent;color:var(--espresso);box-shadow:5px 5px 0 rgba(38,24,13,.25);}
   @media(max-width:900px){
     .hero-stage{grid-template-columns:1fr;gap:34px;}
     .side-note,.side-note.r{text-align:center;}
-    .arch{margin:0 auto;}
-    .arch img{height:400px;}
+    .stamp{margin:0 auto;}
+    .stamp img{height:400px;}
     .sticker{left:-8px;top:-30px;width:110px;height:110px;}
     .sticker.green{right:-6px;}
   }
 
   /* ---------- TICKER ---------- */
   .ticker{
-    background:var(--caramel);color:var(--espresso);
+    background:var(--bottle);color:var(--cream);
     border-top:2px solid var(--espresso);border-bottom:2px solid var(--espresso);
     overflow:hidden;padding:14px 0;
   }
@@ -141,7 +142,7 @@
     font-size:1.05rem;text-transform:uppercase;letter-spacing:.06em;
   }
   .ticker-track span{padding:0 22px;white-space:nowrap;}
-  .ticker-track span::after{content:"✳";margin-left:44px;color:var(--cream);}
+  .ticker-track span::after{content:"✳";margin-left:44px;color:var(--caramel);}
   @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- MENU BOARD ---------- */
@@ -376,10 +377,10 @@
       <div class="sub">bis 17:00 — jeden Tag</div>
       <span class="script">Croissants, solange<br>der Ofen liefert!</span>
     </div>
-    <div class="arch-wrap">
+    <div class="stamp-wrap">
       <div class="sticker"><div><div class="n">4,9 ★</div><div class="s">347 GOOGLE-BEWERTUNGEN</div></div></div>
       <div class="sticker green"><div><div class="n">☕</div><div class="s">BOHNEN AUS DEM KIEZ</div></div></div>
-      <div class="arch">
+      <div class="stamp">
         <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Barista gießt Latte Art in eine Tasse">
       </div>
     </div>
