@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Petra Strandt — Familienzahnarzt Friedrichshain</title>
+<meta name="description" content="Ihre Familienzahnarztpraxis in Berlin-Friedrichshain: Prophylaxe, Ästhetik, Implantologie & Zahntechnik. Petersburger Str. 93 — Termine online oder unter 030 291 55 04.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#EDF6FB;
+  --sky-deep:#E1F0F8;
+  --mint:#DDF1EA;
+  --white:#FFFFFF;
+  --ink:#14344A;
+  --ink-soft:#3D6076;
+  --blue:#1B7FB4;
+  --blue-text:#156B9A;
+  --amber:#FFB840;
+  --amber-deep:#F5A623;
+  --border:#C9E2EF;
+  --radius-l:28px;
+  --radius-m:18px;
+  --shadow-soft:0 10px 30px rgba(20,52,74,.08);
+  --shadow-lift:0 16px 40px rgba(20,52,74,.13);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+body{
+  font-family:'Lexend',sans-serif;
+  font-weight:300;
+  color:var(--ink);
+  background:var(--sky);
+  line-height:1.65;
+  font-size:16px;
+}
+h1,h2,h3,.display{font-family:'Gabarito',sans-serif;line-height:1.12}
+img{max-width:100%;display:block}
+a{color:var(--blue-text)}
+::selection{background:var(--amber);color:var(--ink)}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(237,246,251,.88);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;gap:28px;
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.brand-mark{
+  width:42px;height:42px;border-radius:14px;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.brand-mark svg{width:24px;height:24px}
+.brand-name{font-family:'Gabarito',sans-serif;font-weight:700;font-size:1.05rem;line-height:1.1}
+.brand-sub{font-size:.72rem;color:var(--ink-soft);letter-spacing:.04em}
+.nav-links{display:flex;gap:26px;margin-left:auto;list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--ink);font-weight:400;font-size:.92rem;
+  padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s;
+}
+.nav-links a:hover{border-bottom-color:var(--amber)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--amber);color:var(--ink);text-decoration:none;
+  font-family:'Gabarito',sans-serif;font-weight:700;font-size:.92rem;
+  padding:11px 22px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(245,166,35,.35);
+  transition:transform .2s,box-shadow .2s;cursor:pointer;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(245,166,35,.45)}
+.nav-phone{
+  display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  color:var(--ink);font-weight:500;font-size:.92rem;white-space:nowrap;
+}
+.nav-phone svg{width:16px;height:16px;stroke:var(--blue)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden}
+.hero-tooth-bg{
+  position:absolute;right:36px;top:24px;width:520px;height:520px;
+  opacity:.07;pointer-events:none;
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;padding:72px 24px 40px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  position:relative;
+}
+.hero-overline{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--white);border:1px solid var(--border);border-radius:999px;
+  padding:8px 18px;font-size:.82rem;font-weight:500;color:var(--ink-soft);
+  box-shadow:var(--shadow-soft);margin-bottom:26px;
+}
+.hero-overline svg{width:15px;height:15px}
+.hero h1{
+  font-size:clamp(2.5rem,5vw,3.9rem);font-weight:800;letter-spacing:-.015em;
+  margin-bottom:22px;
+}
+.swash{position:relative;display:inline-block;white-space:nowrap}
+.swash svg{
+  position:absolute;left:0;bottom:-10px;width:100%;height:18px;overflow:visible;
+}
+.hero-sub{
+  font-size:1.08rem;color:var(--ink-soft);max-width:33rem;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--amber);color:var(--ink);text-decoration:none;
+  font-family:'Gabarito',sans-serif;font-weight:700;font-size:1.02rem;
+  padding:16px 30px;border-radius:999px;
+  box-shadow:0 6px 18px rgba(245,166,35,.4);
+  transition:transform .2s,box-shadow .2s;cursor:pointer;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(245,166,35,.5)}
+.btn-primary svg{width:18px;height:18px}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--white);color:var(--ink);text-decoration:none;
+  font-family:'Gabarito',sans-serif;font-weight:600;font-size:1.02rem;
+  padding:16px 28px;border-radius:999px;border:1.5px solid var(--border);
+  transition:border-color .2s,transform .2s;cursor:pointer;
+}
+.btn-ghost:hover{border-color:var(--blue);transform:translateY(-2px)}
+.btn-ghost svg{width:18px;height:18px;stroke:var(--blue)}
+.hero-trust{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:9px;font-size:.88rem;color:var(--ink-soft)}
+.stars{display:inline-flex;gap:2px}
+.stars svg{width:15px;height:15px}
+.trust-sep{width:1px;height:22px;background:var(--border)}
+
+/* hero visual */
+.hero-visual{position:relative;justify-self:end;width:100%;max-width:470px}
+.hero-photo{
+  width:100%;aspect-ratio:.92;object-fit:cover;
+  border-radius:48% 52% 44% 56% / 55% 48% 52% 45%;
+  box-shadow:var(--shadow-lift);
+  border:8px solid var(--white);
+}
+.float-badge{
+  position:absolute;background:var(--white);border-radius:16px;
+  box-shadow:var(--shadow-lift);padding:13px 18px;
+  display:flex;align-items:center;gap:11px;
+}
+.float-badge .fb-icon{
+  width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.float-badge .fb-icon svg{width:19px;height:19px}
+.fb-title{font-family:'Gabarito',sans-serif;font-weight:700;font-size:.86rem;line-height:1.2}
+.fb-sub{font-size:.74rem;color:var(--ink-soft)}
+.badge-booking{top:26px;left:-38px}
+.badge-booking .fb-icon{background:var(--mint)}
+.badge-sat{bottom:34px;right:-24px}
+.badge-sat .fb-icon{background:var(--sky-deep)}
+.hero-arc{position:absolute;left:-64px;bottom:-30px;width:130px;height:130px;opacity:.55;pointer-events:none}
+
+/* ---------- SMILE DIVIDER ---------- */
+.smile-divider{display:block;width:100%;height:56px;margin-bottom:-1px}
+
+/* ---------- HOURS STRIP ---------- */
+.hours-strip{background:var(--ink);color:var(--white);padding:26px 0}
+.hours-inner{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.hours-label{
+  font-family:'Gabarito',sans-serif;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;gap:9px;margin-right:8px;
+}
+.hours-label svg{width:17px;height:17px}
+.hours-chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;padding:7px 16px;font-size:.84rem;white-space:nowrap;
+}
+.chip strong{font-weight:600;color:var(--amber)}
+
+/* ---------- SECTIONS SHARED ---------- */
+.section{max-width:1180px;margin:0 auto;padding:88px 24px}
+.sec-overline{
+  font-family:'Gabarito',sans-serif;font-weight:700;font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue-text);
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.sec-overline::before{content:"";width:26px;height:2.5px;background:var(--amber);border-radius:2px}
+.sec-title{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+.sec-lead{color:var(--ink-soft);max-width:36rem;font-size:1.02rem}
+
+/* ---------- SERVICES (staggered) ---------- */
+.services-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px;
+}
+.svc{
+  background:var(--white);border-radius:var(--radius-l);padding:36px 34px;
+  box-shadow:var(--shadow-soft);border:1px solid var(--border);
+  transition:transform .25s,box-shadow .25s;
+}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
+.svc-icon{
+  width:58px;height:58px;border-radius:44% 56% 48% 52% / 52% 44% 56% 48%;
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.svc-icon svg{width:27px;height:27px}
+.svc:nth-child(1) .svc-icon{background:var(--mint)}
+.svc:nth-child(2) .svc-icon{background:#FFEFD3}
+.svc:nth-child(3) .svc-icon{background:var(--sky-deep)}
+.svc:nth-child(4) .svc-icon{background:#F0E9FA}
+.svc h3{font-size:1.32rem;font-weight:700;margin-bottom:10px}
+.svc p{color:var(--ink-soft);font-size:.95rem}
+.svc-num{
+  float:right;font-family:'Gabarito',sans-serif;font-weight:800;font-size:1rem;
+  color:var(--border);
+}
+
+/* ---------- VISIT TIMELINE ---------- */
+.visit{background:var(--white)}
+.visit-wrap{max-width:1180px;margin:0 auto;padding:88px 24px}
+.timeline{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:58px;
+  position:relative;
+}
+.timeline::before{
+  content:"";position:absolute;top:29px;left:8%;right:8%;
+  border-top:2.5px dotted var(--border);
+}
+.step{position:relative;text-align:left}
+.step-dot{
+  width:58px;height:58px;border-radius:50%;background:var(--sky);
+  border:2.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Gabarito',sans-serif;font-weight:800;font-size:1.25rem;color:var(--blue-text);
+  margin-bottom:20px;position:relative;z-index:1;
+}
+.step:nth-child(3) .step-dot{background:var(--amber);border-color:var(--amber-deep);color:var(--ink)}
+.step h3{font-size:1.08rem;font-weight:700;margin-bottom:8px}
+.step p{color:var(--ink-soft);font-size:.9rem}
+.step a{font-weight:500}
+
+/* ---------- TEAM ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+.team-card{
+  background:var(--white);border-radius:var(--radius-l);padding:38px 30px;
+  border:1px solid var(--border);box-shadow:var(--shadow-soft);text-align:center;
+}
+.monogram{
+  width:92px;height:92px;margin:0 auto 22px;
+  border-radius:46% 54% 50% 50% / 54% 46% 54% 46%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Gabarito',sans-serif;font-weight:800;font-size:1.7rem;color:var(--ink);
+}
+.team-card:nth-child(1) .monogram{background:var(--mint)}
+.team-card:nth-child(2) .monogram{background:#FFEFD3}
+.team-card:nth-child(3) .monogram{background:var(--sky-deep)}
+.team-card h3{font-size:1.18rem;font-weight:700;margin-bottom:4px}
+.team-role{font-size:.84rem;font-weight:500;color:var(--blue-text);letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+.team-card p{color:var(--ink-soft);font-size:.92rem}
+
+/* ---------- GALLERY ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:22px;margin-top:52px;align-items:center}
+.gallery img{
+  width:100%;border-radius:var(--radius-l);object-fit:cover;
+  box-shadow:var(--shadow-soft);
+}
+.gallery img:nth-child(1),.gallery img:nth-child(3){aspect-ratio:.85}
+.gallery img:nth-child(2){aspect-ratio:1.05;border:8px solid var(--white);box-shadow:var(--shadow-lift)}
+
+/* ---------- TESTIMONIALS ---------- */
+.reviews{background:var(--mint)}
+.reviews-wrap{max-width:1180px;margin:0 auto;padding:88px 24px}
+.reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.google-pill{
+  display:inline-flex;align-items:center;gap:10px;background:var(--white);
+  border-radius:999px;padding:12px 22px;box-shadow:var(--shadow-soft);
+  font-size:.9rem;font-weight:500;
+}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
+.review-card{
+  background:var(--white);border-radius:var(--radius-l);padding:34px 30px;
+  box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:16px;
+}
+.review-card .stars svg{width:16px;height:16px}
+.review-quote{font-size:.97rem;color:var(--ink);flex-grow:1}
+.review-name{font-family:'Gabarito',sans-serif;font-weight:700;font-size:.9rem}
+.review-name span{display:block;font-family:'Lexend',sans-serif;font-weight:300;font-size:.78rem;color:var(--ink-soft)}
+
+/* ---------- CONTACT ---------- */
+.contact-card{
+  background:var(--white);border-radius:36px;box-shadow:var(--shadow-lift);
+  border:1px solid var(--border);overflow:hidden;
+  display:grid;grid-template-columns:1.1fr .9fr;margin-top:52px;
+}
+.contact-left{padding:52px 48px}
+.contact-left h3{font-size:1.5rem;font-weight:800;margin-bottom:26px}
+.c-row{display:flex;gap:15px;margin-bottom:22px;align-items:flex-start}
+.c-icon{
+  width:42px;height:42px;border-radius:13px;background:var(--sky);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.c-icon svg{width:19px;height:19px;stroke:var(--blue)}
+.c-row strong{font-family:'Gabarito',sans-serif;font-weight:700;font-size:.95rem;display:block}
+.c-row span,.c-row a{font-size:.92rem;color:var(--ink-soft)}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.contact-right{background:var(--ink);color:var(--white);padding:52px 48px}
+.contact-right h3{font-size:1.3rem;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.contact-right h3 svg{width:19px;height:19px}
+.hours-table{width:100%;border-collapse:collapse;font-size:.94rem}
+.hours-table td{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.hours-table td:last-child{text-align:right;font-weight:500}
+.hours-table tr:last-child td{border-bottom:none}
+.hours-table .today td{color:var(--amber);font-weight:600}
+.hours-note{margin-top:20px;font-size:.82rem;color:rgba(255,255,255,.65)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:rgba(255,255,255,.75);margin-top:88px}
+.footer-inner{
+  max-width:1180px;margin:0 auto;padding:40px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.1);font-size:.84rem;
+}
+.footer-inner a{color:rgba(255,255,255,.75);text-decoration:none}
+.footer-inner a:hover{color:var(--white)}
+.footer-brand{display:flex;align-items:center;gap:10px;color:var(--white);font-family:'Gabarito',sans-serif;font-weight:700}
+.footer-brand svg{width:20px;height:20px}
+.footer-links{display:flex;gap:22px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1020px){
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:64px;padding-top:56px}
+  .hero-visual{justify-self:center}
+  .badge-booking{left:-10px}
+  .badge-sat{right:-6px}
+  .services-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr 1fr;gap:40px 26px}
+  .timeline::before{display:none}
+  .team-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery img:nth-child(3){display:none}
+  .reviews-grid{grid-template-columns:1fr;max-width:560px}
+  .contact-card{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .hero h1{font-size:2.3rem}
+  .nav-phone{display:none}
+  .section,.visit-wrap,.reviews-wrap{padding-top:64px;padding-bottom:64px}
+  .timeline{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:38px 28px}
+  .float-badge{padding:10px 14px}
+  .hero-arc{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">
+        <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M50 12C30 12 19 26 19 45c0 16 7 27 9 43 1 9 4 20 10 20 8 0 6-18 12-18s4 18 12 18c6 0 9-11 10-20 2-16 9-27 9-43 0-19-11-33-31-33z" stroke="#FFB840" stroke-width="7" fill="none"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">Praxis Strandt</span><br>
+        <span class="brand-sub">Familienzahnarzt Friedrichshain</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#besuch">Ihr Besuch</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#praxis">Praxis</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="nav-phone" href="tel:+49302915504" style="margin-left:auto">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      030 291 55 04
+    </a>
+    <a class="nav-cta" href="#kontakt">Termin buchen</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="hero-tooth-bg" viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M50 12C30 12 19 26 19 45c0 16 7 27 9 43 1 9 4 20 10 20 8 0 6-18 12-18s4 18 12 18c6 0 9-11 10-20 2-16 9-27 9-43 0-19-11-33-31-33z" stroke="#14344A" stroke-width="2.5" fill="none"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-overline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1B7FB4" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C.6 8.5 2.5 5 6 5c2.2 0 3.6 1.2 4.5 2.5C11.4 6.2 12.8 5 15 5c3.5 0 5.4 3.5 3.5 7-2.5 4.5-9.5 9-9.5 9z" transform="scale(.9) translate(1.3 1.3)"/></svg>
+        Ihre Familienzahnarztpraxis in Friedrichshain — seit 1992
+      </span>
+      <h1>Gesunde Zähne für die <span class="swash">ganze Familie<svg viewBox="0 0 200 18" preserveAspectRatio="none" aria-hidden="true"><path d="M4 4 Q100 22 196 5" stroke="#FFB840" stroke-width="6" fill="none" stroke-linecap="round"/></svg></span></h1>
+      <p class="hero-sub">Von der ersten Prophylaxe bis zum Implantat: Zahnärztin Petra Strandt und ihr Team begleiten Sie und Ihre Kinder — freundlich, gründlich und auf Augenhöhe. Kassen- und Privatpatienten willkommen.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#kontakt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
+          Termin online buchen
+        </a>
+        <a class="btn-ghost" href="tel:+49302915504">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          030 291 55 04
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-item">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </span>
+          <strong>4,3</strong>&nbsp;· 36 Google-Bewertungen
+        </span>
+        <span class="trust-sep"></span>
+        <span class="trust-item">Kasse &amp; Privat</span>
+        <span class="trust-sep"></span>
+        <span class="trust-item">Deutsch · English · Русский</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-photo" src="https://images.pexels.com/photos/3952124/pexels-photo-3952124.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Freundliche Zahnärztin im Gespräch mit einer entspannten Patientin in der Praxis" width="470" height="510">
+      <div class="float-badge badge-booking">
+        <span class="fb-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B7FB4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
+        </span>
+        <span><span class="fb-title">Online-Termin</span><br><span class="fb-sub">bequem über Doctolib</span></span>
+      </div>
+      <div class="float-badge badge-sat">
+        <span class="fb-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B7FB4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </span>
+        <span><span class="fb-title">Auch samstags</span><br><span class="fb-sub">nach Vereinbarung</span></span>
+      </div>
+      <svg class="hero-arc" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <path d="M10 90 A80 80 0 0 1 90 10" stroke="#1B7FB4" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOURS STRIP ============ -->
+<section class="hours-strip">
+  <div class="hours-inner">
+    <span class="hours-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#FFB840" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      Sprechzeiten
+    </span>
+    <div class="hours-chips">
+      <span class="chip">Mo <strong>12–19</strong></span>
+      <span class="chip">Di <strong>12–19</strong></span>
+      <span class="chip">Mi <strong>8–14</strong></span>
+      <span class="chip">Do <strong>8–14</strong></span>
+      <span class="chip">Fr <strong>8–13</strong></span>
+      <span class="chip">Sa <strong>n. Vereinbarung</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="leistungen">
+  <p class="sec-overline">Unsere Leistungen</p>
+  <h2 class="sec-title">Alles unter einem Dach.</h2>
+  <p class="sec-lead">Vorsorge, Ästhetik, Implantate und eigene Zahntechnik — Sie werden bei uns von der ersten Kontrolle bis zum fertigen Zahnersatz aus einer Hand betreut.</p>
+  <div class="services-grid">
+    <article class="svc">
+      <span class="svc-num">01</span>
+      <span class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#14344A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4 0-6.5 2.8-6.5 6.2 0 3.2 1.4 5.4 1.8 8.6.2 1.8.8 4 2 4 1.6 0 1.2-3.6 2.7-3.6s1.1 3.6 2.7 3.6c1.2 0 1.8-2.2 2-4 .4-3.2 1.8-5.4 1.8-8.6C18.5 5.8 16 3 12 3z"/><path d="M20 3l.6 1.4L22 5l-1.4.6L20 7l-.6-1.4L18 5l1.4-.6z"/></svg>
+      </span>
+      <h3>Prophylaxe</h3>
+      <p>Professionelle Zahnreinigung und regelmäßige Vorsorge für Groß und Klein — damit Probleme gar nicht erst entstehen. Mit Recall-Erinnerung, wenn Sie möchten.</p>
+    </article>
+    <article class="svc">
+      <span class="svc-num">02</span>
+      <span class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#14344A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13c2.5 3.5 5.2 5.2 8 5.2s5.5-1.7 8-5.2"/><path d="M4 13c0-1.2.9-2 2-2h12c1.1 0 2 .8 2 2"/><path d="M8.5 11V8.8M12 11V8.2M15.5 11V8.8"/></svg>
+      </span>
+      <h3>Ästhetik</h3>
+      <p>Sanfte Aufhellung, Veneers und unsichtbare Korrekturen — für ein Lächeln, das sich für Sie richtig anfühlt. Ehrliche Beratung statt Katalog-Versprechen.</p>
+    </article>
+    <article class="svc">
+      <span class="svc-num">03</span>
+      <span class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#14344A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3.5c0 1-.7 1.5-1.5 1.5h-3C9.7 8 9 7.5 9 6.5V3z"/><path d="M10 8v2.5c0 .8.7 1.5 1 2.5.4 1.3.3 3 .5 5 .1 1.4.3 3 1 3s.7-3 1.2-5"/><path d="M9.5 5.5h5M10 3l4 .01"/></svg>
+      </span>
+      <h3>Implantologie</h3>
+      <p>Fester Zahnersatz auf eigenen „Wurzeln“: sorgfältig geplant, ruhig erklärt und in vertrauter Umgebung eingesetzt — ohne Klinik-Hektik.</p>
+    </article>
+    <article class="svc">
+      <span class="svc-num">04</span>
+      <span class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#14344A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </span>
+      <h3>Zahntechnik</h3>
+      <p>Kronen, Brücken und Prothesen mit eigener zahntechnischer Betreuung — kurze Wege, schnelle Anpassungen, präzise Ergebnisse.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ VISIT TIMELINE ============ -->
+<svg class="smile-divider" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 C480 56 960 56 1440 0 L1440 56 L0 56 Z" fill="#FFFFFF"/></svg>
+<section class="visit" id="besuch">
+  <div class="visit-wrap">
+    <p class="sec-overline">Ihr Besuch bei uns</p>
+    <h2 class="sec-title">Entspannt zum Termin — in vier Schritten.</h2>
+    <p class="sec-lead">Kein Warteschleifen-Stress: Sie buchen online, füllen den Anamnesebogen in Ruhe zu Hause aus und werden pünktlich behandelt.</p>
+    <div class="timeline">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <h3>Termin buchen</h3>
+        <p>Online über Doctolib — rund um die Uhr — oder klassisch telefonisch unter <a href="tel:+49302915504">030 291 55 04</a>.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <h3>Anamnesebogen zu Hause</h3>
+        <p>Den Anamnesebogen laden Sie als PDF herunter und füllen ihn bequem vorab aus — weniger Papierkram im Wartezimmer.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <h3>Ihre Behandlung</h3>
+        <p>Mit Zeit für Ihre Fragen. Wir erklären jeden Schritt verständlich — auch für kleine Patienten, gern auf Englisch oder Russisch.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">4</div>
+        <h3>Recall &amp; Vorsorge</h3>
+        <p>Auf Wunsch erinnern wir Sie rechtzeitig an die nächste Kontrolle oder Zahnreinigung — Ihre Zähne bleiben im Rhythmus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<svg class="smile-divider" viewBox="0 0 1440 56" preserveAspectRatio="none" style="transform:scaleY(-1)" aria-hidden="true"><path d="M0 0 C480 56 960 56 1440 0 L1440 56 L0 56 Z" fill="#FFFFFF"/></svg>
+
+<!-- ============ TEAM ============ -->
+<section class="section" id="team">
+  <p class="sec-overline">Unser Team</p>
+  <h2 class="sec-title">Bekannte Gesichter, keine Fließband-Praxis.</h2>
+  <p class="sec-lead">Seit 1992 im Kiez: Bei uns werden Sie von Ärztinnen behandelt, die Sie beim nächsten Besuch noch kennen.</p>
+  <div class="team-grid">
+    <article class="team-card">
+      <div class="monogram">PS</div>
+      <h3>Petra Strandt</h3>
+      <p class="team-role">Zahnärztin · Praxisgründerin</p>
+      <p>Führt die Praxis seit 1992 — mit ruhiger Hand, viel Erfahrung und einem offenen Ohr für ängstliche Patienten.</p>
+    </article>
+    <article class="team-card">
+      <div class="monogram">RK</div>
+      <h3>Rana Kocu</h3>
+      <p class="team-role">Zahnärztin</p>
+      <p>Verstärkt das Behandlungsteam mit modernem Know-how — von der Prophylaxe bis zur ästhetischen Zahnmedizin.</p>
+    </article>
+    <article class="team-card">
+      <div class="monogram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#14344A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="34" height="34" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Unser Praxisteam</h3>
+      <p class="team-role">Assistenz &amp; Empfang</p>
+      <p>Nimmt Ihnen die Formalitäten ab, denkt an Ihren Recall-Termin und sorgt dafür, dass sich auch Kinder bei uns wohlfühlen.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" id="praxis" style="padding-top:0">
+  <p class="sec-overline">Einblicke</p>
+  <h2 class="sec-title">Moderne Praxis, kurze Wege.</h2>
+  <div class="gallery">
+    <img src="https://images.pexels.com/photos/6812569/pexels-photo-6812569.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Zahnärztin und Assistentin bei der Behandlung in einer modernen Praxis" width="360" height="424">
+    <img src="https://images.pexels.com/photos/6627320/pexels-photo-6627320.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Zahnärztin erklärt einer Patientin die richtige Putztechnik am Zahnmodell" width="450" height="428">
+    <img src="https://images.pexels.com/photos/6627838/pexels-photo-6627838.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Zahnmedizinische Instrumente in Nahaufnahme" width="360" height="424">
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="reviews">
+  <div class="reviews-wrap">
+    <div class="reviews-head">
+      <div>
+        <p class="sec-overline">Patientenstimmen</p>
+        <h2 class="sec-title">Was Familien aus dem Kiez sagen.</h2>
+      </div>
+      <span class="google-pill">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#FFB840" width="17" height="17"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </span>
+        <strong>4,3&nbsp;/&nbsp;5</strong>&nbsp;·&nbsp;36 Bewertungen auf Google
+      </span>
+    </div>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <span class="stars" aria-label="5 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </span>
+        <p class="review-quote">„Sehr nettes und freundliches Team — man fühlt sich hier gut aufgehoben. Wir kommen mit der ganzen Familie und immer wieder gerne.“</p>
+        <p class="review-name">Helene B. <span>Patientin</span></p>
+      </article>
+      <article class="review-card">
+        <span class="stars" aria-label="5 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </span>
+        <p class="review-quote">„Frau Strandt nimmt sich Zeit und erklärt alles verständlich. Meine Tochter hatte vor dem Zahnarzt Angst — hier geht sie inzwischen ohne Murren hin.“</p>
+        <p class="review-name">Familie M. <span>Friedrichshain</span></p>
+      </article>
+      <article class="review-card">
+        <span class="stars" aria-label="4 von 5 Sternen">
+          <svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#FFB840"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="#DDE8EF"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </span>
+        <p class="review-quote">„Unkomplizierte Terminvergabe über Doctolib, kaum Wartezeit. Die Behandlung war gründlich und fair — Beratung auch auf Russisch möglich.“</p>
+        <p class="review-name">D. Petrov <span>Patient</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="kontakt" style="padding-bottom:0">
+  <p class="sec-overline">Kontakt &amp; Anfahrt</p>
+  <h2 class="sec-title">Wir freuen uns auf Ihren Besuch.</h2>
+  <div class="contact-card">
+    <div class="contact-left">
+      <h3>Zahnarztpraxis Petra Strandt</h3>
+      <div class="c-row">
+        <span class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <span><strong>Adresse</strong>Petersburger Str. 93, 10247 Berlin-Friedrichshain<br>U5 Frankfurter Tor · Tram 21, M10</span>
+      </div>
+      <div class="c-row">
+        <span class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        <span><strong>Telefon</strong><a href="tel:+49302915504">030 291 55 04</a></span>
+      </div>
+      <div class="c-row">
+        <span class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6L22 7"/></svg>
+        </span>
+        <span><strong>E-Mail</strong><a href="mailto:info@familienzahnarzt-friedrichshain.de">info@familienzahnarzt-friedrichshain.de</a></span>
+      </div>
+      <div class="contact-btns">
+        <a class="btn-primary" href="#kontakt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
+          Termin online buchen
+        </a>
+        <a class="btn-ghost" href="#kontakt">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
+          Anamnesebogen (PDF)
+        </a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFB840" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Sprechzeiten
+      </h3>
+      <table class="hours-table">
+        <tr><td>Montag</td><td>12:00 – 19:00</td></tr>
+        <tr><td>Dienstag</td><td>12:00 – 19:00</td></tr>
+        <tr><td>Mittwoch</td><td>08:00 – 14:00</td></tr>
+        <tr><td>Donnerstag</td><td>08:00 – 14:00</td></tr>
+        <tr><td>Freitag</td><td>08:00 – 13:00</td></tr>
+        <tr><td>Samstag</td><td>nach Vereinbarung</td></tr>
+      </table>
+      <p class="hours-note">Schmerzpatienten werden nach Möglichkeit noch am selben Tag behandelt — rufen Sie uns einfach an.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">
+      <svg viewBox="0 0 100 115" fill="none" aria-hidden="true">
+        <path d="M50 12C30 12 19 26 19 45c0 16 7 27 9 43 1 9 4 20 10 20 8 0 6-18 12-18s4 18 12 18c6 0 9-11 10-20 2-16 9-27 9-43 0-19-11-33-31-33z" stroke="#FFB840" stroke-width="7" fill="none"/>
+      </svg>
+      Zahnarztpraxis Petra Strandt
+    </span>
+    <span>Petersburger Str. 93 · 10247 Berlin · 030 291 55 04</span>
+    <span class="footer-links">
+      <a href="#top">Impressum</a>
+      <a href="#top">Datenschutz</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

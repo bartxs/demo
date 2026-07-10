@@ -27,6 +27,7 @@ image/video attachment.
 | `prospects/Black-Cat-Tattoo` | https://bartxs.github.io/demo/blackcat/ |
 | `prospects/Kraft-Sport` | https://bartxs.github.io/demo/kraft/ |
 | `prospects/Ayaz-Barber-Shop` | https://bartxs.github.io/demo/ayaz/ |
+| `prospects/Petra-Strandt-Zahnarzt` | https://bartxs.github.io/demo/strandt/ |
 
 When a portfolio/studio domain exists, point a custom domain at this repo and
 the paths stay the same.
