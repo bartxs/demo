@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bäckerei Backfee — Ihre Kiezbäckerei in Friedrichshain</title>
+<meta name="description" content="Bäckerei Backfee: Schrippen, Brote und Kuchen — frisch gebacken seit 5 Uhr früh, 3× in Friedrichshain. Kochhannstraße · Ebertystraße · Jungstraße.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F6CE4B'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' font-weight='bold' fill='%232E1E10'%3EB%3C/text%3E%3C/svg%3E">
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+  :root{
+    --butter:#F6CE4B;
+    --butter-deep:#E9B92A;
+    --cream:#FFF8E6;
+    --paper:#FFFCF2;
+    --espresso:#2E1E10;
+    --espresso-soft:#6B5236;
+    --terra:#B4451B;
+    --terra-deep:#93370F;
+    --line:rgba(46,30,16,.16);
+    --shadow:0 18px 44px -18px rgba(46,30,16,.35);
+    --r:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    background:var(--butter);
+    color:var(--espresso);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .disp{font-family:'Young Serif',Georgia,serif;font-weight:400}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.82rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--terra);
+  }
+  .kicker::before{content:"";width:26px;height:2px;background:var(--terra);border-radius:2px}
+  section{padding:88px 0}
+  h2.disp{font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.15;margin:14px 0 18px}
+  .icon{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+  /* ---------- NAV + AWNING ---------- */
+  .nav{position:sticky;top:0;z-index:60;background:var(--butter)}
+  .nav-inner{
+    max-width:1160px;margin:0 auto;padding:16px 26px 12px;
+    display:flex;align-items:center;gap:30px;
+  }
+  .logo{text-decoration:none;line-height:1.05;display:flex;flex-direction:column}
+  .logo small{font-size:.68rem;font-weight:800;letter-spacing:.34em;text-transform:uppercase;color:var(--terra)}
+  .logo strong{font-family:'Young Serif',Georgia,serif;font-weight:400;font-size:1.55rem;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:26px;margin-left:auto;list-style:none;align-items:center}
+  .nav-links a{
+    text-decoration:none;font-weight:700;font-size:.95rem;
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s;
+  }
+  .nav-links a:hover{border-color:var(--terra);color:var(--terra-deep)}
+  .nav-tel{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--terra);color:var(--cream);text-decoration:none;
+    font-weight:800;font-size:.92rem;padding:11px 20px;border-radius:999px;
+    transition:background .2s,transform .2s;
+  }
+  .nav-tel:hover{background:var(--terra-deep);transform:translateY(-1px)}
+  .nav-tel .icon{width:17px;height:17px}
+  /* striped awning with scalloped edge */
+  .awning{height:16px;background:repeating-linear-gradient(90deg,var(--terra) 0 44px,var(--cream) 44px 88px)}
+  .awning::after{
+    content:"";display:block;height:15px;margin-top:16px;
+    background-image:
+      radial-gradient(circle at 22px -7px,var(--terra) 21px,rgba(0,0,0,0) 22px),
+      radial-gradient(circle at 66px -7px,var(--cream) 21px,rgba(0,0,0,0) 22px);
+    background-size:88px 15px;background-repeat:repeat-x;
+    filter:drop-shadow(0 3px 4px rgba(46,30,16,.14));
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:74px 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+  .hero h1{
+    font-family:'Young Serif',Georgia,serif;font-weight:400;
+    font-size:clamp(2.5rem,4.8vw,4.1rem);line-height:1.06;letter-spacing:-.015em;
+    margin:18px 0 20px;
+  }
+  .hero h1 em{font-style:normal;color:var(--terra)}
+  .hero-sub{font-size:1.13rem;max-width:48ch;color:var(--espresso-soft);font-weight:500}
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+    font-weight:800;font-size:1rem;padding:15px 28px;border-radius:999px;
+    transition:transform .2s,background .2s,color .2s;cursor:pointer;
+  }
+  .btn-solid{background:var(--espresso);color:var(--cream)}
+  .btn-solid:hover{background:#1E1207;transform:translateY(-2px)}
+  .btn-ghost{border:2px solid var(--espresso);color:var(--espresso)}
+  .btn-ghost:hover{background:var(--espresso);color:var(--cream);transform:translateY(-2px)}
+  .hero-locs{
+    display:flex;align-items:center;gap:10px;margin-top:30px;
+    font-size:.95rem;font-weight:700;color:var(--espresso-soft);flex-wrap:wrap;
+  }
+  .hero-locs .icon{width:18px;height:18px;color:var(--terra)}
+  .hero-locs b{color:var(--espresso)}
+  /* arch photo */
+  .arch-wrap{position:relative;justify-self:end;width:min(100%,440px)}
+  .arch{
+    width:100%;aspect-ratio:4/5.1;object-fit:cover;
+    border-radius:999px 999px var(--r) var(--r);
+    box-shadow:var(--shadow);
+  }
+  .arch-ring{
+    position:absolute;inset:-14px -14px auto auto;width:100%;height:100%;
+    border:2px dashed rgba(46,30,16,.35);border-radius:999px 999px var(--r) var(--r);
+    z-index:-1;transform:translate(14px,-14px);
+  }
+  .rating-chip{
+    position:absolute;left:-26px;bottom:34px;
+    background:var(--cream);border-radius:16px;box-shadow:var(--shadow);
+    padding:13px 18px;display:flex;flex-direction:column;gap:2px;
+  }
+  .rating-chip .stars{color:var(--terra);font-size:1.02rem;letter-spacing:2px}
+  .rating-chip .num{font-weight:800;font-size:1.06rem}
+  .rating-chip .src{font-size:.78rem;color:var(--espresso-soft);font-weight:600}
+  /* ledge */
+  .ledge{margin-top:64px}
+  .ledge-card{
+    background:var(--cream);border-radius:var(--r) var(--r) 0 0;
+    display:grid;grid-template-columns:repeat(3,1fr);
+    box-shadow:0 -12px 34px -22px rgba(46,30,16,.3);
+  }
+  .ledge-item{
+    display:flex;align-items:center;gap:14px;padding:26px 30px;
+    border-right:1px solid var(--line);
+  }
+  .ledge-item:last-child{border-right:none}
+  .ledge-item .icon{width:30px;height:30px;color:var(--terra)}
+  .ledge-item strong{display:block;font-size:1.02rem;line-height:1.3}
+  .ledge-item span{font-size:.85rem;color:var(--espresso-soft);font-weight:600}
+
+  /* ---------- SORTIMENT / PREISTAFEL ---------- */
+  .sortiment{background:var(--cream);padding-top:96px}
+  .sort-head{max-width:640px}
+  .sort-head p{color:var(--espresso-soft);font-weight:500;font-size:1.05rem}
+  .tafel{
+    margin-top:46px;background:var(--paper);border-radius:var(--r);
+    box-shadow:var(--shadow);padding:54px 58px;
+    display:grid;grid-template-columns:1fr 1fr;gap:10px 70px;
+  }
+  .tafel h3{
+    font-family:'Young Serif',Georgia,serif;font-weight:400;font-size:1.25rem;
+    color:var(--terra);margin:26px 0 10px;display:flex;align-items:center;gap:12px;
+  }
+  .tafel h3:first-child{margin-top:0}
+  .tafel h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .row{display:flex;align-items:baseline;gap:12px;padding:7px 0;font-size:1.02rem}
+  .row .name{font-weight:600}
+  .row .name small{display:block;font-weight:500;font-size:.83rem;color:var(--espresso-soft)}
+  .row .dots{flex:1;border-bottom:2px dotted rgba(46,30,16,.3);transform:translateY(-4px)}
+  .row .price{font-weight:800;color:var(--terra);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .tafel-note{
+    grid-column:1/-1;margin-top:26px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:.9rem;color:var(--espresso-soft);font-weight:600;text-align:center;
+  }
+
+  /* ---------- BACKSTUBE (dark band) ---------- */
+  .stube{background:var(--espresso);color:var(--cream)}
+  .stube .kicker{color:var(--butter)}
+  .stube .kicker::before{background:var(--butter)}
+  .stube-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:54px;margin-top:52px}
+  .pillar .big{
+    font-family:'Young Serif',Georgia,serif;font-size:clamp(2.6rem,4.5vw,3.6rem);
+    color:var(--butter);line-height:1;
+  }
+  .pillar h3{font-size:1.12rem;margin:14px 0 8px}
+  .pillar p{color:rgba(255,248,230,.72);font-size:.98rem}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{padding-bottom:60px}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
+  .gal-item img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;
+    border-radius:var(--r);box-shadow:var(--shadow);
+  }
+  .gal-item:nth-child(odd) img{border-radius:999px 999px var(--r) var(--r)}
+  .gal-item:nth-child(even){transform:translateY(30px)}
+  .gal-item figcaption{
+    margin-top:14px;font-size:.88rem;font-weight:700;color:var(--espresso-soft);
+    display:flex;align-items:center;gap:8px;
+  }
+  .gal-item figcaption::before{content:"";width:14px;height:2px;background:var(--terra)}
+
+  /* ---------- KIEZ / TESTIMONIALS ---------- */
+  .kiez{background:var(--cream);padding-top:110px}
+  .kiez-head{text-align:center;max-width:620px;margin:0 auto}
+  .kiez-head .kicker{justify-content:center}
+  .kiez-head .kicker::before{display:none}
+  .kiez-head p.sub{color:var(--espresso-soft);font-weight:600}
+  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:54px}
+  .quote{
+    background:var(--paper);border-radius:var(--r);padding:34px 30px 28px;
+    box-shadow:0 14px 36px -20px rgba(46,30,16,.28);
+    display:flex;flex-direction:column;position:relative;
+  }
+  .quote::before{
+    content:"„";font-family:'Young Serif',Georgia,serif;font-size:3.4rem;line-height:0;
+    color:var(--butter-deep);position:absolute;top:30px;left:28px;
+  }
+  .quote .stars{color:var(--terra);letter-spacing:3px;margin:6px 0 14px 56px;font-size:.95rem}
+  .quote p{font-size:1.01rem;flex:1}
+  .quote footer{margin-top:18px;font-size:.86rem;font-weight:800;color:var(--espresso-soft)}
+
+  /* ---------- LÄDEN ---------- */
+  .laeden .lead{max-width:560px;color:var(--espresso-soft);font-weight:500;font-size:1.05rem}
+  .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+  .shop{
+    background:var(--cream);border-radius:var(--r);padding:34px 32px 30px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:0;
+  }
+  .shop .tag{
+    align-self:flex-start;background:var(--terra);color:var(--cream);
+    font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  .shop .tag.soft{background:var(--butter);color:var(--espresso)}
+  .shop h3{font-family:'Young Serif',Georgia,serif;font-weight:400;font-size:1.45rem;line-height:1.2}
+  .shop .addr{color:var(--espresso-soft);font-weight:600;font-size:.95rem;margin:6px 0 20px}
+  .shop .hours{border-top:1px solid var(--line);font-size:.95rem}
+  .shop .hours div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)}
+  .shop .hours b{font-variant-numeric:tabular-nums;font-weight:700}
+  .shop .tel{
+    margin-top:20px;display:inline-flex;align-items:center;gap:9px;
+    font-weight:800;text-decoration:none;color:var(--terra);
+  }
+  .shop .tel:hover{color:var(--terra-deep)}
+  .shop .tel .icon{width:18px;height:18px}
+
+  /* ---------- KONTAKT ---------- */
+  .kontakt{background:var(--espresso);color:var(--cream);padding:96px 0}
+  .kontakt-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  .kontakt .kicker{color:var(--butter)}
+  .kontakt .kicker::before{background:var(--butter)}
+  .kontakt h2{color:var(--cream)}
+  .kontakt h2 em{font-style:normal;color:var(--butter)}
+  .kontakt p.lead{color:rgba(255,248,230,.75);font-size:1.08rem;max-width:44ch}
+  .k-rows{margin-top:34px;display:flex;flex-direction:column;gap:18px}
+  .k-row{display:flex;gap:16px;align-items:flex-start}
+  .k-row .icon{color:var(--butter);margin-top:3px}
+  .k-row b{display:block;font-size:1.05rem}
+  .k-row span{color:rgba(255,248,230,.68);font-size:.93rem;font-weight:600}
+  .k-tel{
+    display:inline-flex;align-items:center;gap:12px;margin-top:34px;
+    background:var(--butter);color:var(--espresso);text-decoration:none;
+    font-weight:800;font-size:1.25rem;padding:18px 34px;border-radius:999px;
+    transition:background .2s,transform .2s;
+  }
+  .k-tel:hover{background:var(--butter-deep);transform:translateY(-2px)}
+  .kontakt .arch-wrap{justify-self:center}
+  .kontakt .arch-ring{border-color:rgba(255,248,230,.4)}
+
+  /* ---------- FOOTER ---------- */
+  footer.site{padding:34px 0;font-size:.88rem;font-weight:600;color:var(--espresso-soft)}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-inner .disp{color:var(--espresso);font-size:1.05rem}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:56px}
+    .arch-wrap{justify-self:center}
+    .rating-chip{left:14px}
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
+    .gal-item:nth-child(even){transform:none}
+    .stube-grid,.quote-grid,.shop-grid{grid-template-columns:1fr;gap:34px}
+    .quote-grid,.shop-grid{gap:22px}
+    .kontakt-grid{grid-template-columns:1fr;gap:56px}
+    .tafel{grid-template-columns:1fr;padding:40px 32px}
+  }
+  @media (max-width:640px){
+    section{padding:64px 0}
+    .nav-links{display:none}
+    .ledge-card{grid-template-columns:1fr}
+    .ledge-item{border-right:none;border-bottom:1px solid var(--line);padding:20px 26px}
+    .ledge-item:last-child{border-bottom:none}
+    .gal-grid{grid-template-columns:1fr}
+    .hero{padding-top:52px}
+    .tafel{padding:34px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<div class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">
+      <small>Bäckerei</small>
+      <strong>Backfee</strong>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sortiment">Sortiment</a></li>
+      <li><a href="#backstube">Backstube</a></li>
+      <li><a href="#kiez">Der Kiez</a></li>
+      <li><a href="#laeden">Unsere Läden</a></li>
+    </ul>
+    <a class="nav-tel" href="tel:+493042013129">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      030 420 131 29
+    </a>
+  </div>
+  <div class="awning"></div>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="kicker">Ihre Kiezbäckerei in Friedrichshain</span>
+        <h1>Frisch aus dem Ofen — <em>seit 5 Uhr früh.</em></h1>
+        <p class="hero-sub">Schrippen, Brote und Kuchen wie früher: ehrlich gebacken, fair im Preis — im Kiez, für den Kiez. Jeden Tag, seit dem frühen Morgen.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#sortiment">Sortiment ansehen</a>
+          <a class="btn btn-ghost" href="#laeden">Läden &amp; Zeiten</a>
+        </div>
+        <div class="hero-locs">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><b>3× in Friedrichshain:</b> Kochhannstraße · Ebertystraße · Jungstraße</span>
+        </div>
+      </div>
+      <div class="arch-wrap">
+        <span class="arch-ring"></span>
+        <img class="arch" src="https://images.pexels.com/photos/31141324/pexels-photo-31141324.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Frisch gebackene Brötchen im Holzkorb">
+        <div class="rating-chip">
+          <span class="stars">★★★★★</span>
+          <span class="num">4,6 von 5</span>
+          <span class="src">455 Google-Bewertungen</span>
+        </div>
+      </div>
+    </div>
+    <div class="ledge">
+      <div class="ledge-card">
+        <div class="ledge-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div><strong>Ofen an ab 5 Uhr</strong><span>Backware, die noch warm ist</span></div>
+        </div>
+        <div class="ledge-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>3 Läden im Kiez</strong><span>Immer eine Backfee in der Nähe</span></div>
+        </div>
+        <div class="ledge-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-11 5 3 8 7 8 11a7 7 0 0 1-7 7z"/><path d="M12 22V9"/></svg>
+          <div><strong>Wir retten Lebensmittel</strong><span>Abends bei Too Good To Go</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SORTIMENT ================= -->
+<section class="sortiment" id="sortiment">
+  <div class="wrap">
+    <div class="sort-head">
+      <span class="kicker">Unser Sortiment</span>
+      <h2 class="disp">Was heute in der Auslage liegt</h2>
+      <p>Klassiker, die jeden Morgen frisch entstehen — dazu wechselnde Kuchen und belegte Brötchen für die Pause. Einfach reinkommen, es duftet schon an der Tür.</p>
+    </div>
+    <div class="tafel">
+      <div>
+        <h3>Brötchen</h3>
+        <div class="row"><span class="name">Schrippe</span><span class="dots"></span><span class="price">0,45&nbsp;€</span></div>
+        <div class="row"><span class="name">Körnerbrötchen<small>Sonnenblume, Kürbis oder Mohn</small></span><span class="dots"></span><span class="price">0,80&nbsp;€</span></div>
+        <div class="row"><span class="name">Laugenbrötchen</span><span class="dots"></span><span class="price">0,90&nbsp;€</span></div>
+        <div class="row"><span class="name">Croissant</span><span class="dots"></span><span class="price">1,50&nbsp;€</span></div>
+        <h3>Brote</h3>
+        <div class="row"><span class="name">Roggenmischbrot<small>ganzer Laib, 1&nbsp;kg</small></span><span class="dots"></span><span class="price">4,20&nbsp;€</span></div>
+        <div class="row"><span class="name">Vollkornbrot</span><span class="dots"></span><span class="price">4,50&nbsp;€</span></div>
+        <div class="row"><span class="name">Bauernkruste</span><span class="dots"></span><span class="price">3,90&nbsp;€</span></div>
+      </div>
+      <div>
+        <h3>Süßes</h3>
+        <div class="row"><span class="name">Streuselkuchen<small>das Stück</small></span><span class="dots"></span><span class="price">2,20&nbsp;€</span></div>
+        <div class="row"><span class="name">Apfeltasche</span><span class="dots"></span><span class="price">1,80&nbsp;€</span></div>
+        <div class="row"><span class="name">Pfannkuchen<small>der Berliner Klassiker</small></span><span class="dots"></span><span class="price">1,60&nbsp;€</span></div>
+        <div class="row"><span class="name">Zimtschnecke</span><span class="dots"></span><span class="price">2,00&nbsp;€</span></div>
+        <h3>Für die Pause</h3>
+        <div class="row"><span class="name">Belegtes Brötchen<small>Käse, Salami oder Schinken</small></span><span class="dots"></span><span class="price">ab 2,50&nbsp;€</span></div>
+        <div class="row"><span class="name">Kaffee zum Mitnehmen</span><span class="dots"></span><span class="price">2,00&nbsp;€</span></div>
+        <div class="row"><span class="name">Frühstücks-Kombi<small>Kaffee + belegtes Brötchen</small></span><span class="dots"></span><span class="price">4,00&nbsp;€</span></div>
+      </div>
+      <div class="tafel-note">Beispielpreise — das Tagesangebot finden Sie in der Auslage Ihres Ladens.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BACKSTUBE ================= -->
+<section class="stube" id="backstube">
+  <div class="wrap">
+    <span class="kicker">Die Backstube</span>
+    <h2 class="disp">Wenn der Kiez noch schläft,<br>ist bei uns schon Licht.</h2>
+    <div class="stube-grid">
+      <div class="pillar">
+        <div class="big">05:00</div>
+        <h3>Der Ofen ist an</h3>
+        <p>Während Friedrichshain noch träumt, werden bei uns die ersten Bleche geschoben — damit die Schrippe zum Frühstück noch warm ist.</p>
+      </div>
+      <div class="pillar">
+        <div class="big">455</div>
+        <h3>Google-Bewertungen</h3>
+        <p>4,6 Sterne — gewachsen über Jahre, Brötchen für Brötchen. Keine Kampagne, nur zufriedene Nachbarn.</p>
+      </div>
+      <div class="pillar">
+        <div class="big">0</div>
+        <h3>Gutes wird nicht weggeworfen</h3>
+        <p>Was abends übrig bleibt, retten Nachbarn über Too Good To Go — gut für den Kiez, gut fürs Klima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery">
+  <div class="wrap">
+    <span class="kicker">Ein Blick hinein</span>
+    <h2 class="disp">Handwerk, das man schmeckt</h2>
+    <div class="gal-grid">
+      <figure class="gal-item">
+        <img src="https://images.pexels.com/photos/3218467/pexels-photo-3218467.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Bäcker knetet Teig in der Backstube">
+        <figcaption>Jeden Morgen von Hand</figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="https://images.pexels.com/photos/8633662/pexels-photo-8633662.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Frisch gebackene Brote und Brötchen">
+        <figcaption>Kruste, wie sie sein soll</figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="https://images.pexels.com/photos/34241964/pexels-photo-34241964.png?auto=compress&cs=tinysrgb&w=900" alt="Ein Stück Streuselkuchen auf einem Teller">
+        <figcaption>Streuselkuchen wie bei Oma</figcaption>
+      </figure>
+      <figure class="gal-item">
+        <img src="https://images.pexels.com/photos/1287278/pexels-photo-1287278.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Goldbraune Brötchen im Morgenlicht">
+        <figcaption>Goldbraun aus dem Ofen</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KIEZ ================= -->
+<section class="kiez" id="kiez">
+  <div class="wrap">
+    <div class="kiez-head">
+      <span class="kicker">Der Kiez über uns</span>
+      <h2 class="disp">4,6 von 5 — bei 455 Bewertungen</h2>
+      <p class="sub">Das sagt die Nachbarschaft auf Google:</p>
+    </div>
+    <div class="quote-grid">
+      <article class="quote">
+        <div class="stars">★★★★★</div>
+        <p>Die beste Bäckerei im Umkreis. Die Schrippen schmecken noch wie früher — knusprig, fluffig, und der Preis ist mehr als fair.</p>
+        <footer>Martina K. · Weberwiese</footer>
+      </article>
+      <article class="quote">
+        <div class="stars">★★★★☆</div>
+        <p>Samstagmorgen steht man schon mal kurz an — aber der Streuselkuchen ist es jedes Mal wert. Ehrliche Kiezbäckerei ohne Schnickschnack.</p>
+        <footer>Jonas B. · Friedrichshain</footer>
+      </article>
+      <article class="quote">
+        <div class="stars">★★★★★</div>
+        <p>Freundliches Team, alles frisch, und abends kann man über Too Good To Go noch Tüten retten. Unser fester Stopp vorm Spielplatz.</p>
+        <footer>Familie S. · Kochhannstraße</footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LÄDEN ================= -->
+<section class="laeden" id="laeden">
+  <div class="wrap">
+    <span class="kicker">Unsere Läden</span>
+    <h2 class="disp">3× in Friedrichshain</h2>
+    <p class="lead">Alle drei Läden liegen nur wenige Gehminuten voneinander — irgendwo duftet es immer nach frischen Brötchen.</p>
+    <div class="shop-grid">
+      <article class="shop">
+        <span class="tag">Stammladen</span>
+        <h3>Kochhannstraße</h3>
+        <p class="addr">Kochhannstraße 15 B · 10249 Berlin</p>
+        <div class="hours">
+          <div><span>Mo – Fr</span><b>5:30 – 18:30</b></div>
+          <div><span>Samstag</span><b>6:00 – 16:00</b></div>
+          <div><span>Sonntag</span><b>7:00 – 14:00</b></div>
+        </div>
+        <a class="tel" href="tel:+493042013129">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          030 420 131 29
+        </a>
+      </article>
+      <article class="shop">
+        <span class="tag soft">Friedrichshain</span>
+        <h3>Ebertystraße</h3>
+        <p class="addr">Ebertystraße 11 · 10249 Berlin</p>
+        <div class="hours">
+          <div><span>Mo – Fr</span><b>5:30 – 18:30</b></div>
+          <div><span>Samstag</span><b>6:00 – 16:00</b></div>
+          <div><span>Sonntag</span><b>7:00 – 14:00</b></div>
+        </div>
+      </article>
+      <article class="shop">
+        <span class="tag soft">Friedrichshain</span>
+        <h3>Jungstraße</h3>
+        <p class="addr">Jungstraße 10 · 10247 Berlin</p>
+        <div class="hours">
+          <div><span>Mo – Fr</span><b>5:30 – 18:30</b></div>
+          <div><span>Samstag</span><b>6:00 – 16:00</b></div>
+          <div><span>Sonntag</span><b>7:00 – 14:00</b></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAKT ================= -->
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <div class="kontakt-grid">
+      <div>
+        <span class="kicker">Kommen Sie vorbei</span>
+        <h2 class="disp">Der Ofen ist an. <em>Bis gleich im Kiez.</em></h2>
+        <p class="lead">Für Bestellungen — ganze Brote, Kuchen für die Feier oder Plattenservice fürs Büro — rufen Sie einfach kurz an.</p>
+        <div class="k-rows">
+          <div class="k-row">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><b>Kochhannstraße 15 B, 10249 Berlin</b><span>Stammladen — 5 Minuten von der Weberwiese</span></div>
+          </div>
+          <div class="k-row">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><b>Mo – Fr ab 5:30 · Sa ab 6:00 · So ab 7:00</b><span>Alle Zeiten &amp; Läden siehe oben</span></div>
+          </div>
+        </div>
+        <a class="k-tel" href="tel:+493042013129">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          030 420 131 29
+        </a>
+      </div>
+      <div class="arch-wrap">
+        <span class="arch-ring"></span>
+        <img class="arch" src="https://images.pexels.com/photos/35993723/pexels-photo-35993723.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Brotregal mit frischen Backwaren">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap foot-inner">
+    <span class="disp">Bäckerei Backfee</span>
+    <span>Kochhannstraße 15 B · Ebertystraße 11 · Jungstraße 10 — Friedrichshain, Berlin</span>
+    <span>© 2026 Bäckerei Backfee</span>
+  </div>
+</footer>
+
+</body>
+</html>
