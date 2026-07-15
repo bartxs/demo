@@ -32,6 +32,7 @@ image/video attachment.
 | `prospects/Petra-Strandt-Zahnarzt` | https://clearsitestudio.de/demo/strandt/ |
 | `prospects/Baeckerei-Backfee` | https://clearsitestudio.de/demo/backfee/ |
 | `prospects/Beauty-Woman-Violetta` | https://clearsitestudio.de/demo/beauty-woman/ |
+| `prospects/Magro-Bau` | https://clearsitestudio.de/demo/magro-bau/ |
 
 Custom domain clearsitestudio.de is configured on the `bartxs.github.io` user
 site (2026-07-11), so this project site is served under it automatically.
