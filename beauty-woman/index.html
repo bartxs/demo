@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beauty Woman by Violetta — Friseur & Kosmetik in Berlin</title>
+<meta name="description" content="Polnischer Friseur- und Kosmetiksalon in Berlin-Wittenau. Haarschnitt, Coloration, Kosmetik und Make-up. Termine unter +49 151 20142009.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233A2230'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-style='italic' fill='%23E7C58E'%3EBW%3C/text%3E%3C/svg%3E">
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+  :root{
+    --nude:#F3E7E1;         /* base */
+    --paper:#FBF4F0;        /* cards */
+    --plum:#3A2230;         /* deep aubergine ink */
+    --plum-soft:#5A3A48;
+    --mauve:#A96A72;        /* rose accent */
+    --mauve-deep:#8E5058;
+    --gold:#C39A5E;         /* rose-gold hairline */
+    --gold-soft:#E7C58E;
+    --ink:#2C1D25;
+    --muted:#7A6068;
+    --line:rgba(58,34,48,.14);
+    --radius:14px;
+    --shadow:0 24px 60px rgba(58,34,48,.14);
+    --shadow-sm:0 10px 30px rgba(58,34,48,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',system-ui,sans-serif;
+    color:var(--ink);background:var(--nude);
+    font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;
+    font-size:17px;
+  }
+  h1,h2,h3,.disp{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:.005em}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--mauve-deep);display:inline-flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--gold)}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:80;background:rgba(243,231,225,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 28px;max-width:1180px;margin:0 auto}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;letter-spacing:.01em}
+  .brand span{font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--mauve-deep);margin-top:3px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:14px;letter-spacing:.04em;font-weight:400;color:var(--plum-soft);position:relative;padding:4px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--mauve);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:12px;font-weight:500}
+  .lang button{background:none;border:none;cursor:pointer;padding:7px 12px;color:var(--muted);font-family:'Jost',sans-serif;letter-spacing:.08em;transition:.2s}
+  .lang button.on{background:var(--plum);color:var(--gold-soft)}
+  .call-btn{display:inline-flex;align-items:center;gap:8px;background:var(--plum);color:var(--gold-soft);
+    padding:11px 20px;border-radius:999px;font-size:14px;font-weight:400;letter-spacing:.03em;transition:.25s;white-space:nowrap}
+  .call-btn:hover{background:var(--mauve-deep);color:#fff;transform:translateY(-1px)}
+  .call-btn svg{width:15px;height:15px;fill:currentColor}
+
+  /* HERO */
+  .hero{padding:70px 0 84px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(46px,6.4vw,84px);margin:22px 0 0}
+  .hero h1 em{font-style:italic;color:var(--mauve-deep)}
+  .hero .lead{font-size:18px;color:var(--plum-soft);max-width:30em;margin:22px 0 30px;font-weight:300}
+  .rating-chip{display:inline-flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);
+    border-radius:999px;padding:9px 18px 9px 14px;box-shadow:var(--shadow-sm);margin-top:4px}
+  .stars{display:flex;gap:2px}
+  .stars svg{width:16px;height:16px;fill:var(--gold)}
+  .rating-chip b{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;line-height:1}
+  .rating-chip small{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;font-size:15px;
+    font-weight:400;letter-spacing:.03em;cursor:pointer;transition:.25s;border:1px solid transparent}
+  .btn-solid{background:var(--mauve-deep);color:#fff}
+  .btn-solid:hover{background:var(--plum);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border-color:var(--plum);color:var(--plum)}
+  .btn-ghost:hover{background:var(--plum);color:var(--gold-soft);transform:translateY(-2px)}
+
+  .hero-media{position:relative}
+  .hero-photo{position:relative;border-radius:220px 220px var(--radius) var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);aspect-ratio:4/5;border:1px solid rgba(255,255,255,.5)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-media::before{content:"";position:absolute;inset:-14px -14px auto auto;width:150px;height:150px;
+    border:1px solid var(--gold);border-radius:220px 220px 0 0;z-index:-1}
+  .float-card{position:absolute;left:-26px;bottom:26px;background:var(--paper);border-radius:12px;
+    padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:13px;border:1px solid var(--line)}
+  .float-card .ic{width:40px;height:40px;border-radius:50%;background:var(--plum);display:grid;place-items:center;flex:0 0 auto}
+  .float-card .ic svg{width:19px;height:19px;fill:var(--gold-soft)}
+  .float-card b{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;line-height:1.1}
+  .float-card small{font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+  /* TRUST STRIP */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+  .strip-in{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;padding:20px 28px;max-width:1180px;margin:0 auto}
+  .strip-item{display:flex;align-items:center;gap:10px;font-size:13.5px;letter-spacing:.04em;color:var(--plum-soft)}
+  .strip-item svg{width:17px;height:17px;stroke:var(--mauve-deep);fill:none;stroke-width:1.6}
+
+  /* SECTION */
+  section{padding:88px 0}
+  .sec-head{max-width:640px}
+  .sec-head h2{font-size:clamp(34px,4.6vw,52px);margin:16px 0 0}
+  .sec-head p{color:var(--plum-soft);margin-top:16px;font-weight:300}
+
+  /* SERVICES / MENU */
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:52px}
+  .menu-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:34px 34px 30px;box-shadow:var(--shadow-sm)}
+  .menu-card .mc-head{display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .menu-card .mc-ic{width:46px;height:46px;border-radius:50%;background:var(--nude);display:grid;place-items:center;flex:0 0 auto}
+  .menu-card .mc-ic svg{width:23px;height:23px;stroke:var(--mauve-deep);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .menu-card h3{font-size:29px}
+  /* Scoped to > div > span: a bare `.mc-head span` also matched the .mc-ic badge
+     (also a span in .mc-head) at higher specificity than `.menu-card .mc-ic`,
+     overriding its display:grid with display:block — which killed place-items:center
+     and dropped the icon into the badge's top-left corner. */
+  .menu-card .mc-head > div > span{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mauve);margin-top:3px}
+  .price-row{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px dotted var(--line)}
+  .price-row:last-child{border-bottom:none}
+  .price-row .pr-name{font-size:15.5px;font-weight:400;color:var(--ink);white-space:nowrap}
+  .price-row .pr-lead{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+  .price-row .pr-price{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--mauve-deep);white-space:nowrap}
+  .menu-note{margin-top:22px;font-size:12.5px;color:var(--muted);letter-spacing:.02em;text-align:center}
+
+  /* GALLERY */
+  .gallery{background:var(--paper)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px;margin-top:52px}
+  .gal-grid figure{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .gal-grid figure:hover img{transform:scale(1.06)}
+  .g-tall{grid-row:span 2}
+  .g-wide{grid-column:span 2}
+  .g-round{border-radius:50%!important}
+
+  /* TESTIMONIALS */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+  .quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-sm);position:relative}
+  .quote .qm{font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--gold-soft);line-height:.6;font-style:italic}
+  .quote p{font-size:16px;color:var(--plum-soft);margin:6px 0 20px;font-weight:300}
+  .quote .who{display:flex;align-items:center;gap:12px}
+  .quote .av{width:38px;height:38px;border-radius:50%;background:var(--mauve);color:#fff;display:grid;place-items:center;
+    font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;flex:0 0 auto}
+  .quote .who b{font-size:14.5px;font-weight:500}
+  .quote .who small{display:block;font-size:12px;color:var(--muted)}
+  .quote .who svg{width:13px;height:13px;fill:var(--gold);margin-left:1px}
+
+  /* CONTACT */
+  .contact{background:var(--plum);color:var(--nude)}
+  .contact .eyebrow{color:var(--gold-soft)}
+  .contact .eyebrow::before{background:var(--gold)}
+  .contact h2{color:var(--paper);font-size:clamp(34px,4.6vw,52px)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:44px;align-items:start}
+  .info-row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(231,197,142,.18)}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ir-ic{width:42px;height:42px;border-radius:50%;background:rgba(231,197,142,.12);display:grid;place-items:center;flex:0 0 auto}
+  .info-row .ir-ic svg{width:19px;height:19px;stroke:var(--gold-soft);fill:none;stroke-width:1.6}
+  .info-row .il{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px}
+  .info-row .iv{font-size:17px;color:var(--paper);font-weight:300}
+  .info-row .iv a:hover{color:var(--gold-soft)}
+  .contact .btn-solid{background:var(--gold-soft);color:var(--plum);margin-top:28px}
+  .contact .btn-solid:hover{background:#fff;color:var(--plum)}
+  .map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(231,197,142,.25);min-height:360px}
+  .map-wrap iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:grayscale(.2) contrast(.95)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(243,231,225,.7);padding:34px 0;text-align:center;font-size:13px;letter-spacing:.03em}
+  footer b{font-family:'Cormorant Garamond',serif;color:var(--gold-soft);font-size:17px;font-weight:600}
+  footer a:hover{color:var(--gold-soft)}
+  .footer-note{margin-top:8px;font-size:11.5px;color:rgba(243,231,225,.4)}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .hero-media{max-width:440px;margin:0 auto;width:100%}
+    .nav-links{display:none}
+    .menu-grid,.quotes,.contact-grid{grid-template-columns:1fr}
+    /* Reset the spans at 2 cols: a 1x2 tall next to a 2x1 wide cannot tessellate
+       in a 2-col grid and leaves holes. Uniform cells -> 6 figures = 3 clean rows. */
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+    .gal-grid .g-tall{grid-row:span 1}
+    .gal-grid .g-wide{grid-column:span 1}
+    section{padding:64px 0}
+    .hero{padding:48px 0 64px}
+  }
+  @media(max-width:520px){
+    body{font-size:16px}
+    .wrap{padding:0 20px}
+    .nav-in{padding:12px 20px}
+    .brand b{font-size:22px}
+    .float-card{left:0}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand">
+      <b>Beauty Woman</b>
+      <span data-i="brand_sub">by Violetta · Berlin</span>
+    </a>
+    <div class="nav-links">
+      <a href="#leistungen" data-i="nav_serv">Leistungen</a>
+      <a href="#preise" data-i="nav_price">Preise</a>
+      <a href="#galerie" data-i="nav_gal">Galerie</a>
+      <a href="#kontakt" data-i="nav_contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Sprache / Język">
+        <button data-lang="de" class="on">DE</button>
+        <button data-lang="pl">PL</button>
+      </div>
+      <a href="tel:+4915120142009" class="call-btn">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z"/></svg>
+        <span data-i="nav_call">Termin</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<span id="top"></span>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow" data-i="hero_eyebrow">Friseur &amp; Kosmetik · Berlin-Wittenau</span>
+      <h1 data-i="hero_title">Schön sein,<br>wie <em>Sie</em> es lieben.</h1>
+      <p class="lead" data-i="hero_lead">Ihr polnischer Friseur- und Kosmetiksalon in Berlin. Haarschnitt, Coloration, Kosmetik und Make-up — mit Herz, in Ihrer Sprache: Deutsch, Polnisch, Russisch, Englisch.</p>
+
+      <div class="rating-chip">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </span>
+        <div><b>94&nbsp;%</b> <small data-i="hero_rating">weiterempfohlen · 35&nbsp;Bewertungen</small></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="tel:+4915120142009" class="btn btn-solid" data-i="hero_cta1">Termin vereinbaren</a>
+        <a href="#preise" class="btn btn-ghost" data-i="hero_cta2">Leistungen &amp; Preise</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-photo">
+        <img src="https://images.pexels.com/photos/20046793/pexels-photo-20046793.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Kundin mit gepflegten Haaren im Friseursalon" loading="eager">
+      </div>
+      <div class="float-card">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 015 5c0 2.4-1.7 4.4-4 4.9V22h-2v-10.1C8.7 11.4 7 9.4 7 7a5 5 0 015-5z"/></svg></span>
+        <div><b data-i="float_b">Haar &amp; Kosmetik</b><small data-i="float_s">alles unter einem Dach</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST STRIP -->
+<div class="strip">
+  <div class="strip-in">
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/></svg><span data-i="strip_lang">DE · PL · RU · EN</span></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg><span data-i="strip_cash">Barzahlung</span></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i="strip_hours">Mo–Sa · 09–18 Uhr</span></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i="strip_loc">Begonienplatz 3, Berlin</span></div>
+  </div>
+</div>
+
+<!-- SERVICES / PRICES -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i="serv_eyebrow">Leistungen</span>
+      <h2 data-i="serv_title">Zwei Welten, ein Salon</h2>
+      <p data-i="serv_p">Vom frischen Schnitt bis zur entspannenden Gesichtsbehandlung — bei Violetta bekommen Sie beides an einem Ort, ehrlich beraten und sorgfältig gemacht.</p>
+    </div>
+
+    <div id="preise" class="menu-grid">
+      <div class="menu-card">
+        <div class="mc-head">
+          <span class="mc-ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span>
+          <div><h3 data-i="serv_hair_h">Friseur</h3><span data-i="serv_hair_s">Fryzjer</span></div>
+        </div>
+        <div class="price-row"><span class="pr-name" data-i="s_h1">Damenschnitt &amp; Föhnen</span><span class="pr-lead"></span><span class="pr-price">ab 35 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_h2">Herrenschnitt</span><span class="pr-lead"></span><span class="pr-price">ab 20 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_h3">Coloration / Tönung</span><span class="pr-lead"></span><span class="pr-price">ab 45 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_h4">Strähnen &amp; Highlights</span><span class="pr-lead"></span><span class="pr-price">ab 60 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_h5">Hochsteckfrisur / Anlass</span><span class="pr-lead"></span><span class="pr-price">ab 40 €</span></div>
+      </div>
+
+      <div class="menu-card">
+        <div class="mc-head">
+          <span class="mc-ic"><svg viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
+          <div><h3 data-i="serv_cos_h">Kosmetik</h3><span data-i="serv_cos_s">Kosmetyka</span></div>
+        </div>
+        <div class="price-row"><span class="pr-name" data-i="s_c1">Gesichtsbehandlung</span><span class="pr-lead"></span><span class="pr-price">ab 40 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_c2">Augenbrauen &amp; Wimpern</span><span class="pr-lead"></span><span class="pr-price">ab 15 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_c3">Make-up / Anlass</span><span class="pr-lead"></span><span class="pr-price">ab 30 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_c4">Maniküre</span><span class="pr-lead"></span><span class="pr-price">ab 25 €</span></div>
+        <div class="price-row"><span class="pr-name" data-i="s_c5">Waxing / Depilation</span><span class="pr-lead"></span><span class="pr-price">ab 15 €</span></div>
+      </div>
+    </div>
+    <p class="menu-note" data-i="menu_note">Beispielpreise zur Orientierung — Ihr genauer Preis richtet sich nach Haarlänge und Wunsch. Fragen Sie gern beim Termin.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galerie" class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i="gal_eyebrow">Galerie</span>
+      <h2 data-i="gal_title">Ein Blick in den Salon</h2>
+    </div>
+    <!-- 6 figures tile the 4-col grid exactly: g-tall (1x2) + g-wide (2x1) + 4 singles
+         = 8 cells = 4 cols x 2 rows, no holes. Adding/removing one leaves a ragged
+         column, so keep the count at 6 (or go to 9: tall, wide, tall, n, n, n, wide, n, n). -->
+    <div class="gal-grid">
+      <figure class="g-tall"><img src="https://images.pexels.com/photos/10028673/pexels-photo-10028673.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Haarstyling mit Föhn und Rundbürste" loading="lazy"></figure>
+      <figure class="g-wide"><img src="https://images.pexels.com/photos/35844833/pexels-photo-35844833.png?auto=compress&cs=tinysrgb&w=900" alt="Eleganter, moderner Salon" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/33607393/pexels-photo-33607393.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Entspannende Gesichtsbehandlung" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/6487888/pexels-photo-6487888.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Präziser Haarschnitt mit Schere" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/5178007/pexels-photo-5178007.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Make-up-Anwendung" loading="lazy"></figure>
+      <figure><img src="https://images.pexels.com/photos/5368632/pexels-photo-5368632.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Haare glätten im Salon" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="stimmen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i="q_eyebrow">Stimmen</span>
+      <h2 data-i="q_title">Was Kundinnen sagen</h2>
+      <p data-i="q_p">94&nbsp;% empfehlen Beauty Woman weiter — hier ein paar Stimmen, die zeigen, warum.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="qm">&ldquo;</div>
+        <p data-i="q1">Endlich ein Salon, in dem ich auf Polnisch alles genau besprechen kann. Violetta hört zu und mein Schnitt sitzt jedes Mal perfekt.</p>
+        <div class="who"><span class="av">A</span><div><b data-i="q1n">Anna K.</b><small><span data-i="q1s">Stammkundin</span> ★★★★★</small></div></div>
+      </div>
+      <div class="quote">
+        <div class="qm">&ldquo;</div>
+        <p data-i="q2">Haare und Kosmetik an einem Termin — super praktisch. Die Gesichtsbehandlung war herrlich entspannend, sehr sauber und professionell.</p>
+        <div class="who"><span class="av">M</span><div><b data-i="q2n">Marta S.</b><small><span data-i="q2s">Kundin</span> ★★★★★</small></div></div>
+      </div>
+      <div class="quote">
+        <div class="qm">&ldquo;</div>
+        <p data-i="q3">Herzlicher Empfang, faire Preise und ein tolles Ergebnis zum Anlass. Man fühlt sich sofort willkommen — komme immer wieder gern.</p>
+        <div class="who"><span class="av">D</span><div><b data-i="q3n">Diana R.</b><small><span data-i="q3s">Kundin</span> ★★★★★</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow" data-i="c_eyebrow">Kontakt &amp; Termine</span>
+        <h2 data-i="c_title">Wir freuen uns auf Sie</h2>
+        <div style="margin-top:28px">
+          <div class="info-row">
+            <span class="ir-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><div class="il" data-i="c_addr_l">Adresse</div><div class="iv">Begonienplatz 3, 13469 Berlin<br><span data-i="c_addr_d">Reinickendorf / Wittenau</span></div></div>
+          </div>
+          <div class="info-row">
+            <span class="ir-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z"/></svg></span>
+            <div><div class="il" data-i="c_tel_l">Telefon</div><div class="iv"><a href="tel:+4915120142009">+49&nbsp;151&nbsp;20142009</a></div></div>
+          </div>
+          <div class="info-row">
+            <span class="ir-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><div class="il" data-i="c_hours_l">Öffnungszeiten</div><div class="iv" data-i="c_hours_d">Montag – Samstag · 09:00 – 18:00</div></div>
+          </div>
+          <div class="info-row">
+            <span class="ir-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/></svg></span>
+            <div><div class="il" data-i="c_lang_l">Sprachen</div><div class="iv" data-i="c_lang_d">Deutsch · Polnisch · Russisch · Englisch</div></div>
+          </div>
+        </div>
+        <a href="tel:+4915120142009" class="btn btn-solid" data-i="c_cta">Jetzt anrufen &amp; Termin sichern</a>
+      </div>
+      <div class="map-wrap">
+        <iframe title="Karte Begonienplatz 3, 13469 Berlin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Begonienplatz%203,%2013469%20Berlin&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <b>Beauty Woman by Violetta</b>
+    <div style="margin-top:6px" data-i="foot_tag">Friseur &amp; Kosmetik · Begonienplatz 3, 13469 Berlin · +49 151 20142009</div>
+    <div class="footer-note" data-i="foot_note">Design-Vorschau · unverbindliches Musterdesign von ClearSite Studio · Fotos: Pexels (Symbolbilder)</div>
+  </div>
+</footer>
+
+<script>
+const I = {
+  brand_sub:{de:"by Violetta · Berlin",pl:"by Violetta · Berlin"},
+  nav_serv:{de:"Leistungen",pl:"Usługi"},
+  nav_price:{de:"Preise",pl:"Cennik"},
+  nav_gal:{de:"Galerie",pl:"Galeria"},
+  nav_contact:{de:"Kontakt",pl:"Kontakt"},
+  nav_call:{de:"Termin",pl:"Wizyta"},
+  hero_eyebrow:{de:"Friseur & Kosmetik · Berlin-Wittenau",pl:"Fryzjer & Kosmetyka · Berlin-Wittenau"},
+  hero_title:{de:"Schön sein,<br>wie <em>Sie</em> es lieben.",pl:"Piękno,<br>jakie <em>kochasz</em>."},
+  hero_lead:{de:"Ihr polnischer Friseur- und Kosmetiksalon in Berlin. Haarschnitt, Coloration, Kosmetik und Make-up — mit Herz, in Ihrer Sprache: Deutsch, Polnisch, Russisch, Englisch.",pl:"Twój polski salon fryzjersko-kosmetyczny w Berlinie. Strzyżenie, koloryzacja, kosmetyka i makijaż — z sercem, w Twoim języku: polski, niemiecki, rosyjski, angielski."},
+  hero_rating:{de:"weiterempfohlen · 35 Bewertungen",pl:"poleceń · 35 opinii"},
+  hero_cta1:{de:"Termin vereinbaren",pl:"Umów wizytę"},
+  hero_cta2:{de:"Leistungen & Preise",pl:"Usługi i cennik"},
+  float_b:{de:"Haar & Kosmetik",pl:"Włosy i kosmetyka"},
+  float_s:{de:"alles unter einem Dach",pl:"wszystko w jednym miejscu"},
+  strip_lang:{de:"DE · PL · RU · EN",pl:"PL · DE · RU · EN"},
+  strip_cash:{de:"Barzahlung",pl:"Płatność gotówką"},
+  strip_hours:{de:"Mo–Sa · 09–18 Uhr",pl:"Pn–Sob · 09–18"},
+  strip_loc:{de:"Begonienplatz 3, Berlin",pl:"Begonienplatz 3, Berlin"},
+  serv_eyebrow:{de:"Leistungen",pl:"Usługi"},
+  serv_title:{de:"Zwei Welten, ein Salon",pl:"Dwa światy, jeden salon"},
+  serv_p:{de:"Vom frischen Schnitt bis zur entspannenden Gesichtsbehandlung — bei Violetta bekommen Sie beides an einem Ort, ehrlich beraten und sorgfältig gemacht.",pl:"Od świeżego strzyżenia po relaksujący zabieg na twarz — u Violetty dostaniesz jedno i drugie w jednym miejscu, ze szczerą poradą i dbałością o szczegóły."},
+  serv_hair_h:{de:"Friseur",pl:"Fryzjer"},
+  serv_hair_s:{de:"Fryzjer",pl:"Włosy"},
+  serv_cos_h:{de:"Kosmetik",pl:"Kosmetyka"},
+  serv_cos_s:{de:"Kosmetyka",pl:"Uroda"},
+  s_h1:{de:"Damenschnitt & Föhnen",pl:"Strzyżenie damskie i modelowanie"},
+  s_h2:{de:"Herrenschnitt",pl:"Strzyżenie męskie"},
+  s_h3:{de:"Coloration / Tönung",pl:"Koloryzacja / tonowanie"},
+  s_h4:{de:"Strähnen & Highlights",pl:"Pasemka i refleksy"},
+  s_h5:{de:"Hochsteckfrisur / Anlass",pl:"Upięcie / na okazję"},
+  s_c1:{de:"Gesichtsbehandlung",pl:"Zabieg na twarz"},
+  s_c2:{de:"Augenbrauen & Wimpern",pl:"Brwi i rzęsy"},
+  s_c3:{de:"Make-up / Anlass",pl:"Makijaż / okolicznościowy"},
+  s_c4:{de:"Maniküre",pl:"Manicure"},
+  s_c5:{de:"Waxing / Depilation",pl:"Depilacja woskiem"},
+  menu_note:{de:"Beispielpreise zur Orientierung — Ihr genauer Preis richtet sich nach Haarlänge und Wunsch. Fragen Sie gern beim Termin.",pl:"Ceny przykładowe — dokładna cena zależy od długości włosów i zakresu usługi. Zapytaj podczas wizyty."},
+  gal_eyebrow:{de:"Galerie",pl:"Galeria"},
+  gal_title:{de:"Ein Blick in den Salon",pl:"Zajrzyj do salonu"},
+  q_eyebrow:{de:"Stimmen",pl:"Opinie"},
+  q_title:{de:"Was Kundinnen sagen",pl:"Co mówią klientki"},
+  q_p:{de:"94 % empfehlen Beauty Woman weiter — hier ein paar Stimmen, die zeigen, warum.",pl:"94 % poleca Beauty Woman dalej — oto kilka opinii, które pokazują dlaczego."},
+  q1:{de:"Endlich ein Salon, in dem ich auf Polnisch alles genau besprechen kann. Violetta hört zu und mein Schnitt sitzt jedes Mal perfekt.",pl:"Nareszcie salon, w którym mogę wszystko dokładnie omówić po polsku. Violetta słucha, a moje włosy za każdym razem wyglądają idealnie."},
+  q1n:{de:"Anna K.",pl:"Anna K."},
+  q1s:{de:"Stammkundin",pl:"Stała klientka"},
+  q2:{de:"Haare und Kosmetik an einem Termin — super praktisch. Die Gesichtsbehandlung war herrlich entspannend, sehr sauber und professionell.",pl:"Włosy i kosmetyka na jednej wizycie — bardzo wygodnie. Zabieg na twarz był cudownie relaksujący, czysto i profesjonalnie."},
+  q2n:{de:"Marta S.",pl:"Marta S."},
+  q2s:{de:"Kundin",pl:"Klientka"},
+  q3:{de:"Herzlicher Empfang, faire Preise und ein tolles Ergebnis zum Anlass. Man fühlt sich sofort willkommen — komme immer wieder gern.",pl:"Serdeczne przyjęcie, uczciwe ceny i świetny efekt na okazję. Od razu czujesz się mile widziana — wracam z przyjemnością."},
+  q3n:{de:"Diana R.",pl:"Diana R."},
+  q3s:{de:"Kundin",pl:"Klientka"},
+  c_eyebrow:{de:"Kontakt & Termine",pl:"Kontakt i wizyty"},
+  c_title:{de:"Wir freuen uns auf Sie",pl:"Zapraszamy serdecznie"},
+  c_addr_l:{de:"Adresse",pl:"Adres"},
+  c_addr_d:{de:"Reinickendorf / Wittenau",pl:"Reinickendorf / Wittenau"},
+  c_tel_l:{de:"Telefon",pl:"Telefon"},
+  c_hours_l:{de:"Öffnungszeiten",pl:"Godziny otwarcia"},
+  c_hours_d:{de:"Montag – Samstag · 09:00 – 18:00",pl:"Poniedziałek – Sobota · 09:00 – 18:00"},
+  c_lang_l:{de:"Sprachen",pl:"Języki"},
+  c_lang_d:{de:"Deutsch · Polnisch · Russisch · Englisch",pl:"Polski · Niemiecki · Rosyjski · Angielski"},
+  c_cta:{de:"Jetzt anrufen & Termin sichern",pl:"Zadzwoń i umów wizytę"},
+  foot_tag:{de:"Friseur & Kosmetik · Begonienplatz 3, 13469 Berlin · +49 151 20142009",pl:"Fryzjer & Kosmetyka · Begonienplatz 3, 13469 Berlin · +49 151 20142009"},
+  foot_note:{de:"Design-Vorschau · unverbindliches Musterdesign von ClearSite Studio · Fotos: Pexels (Symbolbilder)",pl:"Podgląd projektu · niezobowiązujący wzór od ClearSite Studio · Zdjęcia: Pexels (zdjęcia poglądowe)"}
+};
+function setLang(l){
+  document.documentElement.lang = l;
+  for(const k in I){
+    document.querySelectorAll('[data-i="'+k+'"]').forEach(el=>{ el.innerHTML = I[k][l]; });
+  }
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on', b.dataset.lang===l));
+}
+document.querySelectorAll('.lang button').forEach(b=>{
+  b.addEventListener('click',()=>setLang(b.dataset.lang));
+});
+</script>
+</body>
+</html>
