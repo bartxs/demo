@@ -162,8 +162,18 @@
   .info-row .iv a:hover{color:var(--gold-soft)}
   .contact .btn-solid{background:var(--gold-soft);color:var(--plum);margin-top:28px}
   .contact .btn-solid:hover{background:#fff;color:var(--plum)}
-  .map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(231,197,142,.25);min-height:360px}
-  .map-wrap iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:grayscale(.2) contrast(.95)}
+  .map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(231,197,142,.25);min-height:360px;display:grid;place-items:center;
+    background:
+      repeating-linear-gradient(90deg,rgba(231,197,142,.06) 0 1px,transparent 1px 48px),
+      repeating-linear-gradient(0deg,rgba(231,197,142,.06) 0 1px,transparent 1px 48px),
+      var(--plum-soft)}
+  .map-card{text-align:center;padding:30px}
+  .map-pin{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 16px;border-radius:50%;background:rgba(231,197,142,.12);border:1px solid rgba(231,197,142,.35)}
+  .map-pin svg{width:24px;height:24px;stroke:var(--gold-soft);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .map-addr{font-family:'Cormorant Garamond',serif;font-size:27px;line-height:1.25;color:var(--paper)}
+  .map-sub{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-top:9px}
+  .map-btn{display:inline-block;margin-top:22px;padding:11px 24px;border-radius:999px;border:1px solid var(--gold-soft);color:var(--gold-soft);font-size:13px;letter-spacing:.06em;transition:background .2s ease,color .2s ease}
+  .map-btn:hover{background:var(--gold-soft);color:var(--plum)}
 
   /* FOOTER */
   footer{background:var(--ink);color:rgba(243,231,225,.7);padding:34px 0;text-align:center;font-size:13px;letter-spacing:.03em}
@@ -386,9 +396,18 @@
         </div>
         <a href="tel:+4915120142009" class="btn btn-solid" data-i="c_cta">Jetzt anrufen &amp; Termin sichern</a>
       </div>
+      <!-- Anfahrt card — deliberately NOT a Google Maps <iframe>. An embed loads Google
+           on page view and sends the visitor's IP (plus cookies) without consent: the
+           same Abmahnung exposure the self-hosted fonts avoid. This links out instead,
+           so nothing reaches Google until the visitor actively clicks. -->
       <div class="map-wrap">
-        <iframe title="Karte Begonienplatz 3, 13469 Berlin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=Begonienplatz%203,%2013469%20Berlin&z=15&output=embed"></iframe>
+        <div class="map-card">
+          <span class="map-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <p class="map-addr">Begonienplatz 3<br>13469 Berlin</p>
+          <p class="map-sub" data-i="c_map_sub">Reinickendorf · Wittenau</p>
+          <a class="map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Begonienplatz+3%2C+13469+Berlin"
+             target="_blank" rel="noopener" data-i="c_map_cta">Route öffnen →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -465,6 +484,8 @@ const I = {
   c_lang_l:{de:"Sprachen",pl:"Języki"},
   c_lang_d:{de:"Deutsch · Polnisch · Russisch · Englisch",pl:"Polski · Niemiecki · Rosyjski · Angielski"},
   c_cta:{de:"Jetzt anrufen & Termin sichern",pl:"Zadzwoń i umów wizytę"},
+  c_map_sub:{de:"Reinickendorf · Wittenau",pl:"Reinickendorf · Wittenau"},
+  c_map_cta:{de:"Route öffnen →",pl:"Zobacz trasę →"},
   foot_tag:{de:"Friseur & Kosmetik · Begonienplatz 3, 13469 Berlin · +49 151 20142009",pl:"Fryzjer & Kosmetyka · Begonienplatz 3, 13469 Berlin · +49 151 20142009"},
   foot_note:{de:"Design-Vorschau · unverbindliches Musterdesign von ClearSite Studio · Fotos: Pexels (Symbolbilder)",pl:"Podgląd projektu · niezobowiązujący wzór od ClearSite Studio · Zdjęcia: Pexels (zdjęcia poglądowe)"}
 };
