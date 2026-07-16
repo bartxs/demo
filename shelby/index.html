@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tommy Shelby Barber — Barbershop in Berlin-Friedrichshain</title>
+<meta name="description" content="Fade, Bart und heiße Rasur mit Präzision. Tommy Shelby Barber in der Proskauer Straße 10, Berlin-Friedrichshain. 5,0 ★ aus 208 Bewertungen." />
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+  :root{
+    --bone:#F4EFE5;
+    --cream:#FAF6EE;
+    --ink:#17150F;
+    --green:#22392C;
+    --green-deep:#1A2C22;
+    --brass:#B0894A;
+    --brass-lt:#C9A461;
+    --brass-text:#7A5E2A;
+    --muted:#6A6152;
+    --line:#DED5C4;
+    --line-dk:#3A4A3E;
+    --space:clamp(4.5rem,9vw,8rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bone);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.05;font-weight:600;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.28em;color:var(--brass-text);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.12em;
+    padding:.95rem 1.6rem;border-radius:2px;cursor:pointer;
+    transition:transform .2s ease,background .2s ease,color .2s ease;
+    border:1px solid transparent;
+  }
+  .btn-solid{background:var(--green);color:var(--cream)}
+  .btn-solid:hover{background:var(--green-deep);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bone);transform:translateY(-2px)}
+  .btn-brass{background:var(--brass);color:#1c1508}
+  .btn-brass:hover{background:var(--brass-lt);transform:translateY(-2px)}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,239,229,.88);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:baseline;gap:.55rem;font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:-.02em}
+  .brand .mark{
+    font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.2em;
+    color:var(--brass-text);border:1px solid var(--brass);border-radius:2px;padding:.2rem .35rem;text-transform:uppercase;
+    transform:translateY(-2px);
+  }
+  .nav-links{display:flex;gap:2.2rem;font-family:'JetBrains Mono',monospace;font-size:.76rem;text-transform:uppercase;letter-spacing:.14em}
+  .nav-links a{color:var(--muted);transition:color .2s;position:relative;padding:.2rem 0}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--brass);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav .btn{padding:.7rem 1.2rem}
+
+  /* ---------- HERO ---------- */
+  /* padding:0 overrides the global `section` vertical padding — the hero is a
+     full-bleed split and must start flush under the sticky nav. */
+  .hero{position:relative;padding:0}
+  /* 21fr/19fr, not 1.05fr/.95fr: the copy column freezes at its min-content
+     width, and a leftover track whose flex factor is < 1 only claims that
+     fraction of the remaining space (leaving a ~30px strip of bare background
+     at the right edge). Same ratio, both factors >= 1, media fills to the edge. */
+  .hero-grid{display:grid;grid-template-columns:21fr 19fr;min-height:calc(100vh - 74px)}
+  .hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(2.5rem,6vw,5rem) clamp(1.25rem,5vw,4.5rem) clamp(2.5rem,6vw,5rem) max(clamp(1.25rem,4vw,3rem),calc((100vw - 1200px)/2 + 1.25rem))}
+  .hero-copy .eyebrow{margin-bottom:1.6rem}
+  .hero h1{font-size:clamp(2.9rem,6.2vw,5rem);font-weight:600;letter-spacing:-.025em}
+  .hero h1 em{font-style:italic;color:var(--green);font-weight:500}
+  .hero .lead{max-width:34ch;margin-top:1.6rem;font-size:clamp(1.02rem,1.4vw,1.18rem);color:var(--muted)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.4rem}
+  .rating{
+    display:flex;align-items:center;gap:.9rem;margin-top:2.8rem;padding-top:1.7rem;
+    border-top:1px solid var(--line);max-width:34rem;
+  }
+  .rating .stars{color:var(--brass);font-size:1.05rem;letter-spacing:.15em}
+  .rating .rnum{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600}
+  .rating .rtext{font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);line-height:1.5}
+  .hero-media{position:relative;overflow:hidden;background:var(--green-deep)}
+  .hero-media img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02)}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(34,57,44,.28),transparent 45%)}
+  .hero-tag{
+    position:absolute;left:0;bottom:2rem;z-index:2;
+    background:var(--cream);padding:.85rem 1.3rem;border-left:3px solid var(--brass);
+    font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.16em;color:var(--ink);
+    box-shadow:0 10px 30px rgba(23,21,15,.18);
+  }
+  .hero-tag b{color:var(--brass-text)}
+
+  /* ---------- MARQUEE ---------- */
+  .strip{background:var(--green);color:var(--cream);overflow:hidden;border-top:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk)}
+  .strip-track{display:flex;gap:0;white-space:nowrap;animation:slide 32s linear infinite;will-change:transform}
+  .strip-track span{
+    display:inline-flex;align-items:center;padding:1rem 0;
+    font-family:'JetBrains Mono',monospace;font-size:.82rem;text-transform:uppercase;letter-spacing:.22em;
+  }
+  .strip-track span::after{content:"✦";color:var(--brass-lt);margin:0 2.2rem;font-size:.7rem}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:var(--space) 0}
+  .sec-head{max-width:44rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .sec-head .eyebrow{display:block;margin-bottom:1rem}
+  .sec-head h2{font-size:clamp(2rem,4vw,3.1rem);font-weight:600}
+  .sec-head p{margin-top:1.1rem;color:var(--muted);max-width:40ch}
+
+  /* ---------- SERVICES / PREISLISTE ---------- */
+  #preise{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5.5rem)}
+  .price-group h3{font-size:1.05rem;font-family:'JetBrains Mono',monospace;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--brass-text);margin-bottom:1.6rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
+  .prow{display:flex;align-items:baseline;gap:.6rem;padding:.85rem 0}
+  .prow+.prow{border-top:1px dashed var(--line)}
+  .prow .pname{font-family:'Fraunces',serif;font-size:1.18rem;font-weight:500}
+  .prow .pdur{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-left:.4rem}
+  .prow .lead-dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-.35rem);min-width:1.5rem}
+  .prow .pprice{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .price-note{margin-top:2.8rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+  /* ---------- GALLERY ---------- */
+  .gal{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:1rem;height:min(78vh,680px)}
+  .gal figure{position:relative;overflow:hidden;background:var(--green-deep)}
+  .gal figure:first-child{grid-row:1 / span 2}
+  .gal img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+  .gal figure:hover img{transform:scale(1.05)}
+  .gal figcaption{
+    position:absolute;left:0;bottom:0;
+    font-family:'JetBrains Mono',monospace;font-size:.64rem;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--cream);background:rgba(23,21,15,.55);backdrop-filter:blur(3px);
+    padding:.5rem .8rem;
+  }
+
+  /* ---------- HANDWERK / CRAFT SPLIT ---------- */
+  #handwerk .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  #handwerk .craft-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--green-deep)}
+  #handwerk .craft-media img{width:100%;height:100%;object-fit:cover}
+  #handwerk .craft-media .frame{position:absolute;inset:14px;border:1px solid rgba(201,164,97,.5);pointer-events:none}
+  .steps{margin-top:2.2rem;display:flex;flex-direction:column;gap:1.5rem}
+  .step{display:flex;gap:1.3rem;align-items:flex-start}
+  .step .no{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--brass-text);padding-top:.25rem;letter-spacing:.05em}
+  .step h4{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;margin-bottom:.2rem}
+  .step p{color:var(--muted);font-size:.98rem;max-width:38ch}
+
+  /* ---------- TESTIMONIALS ---------- */
+  #stimmen{background:var(--green);color:var(--cream)}
+  #stimmen .eyebrow{color:var(--brass-lt)}
+  #stimmen .sec-head h2{color:var(--cream)}
+  .t-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .t-stat{display:flex;align-items:baseline;gap:1rem;border-left:2px solid var(--brass);padding-left:1.4rem}
+  .t-stat .big{font-family:'Fraunces',serif;font-size:clamp(3rem,7vw,4.6rem);font-weight:600;line-height:.9}
+  .t-stat .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:#c8d2c9;line-height:1.6}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .quote{border:1px solid var(--line-dk);padding:2rem 1.7rem;background:rgba(0,0,0,.08)}
+  .quote .qm{font-family:'Fraunces',serif;font-size:3rem;line-height:.6;color:var(--brass);display:block;height:1.4rem}
+  .quote p{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:400;font-style:italic;margin:1rem 0 1.4rem;color:#eef1ec}
+  .quote .who{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#b9c4ba}
+  .quote .who b{color:var(--brass-lt);font-weight:500}
+
+  /* ---------- CONTACT ---------- */
+  #kontakt{background:var(--cream);border-top:1px solid var(--line)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:stretch}
+  .contact-info dl{margin-top:.5rem}
+  .info-row{display:flex;justify-content:space-between;gap:1.5rem;padding:1rem 0;border-bottom:1px dashed var(--line)}
+  .info-row:first-child{border-top:1px dashed var(--line)}
+  .info-row dt{font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--brass-text);padding-top:.2rem}
+  .info-row dd{text-align:right;font-size:1.02rem}
+  .info-row dd small{display:block;color:var(--muted);font-size:.85rem}
+  .contact-cta{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.9rem}
+  .contact-media{position:relative;overflow:hidden;background:var(--green-deep);min-height:340px}
+  .contact-media img{width:100%;height:100%;object-fit:cover}
+  .contact-media .badge{
+    position:absolute;top:1.4rem;left:1.4rem;background:var(--cream);color:var(--ink);
+    font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;
+    padding:.5rem .85rem;border-left:3px solid var(--brass);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--green-deep);color:#c8d2c9;padding:3.5rem 0 2.5rem}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:flex-start}
+  .foot .brand{color:var(--cream)}
+  .foot .fmeta{font-family:'JetBrains Mono',monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;line-height:2}
+  .foot a:hover{color:var(--brass-lt)}
+  .foot-bottom{margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid var(--line-dk);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;color:#8fa094;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;min-height:auto}
+    .hero-media{min-height:56vh;order:2}
+    .hero-copy{padding:3.5rem clamp(1.25rem,5vw,3rem)}
+    .price-cols{grid-template-columns:1fr;gap:3rem}
+    #handwerk .split{grid-template-columns:1fr}
+    #handwerk .craft-media{order:-1;max-width:440px}
+    .quotes{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .gal{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto}
+    .gal figure{aspect-ratio:1/1}
+    .gal figure:first-child{grid-row:auto;grid-column:1 / span 2;aspect-ratio:16/10}
+  }
+  @media(max-width:860px){
+    .nav-links{display:none}
+  }
+  @media(max-width:640px){
+    .strip-track{animation-duration:20s}
+    .info-row{flex-direction:column;gap:.2rem}
+    .info-row dd{text-align:left}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .strip-track{animation:none;transform:none}
+    .gal img{transition:none}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">Tommy&nbsp;Shelby <span class="mark">Barber</span></a>
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      <a href="#preise">Preise</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#handwerk">Handwerk</a>
+      <a href="#stimmen">Stimmen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn-solid" href="https://www.treatwell.de/ort/tommy-shelby-barber/" target="_blank" rel="noopener">Termin buchen</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Willkommen">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Friedrichshain · Berlin · seit 2019</span>
+        <h1>Ein Schnitt wie <em>maßgeschneidert.</em></h1>
+        <p class="lead">Fade, Bart und heiße Rasur — Handwerk mit Präzision, mitten in der Proskauer Straße. Kein Chichi, nur ein Ergebnis, das sitzt.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="https://www.treatwell.de/ort/tommy-shelby-barber/" target="_blank" rel="noopener">Termin buchen</a>
+          <a class="btn btn-ghost" href="#preise">Preise ansehen</a>
+        </div>
+        <div class="rating">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="rnum">5,0</span>
+          <span class="rtext">208 Google-Bewertungen<br>4,9 ★ · 97 auf Treatwell</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="https://images.pexels.com/photos/3998407/pexels-photo-3998407.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Barbier im Hut bereitet einen Kunden auf den Haarschnitt vor" loading="eager" />
+        <div class="hero-tag">Proskauer Str. 10 · <b>Mo–Sa 10–19 Uhr</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Skin Fade</span><span>Klassischer Schnitt</span><span>Bartkontur</span><span>Heiße Rasur</span><span>Kinderschnitt</span><span>Konturen</span>
+      <span>Skin Fade</span><span>Klassischer Schnitt</span><span>Bartkontur</span><span>Heiße Rasur</span><span>Kinderschnitt</span><span>Konturen</span>
+    </div>
+  </div>
+
+  <!-- PREISE -->
+  <section id="preise">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Preisliste</span>
+        <h2>Ehrliche Preise, feste Handarbeit.</h2>
+        <p>Jeder Termin beginnt mit einer kurzen Beratung — Fade, Undercut oder klassische Kontur, abgestimmt auf dich.</p>
+      </div>
+      <div class="price-cols">
+        <div class="price-group">
+          <h3>Schnitt &amp; Styling</h3>
+          <div class="prow"><span class="pname">Herrenhaarschnitt <span class="pdur">25 min</span></span><span class="lead-dots"></span><span class="pprice">15–20 €</span></div>
+          <div class="prow"><span class="pname">Haarschnitt + Bart + Rasur <span class="pdur">45 min</span></span><span class="lead-dots"></span><span class="pprice">25–35 €</span></div>
+          <div class="prow"><span class="pname">Premium-Paket <span class="pdur">50 min</span></span><span class="lead-dots"></span><span class="pprice">30 €</span></div>
+          <div class="prow"><span class="pname">Full-Barber-Paket <span class="pdur">55 min</span></span><span class="lead-dots"></span><span class="pprice">35–45 €</span></div>
+          <div class="prow"><span class="pname">Kinderhaarschnitt <span class="pdur">20 min</span></span><span class="lead-dots"></span><span class="pprice">15–20 €</span></div>
+          <div class="prow"><span class="pname">Damen-Kurzhaarschnitt <span class="pdur">30 min</span></span><span class="lead-dots"></span><span class="pprice">20–30 €</span></div>
+        </div>
+        <div class="price-group">
+          <h3>Bart · Rasur · Extras</h3>
+          <div class="prow"><span class="pname">Bart trimmen &amp; Rasur <span class="pdur">20 min</span></span><span class="lead-dots"></span><span class="pprice">15–20 €</span></div>
+          <div class="prow"><span class="pname">Konturen / Nacken <span class="pdur">20 min</span></span><span class="lead-dots"></span><span class="pprice">10 €</span></div>
+          <div class="prow"><span class="pname">Augenbrauen (Threading)</span><span class="lead-dots"></span><span class="pprice">10 €</span></div>
+          <div class="prow"><span class="pname">Waxing</span><span class="lead-dots"></span><span class="pprice">ab 5 €</span></div>
+          <p class="price-note">// Zahlung nur bar &nbsp;·&nbsp; Termin online über Treatwell oder telefonisch</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Aus dem Stuhl</span>
+        <h2>Sauber getrennt. Scharf gezogen.</h2>
+      </div>
+      <div class="gal">
+        <figure>
+          <img src="https://images.pexels.com/photos/3998427/pexels-photo-3998427.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Barbier trimmt den Bart eines Kunden mit der Schere" loading="lazy" />
+          <figcaption>Bartschnitt mit der Schere</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.pexels.com/photos/7518723/pexels-photo-7518723.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barbier zieht mit dem Trimmer eine saubere Bartkontur" loading="lazy" />
+          <figcaption>Bartkontur mit dem Trimmer</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.pexels.com/photos/9153970/pexels-photo-9153970.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Nahaufnahme eines goldenen Trimmers an einem vollen Bart" loading="lazy" />
+          <figcaption>Detailarbeit</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDWERK -->
+  <section id="handwerk">
+    <div class="wrap">
+      <div class="split">
+        <div class="craft-media">
+          <img src="https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Präziser Fade mit der Schere an Haar und Bart" loading="lazy" />
+          <span class="frame" aria-hidden="true"></span>
+        </div>
+        <div class="craft-copy">
+          <span class="eyebrow">Das Handwerk</span>
+          <h2 style="font-size:clamp(1.9rem,3.6vw,2.9rem);margin-top:1rem;">Drei Schritte bis zum Ergebnis.</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="no">01</span>
+              <div><h4>Beratung</h4><p>Kurz reden statt raten: Wir klären Form, Länge und was zu deinem Gesicht passt.</p></div>
+            </div>
+            <div class="step">
+              <span class="no">02</span>
+              <div><h4>Präzision</h4><p>Fade, Kontur, Bart — Schere und Maschine, Millimeter für Millimeter sauber gezogen.</p></div>
+            </div>
+            <div class="step">
+              <span class="no">03</span>
+              <div><h4>Finish</h4><p>Heißes Tuch, Styling, Kontrolle im Spiegel. Du gehst fertig raus, nicht „fast fertig".</p></div>
+            </div>
+          </div>
+          <a class="btn btn-solid" style="margin-top:2.4rem" href="https://www.treatwell.de/ort/tommy-shelby-barber/" target="_blank" rel="noopener">Termin buchen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STIMMEN -->
+  <section id="stimmen">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Was die Kundschaft sagt</span>
+        <h2>Fünf Sterne, kein Zufall.</h2>
+      </div>
+      <div class="t-top">
+        <div class="t-stat">
+          <span class="big">5,0</span>
+          <span class="sub">★★★★★<br>208 Google-Bewertungen<br>4,9 ★ auf Treatwell</span>
+        </div>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <span class="qm" aria-hidden="true">“</span>
+          <p>Bester Barber in Friedrichshain. Der Fade sitzt jedes Mal auf den Punkt.</p>
+          <span class="who"><b>M. K.</b> · Google</span>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="qm" aria-hidden="true">“</span>
+          <p>Ruhige Hand, ehrliche Beratung und ein Bart, wie ich ihn selbst nie hinbekomme.</p>
+          <span class="who"><b>D. R.</b> · Treatwell</span>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="qm" aria-hidden="true">“</span>
+          <p>Man merkt, dass hier jemand sein Handwerk liebt. Komme nur noch hierher.</p>
+          <span class="who"><b>S. B.</b> · Google</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Vorbeikommen</span>
+        <h2>Vier Minuten von der U Samariterstraße.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <dl>
+            <div class="info-row"><dt>Adresse</dt><dd>Proskauer Straße 10<small>10247 Berlin-Friedrichshain</small></dd></div>
+            <div class="info-row"><dt>Öffnungszeiten</dt><dd>Mo–Sa 10:00–19:00<small>Sonntag geschlossen</small></dd></div>
+            <div class="info-row"><dt>Telefon</dt><dd><a href="tel:+4915257351642">0152 57351642</a></dd></div>
+            <div class="info-row"><dt>Zahlung</dt><dd>Nur bar</dd></div>
+          </dl>
+          <div class="contact-cta">
+            <a class="btn btn-solid" href="https://www.treatwell.de/ort/tommy-shelby-barber/" target="_blank" rel="noopener">Online buchen</a>
+            <a class="btn btn-ghost" href="tel:+4915257351642">Anrufen</a>
+          </div>
+        </div>
+        <div class="contact-media">
+          <img src="https://images.pexels.com/photos/8867554/pexels-photo-8867554.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Barbier bei der Arbeit im Barbershop" loading="lazy" />
+          <span class="badge">Walk-ins willkommen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" class="brand">Tommy&nbsp;Shelby <span class="mark">Barber</span></a>
+      <div class="fmeta">
+        Proskauer Str. 10 · 10247 Berlin<br>
+        Mo–Sa 10–19 Uhr · So geschlossen<br>
+        <a href="tel:+4915257351642">0152 57351642</a>
+      </div>
+      <div class="fmeta">
+        <a href="https://www.treatwell.de/ort/tommy-shelby-barber/" target="_blank" rel="noopener">Termin auf Treatwell →</a><br>
+        <a href="#preise">Preise</a> · <a href="#kontakt">Anfahrt</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tommy Shelby Barber</span>
+      <span>Barbershop · Friedrichshain</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
