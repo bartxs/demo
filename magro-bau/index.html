@@ -234,10 +234,19 @@ h2 .dot{color:var(--acc)}
 .stat .num{font-family:var(--disp);font-weight:700;font-size:clamp(42px,4.6vw,62px);line-height:1;color:var(--hivis)}
 .stat .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:10px;line-height:1.7}
 @media(max-width:900px){
-  .stats-grid{grid-template-columns:1fr 1fr}
+  /* minmax(0,1fr), not 1fr — a bare fr track has a min-content floor, so the
+     longest label was widening its own column and the two came out uneven */
+  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .stat:nth-child(3){border-left:0}
   .stat{border-top:1px solid var(--line)}
   .stat:nth-child(-n+2){border-top:0}
+}
+/* on a phone the 2-up cells are ~187px wide and 60px of that is padding, so
+   "GEWÄHRLEISTUNG" sets a min-content floor wider than the track and pushed
+   the page sideways — trim the padding and let the long compounds break */
+@media(max-width:540px){
+  .stat{padding:32px 16px}
+  .stat .lbl{letter-spacing:.08em;overflow-wrap:break-word;hyphens:auto}
 }
 
 /* ---------- GALLERY ---------- */

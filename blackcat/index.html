@@ -65,6 +65,9 @@
   .nav-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--red);display:inline-block}
   .nav-pill:hover .dot{background:var(--bone)}
   @media(max-width:900px){.nav-links a.nl{display:none}}
+  /* below ~480px logo + pill no longer fit side by side and the page scrolls
+     sideways; the walk-ins message is repeated four times in the body */
+  @media(max-width:480px){.nav-links a.nav-pill{display:none}}
 
   /* ============ HERO ============ */
   .hero{
