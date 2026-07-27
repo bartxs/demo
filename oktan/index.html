@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OKTAN Kfz-Meisterwerkstatt — Reparatur, HU/AU & Inspektion in Berlin</title>
+<meta name="description" content="Kfz-Meisterwerkstatt in Berlin: Inspektion, Bremsen, Kupplung, HU/AU im Haus. Festpreise vorab, alle Marken, Termin innerhalb von 48 Stunden.">
+
+<!-- ===================================================================
+     KFZ VERTICAL KIT — ClearSite Studio
+     Reusable base for Kfz-Werkstatt / Meisterbetrieb prospects.
+
+     SWAP POINTS when skinning for a real workshop:
+       1. <title> + meta description. ADD AutoRepair JSON-LD here at that point —
+          it is deliberately absent while this is a fictional demo, because
+          structured data for a business that does not exist would be a lie
+          told to search engines.
+       2. .wordmark text + the two nav/hero phone numbers (3 places, search "tel:")
+       3. --amber / --amber-deep  -> the workshop's own accent, if they have one
+       4. #leistungen table rows  -> their services + ab-Preise + Dauer
+       5. .plakette year/month    -> nothing to change, it is generic
+       6. #kontakt address, hours, Maps link
+       7. Photos: swap the 6 Pexels URLs (keep width/height attrs + height:auto)
+       8. DELETE the .concept-note in the footer once it is a real client
+     Do NOT: add a Google Fonts <link> (run localize-fonts.mjs) or a Maps iframe.
+     =================================================================== -->
+
+<link href="fonts/fonts.css" rel="stylesheet">
+
+<style>
+  :root{
+    /* mid-tone industrial base — deliberately NOT the light creams or the
+       near-black used by every other card in the portfolio grid */
+    --steel:#31383E;
+    --steel-deep:#23282D;
+    --steel-card:#3A424A;
+    --steel-hi:#454E56;
+    --line:#4C565E;
+    --chalk:#EDEFF1;
+    --chalk-dim:#A9B3BA;
+    --amber:#FFB020;
+    --amber-deep:#D98C00;
+    --disp:'Chakra Petch',system-ui,sans-serif;
+    --body:'Public Sans',system-ui,sans-serif;
+    --mono:'Space Mono',ui-monospace,monospace;
+    --wrap:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--steel);color:var(--chalk);
+    font-family:var(--body);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  section{padding:clamp(64px,8vw,110px) 0}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.06;letter-spacing:-.01em}
+  :focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+  }
+
+  /* ---------- the signature motif: hazard rule ---------- */
+  .hazard{
+    height:10px;
+    background:repeating-linear-gradient(135deg,
+      var(--amber) 0 14px, var(--steel-deep) 14px 28px);
+  }
+  .hazard-thin{height:6px}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(35,40,45,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;
+    gap:24px;padding:14px 24px;max-width:var(--wrap);margin:0 auto}
+  .wordmark{display:flex;align-items:center;gap:10px;font-family:var(--disp);
+    font-weight:700;font-size:19px;letter-spacing:.06em;text-transform:uppercase}
+  .wordmark .tick{width:26px;height:26px;flex:none}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:14px;
+    font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .nav-links a.nl{color:var(--chalk-dim);transition:color .2s}
+  .nav-links a.nl:hover{color:var(--amber)}
+  .nav-call{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+    background:var(--amber);color:#23282D;font-family:var(--mono);font-weight:700;
+    font-size:14px;padding:12px 16px;border-radius:2px;transition:background .2s;
+    min-height:44px}
+  .nav-call:hover{background:#FFC352}
+  .nav-call svg{width:15px;height:15px;flex:none}
+  @media(max-width:980px){.nav-links a.nl{display:none}}
+
+  /* ---------- HERO: emblem composition ---------- */
+  .hero{padding:clamp(48px,6vw,86px) 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);
+    align-items:center}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:block}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,4.15rem);text-transform:uppercase}
+  .hero h1 .lo{color:var(--amber);display:block}
+  .hero .lead{margin-top:22px;max-width:46ch;color:var(--chalk-dim);
+    font-size:clamp(1rem,1.3vw,1.12rem)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;
+    font-size:15px;padding:15px 24px;border-radius:2px;transition:all .2s;
+    min-height:48px}
+  .btn-a{background:var(--amber);color:#23282D}
+  .btn-a:hover{background:#FFC352}
+  .btn-b{border:1.5px solid var(--line);color:var(--chalk)}
+  .btn-b:hover{border-color:var(--amber);color:var(--amber)}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;
+    font-family:var(--mono);font-size:12.5px;color:var(--chalk-dim)}
+  .hero-chips span{display:flex;align-items:center;gap:7px}
+  .hero-chips svg{width:14px;height:14px;color:var(--amber);flex:none}
+
+  /* the Prüfplakette — the trade's own emblem, this page's signature object */
+  .emblem{display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .plakette{width:min(340px,80vw);height:auto;filter:drop-shadow(0 18px 34px rgba(0,0,0,.42))}
+  /* Amber face restored — it is the hero's focal point and a dark face blended
+     into the graphite page. The lettering keeps its dark fill (8.13:1 on amber)
+     and gains a WHITE HALO so it separates instead of sitting flat.
+     `paint-order:stroke fill` is essential: without it the stroke paints on top
+     of the glyph and thins the digits rather than outlining them. */
+  .plakette text{paint-order:stroke fill;stroke-linejoin:round;stroke:#FFFFFF}
+  .plakette .ring-nums{font-family:var(--mono);font-weight:700;font-size:15px;
+    fill:#23282D;stroke-width:1.5}
+  .plakette .yr{font-family:var(--disp);font-weight:700;font-size:66px;
+    fill:#23282D;stroke-width:3.25}
+  .plakette .yr-sub{font-family:var(--mono);font-weight:700;font-size:13px;
+    letter-spacing:.16em;fill:#23282D;stroke-width:1.2}
+  /* the marker sits on the dark badge, so it needs no halo — plain white reads
+     brightest and pulls the eye to the marked month */
+  .plakette .due{font-family:var(--mono);font-weight:700;font-size:15px;
+    fill:#FFFFFF;stroke:none}
+  /* The month ring orbits, but every numeral must stay upright — so the ring
+     rotates +360deg about the dial centre while each <text> rotates -360deg
+     about its OWN centre (transform-box:fill-box). Same duration, both linear,
+     so the two cancel exactly: the numbers travel round without ever tipping.
+     The marker badge rides along so it stays locked to July. */
+  .plakette .rotor{transform-origin:100px 100px;animation:orbit 40s linear infinite}
+  .plakette .rotor text{transform-box:fill-box;transform-origin:center;
+    animation:orbit-rev 40s linear infinite}
+  @keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @keyframes orbit-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+  /* The caption now teaches the emblem, so it is a sentence, not a label. It sits
+     in normal flow under the dial at every width — absolutely positioning it only
+     worked while it was one line; at three lines it rode 42px up into the dial. */
+  .emblem-cap{margin-top:20px;font-family:var(--mono);font-size:12px;
+    color:var(--chalk-dim);text-align:center;max-width:34ch;line-height:1.55}
+  .hero-rule{margin-top:clamp(48px,6vw,80px)}
+  /* the emblem is a fixed ~300px object: below 860px it can no longer sit in a
+     second grid column without pushing the page sideways */
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:46px}
+    .emblem{margin-top:8px}
+    .plakette{width:min(260px,64vw)}
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--steel-deep);padding:0}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .trust-item{padding:30px 26px;border-left:1px solid var(--line);
+    display:flex;flex-direction:column;gap:9px}
+  .trust-item:first-child{border-left:0}
+  .trust-item svg{width:24px;height:24px;color:var(--amber)}
+  .trust-item b{font-family:var(--disp);font-size:16.5px;text-transform:uppercase;
+    letter-spacing:.02em}
+  .trust-item p{font-size:14px;color:var(--chalk-dim);line-height:1.5}
+  @media(max-width:860px){
+    .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .trust-item:nth-child(3){border-left:0}
+    .trust-item{border-top:1px solid var(--line)}
+    .trust-item:nth-child(-n+2){border-top:0}
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;
+    gap:24px;margin-bottom:44px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(1.85rem,3.4vw,2.85rem);text-transform:uppercase}
+  .sec-head .num{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;
+    color:var(--amber);text-transform:uppercase}
+  .sec-head p{color:var(--chalk-dim);max-width:44ch;font-size:15.5px}
+
+  /* ---------- PRICE TABLE (the docket) ---------- */
+  .docket{border:1px solid var(--line);background:var(--steel-deep)}
+  .docket-head{display:grid;grid-template-columns:1fr 130px 120px;gap:16px;
+    padding:15px 24px;border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--chalk-dim)}
+  .docket-head span:nth-child(2),.docket-head span:nth-child(3){text-align:right}
+  .row{display:grid;grid-template-columns:1fr 130px 120px;gap:16px;
+    padding:19px 24px;border-bottom:1px solid rgba(76,86,94,.5);
+    align-items:baseline;transition:background .18s}
+  .row:last-child{border-bottom:0}
+  .row:hover{background:var(--steel-card)}
+  .row .svc{font-family:var(--disp);font-weight:600;font-size:17.5px}
+  .row .svc small{display:block;font-family:var(--body);font-weight:400;
+    font-size:13.5px;color:var(--chalk-dim);margin-top:3px;letter-spacing:0}
+  .row .price{font-family:var(--mono);font-weight:700;font-size:17px;
+    color:var(--amber);text-align:right;font-variant-numeric:tabular-nums}
+  .row .dur{font-family:var(--mono);font-size:14px;color:var(--chalk-dim);
+    text-align:right;font-variant-numeric:tabular-nums}
+  .docket-foot{padding:17px 24px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--chalk-dim);font-family:var(--mono)}
+  @media(max-width:720px){
+    .docket-head{display:none}
+    .row{grid-template-columns:1fr auto;gap:6px 14px;padding:17px 18px}
+    .row .svc{grid-column:1 / -1}
+    .row .price{text-align:left}
+    .row .dur{text-align:right}
+    .docket-foot{padding:15px 18px;font-size:12.5px}
+  }
+
+  /* ---------- HU/AU FEATURE ---------- */
+  .hu{background:var(--steel-deep)}
+  .hu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,66px);
+    align-items:center}
+  .hu-copy h2{font-size:clamp(1.85rem,3.4vw,2.7rem);text-transform:uppercase}
+  .hu-copy p{margin-top:18px;color:var(--chalk-dim);max-width:46ch}
+  .hu-list{margin-top:26px;display:flex;flex-direction:column;gap:13px}
+  .hu-list li{list-style:none;display:flex;gap:12px;align-items:flex-start;
+    font-size:15.5px}
+  .hu-list svg{width:19px;height:19px;color:var(--amber);flex:none;margin-top:3px}
+  .hu-media{position:relative}
+  .hu-media img{border:1px solid var(--line)}
+  .hu-badge{position:absolute;right:-14px;bottom:-14px;background:var(--amber);
+    color:#23282D;font-family:var(--disp);font-weight:700;text-transform:uppercase;
+    padding:15px 19px;line-height:1.15;font-size:15px;text-align:center}
+  .hu-badge b{display:block;font-size:26px}
+  @media(max-width:860px){
+    .hu-grid{grid-template-columns:1fr}
+    .hu-badge{right:12px;bottom:-12px}
+  }
+
+  /* ---------- GALLERY ---------- */
+  /* 5 photos into an exact 4x2 rectangle: the lead image occupies a 2x2 block
+     and the four uprights fill the right half. A plain "first child spans 2
+     columns" left two dead cells on row 2 — the ragged tail the Violetta
+     gallery had. */
+  .gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .gal figure{position:relative;overflow:hidden;aspect-ratio:4/5;
+    border:1px solid var(--line)}
+  .gal figure:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;
+    height:100%}
+  .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform .5s ease}
+  .gal figure:hover img{transform:scale(1.05)}
+  .gal figcaption{position:absolute;left:0;bottom:0;right:0;padding:12px 14px;
+    background:linear-gradient(transparent,rgba(35,40,45,.9));
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase}
+  @media(max-width:860px){
+    /* 2 columns: lead becomes a full-width banner (1 row, not 2, or it towers),
+       the four uprights then fill 2x2 exactly */
+    .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .gal figure:first-child{grid-column:span 2;grid-row:span 1;aspect-ratio:8/5;
+      height:auto}
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{background:var(--steel-deep);border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stat{padding:44px 28px;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:0}
+  .stat .num{font-family:var(--disp);font-weight:700;font-size:clamp(40px,4.4vw,58px);
+    line-height:1;color:var(--amber)}
+  .stat .lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--chalk-dim);margin-top:11px;line-height:1.65}
+  @media(max-width:860px){
+    .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .stat:nth-child(3){border-left:0}
+    .stat{border-top:1px solid var(--line)}
+    .stat:nth-child(-n+2){border-top:0}
+  }
+  @media(max-width:540px){
+    .stat{padding:30px 16px}
+    .stat .lbl{letter-spacing:.07em;overflow-wrap:break-word;hyphens:auto}
+  }
+
+  /* ---------- KONTAKT ---------- */
+  .kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+  .kcard{background:var(--steel-card);border:1px solid var(--line);padding:clamp(26px,3.4vw,40px)}
+  .kcard h3{font-size:1.35rem;text-transform:uppercase;margin-bottom:20px}
+  .krow{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(76,86,94,.55);
+    align-items:flex-start;font-size:15.5px}
+  .krow:last-of-type{border-bottom:0}
+  .krow svg{width:18px;height:18px;color:var(--amber);flex:none;margin-top:4px}
+  .krow dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--chalk-dim);margin-bottom:3px}
+  .hours{font-family:var(--mono);font-size:14.5px;font-variant-numeric:tabular-nums}
+  .hours div{display:flex;justify-content:space-between;gap:18px;padding:7px 0;
+    border-bottom:1px solid rgba(76,86,94,.4)}
+  .hours div:last-child{border-bottom:0}
+  .hours .closed{color:var(--chalk-dim)}
+  @media(max-width:860px){.kontakt-grid{grid-template-columns:1fr}}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--steel-deep);padding:44px 0 34px;
+    border-top:1px solid var(--line)}
+  .foot-in{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;
+    align-items:center;font-size:13.5px;color:var(--chalk-dim)}
+  .foot-links{display:flex;gap:20px}
+  /* inline links still need a 44px touch height */
+  .foot-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 2px}
+  .foot-links a:hover{color:var(--amber)}
+  .krow dd a{display:inline-flex;align-items:center;min-height:44px}
+  .wordmark{min-height:44px}
+  .concept-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:12px;color:var(--chalk-dim);line-height:1.6}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="wordmark" href="#top" aria-label="OKTAN Kfz-Meisterwerkstatt — nach oben">
+      <svg class="tick" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="29" height="29" stroke="#FFB020" stroke-width="2.5"/>
+        <path d="M8 16.5l5.5 5.5L24 11" stroke="#FFB020" stroke-width="3.2"
+              stroke-linecap="square"/>
+      </svg>
+      OKTAN
+    </a>
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      <a class="nl" href="#leistungen">Leistungen</a>
+      <a class="nl" href="#hu">HU &amp; AU</a>
+      <a class="nl" href="#werkstatt">Werkstatt</a>
+      <a class="nl" href="#kontakt">Kontakt</a>
+      <a class="nav-call" href="tel:+493012345678">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9Z"/></svg>
+        030 12345678
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Kfz-Meisterbetrieb · Berlin</span>
+        <h1>Reparatur zum<br><span class="lo">Festpreis.</span></h1>
+        <p class="lead">Inspektion, Bremsen, Kupplung, Getriebe — alle Marken.
+          Sie bekommen den Preis vorher, schriftlich. Keine Überraschung auf
+          der Rechnung.</p>
+        <div class="hero-cta">
+          <a class="btn btn-a" href="#kontakt">Termin anfragen</a>
+          <a class="btn btn-b" href="#leistungen">Preise ansehen</a>
+        </div>
+        <div class="hero-chips">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Meisterbetrieb</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>HU &amp; AU im Haus</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Beratung: Deutsch &amp; Polski</span>
+        </div>
+      </div>
+
+      <div class="emblem">
+        <svg class="plakette" viewBox="0 0 200 200" role="img"
+             aria-label="Illustration einer HU-Prüfplakette: Jahreszahl 27 in der Mitte, Monatsring außen, Fälligkeitsmonat Juli oben markiert">
+          <circle cx="100" cy="100" r="96" fill="#23282D"/>
+          <circle cx="100" cy="100" r="90" fill="#FFB020"/>
+          <circle cx="100" cy="100" r="62" fill="none" stroke="#23282D" stroke-width="2"
+                  opacity=".5"/>
+
+          <!-- Months ring. Like a real Prüfplakette the sticker is applied turned
+               so the EXPIRY MONTH sits at the top under the marker — here July —
+               so the sequence runs 7,8,9…6 clockwise from 12 o'clock. Every
+               numeral is plain upright text: nothing rotates, nothing inverts. -->
+          <g class="rotor">
+            <!-- Every numeral uses dy=".35em" on the default alphabetic baseline,
+                 NOT dominant-baseline="middle". "middle" centres on the x-height
+                 midpoint, but digits are cap-height, so they sat 2.33px high —
+                 invisible on the free-standing months, obvious on the 7 inside
+                 its circle. dy=".35em" puts the digit's ink centre exactly on y. -->
+            <!-- ring radius 75, not 78: the white halo adds 1.5px all round and
+                 the two-digit months ("11", "12") were crossing off the amber
+                 face onto the dark rim -->
+            <g class="ring-nums" text-anchor="middle">
+              <text x="137.5" y="35" dy=".35em">8</text>
+              <text x="165" y="62.5" dy=".35em">9</text>
+              <text x="175" y="100" dy=".35em">10</text>
+              <text x="165" y="137.5" dy=".35em">11</text>
+              <text x="137.5" y="165" dy=".35em">12</text>
+              <text x="100" y="175" dy=".35em">1</text>
+              <text x="62.5" y="165" dy=".35em">2</text>
+              <text x="35" y="137.5" dy=".35em">3</text>
+              <text x="25" y="100" dy=".35em">4</text>
+              <text x="35" y="62.5" dy=".35em">5</text>
+              <text x="62.5" y="35" dy=".35em">6</text>
+            </g>
+            <!-- the marker rides with the ring so it stays locked to July -->
+            <circle cx="100" cy="25" r="12.5" fill="#23282D"/>
+            <text class="due" x="100" y="25" dy=".35em" text-anchor="middle">7</text>
+          </g>
+
+          <text class="yr" x="100" y="94" dy=".35em" text-anchor="middle">27</text>
+          <text class="yr-sub" x="100" y="128" dy=".35em" text-anchor="middle">HU · AU</text>
+        </svg>
+        <span class="emblem-cap">Ihre Plakette läuft im Juli 2027 ab?
+          Wir machen die HU hier.</span>
+      </div>
+    </div>
+  </div>
+  <div class="hazard hero-rule" aria-hidden="true"></div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section class="trust" aria-label="Leistungsversprechen">
+  <div class="wrap" style="padding:0">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4Z"/></svg>
+        <b>Meisterbetrieb</b>
+        <p>Geführt von einem Kfz-Meister. Jede Arbeit wird abgenommen.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-3l2-5h14l2 5v3a2 2 0 0 1-2 2M7 17v2M17 17v2"/><circle cx="7.5" cy="13.5" r="1.2"/><circle cx="16.5" cy="13.5" r="1.2"/></svg>
+        <b>Alle Marken</b>
+        <p>VW, Audi, BMW, Mercedes, Opel, Ford, Skoda, Toyota und mehr.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <b>Termin in 48 h</b>
+        <p>Kein Warten auf einen Slot in drei Wochen. Anrufen, Termin, fertig.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 7h16M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/></svg>
+        <b>Festpreis vorab</b>
+        <p>Kostenvoranschlag schriftlich, bevor der Schlüssel den Tisch verlässt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEISTUNGEN ===== -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="num">01 — Leistungen</span>
+        <h2>Was es kostet</h2>
+      </div>
+      <p>Richtpreise für gängige Fahrzeuge. Den verbindlichen Festpreis
+        bekommen Sie nach kurzer Sichtprüfung — vorher, nicht hinterher.</p>
+    </div>
+
+    <div class="docket">
+      <div class="docket-head">
+        <span>Leistung</span><span>ab</span><span>Dauer</span>
+      </div>
+      <div class="row">
+        <div class="svc">Inspektion nach Herstellervorgabe
+          <small>Öl, Filter, Flüssigkeiten, 30-Punkte-Check</small></div>
+        <div class="price">189 €</div><div class="dur">ca. 2 Std.</div>
+      </div>
+      <div class="row">
+        <div class="svc">Hauptuntersuchung HU + AU
+          <small>Abnahme im Haus, keine Fremdwerkstatt</small></div>
+        <div class="price">129 €</div><div class="dur">ca. 45 Min.</div>
+      </div>
+      <div class="row">
+        <div class="svc">Bremsen vorne — Beläge &amp; Scheiben
+          <small>inkl. Material und Probefahrt</small></div>
+        <div class="price">279 €</div><div class="dur">ca. 2 Std.</div>
+      </div>
+      <div class="row">
+        <div class="svc">Kupplung wechseln
+          <small>Preis je nach Modell, Festpreis vorab</small></div>
+        <div class="price">690 €</div><div class="dur">1 Tag</div>
+      </div>
+      <div class="row">
+        <div class="svc">Zahnriemenwechsel
+          <small>inkl. Spannrolle und Wasserpumpe</small></div>
+        <div class="price">490 €</div><div class="dur">ca. 5 Std.</div>
+      </div>
+      <div class="row">
+        <div class="svc">Reifenwechsel &amp; Auswuchten
+          <small>Einlagerung auf Wunsch möglich</small></div>
+        <div class="price">45 €</div><div class="dur">ca. 30 Min.</div>
+      </div>
+      <div class="row">
+        <div class="svc">Fehlerdiagnose Motorelektronik
+          <small>Auslesen, Auswertung, Kostenplan</small></div>
+        <div class="price">59 €</div><div class="dur">ca. 40 Min.</div>
+      </div>
+      <div class="docket-foot">
+        Alle Preise inkl. MwSt. · Ersatzwagen auf Anfrage · Abschleppdienst vermittelbar
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard hazard-thin" aria-hidden="true"></div>
+
+<!-- ===== HU / AU ===== -->
+<section class="hu" id="hu">
+  <div class="wrap">
+    <div class="hu-grid">
+      <div class="hu-copy">
+        <span class="num" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;color:var(--amber);text-transform:uppercase">02 — Hauptuntersuchung</span>
+        <h2 style="margin-top:14px">Plakette fällig?<br>Machen wir hier.</h2>
+        <p>HU und AU laufen bei uns im Haus — Sie müssen Ihr Auto nicht
+          zweimal abgeben und nicht zu einer zweiten Adresse fahren.</p>
+        <ul class="hu-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Vorabcheck kostenlos — wir sagen Ihnen vorher, ob sie durchgeht.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Kleine Mängel reparieren wir direkt, ohne zweiten Termin.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Nachuntersuchung innerhalb der Frist ist kostenfrei.</li>
+        </ul>
+        <div class="hero-cta" style="margin-top:30px">
+          <a class="btn btn-a" href="#kontakt">HU-Termin anfragen</a>
+        </div>
+      </div>
+      <div class="hu-media">
+        <img src="https://images.pexels.com/photos/8986132/pexels-photo-8986132.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"
+             width="1200" height="800" loading="lazy"
+             alt="Kfz-Mechaniker prüft ein angehobenes Fahrzeug auf der Hebebühne">
+        <div class="hu-badge">in<b>48 h</b>Termin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WERKSTATT / GALLERY ===== -->
+<section id="werkstatt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="num">03 — Werkstatt</span>
+        <h2>Wo Ihr Auto steht</h2>
+      </div>
+      <p>Zwei Hebebühnen, eigener Diagnoseplatz, und ein Meister, der Ihnen
+        auf Wunsch zeigt, was er ausgebaut hat.</p>
+    </div>
+    <div class="gal">
+      <figure>
+        <img src="https://images.pexels.com/photos/34337558/pexels-photo-34337558.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+             width="1400" height="1050" loading="lazy"
+             alt="Werkstatthalle mit Hebebühnen, Werkzeug und Maschinen">
+        <figcaption>Die Halle</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/8986105/pexels-photo-8986105.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900"
+             width="900" height="1350" loading="lazy"
+             alt="Mechaniker im blauen Overall bei der Fahrzeuginspektion">
+        <figcaption>Inspektion</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/6870331/pexels-photo-6870331.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900"
+             width="900" height="600" loading="lazy"
+             alt="Mechaniker wechselt einen Reifen an einem roten Fahrzeug">
+        <figcaption>Reifenservice</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/4116231/pexels-photo-4116231.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900"
+             width="900" height="600" loading="lazy"
+             alt="Zwei Mechaniker bei Reparaturarbeiten in der Werkstatt">
+        <figcaption>Reparatur</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/5260115/pexels-photo-5260115.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900"
+             width="900" height="1350" loading="lazy"
+             alt="Nahaufnahme eines Reifenwechsels mit Werkstattgerät">
+        <figcaption>Auswuchten</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats" aria-label="Zahlen">
+  <div class="wrap" style="padding:0">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">18</div>
+        <div class="lbl">Jahre in Berlin</div></div>
+      <div class="stat"><div class="num">48 h</div>
+        <div class="lbl">bis zum Termin</div></div>
+      <div class="stat"><div class="num">2</div>
+        <div class="lbl">Hebebühnen &amp; eigener Diagnoseplatz</div></div>
+      <div class="stat"><div class="num">12</div>
+        <div class="lbl">Monate Garantie auf jede Reparatur</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section id="kontakt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="num">04 — Kontakt</span>
+        <h2>Termin machen</h2>
+      </div>
+      <p>Am schnellsten geht es telefonisch — dann können wir gleich sagen,
+        wann die Bühne frei ist.</p>
+    </div>
+    <div class="kontakt-grid">
+      <div class="kcard">
+        <h3>Werkstatt</h3>
+        <dl>
+          <div class="krow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><dt>Adresse</dt><dd>Musterstraße 12<br>10245 Berlin</dd></div>
+          </div>
+          <div class="krow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9Z"/></svg>
+            <div><dt>Telefon</dt><dd><a href="tel:+493012345678">030 12345678</a></dd></div>
+          </div>
+          <div class="krow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div><dt>E-Mail</dt><dd>termin@oktan-werkstatt.de</dd></div>
+          </div>
+        </dl>
+        <div class="hero-cta" style="margin-top:26px">
+          <a class="btn btn-a" href="tel:+493012345678">Jetzt anrufen</a>
+          <a class="btn btn-b" href="https://www.openstreetmap.org/search?query=Berlin"
+             target="_blank" rel="noopener">Route öffnen</a>
+        </div>
+      </div>
+
+      <div class="kcard">
+        <h3>Öffnungszeiten</h3>
+        <div class="hours">
+          <div><span>Montag – Freitag</span><span>07:30 – 18:00</span></div>
+          <div><span>Samstag</span><span>09:00 – 13:00</span></div>
+          <div class="closed"><span>Sonntag</span><span>geschlossen</span></div>
+        </div>
+        <p style="margin-top:22px;color:var(--chalk-dim);font-size:14.5px">
+          Fahrzeugannahme ab 07:30 Uhr. Schlüsselbox für frühe Abgabe
+          neben dem Tor — einfach vorher kurz anrufen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard" aria-hidden="true"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <span>© 2026 OKTAN Kfz-Meisterwerkstatt</span>
+      <div class="foot-links">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </div>
+    </div>
+    <p class="concept-note">
+      Design-Konzept von ClearSite Studio · clearsitestudio.de — OKTAN ist ein
+      fiktives Beispielunternehmen. Alle Preise, Zeiten und Kontaktdaten dienen
+      nur der Veranschaulichung. Fotos: Pexels.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
