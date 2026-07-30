@@ -28,6 +28,8 @@ image/video attachment.
 | `prospects/Beauty-Woman-Violetta` | https://clearsitestudio.de/demo/beauty-woman/ |
 | `prospects/Magro-Bau` | https://clearsitestudio.de/demo/magro-bau/ |
 | `prospects/Tommy-Shelby-Barber` | https://clearsitestudio.de/demo/shelby/ |
+| `prospects/OKTAN-Kfz-Werkstatt` | https://clearsitestudio.de/demo/oktan/ |
+| `prospects/MT-Bau` | https://clearsitestudio.de/demo/mt-bau/ |
 
 Custom domain clearsitestudio.de is configured on the `bartxs.github.io` user
 site (2026-07-11), so this project site is served under it automatically.

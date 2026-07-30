@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MT-Bau — Renovierung, Sanierung &amp; Ausbau in Berlin</title>
+<meta name="description" content="MT-Bau: Komplettsanierung, Bad, Trockenbau, Maler- und Fliesenarbeiten in Berlin. Ein Ansprechpartner für alle Gewerke. 5,0 ★ auf Google. Festpreis nach Besichtigung.">
+<link href="fonts/fonts.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "MT-Bau",
+  "description": "Renovierung, Sanierung und Ausbau in Berlin und Umland.",
+  "telephone": "+49 1516 8716644",
+  "areaServed": "Berlin",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "4" }
+}
+</script>
+<style>
+:root{
+  --navy:#13273B;
+  --navy-deep:#0D1B29;
+  --navy-soft:#1B3550;
+  --navy-line:rgba(237,230,218,.15);
+  --navy-line-2:rgba(237,230,218,.28);
+  --plaster:#EDE6DA;
+  --plaster-2:#F6F2EA;
+  --plaster-dim:#D6CCBC;
+  --mut:#A9B8C6;
+  --mut-warm:#6E6355;
+  --terra:#C4623C;
+  --terra-lite:#CF6E45;
+  --terra-deep:#A94E2C;
+  --disp:'Newsreader',Georgia,serif;
+  --body:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px; --s8:128px;
+  --wrap:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:var(--body);
+  background:var(--navy);
+  color:var(--plaster);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--terra);color:#150C08}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:2px}
+
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--s3)}
+.sec{padding:var(--s8) 0}
+.eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mut);display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--terra);flex:none}
+.eyebrow.on-plaster{color:var(--mut-warm)}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.06;letter-spacing:-.015em;hyphens:auto}
+h2{font-size:clamp(34px,4.6vw,60px)}
+h3{font-size:22px;line-height:1.2}
+p{overflow-wrap:break-word}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(13,27,41,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--navy-line);
+}
+.nav-in{display:flex;align-items:center;gap:var(--s3);height:70px}
+.brand{display:flex;align-items:baseline;gap:9px;flex:none;min-height:44px;padding:9px 0}
+.brand b{font-family:var(--body);font-weight:700;font-size:19px;letter-spacing:.13em}
+.brand span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.nav-links{display:flex;gap:var(--s3);margin-left:auto;list-style:none}
+.nav-links a{
+  font-size:14.5px;font-weight:500;color:var(--mut);
+  padding:8px 2px;display:block;transition:color .2s ease;position:relative;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:1.5px;
+  background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .22s ease;
+}
+.nav-links a:hover{color:var(--plaster)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-tel{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;
+  border:1px solid var(--navy-line-2);border-radius:999px;
+  font-weight:600;font-size:14.5px;white-space:nowrap;transition:background .2s ease,border-color .2s ease;
+}
+.nav-tel:hover{background:var(--navy-soft);border-color:var(--plaster)}
+.nav-tel svg{flex:none}
+.nav-cta{
+  margin-left:2px;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;
+  background:var(--plaster);color:var(--navy-deep);border-radius:999px;
+  font-weight:600;font-size:14.5px;white-space:nowrap;transition:background .2s ease;
+}
+.nav-cta:hover{background:#fff}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+/* 58% keeps the worker inside the narrow crop window a phone leaves.
+   No effect on desktop, where the full width is already visible. */
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% center;z-index:0}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to top,rgba(13,27,41,.97) 0%,rgba(13,27,41,.86) 32%,rgba(19,39,59,.52) 62%,rgba(19,39,59,.42) 100%),
+    linear-gradient(to right,rgba(13,27,41,.72) 0%,rgba(13,27,41,.12) 62%);
+}
+.hero-in{position:relative;z-index:2;width:100%;padding-top:var(--s8)}
+.hero-copy{max-width:760px;padding-bottom:var(--s6)}
+.hero h1{
+  font-size:clamp(44px,7.4vw,98px);margin:var(--s3) 0 var(--s3);
+  letter-spacing:-.028em;
+}
+.hero h1 em{font-style:italic;color:var(--plaster-dim)}
+.hero-lede{font-size:clamp(17px,1.5vw,20px);color:#DCE4EB;max-width:56ch;line-height:1.6}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s5)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 26px;border-radius:999px;
+  font-weight:600;font-size:16px;letter-spacing:.01em;
+  transition:transform .18s ease,background .2s ease,border-color .2s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn-solid{background:var(--plaster);color:var(--navy-deep)}
+.btn-solid:hover{background:#fff}
+.btn-ghost{border:1px solid var(--navy-line-2);color:var(--plaster)}
+.btn-ghost:hover{border-color:var(--plaster);background:rgba(237,230,218,.07)}
+.btn-terra{background:var(--terra);color:#1A0D07}
+.btn-terra:hover{background:#D06E46}
+
+.rail{position:relative;z-index:2;border-top:1px solid var(--navy-line);background:rgba(13,27,41,.55)}
+.rail-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.rail-i{padding:var(--s3) var(--s3) var(--s3) 0;display:flex;flex-direction:column;gap:3px}
+.rail-i + .rail-i{border-left:1px solid var(--navy-line);padding-left:var(--s3)}
+.rail-k{font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:7px}
+.rail-v{font-size:12.5px;color:var(--mut);letter-spacing:.02em}
+.star{color:var(--plaster)}
+
+/* ---------- statement ---------- */
+.stmt{padding:var(--s8) 0 var(--s7)}
+.stmt-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s7);align-items:start}
+.stmt h2{margin-top:var(--s3)}
+.stmt h2 em{font-style:italic;color:var(--terra)}
+.stmt-body{padding-top:var(--s5)}
+.stmt-body p + p{margin-top:var(--s2)}
+.stmt-body p{color:#C6D2DC}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);margin-top:var(--s7);border-top:1px solid var(--navy-line);padding-top:var(--s4)}
+.stat-n{font-family:var(--disp);font-size:clamp(46px,5.6vw,72px);line-height:1;color:var(--terra)}
+.stat-l{font-size:14px;color:var(--mut);margin-top:10px;max-width:24ch}
+
+/* ---------- plaster panels ---------- */
+.panel{background:var(--plaster);color:var(--navy-deep)}
+.panel h2{color:var(--navy-deep)}
+.panel .lede{color:var(--mut-warm);max-width:54ch;margin-top:var(--s2)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s5);flex-wrap:wrap;margin-bottom:var(--s6)}
+.sec-head-l{max-width:640px}
+.sec-head h2{margin-top:var(--s3)}
+.note{font-size:13px;color:var(--mut-warm);display:flex;align-items:flex-start;gap:8px;max-width:44ch;line-height:1.5}
+.note svg{flex:none;margin-top:2px}
+.note.on-navy{color:var(--mut)}
+
+/* ---------- leistungen ---------- */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);align-items:start}
+.card{
+  background:var(--plaster-2);border:1px solid rgba(19,39,59,.14);
+  border-radius:3px;overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px -20px rgba(13,27,41,.45)}
+.svc .card:nth-child(3n+2){margin-top:var(--s5)}
+.card-img{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--plaster-dim)}
+.card-b{padding:var(--s3) var(--s3) var(--s4)}
+.card-n{font-family:var(--disp);font-size:34px;line-height:1;color:var(--terra);display:block}
+.card h3{margin:10px 0 8px;color:var(--navy-deep)}
+.card p{font-size:14.5px;color:var(--mut-warm);line-height:1.6}
+.svc-foot{
+  margin-top:var(--s6);border-top:1px solid rgba(19,39,59,.16);padding-top:var(--s4);
+  display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap;justify-content:space-between;
+}
+.svc-foot p{font-family:var(--disp);font-size:clamp(20px,2.2vw,27px);line-height:1.3;color:var(--navy-deep);max-width:30ch}
+
+/* ---------- referenzen ---------- */
+.mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s2)}
+.m{overflow:hidden;border-radius:3px;background:var(--navy-soft)}
+.m img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.m:hover img{transform:scale(1.04)}
+.m1{grid-column:span 7;aspect-ratio:16/11}
+/* m2 takes its height from the row m1 defines — a second aspect-ratio here
+   would make the narrower column shorter and leave a gap under it */
+.m2{grid-column:span 5;aspect-ratio:auto}
+.m3{grid-column:span 4;aspect-ratio:1/1}
+.m4{grid-column:span 4;aspect-ratio:1/1}
+.m5{grid-column:span 4;aspect-ratio:1/1}
+
+/* ---------- ablauf ---------- */
+.flow{background:var(--navy-deep)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4);margin-top:var(--s6)}
+.step{position:relative;padding-top:var(--s4);border-top:1px solid var(--navy-line-2)}
+.step::before{
+  content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;
+  background:var(--terra);
+}
+.step-n{font-size:12px;letter-spacing:.2em;color:var(--terra-lite);font-weight:600}
+.step h3{margin:12px 0 10px;font-size:24px}
+.step p{font-size:14.5px;color:var(--mut);line-height:1.6}
+
+/* ---------- bewertungen ---------- */
+.rate-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:var(--s7);align-items:center}
+/* line-height below ~1 makes the half-leading negative, so the digits paint
+   ABOVE their own box and collide with the eyebrow. The margin buys that ink
+   back; keep it in em so it scales with the clamped font-size. */
+.rate-big{font-family:var(--disp);font-size:clamp(96px,13vw,168px);line-height:.85;margin-top:.2em;color:var(--navy-deep)}
+.rate-stars{display:flex;gap:5px;margin:var(--s3) 0 12px;color:var(--terra)}
+.rate-sub{font-size:15px;color:var(--mut-warm)}
+.quotes{display:grid;gap:var(--s2)}
+.q{background:var(--plaster-2);border:1px solid rgba(19,39,59,.14);border-left:2px solid var(--terra);padding:var(--s3);border-radius:3px}
+.q p{font-family:var(--disp);font-size:19px;line-height:1.45;color:var(--navy-deep)}
+.q cite{display:block;margin-top:12px;font-family:var(--body);font-style:normal;font-size:13px;color:var(--mut-warm);letter-spacing:.02em}
+
+/* ---------- einsatzgebiet ---------- */
+.geo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7);align-items:center}
+.geo-copy h2{margin:var(--s3) 0 var(--s3)}
+.geo-copy p{color:#C6D2DC;max-width:46ch}
+.bezirke{display:flex;flex-wrap:wrap;gap:9px;margin-top:var(--s4)}
+.bezirke li{
+  list-style:none;font-size:13.5px;color:var(--mut);
+  border:1px solid var(--navy-line);border-radius:999px;padding:7px 14px;
+}
+.radar{width:100%;max-width:460px;margin:0 auto;display:block}
+.radar circle.r{fill:none;stroke:var(--terra);opacity:.32}
+.radar circle.r2{opacity:.2}
+.radar circle.r3{opacity:.12}
+.radar text{font-family:var(--body);font-size:11px;fill:var(--mut);letter-spacing:.06em}
+.radar .core{fill:var(--terra)}
+.radar .pt{fill:var(--plaster)}
+.radar .ctr{font-family:var(--disp);font-size:19px;fill:var(--plaster);letter-spacing:0}
+@keyframes pulse{0%{r:34;opacity:.5}100%{r:172;opacity:0}}
+.radar .ping{fill:none;stroke:var(--terra);stroke-width:1;animation:pulse 4.5s ease-out infinite}
+
+/* ---------- kontakt ---------- */
+.kontakt{background:var(--navy-deep);border-top:1px solid var(--navy-line)}
+.k-card{
+  background:var(--navy);border:1px solid var(--navy-line-2);border-radius:4px;
+  padding:var(--s6);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s6);align-items:center;
+}
+.k-card h2{margin-bottom:var(--s2)}
+.k-card p{color:#C6D2DC;max-width:42ch}
+.k-actions{display:flex;flex-direction:column;gap:var(--s2)}
+.k-tel{
+  font-family:var(--disp);font-size:clamp(30px,4vw,44px);line-height:1.1;
+  display:inline-flex;align-items:center;gap:14px;color:var(--plaster);
+  min-height:48px;transition:color .2s ease;
+}
+.k-tel:hover{color:var(--terra)}
+.k-row{display:flex;gap:var(--s2);flex-wrap:wrap}
+.k-meta{font-size:14px;color:var(--mut);border-top:1px solid var(--navy-line);padding-top:var(--s2);margin-top:var(--s1)}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-deep);border-top:1px solid var(--navy-line);padding:var(--s5) 0}
+.f-in{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;align-items:center}
+.f-in small{font-size:13px;color:var(--mut);line-height:1.7}
+.f-legal{font-size:13px;color:var(--mut);display:flex;gap:var(--s2)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  :root{--s7:72px;--s8:88px}
+  .stmt-grid,.rate-grid,.geo-grid,.k-card{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+  .stmt-body{padding-top:0}
+  .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .svc .card:nth-child(3n+2){margin-top:0}
+  .svc .card:nth-child(2n){margin-top:var(--s5)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5)}
+  .k-card{padding:var(--s5)}
+  .rate-big{font-size:clamp(84px,16vw,140px)}
+}
+@media (max-width:820px){
+  .nav-links,.nav-cta{display:none}
+  .nav-tel{margin-left:auto}
+  /* Phones keep the desktop treatment: copy OVER the full-bleed photo, with the
+     same scrim — no hero overrides at all. A photo band with the text beneath it
+     read as two disconnected blocks. A landscape photo in a portrait box must
+     crop; `object-position` on .hero-img keeps the worker inside that window. */
+  .hero{min-height:82vh;padding-bottom:0}
+  .hero-in{padding-top:var(--s6)}
+  .hero-copy{padding-bottom:var(--s4)}
+  .rail-in{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rail-i{padding:var(--s2) var(--s2) var(--s2) 0}
+  .rail-i + .rail-i{border-left:none;padding-left:0}
+  .rail-i:nth-child(2n){border-left:1px solid var(--navy-line);padding-left:var(--s2)}
+  .rail-i:nth-child(n+3){border-top:1px solid var(--navy-line);padding-top:var(--s2)}
+  .m1,.m2{grid-column:span 12;aspect-ratio:16/10}
+  .m3,.m4,.m5{grid-column:span 12;aspect-ratio:16/10}
+  .sec-head{margin-bottom:var(--s5)}
+}
+@media (max-width:560px){
+  :root{--s7:56px;--s8:64px}
+  body{font-size:16px}
+  /* Horizontal only. The `padding:0 18px` shorthand sits in a later media block
+     than `.hero-in{padding-top}` at equal specificity, so it silently reset the
+     hero's top padding to 0 and jammed the copy under the nav. */
+  .wrap{padding-left:18px;padding-right:18px}
+  .nav-in{height:62px;gap:12px}
+  .brand b{font-size:17px;letter-spacing:.1em}
+  .brand span{display:none}
+  .nav-tel{padding:0 13px;font-size:13.5px;gap:6px}
+  .svc{grid-template-columns:minmax(0,1fr)}
+  .svc .card:nth-child(2n){margin-top:0}
+  .steps{grid-template-columns:minmax(0,1fr);gap:var(--s4)}
+  .hero-ctas{margin-top:var(--s4)}
+  .btn{width:100%;padding:0 18px}
+  .stats{grid-template-columns:minmax(0,1fr);gap:var(--s4)}
+  .k-card{padding:var(--s3)}
+  .svc-foot{flex-direction:column;align-items:flex-start}
+  .f-in{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="MT-Bau — Startseite">
+      <b>MT&#8209;BAU</b><span>Berlin</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
+      <li><a href="#gebiet">Einsatzgebiet</a></li>
+    </ul>
+    <a class="nav-tel" href="tel:+4915168716644">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      0151 68716644
+    </a>
+    <a class="nav-cta" href="#kontakt">Angebot anfragen</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <img class="hero-img" src="https://images.pexels.com/photos/6474133/pexels-photo-6474133.jpeg?auto=compress&cs=tinysrgb&w=1920"
+         alt="Handwerker beim Spritzauftrag auf einer vorbereiteten Wand während einer Wohnungssanierung" width="1920" height="1280" fetchpriority="high">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">Renovierung · Sanierung · Ausbau</p>
+        <h1>Handwerk,<br>das <em>bleibt.</em></h1>
+        <p class="hero-lede">MT-Bau saniert Wohnungen, Bäder und Gewerbeflächen in Berlin — mit einem Ansprechpartner von der Besichtigung bis zur Übergabe. Festpreis, feste Termine, besenreine Baustelle.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="tel:+4915168716644">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Direkt anrufen
+          </a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+        </div>
+      </div>
+    </div>
+    <div class="rail">
+      <div class="wrap rail-in">
+        <div class="rail-i">
+          <span class="rail-k">
+            <svg class="star" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.85.79-5.06 4.67 1.36 6.78L12 17.1l-6.05 3.4 1.36-6.78L2.25 9.05l6.85-.79L12 2z"/></svg>
+            5,0 auf Google
+          </span>
+          <span class="rail-v">4 Bewertungen, alle 5 Sterne</span>
+        </div>
+        <div class="rail-i">
+          <span class="rail-k">Ein Ansprechpartner</span>
+          <span class="rail-v">Alle Gewerke aus einer Hand</span>
+        </div>
+        <div class="rail-i">
+          <span class="rail-k">Festpreis</span>
+          <span class="rail-v">Angebot nach Besichtigung</span>
+        </div>
+        <div class="rail-i">
+          <span class="rail-k">Berlin &amp; Umland</span>
+          <span class="rail-v">Wir kommen zu Ihnen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATEMENT ================= -->
+  <section class="stmt">
+    <div class="wrap">
+      <div class="stmt-grid">
+        <div>
+          <p class="eyebrow">Warum MT-Bau</p>
+          <h2>Die meisten Baustellen scheitern nicht am Können —<br><em>sondern an der Absprache.</em></h2>
+        </div>
+        <div class="stmt-body">
+          <p>Drei Firmen, vier Termine, niemand fühlt sich zuständig: So entsteht der Ruf, den das Baugewerbe hat. Wir arbeiten anders. Bei MT-Bau haben Sie eine Nummer, einen Verantwortlichen und einen Preis — auch dann, wenn Elektriker, Fliesenleger und Maler nacheinander im selben Raum stehen.</p>
+          <p>Wir nehmen weniger Aufträge an, als wir könnten. Dafür läuft jede Baustelle in der Reihenfolge, die vorher besprochen wurde, und wird übergeben, wenn sie fertig ist — nicht vorher.</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div>
+          <div class="stat-n">5,0</div>
+          <p class="stat-l">Durchschnitt aus 4 Google-Bewertungen</p>
+        </div>
+        <div>
+          <div class="stat-n">1</div>
+          <p class="stat-l">Ansprechpartner für alle Gewerke</p>
+        </div>
+        <div>
+          <div class="stat-n">0 €</div>
+          <p class="stat-l">Besichtigung und Festpreis-Angebot</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEISTUNGEN ================= -->
+  <section class="sec panel" id="leistungen">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head-l">
+          <p class="eyebrow on-plaster">Leistungen</p>
+          <h2>Vom einzelnen Bad bis zur kompletten Wohnung.</h2>
+          <p class="lede">Renovierung und Ausbau im Berliner Bestand — Altbau, Nachkriegsbau, Gewerbeeinheit. Wir koordinieren die Gewerke selbst, Sie führen ein Gespräch statt fünf.</p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <article class="card">
+          <img class="card-img" src="https://images.pexels.com/photos/5691533/pexels-photo-5691533.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wohnung im Rohbauzustand während einer Komplettsanierung" width="800" height="600" loading="lazy">
+          <div class="card-b">
+            <span class="card-n">01</span>
+            <h3>Komplettsanierung</h3>
+            <p>Wohnung oder Haus von Grund auf: Rückbau, neue Leitungen, Böden, Wände, Übergabe. Ein Zeitplan, ein Preis, ein Verantwortlicher.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="https://images.pexels.com/photos/7045352/pexels-photo-7045352.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fertig saniertes Badezimmer mit Holzverkleidung und freistehender Wanne" width="800" height="600" loading="lazy">
+          <div class="card-b">
+            <span class="card-n">02</span>
+            <h3>Bad &amp; Sanitär</h3>
+            <p>Vom Abriss bis zur letzten Silikonfuge. Barrierefreie Duschen, Fliesenspiegel, Vorwandinstallation — inklusive Sanitärplanung.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="https://images.pexels.com/photos/6474313/pexels-photo-6474313.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trockenbau: Ständerwerk und Deckenplatten auf einem Baugerüst" width="800" height="600" loading="lazy">
+          <div class="card-b">
+            <span class="card-n">03</span>
+            <h3>Trockenbau</h3>
+            <p>Neue Raumaufteilung, abgehängte Decken, Schall- und Brandschutz. Sauber gespachtelt bis Q3 — bereit für Farbe.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="https://images.pexels.com/photos/6474491/pexels-photo-6474491.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Malerarbeiten: Wand wird mit der Rolle gestrichen" width="800" height="600" loading="lazy">
+          <div class="card-b">
+            <span class="card-n">04</span>
+            <h3>Maler &amp; Boden</h3>
+            <p>Spachteln, streichen, tapezieren; Parkett, Vinyl und Laminat inklusive Sockelleisten. Abkleben und Abdecken gehören dazu.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="https://images.pexels.com/photos/11806476/pexels-photo-11806476.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fliesenleger richtet eine Fliese mit Nivelliersystem aus" width="800" height="600" loading="lazy">
+          <div class="card-b">
+            <span class="card-n">05</span>
+            <h3>Fliesenarbeiten</h3>
+            <p>Groß- und Kleinformat, Bad, Küche, Flur. Abdichtung nach Vorschrift — damit die Arbeit auch in zehn Jahren noch hält.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-img" src="https://images.pexels.com/photos/5691495/pexels-photo-5691495.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Neu verlegte Leitungen und Rohre während einer Kernsanierung" width="800" height="600" loading="lazy">
+          <div class="card-b">
+            <span class="card-n">06</span>
+            <h3>Elektro &amp; Leitungen</h3>
+            <p>Neue Leitungswege, Steckdosen, Beleuchtung. Ausgeführt und koordiniert mit unseren festen Fachpartnern.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="svc-foot">
+        <p>Sie brauchen etwas, das hier nicht steht? Fragen Sie — meistens haben wir jemanden dafür.</p>
+        <a class="btn btn-terra" href="#kontakt">Projekt besprechen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REFERENZEN ================= -->
+  <section class="sec" id="referenzen">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head-l">
+          <p class="eyebrow">Referenzen</p>
+          <h2>Fertig heißt: Sie merken nicht mehr, dass gebaut wurde.</h2>
+        </div>
+        <p class="note on-navy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Beispielbilder. An dieser Stelle stehen später Ihre eigenen Projektfotos.
+        </p>
+      </div>
+
+      <div class="mosaic">
+        <figure class="m m1"><img src="https://images.pexels.com/photos/8089172/pexels-photo-8089172.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Offener Wohnbereich mit Küche nach dem Umbau" width="1200" height="825" loading="lazy"></figure>
+        <figure class="m m2"><img src="https://images.pexels.com/photos/6957081/pexels-photo-6957081.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Fertiges Badezimmer mit freistehender Wanne" width="900" height="620" loading="lazy"></figure>
+        <figure class="m m3"><img src="https://images.pexels.com/photos/8251251/pexels-photo-8251251.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Wohnraum mit Holzmöbeln nach der Renovierung" width="700" height="700" loading="lazy"></figure>
+        <figure class="m m4"><img src="https://images.pexels.com/photos/4756489/pexels-photo-4756489.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Altbau mit freigelegten Holzbalken während des Ausbaus" width="700" height="700" loading="lazy"></figure>
+        <figure class="m m5"><img src="https://images.pexels.com/photos/6615908/pexels-photo-6615908.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Heller Wohnraum in neutralen Farbtönen nach Fertigstellung" width="700" height="700" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABLAUF ================= -->
+  <section class="sec flow" id="ablauf">
+    <div class="wrap">
+      <div class="sec-head-l">
+        <p class="eyebrow">Ablauf</p>
+        <h2>Vier Schritte. Keine Überraschungen.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-n">01</span>
+          <h3>Besichtigung</h3>
+          <p>Wir schauen uns die Räume an, messen auf und hören zu, was Sie vorhaben. Kostenlos und unverbindlich.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">02</span>
+          <h3>Festpreis-Angebot</h3>
+          <p>Sie bekommen ein schriftliches Angebot mit Positionen, Materialien und Terminfenster. Was drinsteht, gilt.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">03</span>
+          <h3>Ausführung</h3>
+          <p>Ein Verantwortlicher koordiniert alle Gewerke. Sie werden informiert, bevor sich etwas ändert — nicht danach.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">04</span>
+          <h3>Übergabe</h3>
+          <p>Gemeinsame Abnahme, besenreine Räume, Rechnung mit Gewährleistung. Mängel beheben wir, bevor wir gehen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BEWERTUNGEN ================= -->
+  <section class="sec panel">
+    <div class="wrap">
+      <div class="rate-grid">
+        <div>
+          <p class="eyebrow on-plaster">Bewertungen</p>
+          <div class="rate-big">5,0</div>
+          <div class="rate-stars" aria-label="5 von 5 Sternen">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.85.79-5.06 4.67 1.36 6.78L12 17.1l-6.05 3.4 1.36-6.78L2.25 9.05l6.85-.79L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.85.79-5.06 4.67 1.36 6.78L12 17.1l-6.05 3.4 1.36-6.78L2.25 9.05l6.85-.79L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.85.79-5.06 4.67 1.36 6.78L12 17.1l-6.05 3.4 1.36-6.78L2.25 9.05l6.85-.79L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.85.79-5.06 4.67 1.36 6.78L12 17.1l-6.05 3.4 1.36-6.78L2.25 9.05l6.85-.79L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.85.79-5.06 4.67 1.36 6.78L12 17.1l-6.05 3.4 1.36-6.78L2.25 9.05l6.85-.79L12 2z"/></svg>
+          </div>
+          <p class="rate-sub">4 von 4 Google-Bewertungen mit fünf Sternen.</p>
+          <p class="note" style="margin-top:20px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Platzhalter-Texte — hier stehen später Ihre echten Google-Bewertungen.
+          </p>
+        </div>
+        <div class="quotes">
+          <blockquote class="q">
+            <p>„Termin gehalten, Preis gehalten, Wohnung besenrein übergeben. Das war bei den letzten zwei Firmen anders.“</p>
+            <cite>Bewertung — Wohnungssanierung, Berlin</cite>
+          </blockquote>
+          <blockquote class="q">
+            <p>„Bad komplett neu in drei Wochen. Man wusste jeden Freitag, was nächste Woche passiert.“</p>
+            <cite>Bewertung — Badsanierung, Berlin</cite>
+          </blockquote>
+          <blockquote class="q">
+            <p>„Ein Ansprechpartner für alles — genau deswegen würde ich wieder dort anrufen.“</p>
+            <cite>Bewertung — Gewerbefläche, Berlin</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EINSATZGEBIET ================= -->
+  <section class="sec" id="gebiet">
+    <div class="wrap">
+      <div class="geo-grid">
+        <div class="geo-copy">
+          <p class="eyebrow">Einsatzgebiet</p>
+          <h2>Kein Ladengeschäft.<br>Wir kommen zu Ihnen.</h2>
+          <p>MT-Bau ist ein mobiler Handwerksbetrieb — es gibt keinen Showroom, in dem Sie warten. Sie rufen an, wir kommen zur Besichtigung in Ihre Wohnung, Ihr Haus oder Ihre Gewerbefläche. In ganz Berlin und im näheren Umland.</p>
+          <ul class="bezirke">
+            <li>Mitte</li><li>Pankow</li><li>Friedrichshain-Kreuzberg</li><li>Charlottenburg-Wilmersdorf</li>
+            <li>Neukölln</li><li>Steglitz-Zehlendorf</li><li>Lichtenberg</li><li>Spandau</li><li>Umland</li>
+          </ul>
+        </div>
+        <div>
+          <svg class="radar" viewBox="0 0 400 400" role="img" aria-label="Schematische Darstellung des Einsatzgebiets: Berlin und Umland">
+            <circle class="ping" cx="200" cy="200" r="34"/>
+            <circle class="r r3" cx="200" cy="200" r="172" stroke-width="1"/>
+            <circle class="r r2" cx="200" cy="200" r="126" stroke-width="1"/>
+            <circle class="r" cx="200" cy="200" r="78" stroke-width="1"/>
+            <line x1="200" y1="14" x2="200" y2="386" stroke="rgba(237,230,218,.09)" stroke-width="1"/>
+            <line x1="14" y1="200" x2="386" y2="200" stroke="rgba(237,230,218,.09)" stroke-width="1"/>
+            <circle class="core" cx="200" cy="200" r="5"/>
+            <text class="ctr" x="200" y="200" dy="-1.1em" text-anchor="middle">Berlin</text>
+            <circle class="pt" cx="200" cy="122" r="2.5"/><text x="200" y="122" dy="-.9em" text-anchor="middle">Pankow</text>
+            <circle class="pt" cx="278" cy="200" r="2.5"/><text x="278" y="200" dy="1.9em" text-anchor="middle">Lichtenberg</text>
+            <circle class="pt" cx="200" cy="278" r="2.5"/><text x="200" y="278" dy="1.9em" text-anchor="middle">Neukölln</text>
+            <circle class="pt" cx="122" cy="200" r="2.5"/><text x="122" y="200" dy="-.9em" text-anchor="middle">Charlottenburg</text>
+            <circle class="pt" cx="289" cy="111" r="2" opacity=".7"/>
+            <circle class="pt" cx="111" cy="289" r="2" opacity=".7"/>
+            <circle class="pt" cx="311" cy="311" r="2" opacity=".5"/>
+            <text x="200" y="372" text-anchor="middle" opacity=".8">Berlin &amp; Umland</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTAKT ================= -->
+  <section class="sec kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="k-card">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2 style="margin-top:var(--s3)">Rufen Sie an — wir schauen es uns an.</h2>
+          <p>Besichtigung und Angebot kosten nichts. Sagen Sie kurz, worum es geht, und wir finden einen Termin, der in Ihren Tag passt.</p>
+        </div>
+        <div class="k-actions">
+          <a class="k-tel" href="tel:+4915168716644">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0151 68716644
+          </a>
+          <div class="k-row">
+            <a class="btn btn-terra" href="https://wa.me/4915168716644" target="_blank" rel="noopener">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.19 4.23-9.41 9.42-9.41 2.51 0 4.88.98 6.66 2.76a9.35 9.35 0 0 1 2.76 6.66c0 5.19-4.23 9.41-9.43 9.41zM20.5 3.49A11.8 11.8 0 0 0 12.05 0C5.5 0 .18 5.32.17 11.86c0 2.09.55 4.13 1.59 5.93L.07 24l6.35-1.66a11.9 11.9 0 0 0 5.67 1.44h.01c6.55 0 11.87-5.32 11.87-11.86 0-3.17-1.23-6.15-3.47-8.39z"/></svg>
+              WhatsApp schreiben
+            </a>
+            <a class="btn btn-ghost" href="tel:+4915168716644">Rückruf vereinbaren</a>
+          </div>
+          <p class="k-meta">Mo–Fr 7:00–18:00 Uhr · Sa nach Absprache<br>Beratung auf Deutsch und Polnisch</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap f-in">
+    <small>
+      <strong style="color:var(--plaster);font-weight:600;letter-spacing:.1em">MT&#8209;BAU</strong> — Renovierung &amp; Ausbau, Berlin<br>
+      Telefon 0151 68716644 · Berlin &amp; Umland
+    </small>
+    <span class="f-legal"><span>Impressum</span><span>·</span><span>Datenschutz</span></span>
+  </div>
+</footer>
+
+</body>
+</html>
