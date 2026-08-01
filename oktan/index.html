@@ -18,9 +18,11 @@
        2. .wordmark text + the two nav/hero phone numbers (3 places, search "tel:")
        3. --amber / --amber-deep  -> the workshop's own accent, if they have one
        4. #leistungen table rows  -> their services + ab-Preise + Dauer
-       5. .plakette year/month    -> nothing to change, it is generic
+       5. .plak-sticker year/month -> nothing to change, it is generic
        6. #kontakt address, hours, Maps link
-       7. Photos: swap the 6 Pexels URLs (keep width/height attrs + height:auto)
+       7. Photos: swap the 7 Pexels URLs (keep width/height attrs + height:auto).
+          The HERO photo is 7a — landscape, a person in it, busy side to the
+          RIGHT, because the left 42-57% is under the wedge.
        8. DELETE the .concept-note in the footer once it is a real client
      Do NOT: add a Google Fonts <link> (run localize-fonts.mjs) or a Maps iframe.
      =================================================================== -->
@@ -91,10 +93,46 @@
   .nav-call svg{width:15px;height:15px;flex:none}
   @media(max-width:980px){.nav-links a.nl{display:none}}
 
-  /* ---------- HERO: emblem composition ---------- */
-  .hero{padding:clamp(48px,6vw,86px) 0 0}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);
-    align-items:center}
+  /* ---------- HERO: photographic bay behind a raked graphite wedge ----------
+     Why not simply a full-bleed photo: the portfolio already has one (MT-Bau),
+     plus a clean photo split (Shelby) and a photo-right editorial (Yasmin).
+     Here the copy panel is CUT ON THE DIAGONAL — the same rake as the hazard
+     stripe below it — so the page's own signature motif is what carves the
+     layout instead of a decorative stripe sitting next to a rectangle.
+     The Prüfplakette is no longer the hero. It was the wrong object to lead
+     with: an inspection sticker is the most bureaucratic thing about a garage,
+     and rendered at 340px it read as a logo presentation rather than a
+     workshop. It survives as what it actually is — a small sticker, applied
+     across the seam of the panel. */
+  .hero{position:relative;padding:0;overflow:hidden;isolation:isolate}
+  /* NO z-index here on purpose. The plaque lives inside this element (so that
+     on mobile it can be positioned against the photo band exactly, rather than
+     against the hero via vw arithmetic) — and a z-index here would open a
+     stacking context that trapped the plaque underneath .hero-wedge. */
+  .hero-photo{position:absolute;inset:0}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:64% 50%}
+  /* The photo is a dim workshop already; this only guarantees the right-hand
+     side never fights the amber, and keeps the top edge from competing with
+     the sticky nav. */
+  .hero-photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(35,40,45,.62) 0%,rgba(35,40,45,.20) 52%,
+      rgba(35,40,45,.55) 100%)}
+  /* Two stacked clip-paths, offset by .4% of the width, so a hairline of amber
+     survives along the cut. A border can't do this: borders follow the box,
+     not the clip. */
+  .hero-wedge{position:absolute;inset:0;z-index:1;background:var(--amber);
+    clip-path:polygon(0 0,56.9% 0,42.4% 100%,0 100%)}
+  .hero-wedge::after{content:"";position:absolute;inset:0;background:var(--steel-deep);
+    clip-path:polygon(0 0,56.5% 0,42% 100%,0 100%)}
+  .hero-in{position:relative;z-index:2;display:flex;align-items:center;
+    min-height:clamp(500px,62vh,640px);
+    padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)}
+  /* A vw cap as well as a px one: the wedge edge is a percentage of the
+     viewport, so the safe copy width has to scale with it or the text crosses
+     the cut. And the binding constraint is the BOTTOM of the copy, not its top
+     — the edge rakes left as it descends, so the last element (the chips) is
+     the one that runs into it first. Measured, not eyeballed. */
+  .hero-copy{max-width:min(470px,41vw)}
   .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;
     text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:block}
   .hero h1{font-size:clamp(2.3rem,5.4vw,4.15rem);text-transform:uppercase}
@@ -114,47 +152,59 @@
   .hero-chips span{display:flex;align-items:center;gap:7px}
   .hero-chips svg{width:14px;height:14px;color:var(--amber);flex:none}
 
-  /* the Prüfplakette — the trade's own emblem, this page's signature object */
-  .emblem{display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .plakette{width:min(340px,80vw);height:auto;filter:drop-shadow(0 18px 34px rgba(0,0,0,.42))}
-  /* Amber face restored — it is the hero's focal point and a dark face blended
-     into the graphite page. The lettering keeps its dark fill (8.13:1 on amber)
-     and gains a WHITE HALO so it separates instead of sitting flat.
-     `paint-order:stroke fill` is essential: without it the stroke paints on top
-     of the glyph and thins the digits rather than outlining them. */
-  .plakette text{paint-order:stroke fill;stroke-linejoin:round;stroke:#FFFFFF}
-  .plakette .ring-nums{font-family:var(--mono);font-weight:700;font-size:15px;
-    fill:#23282D;stroke-width:1.5}
-  .plakette .yr{font-family:var(--disp);font-weight:700;font-size:66px;
-    fill:#23282D;stroke-width:3.25}
-  .plakette .yr-sub{font-family:var(--mono);font-weight:700;font-size:13px;
-    letter-spacing:.16em;fill:#23282D;stroke-width:1.2}
-  /* the marker sits on the dark badge, so it needs no halo — plain white reads
-     brightest and pulls the eye to the marked month */
-  .plakette .due{font-family:var(--mono);font-weight:700;font-size:15px;
-    fill:#FFFFFF;stroke:none}
-  /* The month ring orbits, but every numeral must stay upright — so the ring
-     rotates +360deg about the dial centre while each <text> rotates -360deg
-     about its OWN centre (transform-box:fill-box). Same duration, both linear,
-     so the two cancel exactly: the numbers travel round without ever tipping.
-     The marker badge rides along so it stays locked to July. */
-  .plakette .rotor{transform-origin:100px 100px;animation:orbit 40s linear infinite}
-  .plakette .rotor text{transform-box:fill-box;transform-origin:center;
-    animation:orbit-rev 40s linear infinite}
-  @keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-  @keyframes orbit-rev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-  /* The caption now teaches the emblem, so it is a sentence, not a label. It sits
-     in normal flow under the dial at every width — absolutely positioning it only
-     worked while it was one line; at three lines it rode 42px up into the dial. */
-  .emblem-cap{margin-top:20px;font-family:var(--mono);font-size:12px;
-    color:var(--chalk-dim);text-align:center;max-width:34ch;line-height:1.55}
-  .hero-rule{margin-top:clamp(48px,6vw,80px)}
-  /* the emblem is a fixed ~300px object: below 860px it can no longer sit in a
-     second grid column without pushing the page sideways */
+  /* The Prüfplakette, demoted to the object it actually is: a sticker, applied
+     across the seam of the panel. The month ring is gone on purpose — at this
+     size its numerals would be ~4px, and dropping it also drops the whole
+     counter-rotation mechanism that made the old emblem fragile.
+     DRAWN FROM THE REAL OBJECT (2026-07-31). Two invented versions were tried
+     and both were wrong for the same reason — they were designed rather than
+     observed. The plaque is a regulated object with a fixed construction, and
+     copying it is both more honest for a Kfz-Meisterbetrieb and better looking
+     than anything invented for it. See the markup for the construction rules.
+     It is bigger than the invented versions because it now has real detail to
+     carry: the month ring is texture at this size, exactly as it is on a car
+     from two metres away. */
+  .plak-sticker{position:absolute;z-index:3;
+    width:clamp(104px,9.5vw,140px);height:auto;
+    left:calc(43.2% - 48px);bottom:12%;transform:rotate(-7deg);
+    filter:drop-shadow(0 12px 22px rgba(0,0,0,.5))}
+  /* Public Sans 700, not the display face: the real plaque is set in a plain
+     DIN-ish grotesque, and Chakra Petch's angled cuts read as a styling choice
+     at this size — which is the one thing an authentic object must not do. */
+  .plak-sticker text{font-family:var(--body);font-weight:600;fill:#0B0B0B}
+  .plak-sticker .p-yr{font-size:17.5px}
+  .plak-sticker .p-mo{font-size:13.5px}
+  .hero-rule{position:relative;z-index:2}
+  /* Below 860 the wedge goes: a diagonal cut needs width to read as a cut
+     rather than as a mistake. The hero becomes a photo BAND, closed by the
+     hazard rule, with the copy on solid graphite underneath.
+     Copy-over-photo was tried first and measured as a real failure, not a
+     matter of taste: against the brightest pixel behind the text the lead ran
+     at 2.52:1 and the amber eyebrow at 2.94:1 (AA wants 4.5). Getting those
+     legal needs a scrim around .81 alpha, at which point the photograph is
+     gone anyway — so it is better to give the photo a band where it is
+     actually visible and the text a background it can be read on.
+     What keeps this from reading as two disconnected blocks — the trap MT-Bau
+     hit with the same layout — is that the seam is deliberate: the hazard rule
+     draws it, and the plaque straddles it exactly as it straddles the wedge on
+     desktop. */
   @media(max-width:860px){
-    .hero-grid{grid-template-columns:1fr;gap:46px}
-    .emblem{margin-top:8px}
-    .plakette{width:min(260px,64vw)}
+    .hero{display:flex;flex-direction:column}
+    .hero-wedge{display:none}
+    .hero-photo{position:relative;order:1;aspect-ratio:16/10}
+    .hero-photo img{object-position:56% 50%}
+    .hero-photo::after{background:linear-gradient(180deg,rgba(35,40,45,.06) 0%,
+      rgba(35,40,45,.16) 60%,rgba(35,40,45,.5) 100%)}
+    .hero-rule{order:2;margin:0}
+    .hero-in{order:3;min-height:0;background:var(--steel-deep);
+      padding-top:clamp(38px,9vw,54px);padding-bottom:clamp(38px,9vw,54px)}
+    .hero-copy{max-width:none}
+    /* The plaque sits INSIDE the band, not across its edge: on a phone the
+       hazard rule cut straight through it (user, 2026-07-31). Being a child of
+       .hero-photo, `bottom` is measured from the band's own edge, so this holds
+       at every width without any vw arithmetic. */
+    .plak-sticker{width:100px;left:auto;right:18px;bottom:18px;top:auto;
+      transform:rotate(-6deg)}
   }
 
   /* ---------- TRUST STRIP ---------- */
@@ -340,8 +390,100 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-grid">
+  <!-- SWAP POINT 7a: the hero photograph. Keep it landscape, keep a person in
+       it, and keep the busy side to the RIGHT — the left 42-58% is covered by
+       the wedge. -->
+  <div class="hero-photo">
+    <img src="https://images.pexels.com/photos/4489704/pexels-photo-4489704.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800"
+         width="1800" height="1200" alt="" fetchpriority="high">
+
+    <!-- SWAP POINT 5: nothing to change here, the plaque is generic.
+         =====================================================================
+         This is drawn from the real object, not invented. Reference: the 2021
+         HU-Plakette photograph on Wikimedia Commons (CC0). Construction:
+           · thick black outer ring, coloured face, black-outlined centre disc
+             carrying the two-digit YEAR
+           · months 1-12 around the face, running ANTICLOCKWISE from 12 at the
+             top, each numeral rotated with its position so its top points
+             outward — which is why 6 is upside down. The old emblem
+             counter-rotated its numerals to keep them upright; that was the
+             unauthentic choice.
+           · a ray pointing at each numeral from the centre and a tick beyond it
+             at the rim, both on the numeral's own angle, with the numeral in
+             the gap between them
+           · the thick black arc on the rim + the wedge under it mark the DUE
+             MONTH — they are what makes the month readable from across a car
+             park, and the plaque is applied rotated so that mark sits at 12.
+         Colour is the year: the six-year cycle runs blau, gelb, braun, rosa,
+         grün, orange, so 2026 is blue and 2027 is YELLOW. The demo is a 2027
+         plaque, which is why it is yellow and not the page's amber.
+         December, not July: because the dial is rotated to bring the due month
+         to the top, a July plaque carries its year at -150 degrees — authentic
+         but unreadable. December is the one month that is both authentic and
+         upright.
+         Every numeral uses dy=".35em" on the alphabetic baseline, NOT
+         dominant-baseline="middle" — "middle" centres on the x-height midpoint
+         and digits are cap-height, so they ride high.
+         It lives inside .hero-photo so that on a phone `bottom` measures from
+         the photo band's own edge.
+         ===================================================================== -->
+    <svg class="plak-sticker" viewBox="0 0 100 100" role="img"
+         aria-label="HU-Prüfplakette: nächste Hauptuntersuchung fällig im Dezember 2027. HU und AU machen wir im Haus.">
+      <circle cx="50" cy="50" r="49" fill="#0B0B0B"/>
+      <circle cx="50" cy="50" r="47.5" fill="#F3C300"/>
+
+      <!-- due-month mark: thick arc filling the 12 sector, wedge beneath it,
+           and the sector's own hairline showing through the arc in face colour -->
+      <path d="M29.35 11.15A44 44 0 0 1 70.65 11.15" fill="none" stroke="#0B0B0B" stroke-width="7"/>
+      <path d="M44.756 37.018 38.732 28.808A24 24 0 0 1 61.268 28.808L55.244 37.018A14 14 0 0 0 44.756 37.018Z" fill="#0B0B0B"/>
+      <path d="M50 10V2M50 36.4V28.4" stroke="#F3C300" stroke-width="1.8"/>
+
+      <!-- SECTOR BOUNDARIES at 15+30k — the marks sit BETWEEN the numerals and
+           divide the face into 12 wedges; they do not point at the numerals.
+           Measured off the reference by sweeping it angularly at fixed radii,
+           because a radial scan through a numeral cannot tell a divider from a
+           glyph stroke. -->
+      <g stroke="#0B0B0B" stroke-linecap="butt">
+        <g transform="rotate(15 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(45 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(75 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(105 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(135 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(165 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(195 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(225 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(255 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(285 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(315 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+        <g transform="rotate(345 50 50)"><path d="M50 36.3V28" stroke-width="2.6"/><path d="M50 10V2.5" stroke-width="2"/></g>
+      </g>
+
+      <!-- Months at 30k, in the middle of each sector. Two-digit numbers are
+           condensed with textLength + lengthAdjust rather than by shrinking the
+           type: on the real plaque 10/11/12 are the same height as 1-9 and just
+           set tighter, and this avoids adding a condensed webfont for 14 glyphs. -->
+      <g class="p-mo">
+        <g transform="rotate(0 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="12" lengthAdjust="spacingAndGlyphs">12</text></g>
+        <g transform="rotate(30 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="12" lengthAdjust="spacingAndGlyphs">11</text></g>
+        <g transform="rotate(60 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="12" lengthAdjust="spacingAndGlyphs">10</text></g>
+        <g transform="rotate(90 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">9</text></g>
+        <g transform="rotate(120 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">8</text></g>
+        <g transform="rotate(150 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">7</text></g>
+        <g transform="rotate(180 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">6</text></g>
+        <g transform="rotate(210 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">5</text></g>
+        <g transform="rotate(240 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">4</text></g>
+        <g transform="rotate(270 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">3</text></g>
+        <g transform="rotate(300 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">2</text></g>
+        <g transform="rotate(330 50 50)"><text x="50" y="19" dy=".35em" text-anchor="middle" textLength="6.8" lengthAdjust="spacingAndGlyphs">1</text></g>
+      </g>
+
+      <circle cx="50" cy="50" r="12.7" fill="#F3C300" stroke="#0B0B0B" stroke-width="2"/>
+      <text class="p-yr" x="50" y="50" dy=".35em" text-anchor="middle" textLength="15.5" lengthAdjust="spacingAndGlyphs">27</text>
+    </svg>
+  </div>
+  <div class="hero-wedge" aria-hidden="true"></div>
+
+  <div class="wrap hero-in">
       <div class="hero-copy">
         <span class="eyebrow">Kfz-Meisterbetrieb · Berlin</span>
         <h1>Reparatur zum<br><span class="lo">Festpreis.</span></h1>
@@ -358,54 +500,8 @@
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Beratung: Deutsch &amp; Polski</span>
         </div>
       </div>
-
-      <div class="emblem">
-        <svg class="plakette" viewBox="0 0 200 200" role="img"
-             aria-label="Illustration einer HU-Prüfplakette: Jahreszahl 27 in der Mitte, Monatsring außen, Fälligkeitsmonat Juli oben markiert">
-          <circle cx="100" cy="100" r="96" fill="#23282D"/>
-          <circle cx="100" cy="100" r="90" fill="#FFB020"/>
-          <circle cx="100" cy="100" r="62" fill="none" stroke="#23282D" stroke-width="2"
-                  opacity=".5"/>
-
-          <!-- Months ring. Like a real Prüfplakette the sticker is applied turned
-               so the EXPIRY MONTH sits at the top under the marker — here July —
-               so the sequence runs 7,8,9…6 clockwise from 12 o'clock. Every
-               numeral is plain upright text: nothing rotates, nothing inverts. -->
-          <g class="rotor">
-            <!-- Every numeral uses dy=".35em" on the default alphabetic baseline,
-                 NOT dominant-baseline="middle". "middle" centres on the x-height
-                 midpoint, but digits are cap-height, so they sat 2.33px high —
-                 invisible on the free-standing months, obvious on the 7 inside
-                 its circle. dy=".35em" puts the digit's ink centre exactly on y. -->
-            <!-- ring radius 75, not 78: the white halo adds 1.5px all round and
-                 the two-digit months ("11", "12") were crossing off the amber
-                 face onto the dark rim -->
-            <g class="ring-nums" text-anchor="middle">
-              <text x="137.5" y="35" dy=".35em">8</text>
-              <text x="165" y="62.5" dy=".35em">9</text>
-              <text x="175" y="100" dy=".35em">10</text>
-              <text x="165" y="137.5" dy=".35em">11</text>
-              <text x="137.5" y="165" dy=".35em">12</text>
-              <text x="100" y="175" dy=".35em">1</text>
-              <text x="62.5" y="165" dy=".35em">2</text>
-              <text x="35" y="137.5" dy=".35em">3</text>
-              <text x="25" y="100" dy=".35em">4</text>
-              <text x="35" y="62.5" dy=".35em">5</text>
-              <text x="62.5" y="35" dy=".35em">6</text>
-            </g>
-            <!-- the marker rides with the ring so it stays locked to July -->
-            <circle cx="100" cy="25" r="12.5" fill="#23282D"/>
-            <text class="due" x="100" y="25" dy=".35em" text-anchor="middle">7</text>
-          </g>
-
-          <text class="yr" x="100" y="94" dy=".35em" text-anchor="middle">27</text>
-          <text class="yr-sub" x="100" y="128" dy=".35em" text-anchor="middle">HU · AU</text>
-        </svg>
-        <span class="emblem-cap">Ihre Plakette läuft im Juli 2027 ab?
-          Wir machen die HU hier.</span>
-      </div>
-    </div>
   </div>
+
   <div class="hazard hero-rule" aria-hidden="true"></div>
 </section>
 
