@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Kedzierski – Berliner Innenausbau | Renovierung & Ausbau in Berlin</title>
+<meta name="description" content="Innenausbau und Renovierung in Berlin und Umland. Trockenbau, Boden, Türen, Bad, Maler. Ein Ansprechpartner, feste Termine, saubere Übergabe.">
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --walnut:#241C16;
+  --walnut-2:#2E251D;
+  --walnut-3:#382D24;
+  --line:#4A3B2E;
+  --oak:#F1E6D6;
+  --oak-dim:#BCA88E;
+  --brass:#D19A46;
+  --brass-soft:#E3B067;
+  --brass-deep:#8A5B18;
+  --linen:#F3EADC;
+  --linen-2:#EAE0CF;
+  --ink:#241C16;
+  --ink-dim:#5E4E40;
+
+  --disp:'Literata',Georgia,serif;
+  --sans:'Karla',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,'SFMono-Regular',Consolas,monospace;
+
+  --wrap:1240px;
+  --nav-h:74px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--walnut);
+  color:var(--oak);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+figure,blockquote,figcaption{margin:0}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:600;margin:0;letter-spacing:-.012em}
+p{margin:0}
+::selection{background:var(--brass);color:var(--walnut)}
+
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-left:28px;padding-right:28px}
+
+/* ---------- mono eyebrow ---------- */
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--brass);margin:0 0 20px;display:flex;align-items:center;gap:12px;
+}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--line);max-width:180px}
+.eyebrow.on-light{color:var(--brass-deep)}
+.eyebrow.on-light::after{background:#D6C7B0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;padding:0 26px;border-radius:2px;
+  font-family:var(--sans);font-size:16px;font-weight:700;letter-spacing:.01em;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:background .16s ease,color .16s ease,border-color .16s ease;
+}
+.btn-solid{background:var(--brass);color:#1B140F;border-color:var(--brass)}
+.btn-solid:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
+.btn-ghost{background:transparent;color:var(--oak);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
+.btn-dark{background:var(--ink);color:var(--linen);border-color:var(--ink)}
+.btn-dark:hover{background:#3A2E25;border-color:#3A2E25}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(36,28,22,.94);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:28px;height:var(--nav-h)}
+.brand{display:flex;flex-direction:column;justify-content:center;min-height:44px;line-height:1.05;text-decoration:none;margin-right:auto}
+.brand b{font-family:var(--disp);font-size:20px;font-weight:700;letter-spacing:.005em}
+.brand span{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--oak-dim);margin-top:5px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{
+  font-size:15px;font-weight:500;text-decoration:none;color:var(--oak-dim);
+  padding:6px 0;border-bottom:1px solid transparent;transition:color .16s ease,border-color .16s ease;
+}
+.nav-links a:hover{color:var(--oak);border-bottom-color:var(--brass)}
+.nav-tel{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;
+  border:1px solid var(--line);border-radius:2px;text-decoration:none;
+  font-family:var(--mono);font-size:14px;color:var(--oak);white-space:nowrap;
+  transition:border-color .16s ease,color .16s ease;
+}
+.nav-tel:hover{border-color:var(--brass);color:var(--brass)}
+
+/* ---------- hero ---------- */
+.hero{padding-top:78px;padding-bottom:86px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(760px 420px at 12% 0%, rgba(209,154,70,.09), transparent 70%),
+    radial-gradient(620px 380px at 100% 60%, rgba(209,154,70,.05), transparent 72%);
+}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:64px;align-items:center}
+.hero h1{
+  font-size:clamp(38px,5.1vw,66px);line-height:1.06;font-weight:600;
+  margin:0 0 26px;max-width:14ch;
+}
+.hero h1 em{font-style:normal;color:var(--brass);font-weight:700}
+.hero-sub{font-size:19px;line-height:1.62;color:var(--oak-dim);max-width:46ch;margin:0 0 34px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:0 34px;border-top:1px solid var(--line);padding-top:20px}
+.fact{display:flex;align-items:baseline;gap:9px;font-family:var(--mono);font-size:13px;color:var(--oak-dim);padding:5px 0}
+.fact b{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--oak)}
+.fact .stars{color:var(--brass);letter-spacing:.06em}
+
+/* --- signature: the sample-board slats --- */
+.slats{display:flex;flex-direction:column;gap:12px}
+.slat{
+  position:relative;display:block;overflow:hidden;border-radius:2px;
+  border:1px solid var(--line);background:var(--walnut-2);
+  height:158px;
+}
+.slat:nth-child(2){height:196px}
+.slat img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+.slat::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(30,23,18,.93) 0%, rgba(30,23,18,.35) 46%, rgba(30,23,18,.06) 100%);
+}
+.slat-label{
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);z-index:2;
+  font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--oak);display:flex;align-items:center;gap:11px;
+}
+.slat-label i{display:block;width:22px;height:1px;background:var(--brass);font-style:normal}
+.slat-label b{font-family:var(--mono);font-weight:500;color:var(--brass);letter-spacing:.1em}
+
+/* ---------- generic section ---------- */
+.sec{padding-top:96px;padding-bottom:96px}
+.sec-head{max-width:60ch;margin-bottom:52px}
+.sec-head h2{font-size:clamp(29px,3.5vw,44px);line-height:1.12;margin:0 0 16px}
+.sec-head p{color:var(--oak-dim);font-size:18px;max-width:52ch}
+.light .sec-head p{color:var(--ink-dim)}
+
+/* ---------- signature block: wir / sie ---------- */
+.split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:26px;align-items:stretch}
+.col{border:1px solid var(--line);background:var(--walnut-2);border-radius:2px;padding:38px 34px}
+.col.accent{background:var(--brass);border-color:var(--brass);color:#1B140F;display:flex;flex-direction:column}
+.col-tag{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:10px;
+}
+.col.accent .col-tag{color:#432B08}
+.col h3{font-size:26px;line-height:1.2;margin:0 0 24px}
+.col.accent h3{margin-bottom:18px}
+.tasks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 26px}
+.tasks li{
+  display:flex;gap:12px;align-items:flex-start;padding:11px 0;
+  border-bottom:1px solid rgba(74,59,46,.7);font-size:15.5px;color:var(--oak);
+}
+.tasks li svg{flex:none;margin-top:5px;width:13px;height:13px;stroke:var(--brass);stroke-width:2.4;fill:none}
+.accent-body{font-size:19px;line-height:1.55;color:#2B1F13;margin:0 0 auto;max-width:24ch}
+.accent-quote{
+  margin-top:30px;padding-top:22px;border-top:1px solid rgba(27,20,15,.28);
+  font-family:var(--disp);font-size:17px;line-height:1.5;font-style:italic;color:#2B1F13;
+}
+.accent-quote cite{
+  display:block;margin-top:12px;font-family:var(--mono);font-style:normal;
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#432B08;
+}
+
+/* ---------- light band ---------- */
+.light{background:var(--linen);color:var(--ink)}
+.light h2,.light h3{color:var(--ink)}
+
+/* ---------- leistungen ---------- */
+.lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#D8CBB6;border:1px solid #D8CBB6}
+.lv-item{background:var(--linen);padding:30px 26px 32px;display:flex;flex-direction:column;gap:10px}
+.lv-n{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--brass-deep)}
+.lv-item h3{font-size:20px;line-height:1.25;margin:0}
+.lv-item p{font-size:15px;line-height:1.6;color:var(--ink-dim)}
+.lv-note{
+  margin-top:26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink-dim);display:flex;gap:10px;align-items:flex-start;
+}
+.lv-note b{color:var(--brass-deep);font-family:var(--mono);font-weight:500}
+
+/* ---------- reviews ---------- */
+.rev-top{display:flex;flex-wrap:wrap;align-items:flex-end;gap:22px 40px;margin-bottom:44px}
+.score{display:flex;align-items:baseline;gap:14px}
+.score b{font-family:var(--disp);font-size:64px;line-height:1;font-weight:700;color:var(--brass)}
+.score .meta{font-family:var(--mono);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--oak-dim);line-height:1.7}
+.score .meta .stars{display:block;color:var(--brass);font-size:16px;letter-spacing:.12em}
+/* two reviews of very different length: a row list, not a symmetric card grid —
+   unequal heights read as normal in a list, and a third review just adds a row */
+.revs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.rev{
+  display:grid;grid-template-columns:minmax(0,1fr) 186px;gap:44px;
+  padding:34px 0;border-bottom:1px solid var(--line);position:relative;
+}
+.rev::before{content:"";position:absolute;left:0;top:-1px;width:34px;height:1px;background:var(--brass)}
+.rev p{font-family:var(--disp);font-size:21px;line-height:1.5;color:var(--oak);max-width:56ch}
+/* translated review: original kept visible, quietly, so it can be checked against Google */
+.rev .rev-orig{
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+  font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--oak-dim);
+}
+.rev .rev-orig span{
+  display:block;margin-bottom:5px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--brass);
+}
+.rev .rev-orig i{font-style:normal}
+.rev footer{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--oak-dim);
+  display:flex;flex-direction:column;gap:7px;padding-top:6px;
+}
+.rev footer b{font-family:var(--mono);font-weight:500;color:var(--brass);letter-spacing:.14em}
+
+/* ---------- galerie ---------- */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:252px;gap:14px}
+.tile{position:relative;overflow:hidden;border-radius:2px;border:1px solid var(--line);background:var(--walnut-2);min-width:0;min-height:0}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile.tall{grid-row:span 2}
+.tile.tall img{object-position:center 62%}
+.tile.w2{grid-column:span 2}
+.tile.w3{grid-column:span 3}
+.tile-cap{
+  position:absolute;left:12px;bottom:12px;z-index:2;
+  padding:7px 13px;border-radius:2px;
+  background:rgba(24,18,14,.9);border:1px solid rgba(209,154,70,.42);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--oak);
+}
+
+/* ---------- kontakt ---------- */
+.kontakt{background:var(--walnut-2);border-top:1px solid var(--line)}
+.k-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:start}
+.k-grid h2{font-size:clamp(28px,3.3vw,42px);line-height:1.14;margin:0 0 18px}
+.k-lead{color:var(--oak-dim);font-size:18px;max-width:44ch;margin-bottom:30px}
+.k-card{border:1px solid var(--line);background:var(--walnut);border-radius:2px;padding:34px 30px}
+.k-row{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
+.k-row:last-of-type{border-bottom:0}
+.k-row span{font-family:var(--mono);font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:var(--oak-dim)}
+.k-row a,.k-row strong{font-size:19px;font-weight:700;text-decoration:none;color:var(--oak);word-break:break-word}
+.k-row a{min-height:44px;display:inline-flex;align-items:center}
+.k-row a:hover{color:var(--brass)}
+.k-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);padding:34px 0;background:var(--walnut)}
+.foot-in{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between}
+.foot p,.foot a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--oak-dim)}
+.foot nav{display:flex;gap:22px}
+.foot a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.foot a:hover{color:var(--brass)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:48px}
+  .hero h1{max-width:18ch}
+  .split{grid-template-columns:minmax(0,1fr)}
+  .k-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .lv{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:232px}
+  .tile.tall{grid-column:span 2;grid-row:span 2}
+  .tile.w2,.tile.w3{grid-column:span 2}
+}
+@media (max-width:900px){
+  .nav-links{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{padding-left:20px;padding-right:20px}
+  .hero{padding-top:52px;padding-bottom:62px}
+  .sec{padding-top:68px;padding-bottom:68px}
+  .tasks{grid-template-columns:minmax(0,1fr)}
+  .rev{grid-template-columns:minmax(0,1fr);gap:18px;padding:28px 0}
+  .rev p{font-size:19px}
+  .col{padding:30px 24px}
+}
+@media (max-width:560px){
+  .gal{grid-auto-rows:178px}
+}
+@media (max-width:520px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .lv{grid-template-columns:minmax(0,1fr)}
+  .hero-cta .btn{width:100%}
+  .score b{font-size:52px}
+  .brand b{font-size:18px}
+  .nav-tel{padding:0 13px;font-size:13px}
+  .slat{height:118px}
+  .slat:nth-child(2){height:146px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <b>Kedzierski</b>
+      <span>Berliner Innenausbau</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#ablauf">Zusammenarbeit</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#arbeiten">Arbeiten</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-tel" href="tel:+4917641710358">0176 41710358</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <p class="eyebrow">Innenausbau &amp; Renovierung · Berlin</p>
+        <h1>Sie sagen, wie es aussehen soll. <em>Um alles andere kümmern wir uns.</em></h1>
+        <p class="hero-sub">Trockenbau, Boden, Türen, Bad, Maler — von einer Hand koordiniert.
+          Ein Ansprechpartner, feste Termine, und am Ende eine Wohnung, in der Sie
+          sofort wohnen können.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="tel:+4917641710358">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Anrufen
+          </a>
+          <a class="btn btn-ghost" href="#kontakt">Termin anfragen</a>
+        </div>
+        <div class="hero-facts">
+          <p class="fact"><span class="stars">★★★★★</span> <b>5,0</b> bei Google</p>
+          <p class="fact">Einsatzgebiet <b>Berlin &amp; Umland</b></p>
+          <p class="fact">Beratung <b>vor Ort</b></p>
+        </div>
+      </div>
+
+      <div class="slats">
+        <figure class="slat">
+          <img src="https://images.pexels.com/photos/7667625/pexels-photo-7667625.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Zwei Handwerker montieren eine Holztreppe im Innenausbau">
+          <figcaption class="slat-label"><i></i><b>01</b>Tischlerarbeiten</figcaption>
+        </figure>
+        <figure class="slat">
+          <img src="https://images.pexels.com/photos/20705883/pexels-photo-20705883.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Begehbarer Kleiderschrank aus Nussbaumholz mit indirekter Beleuchtung">
+          <figcaption class="slat-label"><i></i><b>02</b>Einbauschränke</figcaption>
+        </figure>
+        <figure class="slat">
+          <img src="https://images.pexels.com/photos/7018252/pexels-photo-7018252.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Wohnzimmer mit dunklem Dielenboden und Ziegelwand nach dem Ausbau">
+          <figcaption class="slat-label"><i></i><b>03</b>Boden &amp; Wand</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURE: WIR / SIE ============ -->
+  <section class="sec" id="ablauf">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Die Aufgabenteilung</p>
+        <h2>Eine Baustelle in der eigenen Wohnung ist anstrengend. Meistens nicht wegen der Arbeit.</h2>
+        <p>Sondern wegen der Termine, der Gewerke, der Rückfragen und der Frage, wer wann kommt.
+          Genau das übernehmen wir — und Sie behalten genau eine Aufgabe.</p>
+      </div>
+
+      <div class="split">
+        <div class="col">
+          <p class="col-tag">Wir</p>
+          <h3>Was bei uns liegt</h3>
+          <ul class="tasks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Aufmaß und Beratung vor Ort</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Kostenübersicht vor Beginn</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Material bestellen und liefern</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Termine der einzelnen Gewerke</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Staubschutz und Abdeckung</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Absprache mit Hausverwaltung</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ein fester Ansprechpartner</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Baustelle besenrein zurück</li>
+          </ul>
+        </div>
+
+        <div class="col accent">
+          <p class="col-tag">Sie</p>
+          <h3>Was bei Ihnen bleibt</h3>
+          <p class="accent-body">Sagen, wie es am Ende aussehen soll — und sich das fertige Zimmer ansehen.</p>
+          <blockquote class="accent-quote">
+            „…große Hilfe, sodass ich mich um nichts kümmern musste."
+            <cite>Google-Bewertung, 5 ★ · aus dem Polnischen übersetzt</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEISTUNGEN ============ -->
+  <section class="sec light" id="leistungen">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow on-light">Leistungen</p>
+        <h2>Vom einzelnen Gewerk bis zur kompletten Wohnung.</h2>
+        <p>Kleine Arbeiten machen wir genauso wie den vollständigen Ausbau — der Unterschied
+          ist nur, wie viel wir koordinieren.</p>
+      </div>
+
+      <div class="lv">
+        <article class="lv-item">
+          <p class="lv-n">01</p>
+          <h3>Trockenbau</h3>
+          <p>Wände, Vorsatzschalen, abgehängte Decken, Dämmung und Schallschutz.</p>
+        </article>
+        <article class="lv-item">
+          <p class="lv-n">02</p>
+          <h3>Maler &amp; Putz</h3>
+          <p>Spachteln, Putz, Anstrich, Tapete — sauber vorbereitet, nicht nur überstrichen.</p>
+        </article>
+        <article class="lv-item">
+          <p class="lv-n">03</p>
+          <h3>Boden &amp; Parkett</h3>
+          <p>Parkett, Dielen, Laminat und Vinyl inklusive Unterbau und Leisten.</p>
+        </article>
+        <article class="lv-item">
+          <p class="lv-n">04</p>
+          <h3>Türen &amp; Zargen</h3>
+          <p>Innentüren, Zargen, Schiebetüren und Anpassungen im Altbau.</p>
+        </article>
+        <article class="lv-item">
+          <p class="lv-n">05</p>
+          <h3>Bad &amp; Fliesen</h3>
+          <p>Fliesenarbeiten und die Abstimmung mit Sanitär und Elektrik.</p>
+        </article>
+        <article class="lv-item">
+          <p class="lv-n">06</p>
+          <h3>Komplette Wohnung</h3>
+          <p>Alles zusammen, in einer Reihenfolge, mit einem Termin­plan und einem Ansprechpartner.</p>
+        </article>
+      </div>
+
+      <p class="lv-note"><b>Hinweis</b> Sie brauchen etwas, das hier nicht steht? Fragen Sie —
+        wenn wir es nicht selbst machen, sagen wir Ihnen, wer es macht.</p>
+    </div>
+  </section>
+
+  <!-- ============ BEWERTUNGEN ============ -->
+  <section class="sec" id="bewertungen">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Was Kunden schreiben</p>
+        <h2>Gelobt wird selten das Werkzeug. Fast immer die Absprache.</h2>
+      </div>
+
+      <div class="rev-top">
+        <div class="score">
+          <b>5,0</b>
+          <p class="meta"><span class="stars">★★★★★</span>Google-Bewertungen</p>
+        </div>
+      </div>
+
+      <div class="revs">
+        <blockquote class="rev">
+          <div class="rev-body">
+            <p>„Schnelle und präzise Arbeit! Dazu noch eine sehr nette Kommunikation!"</p>
+          </div>
+          <footer><b>Natalia B.</b>Google-Bewertung</footer>
+        </blockquote>
+        <blockquote class="rev">
+          <div class="rev-body">
+            <p>„Sehr guter Kontakt mit Herrn Adrian, schnelle Ausführung und große Hilfe,
+              sodass ich mich um nichts kümmern musste."</p>
+            <p class="rev-orig"><span>Original auf Polnisch</span>
+              <i lang="pl">„Bardzo dobry kontakt z Panem Adrianem, szybka realizacja i duża pomoc,
+              dzięki czemu nie musiałem się o nic martwić."</i></p>
+          </div>
+          <footer><b>Jakub K.</b>Google-Bewertung<br>aus dem Polnischen</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARBEITEN ============ -->
+  <section class="sec" id="arbeiten">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Arbeiten</p>
+        <h2>Altbau, Neubau, ein Zimmer oder die ganze Etage.</h2>
+      </div>
+
+      <div class="gal">
+        <figure class="tile tall">
+          <img src="https://images.pexels.com/photos/7098014/pexels-photo-7098014.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Heller Altbauraum mit Fischgrätparkett, Stuck und Balkontür">
+          <figcaption class="tile-cap">Altbau · Fischgrät</figcaption>
+        </figure>
+        <figure class="tile w2">
+          <img src="https://images.pexels.com/photos/8089079/pexels-photo-8089079.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Küchenzeile aus Eiche mit indirekter Beleuchtung und dunklem Dielenboden">
+          <figcaption class="tile-cap">Küche &amp; Wohnraum</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.pexels.com/photos/7061391/pexels-photo-7061391.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Flur mit Holzverkleidung, Treppe und eingebauten Regalen">
+          <figcaption class="tile-cap">Flur &amp; Einbauten</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.pexels.com/photos/374861/pexels-photo-374861.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Handwerker bearbeitet ein Holzbrett mit einem Handhobel">
+          <figcaption class="tile-cap">Detail</figcaption>
+        </figure>
+        <figure class="tile w3">
+          <img src="https://images.pexels.com/photos/15124970/pexels-photo-15124970.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Handwerker beim Einbau einer Küche in einer Wohnung im Umbau">
+          <figcaption class="tile-cap">Während der Arbeit</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="sec kontakt" id="kontakt">
+    <div class="wrap k-grid">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2>Erst schauen wir uns die Wohnung an. Dann reden wir über Zahlen.</h2>
+        <p class="k-lead">Ein Anruf reicht. Wir kommen vorbei, nehmen Maß und sagen Ihnen ehrlich,
+          was sinnvoll ist und was nicht — auch dann, wenn es weniger ist, als Sie gedacht haben.</p>
+        <div class="k-btns">
+          <a class="btn btn-solid" href="tel:+4917641710358">0176 41710358</a>
+          <a class="btn btn-ghost" href="mailto:adrian.ked0109@gmail.com">E-Mail schreiben</a>
+        </div>
+      </div>
+
+      <div class="k-card">
+        <div class="k-row">
+          <span>Telefon</span>
+          <a href="tel:+4917641710358">0176 41710358</a>
+        </div>
+        <div class="k-row">
+          <span>E-Mail</span>
+          <a href="mailto:adrian.ked0109@gmail.com">adrian.ked0109@gmail.com</a>
+        </div>
+        <div class="k-row">
+          <span>Einsatzgebiet</span>
+          <strong>Berlin und Umland</strong>
+        </div>
+        <div class="k-row">
+          <span>Sprachen</span>
+          <strong>Deutsch · Polnisch</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>© 2026 Kedzierski – Berliner Innenausbau</p>
+    <nav>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
