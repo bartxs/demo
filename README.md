@@ -31,6 +31,7 @@ image/video attachment.
 | `prospects/OKTAN-Kfz-Werkstatt` | https://clearsitestudio.de/demo/oktan/ |
 | `prospects/MT-Bau` | https://clearsitestudio.de/demo/mt-bau/ |
 | `prospects/Kedzierski` | https://clearsitestudio.de/demo/kedzierski/ |
+| `prospects/PGH-Sanierung` | https://clearsitestudio.de/demo/pgh-sanierung/ |
 
 Custom domain clearsitestudio.de is configured on the `bartxs.github.io` user
 site (2026-07-11), so this project site is served under it automatically.

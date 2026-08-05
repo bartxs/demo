@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PGH Sanierung — Komplettsanierung von Altbauwohnungen in Berlin</title>
+<meta name="description" content="PGH Sanierung aus Berlin-Schöneberg saniert Altbauwohnungen komplett: Entkernung, Elektrik, Bad, Putz, Böden und Türen — alle Gewerke aus einer Hand. 5,0 Sterne auf Google.">
+<meta name="robots" content="noindex, follow">
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --clay:#D6CCBD;
+  --clay-deep:#C6BBA9;
+  --clay-line:rgba(36,30,24,.16);
+  --plaster:#F2EDE4;
+  --plaster-2:#EAE3D7;
+  --espresso:#241E18;
+  --espresso-2:#302820;
+  --espresso-line:rgba(242,237,228,.14);
+  --muted:#584D42;
+  --muted-dark:#A99C8C;
+  --patina:#255649;
+  --patina-mid:#2F6B5C;
+  --brass:#B08347;      /* dark panels only — fails AA on plaster */
+  --brass-hi:#C09455;   /* brass on the lighter espresso-2 panel */
+  --muted-deep:#4E443A; /* text on clay-deep, which is darker than clay */
+
+  /* --- HIS OWN BRAND COLOURS, read off the van's logo ---------------------
+     The logo is a house built from five vertical paint-drip strokes. Values are
+     photo-derived (overcast light, white-balanced against the van body beside the
+     logo) — approximations until he sends the actual logo file.
+     USED IN ONE PLACE ONLY: the service dots, which is the one spot his per-service
+     colour code translates without looking arbitrary. --b-blue is intentionally unused
+     (Wohnungssanierungen is the main section, not a chip); it is kept because the full
+     mapping is what a brand-matched version would be built from if he asks for one. */
+  --b-green:#AADE86;   /* Bodenbeläge        */
+  --b-blue:#98C1ED;    /* Wohnungssanierungen */
+  --b-orange:#FFAF88;  /* Malerarbeiten      */
+  --b-purple:#BEA7D3;  /* Trockenbau         */
+  --b-brown:#956853;   /* Badsanierungen     */
+  --display:'Bitter',Georgia,serif;
+  --body:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --mono:'DM Mono',ui-monospace,Consolas,monospace;
+  --s:clamp(64px,8vw,116px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--clay);
+  color:var(--espresso);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.015em}
+
+.wrap{width:min(1180px,100%);margin-inline:auto;padding-left:32px;padding-right:32px}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--patina);
+}
+.eyebrow.on-dark{color:var(--brass)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(242,237,228,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--clay-line);
+}
+.nav-in{display:flex;align-items:center;gap:28px;height:72px}
+.brand{display:flex;align-items:baseline;gap:10px;margin-right:auto}
+.brand b{font-family:var(--display);font-size:1.44rem;letter-spacing:-.03em}
+.brand span{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);
+}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:.93rem;font-weight:500;padding:6px 0;border-bottom:1px solid transparent}
+.nav-links a:hover{border-bottom-color:var(--brass)}
+.nav-call{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--patina-mid);color:#fff;
+  padding:12px 20px;border-radius:2px;
+  font-weight:600;font-size:.93rem;white-space:nowrap;
+  min-height:44px;
+}
+.nav-call:hover{background:var(--patina)}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(56px,6vw,84px);padding-bottom:clamp(22px,2.4vw,34px)}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(36px,4.5vw,68px);align-items:start;
+}
+.hero h1{
+  font-size:clamp(2.5rem,5.3vw,4.1rem);
+  margin-top:20px;
+  max-width:14ch;
+}
+.hero h1 em{font-style:normal;color:var(--patina)}
+.hero-sub{
+  margin-top:24px;max-width:46ch;font-size:1.06rem;color:var(--muted);
+}
+.rating{
+  display:inline-flex;align-items:center;gap:12px;
+  margin-top:28px;padding:11px 17px;
+  background:var(--plaster);border:1px solid var(--clay-line);border-radius:2px;
+}
+.stars{color:var(--brass);letter-spacing:.12em;font-size:.95rem}
+.rating b{font-family:var(--display);font-size:1.1rem}
+.rating span{font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.04em}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 26px;border-radius:2px;font-weight:600;font-size:1rem;
+  min-height:52px;border:1px solid transparent;
+}
+.btn-solid{background:var(--espresso);color:var(--plaster)}
+.btn-solid:hover{background:var(--espresso-2)}
+.btn-ghost{border-color:var(--espresso);color:var(--espresso)}
+.btn-ghost:hover{background:rgba(36,30,24,.06)}
+
+/* the signature: Sanierungsplan panel.
+   It hangs 96px past the hero so it breaks down into the photo band below — that
+   overlap is what ties the band to the hero without turning this into a photo hero
+   (MT-Bau owns copy-over-full-bleed-photo; Shelby owns the hard photo/copy split). */
+.plan{
+  background:var(--plaster);
+  border:1px solid var(--clay-line);
+  border-top:3px solid var(--brass);
+  padding:30px clamp(22px,2.4vw,32px) 28px;
+  position:relative;z-index:2;
+  margin-bottom:-96px;
+  box-shadow:0 18px 40px rgba(36,30,24,.16);
+}
+
+/* full-bleed Altbau band directly under the hero */
+.hero-band{position:relative;z-index:1}
+.hero-band img{
+  width:100%;height:clamp(280px,30vw,420px);object-fit:cover;object-position:center 56%;
+}
+.hero-band figcaption{
+  position:absolute;left:0;bottom:0;
+  background:rgba(36,30,24,.9);color:var(--plaster);
+  padding:11px 18px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
+}
+.plan-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.plan-head h2{font-size:1.24rem;letter-spacing:-.01em}
+.plan-head .dur{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.steps{margin-top:26px;position:relative}
+.steps::before{
+  content:"";position:absolute;left:11px;top:9px;bottom:9px;width:1px;
+  background:linear-gradient(var(--brass),rgba(176,131,71,.25));
+}
+.step{
+  position:relative;display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  gap:14px;padding:11px 0;
+}
+.step + .step{border-top:1px solid rgba(36,30,24,.09)}
+.dot{
+  position:relative;z-index:1;width:23px;height:23px;border-radius:50%;
+  background:var(--plaster);border:1px solid var(--brass);
+  display:grid;place-items:center;margin-top:3px;
+  font-family:var(--mono);font-size:.66rem;color:var(--muted);
+}
+.step:first-child .dot,.step:nth-child(2) .dot{
+  background:var(--patina-mid);border-color:var(--patina-mid);color:#fff;
+}
+.step-b strong{display:block;font-size:.98rem;font-weight:600;line-height:1.3}
+.step-b small{
+  display:block;font-family:var(--mono);font-size:.71rem;color:var(--muted);
+  letter-spacing:.05em;margin-top:3px;
+}
+.plan-foot{
+  margin-top:22px;padding-top:16px;border-top:1px solid var(--clay-line);
+  font-size:.9rem;color:var(--muted);
+}
+.plan-foot b{color:var(--espresso);font-weight:600}
+
+/* ---------- P · G · H triad (his own tagline off the van) ---------- */
+.facts{background:var(--espresso);color:var(--plaster);padding-block:clamp(44px,4.5vw,66px)}
+.facts-in{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(24px,3vw,44px);margin-top:26px;
+}
+.fact{padding-top:22px;border-top:1px solid var(--espresso-line)}
+.fact b{
+  display:block;font-family:var(--display);font-weight:700;
+  font-size:clamp(2.4rem,4.6vw,3.4rem);line-height:1;letter-spacing:-.02em;
+  color:var(--brass);
+}
+.fact b i{font-style:normal;color:var(--plaster);font-size:.44em;letter-spacing:0}
+.fact span{
+  display:block;margin-top:12px;font-size:.97rem;color:#CDC3B6;max-width:34ch;
+}
+
+/* ---------- dominant block ---------- */
+.main-svc{background:var(--espresso);color:var(--plaster);padding-block:var(--s)}
+.ms-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,4vw,64px);align-items:end}
+.ms-top h2{font-size:clamp(2.1rem,4.2vw,3.3rem);max-width:12ch;margin-top:18px}
+.ms-lead{font-size:1.08rem;color:#CDC3B6;max-width:52ch}
+.ms-photo{
+  margin-top:clamp(38px,4vw,56px);
+  position:relative;
+  border-top:3px solid var(--brass);
+}
+.ms-photo img{width:100%;height:clamp(260px,34vw,440px);object-fit:cover;object-position:center 58%}
+.ms-photo figcaption{
+  position:absolute;left:0;bottom:0;
+  background:rgba(36,30,24,.9);color:var(--plaster);
+  padding:12px 18px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
+}
+.lv{
+  margin-top:clamp(40px,4vw,60px);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:0 clamp(32px,4vw,64px);
+}
+.lv h3{
+  grid-column:1/-1;font-family:var(--mono);font-weight:500;font-size:.74rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brass);
+  padding-bottom:14px;border-bottom:1px solid var(--espresso-line);margin-bottom:6px;
+}
+.lv-item{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;
+  padding:14px 0;border-bottom:1px solid var(--espresso-line);
+  font-size:1rem;
+}
+.lv-item i{font-family:var(--mono);font-style:normal;font-size:.78rem;color:var(--brass);padding-top:3px}
+
+/* ---------- ablauf ---------- */
+.ablauf{padding-block:var(--s)}
+.sec-head{max-width:60ch}
+.sec-head h2{font-size:clamp(1.9rem,3.8vw,2.9rem);margin-top:16px}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:1.04rem}
+.phases{
+  margin-top:clamp(38px,4vw,58px);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(18px,2vw,26px);
+}
+.phase{
+  background:var(--plaster);border:1px solid var(--clay-line);
+  padding:24px 22px 26px;display:flex;flex-direction:column;
+}
+.phase .n{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;color:var(--patina);
+  padding-bottom:12px;border-bottom:1px solid var(--clay-line);margin-bottom:16px;
+}
+.phase h3{font-size:1.16rem;margin-bottom:9px}
+.phase p{font-size:.95rem;color:var(--muted)}
+/* Step 01 is the conversion action, so it carries the section's CTA and fills its
+   own height instead of stretching empty next to the taller image cards. */
+.phase-lead{background:var(--espresso);border-color:var(--espresso)}
+.phase-lead .n{color:var(--brass);border-bottom-color:var(--espresso-line)}
+.phase-lead h3{color:var(--plaster)}
+.phase-lead p{color:#CDC3B6}
+.phase-cta{
+  margin-top:auto;padding-top:22px;
+  display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+  border-top:1px solid var(--espresso-line);
+  font-weight:600;font-size:1rem;color:var(--brass);min-height:44px;
+}
+.phase-cta span:last-child{font-size:1.15rem;transition:transform .2s}
+.phase-lead:hover .phase-cta span:last-child{transform:translateX(4px)}
+.phase-cta small{display:block;font-family:var(--mono);font-size:.72rem;color:#9A8E7E;letter-spacing:.04em}
+
+.phase.has-img{padding:0;overflow:hidden}
+.phase.has-img img{width:100%;height:206px;object-fit:cover}
+.phase.has-img .pb{padding:22px}
+.phase.has-img .n{padding-top:0}
+
+/* ---------- kleinere arbeiten (deliberately subordinate) ---------- */
+.small-jobs{padding-bottom:var(--s)}
+.sj{
+  background:var(--clay-deep);border-left:3px solid var(--brass);
+  padding:28px clamp(22px,2.6vw,34px) 26px;
+}
+.sj h3{font-size:1.2rem;margin-bottom:8px}
+.sj p{font-size:.97rem;color:var(--muted-deep);max-width:72ch}
+.sj ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:20px}
+.sj li{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.03em;
+  background:rgba(242,237,228,.72);border:1px solid var(--clay-line);
+  padding:8px 13px;
+}
+.sj li::before{
+  content:"";width:9px;height:9px;border-radius:50%;
+  background:var(--dot);flex:none;
+}
+
+/* ---------- gallery ---------- */
+.gal{padding-bottom:var(--s)}
+.gal-grid{
+  margin-top:clamp(32px,3.5vw,48px);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-auto-rows:200px;gap:clamp(12px,1.4vw,18px);
+}
+.gal figure{position:relative;overflow:hidden;background:var(--clay-deep)}
+.gal img{width:100%;height:100%;object-fit:cover}
+/* keep the informative part of each frame inside the crop */
+.pos-elek img{object-position:38% 42%}
+.pos-bad img{object-position:52% 46%}
+.pos-putz img{object-position:66% 50%}
+.gal figcaption{
+  position:absolute;left:0;bottom:0;right:0;
+  background:linear-gradient(transparent 0%,rgba(36,30,24,.86) 52%,rgba(36,30,24,.93) 100%);
+  color:var(--plaster);padding:26px 14px 11px;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;
+}
+.g1{grid-column:span 1;grid-row:span 2}   /* tall  — portrait source */
+.g2{grid-column:span 2;grid-row:span 1}   /* wide  — landscape source */
+.g3{grid-column:span 1;grid-row:span 1}
+.g4{grid-column:span 1;grid-row:span 1}
+.g5{grid-column:span 3;grid-row:span 1}   /* full-width band */
+
+/* ---------- testimonials ---------- */
+.tst{padding-bottom:var(--s)}
+.tst-grid{
+  margin-top:clamp(32px,3.5vw,46px);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px);
+}
+.quote{
+  background:var(--plaster);border:1px solid var(--clay-line);
+  padding:28px 24px;display:flex;flex-direction:column;
+}
+.quote .m{font-family:var(--display);font-size:2.2rem;line-height:.6;color:var(--patina);height:22px}
+.quote p{margin-top:16px;font-size:1rem;flex:1}
+.quote footer{
+  margin-top:20px;padding-top:14px;border-top:1px solid var(--clay-line);
+  font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.04em;
+}
+.tst-note{
+  margin-top:22px;font-family:var(--mono);font-size:.74rem;
+  letter-spacing:.04em;
+}
+.tst-note a{color:var(--patina);border-bottom:1px solid rgba(37,86,73,.4);padding-bottom:2px}
+.tst-note a:hover{border-bottom-color:var(--patina)}
+
+/* ---------- contact ---------- */
+.kontakt{background:var(--espresso);color:var(--plaster);padding-block:var(--s)}
+.k-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,4.5vw,72px)}
+.kontakt h2{font-size:clamp(1.9rem,3.8vw,2.9rem);margin-top:16px}
+.kontakt .k-lead{margin-top:18px;color:#CDC3B6;max-width:42ch}
+.k-list{margin-top:32px;list-style:none}
+.k-list li{
+  display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;
+  padding:15px 0;border-top:1px solid var(--espresso-line);
+}
+.k-list li:last-child{border-bottom:1px solid var(--espresso-line)}
+.k-list dt,.k-list .lbl{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brass);padding-top:4px;
+}
+.k-list .val{font-size:1.02rem}
+.k-list .val a{border-bottom:1px solid rgba(176,131,71,.5)}
+.k-form{background:var(--espresso-2);border-top:3px solid var(--brass);padding:clamp(26px,3vw,38px)}
+.k-form h3{font-size:1.24rem}
+.k-form p{margin-top:10px;font-size:.94rem;color:#CDC3B6}
+.field{margin-top:18px}
+.field label{
+  display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brass-hi);margin-bottom:7px;
+}
+.field input,.field textarea,.field select{
+  width:100%;background:rgba(242,237,228,.06);
+  border:1px solid var(--espresso-line);color:var(--plaster);
+  padding:13px 14px;font-family:var(--body);font-size:1rem;border-radius:2px;
+  min-height:48px;
+}
+.field textarea{min-height:104px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:2px solid var(--brass);outline-offset:1px;
+}
+.k-form .btn{margin-top:22px;width:100%;background:var(--brass);color:var(--espresso)}
+.k-form .btn:hover{background:#C29350}
+
+/* ---------- footer ---------- */
+.foot{background:var(--espresso);color:var(--muted-dark);border-top:1px solid var(--espresso-line);padding-block:34px}
+.foot-in{display:flex;flex-wrap:wrap;gap:18px 32px;align-items:center;font-size:.86rem}
+.foot .brand b{color:var(--plaster)}
+.foot nav{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.foot a:hover{color:var(--plaster)}
+.demo-note{
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--espresso-line);
+  font-family:var(--mono);font-size:.72rem;line-height:1.7;color:#9A8E7E;max-width:88ch;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:44px}
+  .hero h1{max-width:18ch}
+  .plan{margin-bottom:-52px}
+  .ms-top{grid-template-columns:minmax(0,1fr);align-items:start;gap:24px}
+  .k-grid{grid-template-columns:minmax(0,1fr)}
+  .phases{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .nav-links{display:none}
+}
+@media (max-width:760px){
+  .lv{grid-template-columns:minmax(0,1fr)}
+  .tst-grid{grid-template-columns:minmax(0,1fr)}
+  .gal-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:160px}
+  .g1{grid-column:span 2;grid-row:span 2}
+  .g2,.g5{grid-column:span 2;grid-row:span 1}
+  .g3,.g4{grid-column:span 1;grid-row:span 1}
+  .facts-in{grid-template-columns:minmax(0,1fr);gap:26px}
+}
+/* touch widths: every link the visitor might actually tap gets a 44px target.
+   The phone number is the most useful control on a phone — grow it, never shrink it. */
+@media (max-width:900px){
+  .brand,
+  .tst-note a,
+  .k-list .val a,
+  .foot nav a{
+    display:inline-flex;align-items:center;min-height:44px;
+  }
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding-left:18px;padding-right:18px}
+  .nav-in{height:64px;gap:12px}
+  .brand span{display:none}
+  .nav-call{padding:10px 14px;font-size:.88rem}
+  .phases{grid-template-columns:minmax(0,1fr)}
+  .k-list li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .k-list .lbl{padding-top:0}
+  .cta-row .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><b>PGH</b><span>Sanierung</span></a>
+    <nav class="nav-links">
+      <a href="#komplett">Komplettsanierung</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="nav-call" href="tel:+4917661806134">0176 61806134</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Komplettsanierung · Berlin</p>
+        <h1>Die ganze Wohnung. <em>Ein Ansprechpartner.</em></h1>
+        <p class="hero-sub">
+          PGH Sanierung saniert Altbauwohnungen in Berlin von Grund auf — Entkernung, Elektrik,
+          Sanitär, Putz, Bad, Böden und Türen. Alle Gewerke aus einer Hand, koordiniert bis zur
+          besenreinen Übergabe.
+        </p>
+
+        <div class="rating">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <b>5,0</b>
+          <span>11 Bewertungen&nbsp;· Google</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+4917661806134">Kostenlose Besichtigung</a>
+          <a class="btn btn-ghost" href="#ablauf">So läuft die Sanierung</a>
+        </div>
+      </div>
+
+      <!-- signature element: the Sanierungsplan -->
+      <aside class="plan" aria-label="Ablauf einer Komplettsanierung">
+        <div class="plan-head">
+          <h2>Sanierungsplan</h2>
+          <span class="dur">Typisch 8–12 Wochen</span>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span class="dot">01</span>
+            <span class="step-b"><strong>Besichtigung &amp; Festpreis</strong><small>Vor Ort · kostenlos</small></span>
+          </div>
+          <div class="step">
+            <span class="dot">02</span>
+            <span class="step-b"><strong>Entkernung &amp; Rückbau</strong><small>inkl. Entsorgung</small></span>
+          </div>
+          <div class="step">
+            <span class="dot">03</span>
+            <span class="step-b"><strong>Elektrik &amp; Sanitär</strong><small>Neuverkabelung, neue Leitungen</small></span>
+          </div>
+          <div class="step">
+            <span class="dot">04</span>
+            <span class="step-b"><strong>Putz, Estrich &amp; Trockenbau</strong><small>Glattputz Q3 / Q4</small></span>
+          </div>
+          <div class="step">
+            <span class="dot">05</span>
+            <span class="step-b"><strong>Bad, Fliesen &amp; Böden</strong><small>bodengleiche Dusche, Parkett</small></span>
+          </div>
+          <div class="step">
+            <span class="dot">06</span>
+            <span class="step-b"><strong>Türen, Malerarbeiten, Übergabe</strong><small>besenrein</small></span>
+          </div>
+        </div>
+
+        <p class="plan-foot">
+          Sie bekommen <b>einen Termin für die Übergabe</b> — nicht sechs Handwerker,
+          die Sie selbst koordinieren müssen.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== full-bleed Altbau band; the plan panel breaks down into it ===== -->
+  <figure class="hero-band">
+    <img src="https://images.pexels.com/photos/13702811/pexels-photo-13702811.jpeg?auto=compress&cs=tinysrgb&w=1900"
+         alt="Sanierte Altbauwohnung mit Fischgrätparkett, Stuckleisten und Rundbögen">
+    <figcaption>Fischgrätparkett, Stuck, hohe Räume — Beispielprojekt</figcaption>
+  </figure>
+
+  <!-- ============ P · G · H — his own tagline, from the van ============ -->
+  <section class="facts">
+    <div class="wrap">
+      <p class="eyebrow on-dark">Preiswert · Gründlich · Hilfsbereit</p>
+      <div class="facts-in">
+        <div class="fact">
+          <b>P<i>reiswert</i></b>
+          <span>Festpreis vor Baubeginn. Was im Angebot steht, steht auch auf der Rechnung.</span>
+        </div>
+        <div class="fact">
+          <b>G<i>ründlich</i></b>
+          <span>Glattputz in Q3/Q4, Böden nivelliert, Türen aufgearbeitet — bis ins Detail.</span>
+        </div>
+        <div class="fact">
+          <b>H<i>ilfsbereit</i></b>
+          <span>Ein Ansprechpartner während der ganzen Sanierung — und danach dieselbe Nummer.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOMINANT: KOMPLETTSANIERUNG ================= -->
+  <section class="main-svc" id="komplett">
+    <div class="wrap">
+      <div class="ms-top">
+        <div>
+          <p class="eyebrow on-dark">Unsere Hauptleistung</p>
+          <h2>Komplett­sanierung von Altbau­wohnungen</h2>
+        </div>
+        <p class="ms-lead">
+          Eine Altbauwohnung wird nicht besser, wenn man sie in Einzelaufträge zerlegt. Wir
+          übernehmen die gesamte Sanierung: Wir entkernen, ziehen neue Leitungen, gleichen die
+          Böden aus, verputzen Wände und Decken, bauen das Bad und verlegen die Böden — und
+          übergeben Ihnen am Ende eine fertige Wohnung.
+        </p>
+      </div>
+
+      <figure class="ms-photo">
+        <img src="https://images.pexels.com/photos/8143679/pexels-photo-8143679.jpeg?auto=compress&cs=tinysrgb&w=1600"
+             alt="Sanierter Altbauraum mit Fischgrätparkett, Stuckleisten, Kamin und hohen Fenstern">
+        <figcaption>Altbauwohnung nach der Komplettsanierung — Beispielprojekt</figcaption>
+      </figure>
+
+      <div class="lv">
+        <h3>Leistungsumfang einer Komplettsanierung</h3>
+
+        <div class="lv-item"><i>01</i><span>Entkernung, Rückbau und Entsorgung</span></div>
+        <div class="lv-item"><i>02</i><span>Komplette Elektroinstallation, neue Leitungen und Verteilung</span></div>
+        <div class="lv-item"><i>03</i><span>Sanitärinstallation und neue Wasserleitungen</span></div>
+        <div class="lv-item"><i>04</i><span>Böden ausgleichen und nivellieren, Estricharbeiten</span></div>
+        <div class="lv-item"><i>05</i><span>Trockenbau, abgehängte Decken, Vorwandinstallation</span></div>
+        <div class="lv-item"><i>06</i><span>Glattputz an Wänden und Decken, Q3- und Q4-Qualität</span></div>
+
+        <div class="lv-item"><i>07</i><span>Bad komplett, inklusive bodengleicher Dusche</span></div>
+        <div class="lv-item"><i>08</i><span>Fliesenarbeiten in Bad, Küche und Flur</span></div>
+        <div class="lv-item"><i>09</i><span>Fischgrätparkett, Dielen und Vinyl — verlegen und versiegeln</span></div>
+        <div class="lv-item"><i>10</i><span>Innentüren aufarbeiten oder ersetzen, Balkon- und Fenstertüren</span></div>
+        <div class="lv-item"><i>11</i><span>Heizkörper demontieren, lackieren und wieder montieren</span></div>
+        <div class="lv-item"><i>12</i><span>Malerarbeiten, Endreinigung, besenreine Übergabe</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABLAUF ================= -->
+  <section class="wrap ablauf" id="ablauf">
+    <div class="sec-head">
+      <p class="eyebrow">Ablauf</p>
+      <h2>Sechs Schritte, ein Zeitplan</h2>
+      <p>
+        Jede Komplettsanierung folgt derselben Reihenfolge. Sie wissen vorher, was wann passiert —
+        und wer dafür zuständig ist.
+      </p>
+    </div>
+
+    <div class="phases">
+      <article class="phase phase-lead">
+        <span class="n">SCHRITT 01</span>
+        <h3>Besichtigung &amp; Festpreis</h3>
+        <p>Wir sehen uns die Wohnung an, besprechen den Umfang und machen Ihnen ein
+           schriftliches Festpreisangebot. Die Besichtigung ist kostenlos.</p>
+        <a class="phase-cta" href="tel:+4917661806134">
+          <span>Termin vereinbaren<small>0176 61806134</small></span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <article class="phase has-img pos-elek">
+        <img src="https://images.pexels.com/photos/5691495/pexels-photo-5691495.jpeg?auto=compress&cs=tinysrgb&w=900"
+             alt="Wand mit gefrästen Schlitzen für neue Elektroleitungen während einer Sanierung">
+        <div class="pb">
+          <span class="n">SCHRITT 02 &amp; 03</span>
+          <h3>Entkernung, Elektrik, Sanitär</h3>
+          <p>Rückbau und Entsorgung, danach die komplette Neuverkabelung und neue
+             Wasserleitungen — alles, was später hinter dem Putz verschwindet.</p>
+        </div>
+      </article>
+
+      <article class="phase has-img pos-putz">
+        <img src="https://images.pexels.com/photos/6473966/pexels-photo-6473966.jpeg?auto=compress&cs=tinysrgb&w=900"
+             alt="Handwerker zieht mit einer Glättkelle Glattputz an einer Innenwand ab">
+        <div class="pb">
+          <span class="n">SCHRITT 04</span>
+          <h3>Putz, Estrich &amp; Trockenbau</h3>
+          <p>Böden ausgleichen, Wände und Decken in Q3- oder Q4-Qualität verputzen. Das ist
+             der Schritt, den man später an jeder Kante sieht.</p>
+        </div>
+      </article>
+
+      <article class="phase">
+        <span class="n">SCHRITT 05</span>
+        <h3>Bad &amp; Böden</h3>
+        <p>Bad komplett inklusive bodengleicher Dusche und Fliesen, anschließend Parkett,
+           Dielen oder Vinyl — verlegt und versiegelt.</p>
+      </article>
+
+      <article class="phase">
+        <span class="n">SCHRITT 06</span>
+        <h3>Türen, Maler &amp; Übergabe</h3>
+        <p>Innentüren aufgearbeitet oder neu, Heizkörper lackiert, Anstrich fertig — und
+           die Wohnung besenrein übergeben.</p>
+      </article>
+
+      <article class="phase">
+        <span class="n">DANACH</span>
+        <h3>Erreichbar bleiben</h3>
+        <p>Sie haben während der gesamten Sanierung einen Ansprechpartner — und nach der
+           Übergabe dieselbe Nummer.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ KLEINERE ARBEITEN (subordinate on purpose) ============ -->
+  <section class="wrap small-jobs">
+    <div class="sj">
+      <h3>Auch einzelne Gewerke</h3>
+      <p>
+        Nicht jede Wohnung braucht eine Komplettsanierung. Wenn es nur ein Bad, ein Raum oder
+        ein Boden ist, übernehmen wir das genauso — im selben Standard.
+      </p>
+      <ul>
+        <li style="--dot:var(--b-brown)">Badsanierungen</li>
+        <li style="--dot:var(--b-orange)">Malerarbeiten</li>
+        <li style="--dot:var(--b-purple)">Trockenbau</li>
+        <li style="--dot:var(--b-green)">Bodenbeläge</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="wrap gal" id="projekte">
+    <div class="sec-head">
+      <p class="eyebrow">Projekte</p>
+      <h2>Aus unseren Sanierungen</h2>
+    </div>
+
+    <div class="gal-grid">
+      <figure class="g1">
+        <img src="https://images.pexels.com/photos/3125905/pexels-photo-3125905.jpeg?auto=compress&cs=tinysrgb&w=1200"
+             alt="Altbauzimmer in Berlin mit Dielenboden, Bogenfenster und altem Gliederheizkörper">
+        <figcaption>Altbau in Berlin-Schöneberg</figcaption>
+      </figure>
+      <figure class="g2 pos-bad">
+        <img src="https://images.pexels.com/photos/8134779/pexels-photo-8134779.jpeg?auto=compress&cs=tinysrgb&w=1200"
+             alt="Bad mit bodengleicher Dusche, Glaswand und großformatigen Schieferfliesen">
+        <figcaption>Bad komplett, bodengleiche Dusche</figcaption>
+      </figure>
+      <figure class="g3">
+        <img src="https://images.pexels.com/photos/11806490/pexels-photo-11806490.jpeg?auto=compress&cs=tinysrgb&w=900"
+             alt="Fliesenleger setzt großformatige Fliesen mit Nivelliersystem und Fugenkreuzen">
+        <figcaption>Fliesenarbeiten</figcaption>
+      </figure>
+      <figure class="g4">
+        <img src="https://images.pexels.com/photos/12269245/pexels-photo-12269245.jpeg?auto=compress&cs=tinysrgb&w=900"
+             alt="Erhaltener Altbaustuck: Deckenfries und Säulenkapitell in Weiß">
+        <figcaption>Stuck erhalten und aufgearbeitet</figcaption>
+      </figure>
+      <figure class="g5">
+        <img src="https://images.pexels.com/photos/16101859/pexels-photo-16101859.jpeg?auto=compress&cs=tinysrgb&w=1400"
+             alt="Fischgrätparkett aus Eiche im Sonnenlicht, Detailaufnahme">
+        <figcaption>Fischgrätparkett, verlegt und versiegelt</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="wrap tst">
+    <div class="sec-head">
+      <p class="eyebrow">Bewertungen</p>
+      <h2>5,0 von 5 auf Google</h2>
+    </div>
+
+    <div class="tst-grid">
+      <figure class="quote">
+        <span class="m" aria-hidden="true">”</span>
+        <p>Alle Arbeiten erfolgten zuverlässig und transparent. Die gute Kommunikation ist
+           hierbei besonders hervorzuheben. Herr Holko hat einen hohen Anspruch an seine
+           Arbeit, was man definitiv am Ergebnis sieht. Eine der besten Firmen, mit denen
+           wir bisher zusammengearbeitet haben.</p>
+        <footer>Rainer &amp; Julia · Komplettsanierung Altbauwohnung</footer>
+      </figure>
+      <figure class="quote">
+        <span class="m" aria-hidden="true">”</span>
+        <p>PGH Sanierung ist die beste Handwerkerfirma, die wir je beauftragt haben. Der
+           Inhaber und seine Mitarbeiter haben schon in mehreren Objekten mit teils
+           komplizierten Aufträgen für uns gearbeitet und wir sind immer zu 100 %
+           zufrieden!</p>
+        <footer>PPT Nicolai · mehrere Objekte</footer>
+      </figure>
+      <figure class="quote">
+        <span class="m" aria-hidden="true">”</span>
+        <p>Wir waren extrem beeindruckt von der sehr guten Qualität und Gründlichkeit der
+           Arbeit. Besonders die Professionalität und Freundlichkeit des Inhabers haben uns
+           sehr überzeugt. Die Firma renoviert Altbauwohnungen von A bis Z.</p>
+        <footer>Markus D. · Boden ausgleichen &amp; Vinyl verlegen</footer>
+      </figure>
+    </div>
+
+    <p class="tst-note">
+      Auszüge aus echten Google-Bewertungen ·
+      <a href="https://maps.google.com/?cid=4222534659905238733" target="_blank" rel="noopener">
+        alle 11 Bewertungen ansehen →
+      </a>
+    </p>
+  </section>
+
+  <!-- ================= KONTAKT ================= -->
+  <section class="kontakt" id="kontakt">
+    <div class="wrap k-grid">
+      <div>
+        <p class="eyebrow on-dark">Kontakt</p>
+        <h2>Besichtigung vereinbaren</h2>
+        <p class="k-lead">
+          Rufen Sie an oder schreiben Sie uns kurz, um welche Wohnung es geht. Wir sehen sie
+          uns an und melden uns mit einem Festpreis zurück — die Besichtigung kostet nichts.
+        </p>
+
+        <ul class="k-list">
+          <li>
+            <span class="lbl">Telefon</span>
+            <span class="val"><a href="tel:+4917661806134">0176 61806134</a></span>
+          </li>
+          <li>
+            <span class="lbl">E-Mail</span>
+            <span class="val"><a href="mailto:pgholko@gmail.com">pgholko@gmail.com</a></span>
+          </li>
+          <li>
+            <span class="lbl">Adresse</span>
+            <span class="val">Barbarossastraße 8<br>10781 Berlin-Schöneberg</span>
+          </li>
+          <li>
+            <span class="lbl">Einsatzgebiet</span>
+            <span class="val">Berlin und Umland</span>
+          </li>
+          <li>
+            <span class="lbl">Erreichbar</span>
+            <span class="val">Mo–Fr 8–18 Uhr, Sa nach Absprache</span>
+          </li>
+        </ul>
+      </div>
+
+      <form class="k-form" onsubmit="return false;">
+        <h3>Kurz beschreiben</h3>
+        <p>Wir melden uns in der Regel am selben Tag zurück.</p>
+
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-tel">Telefon</label>
+          <input id="f-tel" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="f-art">Um was geht es?</label>
+          <select id="f-art">
+            <option>Komplettsanierung einer Wohnung</option>
+            <option>Badsanierung</option>
+            <option>Einzelne Arbeiten</option>
+            <option>Objekt / Hausverwaltung</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Wohnung &amp; Umfang</label>
+          <textarea id="f-msg" placeholder="Z. B. 3 Zimmer, 78 m², Altbau, komplett zu sanieren"></textarea>
+        </div>
+
+        <button class="btn" type="submit">Anfrage senden</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <span class="brand"><b>PGH</b>&nbsp;Sanierung</span>
+      <span>Preiswert · Gründlich · Hilfsbereit</span>
+      <span>Barbarossastraße 8, 10781 Berlin</span>
+      <nav>
+        <a href="tel:+4917661806134">0176 61806134</a>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </nav>
+    </div>
+    <p class="demo-note">
+      Entwurf / Musterseite — erstellt von ClearSite Studio als Vorschau für PGH Sanierung.
+      Texte und Fotos sind Platzhalter und werden durch echte Projektfotos und Angaben ersetzt.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
