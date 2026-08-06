@@ -112,7 +112,12 @@ p{margin:0}
   font-size:clamp(38px,5.1vw,66px);line-height:1.06;font-weight:600;
   margin:0 0 26px;max-width:14ch;
 }
-.hero h1 em{font-style:normal;color:var(--brass);font-weight:700}
+.hero h1 em{
+  font-style:normal;color:var(--brass);font-weight:700;
+  /* own line: as an inline it wrapped mid-sentence and left a lone brass
+     "Um" dangling at the end of the dark line */
+  display:block;
+}
 .hero-sub{font-size:19px;line-height:1.62;color:var(--oak-dim);max-width:46ch;margin:0 0 34px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px}
 .hero-facts{display:flex;flex-wrap:wrap;gap:0 34px;border-top:1px solid var(--line);padding-top:20px}
