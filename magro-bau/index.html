@@ -160,7 +160,10 @@ h1 .dot{color:var(--acc)}
 .layer.hot .layer-name{color:var(--acc)}
 .aufbau-caption{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mut-2);text-transform:uppercase}
 @media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr;gap:56px;padding:56px 0 64px}
+  /* 28px matches .wrap — the shorthand above zeroes .wrap's horizontal padding,
+     which is invisible on desktop (grid centred in max-width:1240) but leaves
+     the hero text and buttons flush against the screen edge on a phone. */
+  .hero-grid{grid-template-columns:1fr;gap:56px;padding:56px 28px 64px}
   .layer:hover{transform:none}
 }
 
